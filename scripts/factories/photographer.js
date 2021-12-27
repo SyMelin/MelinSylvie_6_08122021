@@ -1,8 +1,10 @@
+// Crée le composant UserCard pour un photographe donné
 function photographerFactory(data) {
     const { name, portrait } = data;
 
     const picture = `assets/photographers/${portrait}`;
-
+    
+    //Crée la structure de l'élément UserCard
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
