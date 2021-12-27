@@ -1,6 +1,6 @@
 // Crée le composant UserCard pour un photographe donné
 function photographerFactory(data) {
-    const { name, portrait } = data;
+    const { name, id, city, country, tagline, price, portrait } = data;
 
     const picture = `assets/photographers/${portrait}`;
     
