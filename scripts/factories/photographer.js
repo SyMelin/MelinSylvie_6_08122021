@@ -13,7 +13,8 @@ function photographerFactory(data) {
         link.href="../photographer.html"; //ajout
         link.title="photographer-page"; //ajout
         const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", name);
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         link.appendChild(img);
