@@ -1,6 +1,6 @@
   async function getPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
-        const photographers = await api;
+        const photographers = await apiPhotographers;
         // et bien retourner le tableau photographers seulement une fois
         //console.log(photographers);
         return photographers;
