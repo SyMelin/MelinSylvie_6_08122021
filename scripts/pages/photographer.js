@@ -43,14 +43,28 @@ async function displayMedia(batch){
     const main = document.getElementById("main");
     main.appendChild(mediaWrapper);
     for (let item of batch) {
+        
         const box = document.createElement("div");
-        box.innerHTML="<p>test</p>";
+        
+        const img = document.createElement("img");
+        
+        const title = document.createElement("p");
+        title.textContent = item.title;
+
+        const like = document.createElement("p");
+        like.textContent = item.likes;
+
+        box.appendChild(img);
+        box.appendChild(title);
+        box.appendChild(like);
+
         mediaWrapper.appendChild(box);
     };
 };
 
 async function TEST2() {
     const batch = await TEST();
+    console.log(batch);
     return displayMedia(batch);
 }
 
