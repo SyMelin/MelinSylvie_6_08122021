@@ -4,21 +4,52 @@
 function getId() {
 
     const param = window.location.search;
-    console.log(param);
+    //console.log(param);
     const idPhotographer = param.replace("?id=", ""); //retire ?id= des pramètres de l'URL, récupère uniquement l'identifiant
-    console.log(idPhotographer);
+    //console.log(idPhotographer);
     return idPhotographer;
 }
 
+//Récupère tous les photographes
+async function getPhotographers() {
+    const photographers = await apiPhotographers;
+    //console.log(media);
+    return photographers;
+};
+
+//Récupère les données profil du photographe grâce à l'id récupéré depuis l'URL
+async function getPhotographerData(photographers, idPhotographer) {
+    let photographerIndex;
+    let photographerData;
+    for (let photographer of photographers){
+        if (photographer.id == idPhotographer) {
+            //photographerData.push(photographer);
+            photographerIndex = photographers.indexOf(photographer);
+            photographerData = photographers[photographerIndex];
+        };
+    };
+    console.log("photographerData", photographerData);
+    return photographerData;
+};
+
+async function PHData() {
+    const photographers = await getPhotographers();
+    const idPhotographer = getId();
+    console.log(getPhotographerData(photographers, idPhotographer));
+}
+
+PHData();
 
 
-
+//Récupère tous les media
 async function getMedia() {
     const media = await apiMedia;
-    console.log(media);
+    //console.log(media);
     return media;
 };
 
+
+//Récupère les media du photographe de la page grâce à l'id récupéré depuis l'URL
 async function getPhotographerMedia(media, idPhotographer) {
     let photographerMedia = [];
     for (let medium of media){
@@ -40,31 +71,22 @@ TEST();
 async function displayMedia(batch){
     const mediaWrapper = document.createElement('div');
     mediaWrapper.classList.add("mediaWrapper");
+    mediaWrapper.style.display = "flex";
+    mediaWrapper.style.justifyContent = "space-between";
+    mediaWrapper.style.flexWrap ="wrap";
     const main = document.getElementById("main");
     main.appendChild(mediaWrapper);
-    for (let item of batch) {
-        
-        const box = document.createElement("div");
-        
-        const img = document.createElement("img");
-        
-        const title = document.createElement("p");
-        title.textContent = item.title;
-
-        const like = document.createElement("p");
-        like.textContent = item.likes;
-
-        box.appendChild(img);
-        box.appendChild(title);
-        box.appendChild(like);
-
-        mediaWrapper.appendChild(box);
+    console.log("batchTest", batch);
+    for (let mediaItem of batch) {
+        const template = new MediaItemCard(mediaItem);
+        const mediaItemCard = template.createMediaItemCard();
+        mediaWrapper.appendChild(mediaItemCard);
     };
 };
 
 async function TEST2() {
     const batch = await TEST();
-    console.log(batch);
+    console.log("batchTest2", batch);
     return displayMedia(batch);
 }
 
