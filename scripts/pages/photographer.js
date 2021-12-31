@@ -68,6 +68,7 @@ async function TEST() {
 
 TEST();
 
+//Affiche les medias su la page du photographe
 async function displayMedia(batch){
     const mediaWrapper = document.createElement('div');
     mediaWrapper.classList.add("mediaWrapper");

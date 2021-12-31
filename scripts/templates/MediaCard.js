@@ -14,11 +14,22 @@ class MediaItemCard {
         frame.setAttribute('alt', ""); //
         frame.style.width = "350px";
         frame.style.height = "300px";
-      //  img.style.objectFit = "cover";
         frame.style.borderRadius = "5px";
-        frame.style.backgroundImage = "url("+`assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.image}`+")";
-        frame.style.backgroundSize = "cover";
-        frame.style.backgroundPosition = "center";
+
+        if(this._mediaItem.video) {
+            const video = document.createElement("video");
+            video.setAttribute("src", `assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.video}`);
+            video.setAttribute("width", "350px");
+            video.setAttribute("height", "300px");
+            video.setAttribute("controls", true);
+            video.style.objectFit = "cover";
+            video.style.borderRadius = "5px";
+            frame.appendChild(video);
+        } else {
+            frame.style.backgroundImage = "url("+`assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.image}`+")";
+            frame.style.backgroundSize = "cover";
+            frame.style.backgroundPosition = "center";
+        };
 
         //frame.appendChild(img);
         
