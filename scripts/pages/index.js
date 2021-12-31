@@ -15,10 +15,10 @@ async function displayData(photographers) {
     });
 };
 
-    async function init() {
-        const photographers = await getPhotographers();
-        console.log(photographers);
-        displayData(photographers);
-    };
+async function init() {
+    const photographers = await getPhotographers();
+    console.log(photographers);
+    displayData(photographers);
+};
 
-    init();
+init();

@@ -106,3 +106,14 @@ async function TEST2() {
 }
 
 TEST2();
+
+
+
+function mediaTest(){
+    const idPhotographer = getId();
+    console.log("idP", idPhotographer);
+    const R = aTest(idPhotographer);
+    console.log("RESULT", R);
+}
+
+mediaTest();
