@@ -36,9 +36,23 @@ async function PHData() {
     const photographers = await getPhotographers();
     const idPhotographer = getId();
     console.log(getPhotographerData(photographers, idPhotographer));
+    return getPhotographerData(photographers, idPhotographer);
 }
 
 PHData();
+
+async function displayPhotographerHeader(photographerData) {
+    const template = new PhotographerHeader(photographerData);
+    return photographerHeader = template.createPhotographerHeader();
+}
+
+async function TEST3() {
+    const photographerData = await PHData();
+    console.log("Test3", photographerData);
+    return displayPhotographerHeader(photographerData);
+}
+
+TEST3();
 
 
 //Récupère tous les media

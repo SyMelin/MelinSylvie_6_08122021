@@ -6,6 +6,7 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex; /* ajout */
 }
 
 /* --- Ajouts --- */
