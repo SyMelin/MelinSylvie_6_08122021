@@ -54,11 +54,17 @@ h1 {
     /*border: 1px solid black;*/
 }
 
+/*
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    clip-path:ellipse(50% 50%);
+}*/
+
+.user {
+    height: 200px;
+    width: 200px;
     clip-path:ellipse(50% 50%); /*ajout*/
-   /* border: 1px solid black;*/
 }
 
 

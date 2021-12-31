@@ -16,6 +16,7 @@ function photographerFactory(data) {
         link.setAttribute('title', name + "-page"); //ajout
        
         const img = document.createElement( 'img' );
+        img.classList.add('user');
         img.setAttribute('src', picture);
         img.setAttribute('alt', name);
        
