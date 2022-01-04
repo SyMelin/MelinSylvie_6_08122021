@@ -1,11 +1,4 @@
-  async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
-        const photographers = await apiPhotographers;
-        // et bien retourner le tableau photographers seulement une fois
-        //console.log(photographers);
-        return photographers;
-    };
-
+//Affiche le profil de chaque photographe
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
     photographers.forEach((photographer) => {
@@ -15,9 +8,11 @@ async function displayData(photographers) {
     });
 };
 
+//Initialise la page index.html
 async function init() {
-    const photographers = await getPhotographers();
-    console.log(photographers);
+    const api = new Api("../data/photographers.json"); 
+    const photographers = await api.getPhotographers(); //On récupère tous les photographes
+    //console.log(photographers);
     displayData(photographers);
 };
 
