@@ -2,14 +2,16 @@ class MediaItemCard {
 
     constructor(mediaItem) {
         this._mediaItem = mediaItem;
+        
     };
 
     createMediaItemCard () {
 
         const box = document.createElement("div");
+        box.classList.add("thumb-imgfull")
         
         const frame = document.createElement("div");
-        frame.classList.add(".thumb-img");
+        frame.classList.add("thumb-img");
        
         frame.setAttribute('alt', ""); //
         frame.style.width = "350px";
@@ -17,6 +19,12 @@ class MediaItemCard {
         frame.style.borderRadius = "5px";
 
         if(this._mediaItem.video) {
+
+            //Récupère le nom du fichier video
+            const videoName = String(this._mediaItem.video).replace(".mp4", "").replaceAll("_", " ");
+            this._mediaItem.title = videoName;
+
+            //Crée l'élement video
             const video = document.createElement("video");
             video.setAttribute("src", `assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.video}`);
             video.setAttribute("width", "350px");

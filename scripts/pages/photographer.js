@@ -36,35 +36,47 @@ async function displayMedia(photographerMedia){
 
 //Initialise la page photographer.html
 async function initPhotographer() {
+    
     //const idPhotographer = getId();
     const api = new Api("../data/photographers.json"); 
     const photographerProfile = await api.getPhotographerProfile();
     displayPhotographerHeader(photographerProfile);
     const photographerMedia = await api.getPhotographerMedia();
     const filter = new Filter(photographerMedia);
-    //filter.filterByTitle();
-   // filter.filterByDate();
     filter.filterByPopularity();
-  //  photographerMedia.sort(function (a, b) {
-  //      return b.likes - a.likes;
-  //  });
     displayMedia(photographerMedia);
-    //console.log(photographerMedia.sort());
 
 };
 
 initPhotographer();
 
-var items = [
-    { name: "Edward", likes: 21 },
-    { name: "Sharpe", likes: 37 },
-    { name: "And", likes: 45 },
-    { name: "The", likes: -12 },
-    { name: "Magnetic", value: 13 },
-    { name: "Zeros", value: 37 }
-  ];
-  items.sort(function (a, b) {
-    return a.name.localeCompare(b.name);
-  });
 
-  console.log(items.sort());
+
+//Filtres
+const select = document.getElementById("sort-select");
+//console.log(select);
+select.addEventListener("change", function(e) {
+    e.preventDefault;
+
+    //On vide le conteneur de cartes media
+    const mediaWrapper = document.querySelector(".mediaWrapper");
+    mediaWrapper.parentElement.removeChild(mediaWrapper);
+
+    //On applique un nouveau fltre et on réaffiche les cartes media
+    async function sort() {
+        const api = new Api("../data/photographers.json"); 
+        const photographerMedia = await api.getPhotographerMedia();
+        const filter = new Filter(photographerMedia);
+        console.log(select.value);
+        if (select.value == "date") {
+            filter.filterByDate();
+        } else if (select.value == "title") {
+            filter.filterByTitle();   
+        } else {
+            filter.filterByPopularity();
+        };
+        displayMedia(photographerMedia);
+    };
+    
+    sort();
+});
