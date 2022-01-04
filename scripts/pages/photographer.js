@@ -41,7 +41,30 @@ async function initPhotographer() {
     const photographerProfile = await api.getPhotographerProfile();
     displayPhotographerHeader(photographerProfile);
     const photographerMedia = await api.getPhotographerMedia();
+    const filter = new Filter(photographerMedia);
+    //filter.filterByTitle();
+   // filter.filterByDate();
+    filter.filterByPopularity();
+  //  photographerMedia.sort(function (a, b) {
+  //      return b.likes - a.likes;
+  //  });
     displayMedia(photographerMedia);
+    //console.log(photographerMedia.sort());
+
 };
 
 initPhotographer();
+
+var items = [
+    { name: "Edward", likes: 21 },
+    { name: "Sharpe", likes: 37 },
+    { name: "And", likes: 45 },
+    { name: "The", likes: -12 },
+    { name: "Magnetic", value: 13 },
+    { name: "Zeros", value: 37 }
+  ];
+  items.sort(function (a, b) {
+    return a.name.localeCompare(b.name);
+  });
+
+  console.log(items.sort());

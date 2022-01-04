@@ -61,7 +61,7 @@ class MediaItemCard {
         box.appendChild(caption);
        
 
-        console.log("createMCard");
+        //console.log("createMCard");
         return box;
     };
 };
