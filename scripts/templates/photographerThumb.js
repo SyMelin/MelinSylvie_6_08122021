@@ -9,16 +9,19 @@ class PhotographerThumb {
     getUserCardDOM() {
         
         const article = document.createElement('article');
+        article.classList.add("thumb-photographer");
+        article.setAttribute('tabindex', '-1');
 
         // crée le lien img + h2
         const link = document.createElement('a'); //ajout
         link.setAttribute('href', "../photographer.html?id=" + this._photographer.id); //ajout
         link.setAttribute('title', this._photographer.name + "-page"); //ajout
+        link.setAttribute('tabindex', "0");
        
         const img = document.createElement('img');
         img.classList.add('user');
         img.setAttribute('src', `assets/photographers/photographers_ID_photos/${this._photographer.portrait}`);
-        img.setAttribute('alt', this._photographer.name);
+        img.setAttribute('alt', '');
        
         const h2 = document.createElement( 'h2' );
         h2.textContent = this._photographer.name;
@@ -30,6 +33,7 @@ class PhotographerThumb {
 
         // crée le paragraphe texte statique
         const paragraphe = document.createElement('p'); //ajout
+        paragraphe.setAttribute('tabindex', "0");
        
         const textLocation = document.createElement('p'); //ajout
         textLocation.classList.add('text-location');
@@ -46,7 +50,6 @@ class PhotographerThumb {
         paragraphe.appendChild(textPrice); //ajout
        
         article.appendChild(paragraphe); //ajout
-        article.classList.add("thumb-photographer");
         
         return (article);
     };

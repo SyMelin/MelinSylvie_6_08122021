@@ -37,6 +37,7 @@ class MediaItemCard {
             frame.style.backgroundImage = "url("+`assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.image}`+")";
             frame.style.backgroundSize = "cover";
             frame.style.backgroundPosition = "center";
+          //  frame.setAttribute('alt', this._mediaItem.title);
         };
 
         //frame.appendChild(img);
@@ -56,7 +57,7 @@ class MediaItemCard {
 
         const likeHeart = document.createElement("div");
 
-        likeHeart.innerHTML = '<i class="fas fa-heart"></i>';
+        likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
         likeHeart.style.border = "1px solid red";
 
         like.appendChild(likeNb);

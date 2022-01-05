@@ -9,11 +9,11 @@
   </head>
   <body>
     <header role="banner">
-      <a aria-current="page" href="index.html">
+      <a aria-label="Index page" href="index.html">
         <img role="link" alt="Fisheye Home page" src="assets/images/logo.png" class="logo" />
       </a>
     </header>
-    <main id="main">
+    <main role="main" id="main">
       <div class="photograph-header">
         <div class="photographer-profile"></div><!-- Ajout-->
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
@@ -21,7 +21,7 @@
       </div>
       <!-- Ajout de la division contenant l'élément de tri des images -->
       <div class="sorting">
-        <p>Trier par </p>
+        <label role="input label" for="sort-select">Trier par</label>
         <div class="custom-select">
           <select name="select" id="sort-select">
             <option value="popularity">Popularité</option>
