@@ -1,3 +1,24 @@
+class FilterFactory {
+    constructor (value, photographerMedia) {
+        this._value = value;
+        this._photographerMedia = photographerMedia;
+    };
+    createAFilter (){
+        const filter = new Filter(this._photographerMedia);
+        console.log(this._value);
+        if (this._value == "date") {
+            filter.filterByDate();
+        } else if (this._value == "title") {
+            filter.filterByTitle();   
+        } else {
+            filter.filterByPopularity();
+        };
+    };
+};
+
+
+
+// Classe utile pour la factory
 class Filter {
 
     constructor(photographerMedia) {

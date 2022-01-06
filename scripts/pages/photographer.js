@@ -56,7 +56,6 @@ async function initPhotographer() {
 initPhotographer();
 
 
-
 //Filtres
 const select = document.getElementById("sort-select");
 //console.log(select);
@@ -67,21 +66,9 @@ select.addEventListener("change", function(e) {
     const mediaWrapper = document.querySelector(".mediaWrapper");
     mediaWrapper.parentElement.removeChild(mediaWrapper);
 
-    //On applique un nouveau fltre et on réaffiche les cartes media
-    function sort() {
-        //const api = new Api("../data/photographers.json"); 
-        //const photographerMedia = await api.getPhotographerMedia();
-        const filter = new Filter(photographerMedia);
-        console.log(select.value);
-        if (select.value == "date") {
-            filter.filterByDate();
-        } else if (select.value == "title") {
-            filter.filterByTitle();   
-        } else {
-            filter.filterByPopularity();
-        };
-        displayMedia(photographerMedia);
-    };
-    
-    sort();
+    //On crée un nouveau fltre en fonction de select.value et on réaffiche les cartes media
+    const filter = new FilterFactory(select.value, photographerMedia);
+    console.log("filterCreated", filter);
+    filter.createAFilter();
+    displayMedia(photographerMedia);
 });
