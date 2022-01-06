@@ -1,7 +1,10 @@
 class MediaItemCard {
 
-    constructor(mediaItem) {
+    constructor(mediaItem, width, height, radius) {
         this._mediaItem = mediaItem;
+        this._width = width;
+        this._height = height;
+        this._radius = radius;
         
     };
 
@@ -9,38 +12,11 @@ class MediaItemCard {
 
         const box = document.createElement("div");
         box.classList.add("thumb-imgfull")
-        
-        const frame = document.createElement("div");
-        frame.classList.add("thumb-img");
-       
-        frame.setAttribute('alt', ""); //
-        frame.style.width = "350px";
-        frame.style.height = "300px";
-        frame.style.borderRadius = "5px";
+        box.setAttribute("cardId", this._mediaItem.id);
+        //console.log(box.attributes);
 
-        if(this._mediaItem.video) {
-
-            //Récupère le nom du fichier video
-            const videoName = String(this._mediaItem.video).replace(".mp4", "").replaceAll("_", " ");
-            this._mediaItem.title = videoName;
-
-            //Crée l'élement video
-            const video = document.createElement("video");
-            video.setAttribute("src", `assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.video}`);
-            video.setAttribute("width", "350px");
-            video.setAttribute("height", "300px");
-            video.setAttribute("controls", true);
-            video.style.objectFit = "cover";
-            video.style.borderRadius = "5px";
-            frame.appendChild(video);
-        } else {
-            frame.style.backgroundImage = "url("+`assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.image}`+")";
-            frame.style.backgroundSize = "cover";
-            frame.style.backgroundPosition = "center";
-          //  frame.setAttribute('alt', this._mediaItem.title);
-        };
-
-        //frame.appendChild(img);
+        const template = new MediaItemFrame(this._mediaItem, this._width, this._height, this._radius);
+        const frame = template.createMediaItemFrame();
         
         const caption = document.createElement("div");
         caption.style.display = "flex";

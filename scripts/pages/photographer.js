@@ -1,5 +1,7 @@
 //consigne : Mettre le code JavaScript lié à la page photographer.html
 
+
+//Déclaration des variables utiles
 const api = new Api("../data/photographers.json");
 let photographerProfile;
 let photographerMedia;
@@ -32,23 +34,33 @@ async function displayMedia(photographerMedia){
     main.appendChild(mediaWrapper);
     //console.log("photographerMediaTest2", photographerMedia);
     for (let mediaItem of photographerMedia) {
-        const template = new MediaItemCard(mediaItem);
+        const template = new MediaItemCard(mediaItem, "350px", "300px", "5px");
         const mediaItemCard = template.createMediaItemCard();
         mediaWrapper.appendChild(mediaItemCard);
     };
 };
 
 
-//Initialise la page photographer.html
+////////////// Initialise la page photographer.html ////////////////
 async function initPhotographer() {
     
     //const idPhotographer = getId();
     //const api = new Api("../data/photographers.json"); 
+
+    //Récupération des données profil du photographe
     photographerProfile = await api.getPhotographerProfile();
+
+    //Affichage des données profil du photographe
     displayPhotographerHeader(photographerProfile);
+
+    //Récupération des données media du photographe
     photographerMedia = await api.getPhotographerMedia();
+
+    //Media filtrer par popularité par défaut
     const filter = new Filter(photographerMedia);
     filter.filterByPopularity();
+
+    //Affichage des média
     displayMedia(photographerMedia);
 
 };
@@ -56,7 +68,8 @@ async function initPhotographer() {
 initPhotographer();
 
 
-//Filtres
+////////////////////// Filtres /////////////////////////////////////
+
 const select = document.getElementById("sort-select");
 //console.log(select);
 select.addEventListener("change", function(e) {

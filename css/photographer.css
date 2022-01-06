@@ -144,3 +144,9 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+/* Modal Lightbox */
+
+.thumb-imgfull .thumb-img{
+    cursor: pointer;
+}
