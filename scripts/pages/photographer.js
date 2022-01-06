@@ -6,6 +6,8 @@ const api = new Api("../data/photographers.json");
 let photographerProfile;
 let photographerMedia;
 
+let mediaCardAll = document.getElementsByClassName("thumb-imgfull");
+
 
 //Récupère l'id du photographe contenu dans l'url de la page photopgrapher.html
 function getId() {

@@ -12,7 +12,7 @@ class MediaItemCard {
 
         const box = document.createElement("div");
         box.classList.add("thumb-imgfull")
-        box.setAttribute("cardId", this._mediaItem.id);
+       // box.setAttribute("cardId", this._mediaItem.id);
         //console.log(box.attributes);
 
         const template = new MediaItemFrame(this._mediaItem, this._width, this._height, this._radius);

@@ -44,7 +44,16 @@ class MediaItemFrame {
         frame.addEventListener("click", function(e) {
             console.log(e.target);
             const frameCard = e.target;
-            displayModalL(frameCard);
+            const mediaCard = frameCard.parentElement;
+          //  console.log("mediaCard", mediaCard);
+            mediaCardAll = document.getElementsByClassName("thumb-imgfull");
+            const mediaArray = Array.from(mediaCardAll);
+            let mediaCardIndex = mediaArray.indexOf(mediaCard);
+            console.log("mediaCardIndex", mediaCardIndex);
+            const clone = mediaCard.cloneNode(true);
+            clone.setAttribute("cardIndex", mediaCardIndex);
+            clone.classList.add("clone");
+            displayModalL(clone);
         });
 
 
