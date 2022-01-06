@@ -1,5 +1,10 @@
 //consigne : Mettre le code JavaScript lié à la page photographer.html
 
+const api = new Api("../data/photographers.json");
+let photographerProfile;
+let photographerMedia;
+
+
 //Récupère l'id du photographe contenu dans l'url de la page photopgrapher.html
 function getId() {
 
@@ -38,10 +43,10 @@ async function displayMedia(photographerMedia){
 async function initPhotographer() {
     
     //const idPhotographer = getId();
-    const api = new Api("../data/photographers.json"); 
-    const photographerProfile = await api.getPhotographerProfile();
+    //const api = new Api("../data/photographers.json"); 
+    photographerProfile = await api.getPhotographerProfile();
     displayPhotographerHeader(photographerProfile);
-    const photographerMedia = await api.getPhotographerMedia();
+    photographerMedia = await api.getPhotographerMedia();
     const filter = new Filter(photographerMedia);
     filter.filterByPopularity();
     displayMedia(photographerMedia);
@@ -63,9 +68,9 @@ select.addEventListener("change", function(e) {
     mediaWrapper.parentElement.removeChild(mediaWrapper);
 
     //On applique un nouveau fltre et on réaffiche les cartes media
-    async function sort() {
-        const api = new Api("../data/photographers.json"); 
-        const photographerMedia = await api.getPhotographerMedia();
+    function sort() {
+        //const api = new Api("../data/photographers.json"); 
+        //const photographerMedia = await api.getPhotographerMedia();
         const filter = new Filter(photographerMedia);
         console.log(select.value);
         if (select.value == "date") {
