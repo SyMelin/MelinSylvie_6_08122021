@@ -49,4 +49,5 @@ class MediaItemCard {
         //console.log("createMCard");
         return box;
     };
+
 };
