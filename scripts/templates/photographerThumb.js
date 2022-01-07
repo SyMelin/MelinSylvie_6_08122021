@@ -21,6 +21,7 @@ class PhotographerThumb {
         const img = document.createElement('img');
         img.classList.add('user');
         img.setAttribute('src', `assets/photographers/photographers_ID_photos/${this._photographer.portrait}`);
+        img.setAttribute('role', 'link');
         img.setAttribute('alt', '');
        
         const h2 = document.createElement( 'h2' );

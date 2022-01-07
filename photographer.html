@@ -8,7 +8,7 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header role="banner">
+    <header role="banner" id="header">
       <a aria-label="Index page" href="index.html">
         <img role="link" alt="Fisheye Home page" src="assets/images/logo.png" class="logo" />
       </a>
@@ -31,9 +31,26 @@
         </div>
       </div>
       <!---------------------------------------------------------------->
+      <!-- Ajout de l'élément Info -->
+      <div id="info">
+        <p id="totalLikes"></p><i aria-label="likes" class="fas fa-heart"></i>
+        <p id="price"></p>
+      </div>
+      <!---------------------------------------------------------------->
     </main>
-    <div id="contact_modal" aria-hidden="true" role="dialogue">
-			<div class="modal">
+     <!-- Ajout de la modale pour lightbox -->
+     <div id="lightbox_modal" class="modal" aria-label="image closeup view" aria-hidden="true" role="dialogue">
+      <div class="modalContent lightbox">
+          <img role="button" class="closeBtn" src="assets/icons/close.svg" onclick="closeModalL()" />
+          <img role="link" id="gauche" class="fleche" src="assets/icons/arrow_left.svg" />
+          <div id="lightbox-frame" class="thumb-img"></div>
+          <img role="link" id="droite" class="fleche" src="assets/icons/arrow_left.svg" />
+      </div>
+    </div>
+    <!-------------------------------------->
+    <!-- Modale contactForm-->
+    <div id="contact_modal" class="modal" aria-hidden="true" role="dialogue">
+			<div class="modalContent">
 				<header>
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
@@ -53,29 +70,27 @@
 				</form>
 			</div>
 		</div>
-    <!-- Ajout de la modale pour lightbox -->
-    <div id="lightbox_modal" aria-label="image closeup view" aria-hidden="true" role="dialogue">
-      <div class="modal lightbox">
-          <img role="button" class="closeBtn" src="assets/icons/close.svg" onclick="closeModalL()" />
-          <img role="link" id="gauche" class="fleche" src="assets/icons/arrow_left.svg" />
-          <div id="lightbox-frame" class="thumb-img"></div>
-          <img role="link" id="droite" class="fleche" src="assets/icons/arrow_left.svg" />
-      </div>
-    </div>
-    <!-------------------------------------->
-    <div id="info">
-      <p id="totalLikes"></p><i aria-label="likes" class="fas fa-heart"></i>
-      <p id="price"></p>
-    </div>
+   <!-------------------------------------->
 
+    <!-- Models -->
+
+    <!-- API -->
     <script src="scripts/API/api.js"></script>
+
+    <!-- Templates -->
     <script src="scripts/templates/photographerHeader.js"></script>
     <script src="scripts/templates/photographerInfo.js"></script>
     <script src="scripts/templates/MediaFrame.js"></script>
     <script src="scripts/templates/MediaCard.js"></script>
+
+    <!-- Factories -->
     <script src="scripts/factories/filterFactory.js"></script>
+    <!-- Pages -->
     <script src="scripts/pages/photographer.js"></script>
+
+    <!-- Utils-->
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightbox.js"></script>
+
   </body>
 </html>

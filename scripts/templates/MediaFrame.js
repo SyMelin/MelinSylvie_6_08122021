@@ -11,6 +11,7 @@ class MediaItemFrame {
 
         const frame = document.createElement("div");
         frame.classList.add("thumb-img");
+        frame.setAttribute("role", "link");
        
         frame.setAttribute('alt', ""); //
        // frame.setAttribute('onclick', "displayModalL()");

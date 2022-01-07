@@ -3,11 +3,17 @@ function displayModalL(clone) {
     const modal = document.getElementById("lightbox_modal");
 	modal.style.display = "block";
     modal.setAttribute("aria-hidden", "false");
-    const lightframe = document.getElementById("lightbox-frame");
+    document.querySelector("#lightbox_modal .modalContent").focus();
+    const lightframe = document.getElementById("lightbox-frame");//met le focus sur votre modale une fois cette dernière ouverte
     lightframe.style.width = "90%"
    // lightframe.style.height = "900px";
    // lightframe.style.borderRadius = "5px";
     lightframe.appendChild(clone);
+
+    const header = document.getElementById("header");
+    const main = document.getElementById("main");
+    header.setAttribute("aria-hidden", "true");
+    main.setAttribute("aria-hidden", "true");
 
 };
 
@@ -19,6 +25,11 @@ function closeModalL() {
     modal.setAttribute("aria-hidden", "true");
     const clone = document.querySelector(".clone");
     clone.parentElement.removeChild(clone);
+
+    const header = document.getElementById("header");
+    const main = document.getElementById("main");
+    header.setAttribute("aria-hidden", "true");
+    main.setAttribute("aria-hidden", "true");
 
 };
 
@@ -63,5 +74,16 @@ flecheDROITE.addEventListener("click", function(e) {
         afterClone.classList.add("clone");
         lightboxFrame.removeChild(clone);
         displayModalL(afterClone);
+    };
+});
+
+
+// Fermeture de la modale via le touche Echap
+window.addEventListener("keyup", function(e) {
+    const modal = document.getElementById("lightbox_modal");
+    const modalState = modal.getAttribute("aria-hidden");
+    if ((e.key === "Escape") && (modalState === "false")) {
+        e.preventDefault();
+        closeModalL();
     };
 });
