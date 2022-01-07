@@ -8,6 +8,9 @@ let photographerMedia;
 
 let mediaCardAll = document.getElementsByClassName("thumb-imgfull");
 
+let likeTotal = 0;
+
+
 
 //Récupère l'id du photographe contenu dans l'url de la page photopgrapher.html
 function getId() {
@@ -43,6 +46,25 @@ async function displayMedia(photographerMedia){
 };
 
 
+function sumLikes() {
+    likeTotal = 0;
+    for (let mediaItem of photographerMedia) {
+        //console.log(mediaItem.likes);
+        likeTotal += mediaItem.likes;
+    };
+    //console.log(likeTotal);
+    const totalLikes = document.getElementById("totalLikes");
+    totalLikes.textContent = likeTotal;
+    return likeTotal;
+};
+
+//Affiche les infos supplémentaires
+async function displayInfo(photographerData){
+    const template = new PhotographerInfo(photographerData);
+    return photographerInfo = template.createPhotographerInfo();
+};
+
+
 ////////////// Initialise la page photographer.html ////////////////
 async function initPhotographer() {
     
@@ -54,7 +76,7 @@ async function initPhotographer() {
 
     //Affichage des données profil du photographe
     displayPhotographerHeader(photographerProfile);
-
+    
     //Récupération des données media du photographe
     photographerMedia = await api.getPhotographerMedia();
 
@@ -64,6 +86,10 @@ async function initPhotographer() {
 
     //Affichage des média
     displayMedia(photographerMedia);
+
+    sumLikes();
+    displayInfo(photographerProfile);
+
 
 };
 

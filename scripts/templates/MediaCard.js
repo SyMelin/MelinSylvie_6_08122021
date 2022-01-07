@@ -46,6 +46,17 @@ class MediaItemCard {
         box.appendChild(caption);
        
 
+        likeHeart.addEventListener("click", function(e) {
+            //console.log(template._mediaItem.likes);
+            template._mediaItem.likes++ ;
+            likeNb.textContent = template._mediaItem.likes;
+            sumLikes();
+        });
+
+
+
+
+
         //console.log("createMCard");
         return box;
     };
