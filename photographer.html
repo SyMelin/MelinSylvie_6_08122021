@@ -54,14 +54,12 @@
 			</div>
 		</div>
     <!-- Ajout de la modale pour lightbox -->
-    <div id="lightbox_modal" aria-hidden="true" role="dialogue">
+    <div id="lightbox_modal" aria-label="image closeup view" aria-hidden="true" role="dialogue">
       <div class="modal lightbox">
-          <img src="assets/icons/close.svg" onclick="closeModalL()" />
-        <div id="TEST">
-          <span id="gauche" class="fleche">G</span>
+          <img role="button" class="closeBtn" src="assets/icons/close.svg" onclick="closeModalL()" />
+          <img role="link" id="gauche" class="fleche" src="assets/icons/arrow_left.svg" />
           <div id="lightbox-frame" class="thumb-img"></div>
-          <span id="droite" class="fleche">D</span>
-        </div>
+          <img role="link" id="droite" class="fleche" src="assets/icons/arrow_left.svg" />
       </div>
     </div>
     <!-------------------------------------->
