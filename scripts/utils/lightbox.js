@@ -41,6 +41,28 @@ function closeModalL() {
     main.setAttribute("aria-hidden", "true");
 
 };
+
+const flecheGAUCHE = document.getElementById("gauche");
+flecheGAUCHE.addEventListener("click", function(e) {
+    e.preventDefault();
+    const mediaWrapper = document.querySelector("#lightbox-frame .mediaWrapper");
+    mediaWrapper.classList.remove("goNext");
+   // console.log("gauche",mediaWrapper);
+    mediaWrapper.classList.add("goBack");
+    console.log(mediaWrapper.className);
+});
+    
+const flecheDroite = document.getElementById("droite");
+flecheDroite.addEventListener("click", function(e) {
+    e.preventDefault();
+    const mediaWrapper = document.querySelector("#lightbox-frame .mediaWrapper");
+    mediaWrapper.classList.remove("goBack");
+   // console.log("droite",mediaWrapper);
+    mediaWrapper.classList.add("goNext");
+    console.log(mediaWrapper.className);
+});
+
+
 /*
 const flecheGAUCHE = document.getElementById("gauche");
 flecheGAUCHE.addEventListener("click", function(e) {

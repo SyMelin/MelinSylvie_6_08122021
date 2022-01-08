@@ -1,3 +1,8 @@
+:root {
+    --my-start-translateX: 0%;
+    --my-end-translateX: 30%;
+}
+
 body {
     position: relative;
 }
@@ -263,4 +268,32 @@ form input {
 #info p{
     color: black;
     display: block;
+}
+
+.goBack{
+    animation: slideRight 350ms ease-in-out forwards;
+    transform-origin: right;
+}
+
+.goNext{
+    animation: slideLeft 350ms ease-in-out both;
+    transform-origin: left;
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-30%);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(30%);
+    }
 }
