@@ -42,7 +42,23 @@ class MediaItemFrame {
           //  frame.setAttribute('alt', this._mediaItem.title);
         };
 
+        //Au clic sur une image, affichage du carrousel dans la modale
+        frame.addEventListener("click", function(e) {
+            console.log(e.target);
+            
+            const mediaWrapper = document.querySelector(".mediaWrapper");
+            console.log("hello", mediaWrapper);
+            document.querySelector("#lightbox_modal .modalContent").appendChild(mediaWrapper);
+            const lightboxCarousel = new Carousel(document.querySelector("#lightbox_modal .modalContent .mediaWrapper"), {
+                                        slidesToScroll: 1,
+                                        slidesVisible: 1
+                                    });
+            displayModalL();
 
+        });
+
+
+/*      
         // Evenement sur frame
         frame.addEventListener("click", function(e) {
             console.log(e.target);
@@ -67,6 +83,8 @@ class MediaItemFrame {
             //On affiche le clone dans la modale lightbox
             displayModalL(clone);
         });
+*/
+
 
         return frame;
   

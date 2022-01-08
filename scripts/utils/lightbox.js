@@ -5,11 +5,12 @@ function displayModalL(clone) {
     modal.setAttribute("aria-hidden", "false");
     document.querySelector("#lightbox_modal .modalContent").focus();
     const lightframe = document.getElementById("lightbox-frame");//met le focus sur votre modale une fois cette dernière ouverte
-    lightframe.style.width = "90%"
+ /*  
+     lightframe.style.width = "90%"
    // lightframe.style.height = "900px";
    // lightframe.style.borderRadius = "5px";
     lightframe.appendChild(clone);
-
+*/
     const header = document.getElementById("header");
     const main = document.getElementById("main");
     header.setAttribute("aria-hidden", "true");
@@ -23,8 +24,12 @@ function closeModalL() {
     console.log("modal", modal);
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
+/*
     const clone = document.querySelector(".clone");
     clone.parentElement.removeChild(clone);
+*/
+
+    //Remettre le focus sur le reste du document???????
 
     const header = document.getElementById("header");
     const main = document.getElementById("main");
@@ -32,7 +37,7 @@ function closeModalL() {
     main.setAttribute("aria-hidden", "true");
 
 };
-
+/*
 const flecheGAUCHE = document.getElementById("gauche");
 flecheGAUCHE.addEventListener("click", function(e) {
     const lightboxFrame = document.getElementById("lightbox-frame");
@@ -87,3 +92,4 @@ window.addEventListener("keyup", function(e) {
         closeModalL();
     };
 });
+*/
