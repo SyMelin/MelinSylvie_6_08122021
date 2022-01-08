@@ -39,7 +39,7 @@ async function displayMedia(photographerMedia){
     main.appendChild(mediaWrapper);
     //console.log("photographerMediaTest2", photographerMedia);
     for (let mediaItem of photographerMedia) {
-        const template = new MediaItemCard(mediaItem, "350px", "300px", "5px");
+        const template = new MediaItemCard(mediaItem);
         const mediaItemCard = template.createMediaItemCard();
         mediaWrapper.appendChild(mediaItemCard);
     };

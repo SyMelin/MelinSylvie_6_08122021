@@ -1,10 +1,7 @@
 class MediaItemFrame {
 
-    constructor(mediaItem, width, height, radius) {
+    constructor(mediaItem) {
         this._mediaItem = mediaItem;
-        this._width = width;
-        this._height = height;
-        this._radius = radius;
     };
     
     createMediaItemFrame () {
@@ -15,9 +12,6 @@ class MediaItemFrame {
        
         frame.setAttribute('alt', ""); //
        // frame.setAttribute('onclick', "displayModalL()");
-        frame.style.width = this._width;
-        frame.style.height = this._height;
-        frame.style.borderRadius = this._radius;
 
         if(this._mediaItem.video) {
 
@@ -28,10 +22,8 @@ class MediaItemFrame {
             //Crée l'élement video
             const video = document.createElement("video");
             video.setAttribute("src", `assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.video}`);
-            video.setAttribute("width", this._width);
-            video.setAttribute("height", this._height);
             video.setAttribute("controls", true);
-            video.style.objectFit = "cover";
+           // video.style.objectFit = "contain";
             video.style.borderRadius = this._radius;
             frame.appendChild(video);
         } else {
@@ -48,8 +40,8 @@ class MediaItemFrame {
             
             const mediaWrapper = document.querySelector(".mediaWrapper");
             console.log("hello", mediaWrapper);
-            document.querySelector("#lightbox_modal .modalContent").appendChild(mediaWrapper);
-            const lightboxCarousel = new Carousel(document.querySelector("#lightbox_modal .modalContent .mediaWrapper"), {
+            document.querySelector("#lightbox-frame").appendChild(mediaWrapper);
+            const lightboxCarousel = new Carousel(document.querySelector("#lightbox-frame .mediaWrapper"), {
                                         slidesToScroll: 1,
                                         slidesVisible: 1
                                     });

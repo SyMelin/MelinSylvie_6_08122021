@@ -1,5 +1,16 @@
-#contact_modal, #lightbox_modal {
+body {
+    position: relative;
+}
+
+.modal{
     display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    padding-top: 90px;
+    background-color: rgba(196, 196, 196, 0.4);
 }
 
 .photograph-header {
@@ -45,6 +56,23 @@ select {
     /*border: 1px solid black;*/
     margin: 0 100px;
 }
+
+.thumb-imgfull{
+    border-radius: 5px;
+}
+
+.thumb-img{
+    width: 350px;
+    height: 300px;
+    border-radius: inherit;
+}
+
+.thumb-img video{
+    width: 100%;
+    height: 100%;
+}
+
+
 /**********************************/  
 
 
@@ -176,10 +204,49 @@ form input {
     transform: rotate(180deg);
 }
 
+.TEST{
+    position: relative;
+    width: 90%;
+}
+
+.panorama {
+    width: 90%;
+    height: 90%;
+    border: 1px solid blue;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
 #lightbox-frame{
     border: 1px solid black;
     text-align: center;
+    width: 90%;
+    height: 700px;
+    overflow: hidden;
 }
+#lightbox-frame .mediaWrapper{
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 2300px;
+    height: 100%;
+    margin: 0%;
+}
+
+#lightbox-frame .mediaWrapper .thumb-imgfull{
+    width: 50%;
+    height: 100%;
+}
+
+#lightbox-frame .mediaWrapper .thumb-imgfull .thumb-img{
+    width: 100%;
+    height: 90%;
+}
+
+
 
 #info{
     position: fixed;

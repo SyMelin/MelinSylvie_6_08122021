@@ -1,11 +1,7 @@
 class MediaItemCard {
 
-    constructor(mediaItem, width, height, radius) {
+    constructor(mediaItem) {
         this._mediaItem = mediaItem;
-        this._width = width;
-        this._height = height;
-        this._radius = radius;
-        
     };
 
     createMediaItemCard () {

@@ -9,7 +9,12 @@ class Carousel {
 
 
     constructor (element, options = {}) {
-        console.log("hello Carousel");
+        this._element = element;
+        this._options = Object.assign ({}, {
+            slidesToScroll: 1,
+            slidesVisible: 1
+        }, options 
+        );
     };
 
 };

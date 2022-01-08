@@ -24,6 +24,10 @@ function closeModalL() {
     console.log("modal", modal);
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
+
+    const mediaWrapper = document.querySelector("#lightbox-frame .mediaWrapper");
+    document.getElementById("main").appendChild(mediaWrapper);
+
 /*
     const clone = document.querySelector(".clone");
     clone.parentElement.removeChild(clone);
