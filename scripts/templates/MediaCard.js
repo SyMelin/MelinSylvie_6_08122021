@@ -49,10 +49,6 @@ class MediaItemCard {
             sumLikes();
         });
 
-
-
-
-
         //console.log("createMCard");
         return box;
     };

@@ -181,7 +181,7 @@ form input {
 
 /* Modal Lightbox */
 
-.thumb-imgfull .thumb-img, .fleche{
+.thumb-imgfull .thumb-img, .navBtn{
     cursor: pointer;
 }
 
@@ -200,42 +200,29 @@ form input {
     width: 42px;
 }
 
-.fleche {
+.navBtn {
     border: 1px solid black;
     display: block;
-    width: 28px;
 }
 
-#droite{
+.lightbox__next{
     transform: rotate(180deg);
 }
 
-.TEST{
+.carousel{
     margin-top: 30px;
-    position: relative;
+   /* position: relative;*/
     width: 641.66px;
     /*border: 1px solid blue;*/
 }
 
-.panorama {
-    width: 641.66px;
-    height: 550px;
-    border: 1px solid blue;
-   /* overflow: hidden;*/
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-
 #lightbox-frame{
     border: 1px solid black;
     text-align: center;
-    width: 641.66px;
+   /* width: 641.66px;*/
     height: 600px;
     overflow: hidden;
+    position: relative;
 }
 #lightbox-frame .mediaWrapper{
     flex-direction: column;
@@ -248,7 +235,7 @@ form input {
 }
 
 #lightbox-frame .mediaWrapper .thumb-imgfull{
-    width: 641.66px;
+  /*  width: 641.66px;*/
     height: 100%;
 }
 
@@ -256,7 +243,6 @@ form input {
     width: 100%;
     height: 550px;
 }
-
 
 
 #info{
@@ -278,37 +264,4 @@ form input {
 
 .hidden{
     display: none;
-}
-
-.start {
-    animation: slideLeft forwards;
-    transform-origin: left;
-}
-
-.goBack{
-    animation: slideRight ease-in-out both;
-    transform-origin: right;
-}
-
-.goNext{
-    animation: slideLeft ease-in-out both;
-    transform-origin: left;
-}
-
-@keyframes slideRight {
-    0% {
-        transform: translateX(var(--my-start-translateX));
-    }
-    100% {
-        transform: translateX(var(--my-endRight-translateX));
-    }
-}
-
-@keyframes slideLeft {
-    0% {
-      transform: translateX(var(--my-start-translateX));
-    }
-    100% {
-      transform: translateX(var(--my-endLeft-translateX));
-    }
 }
