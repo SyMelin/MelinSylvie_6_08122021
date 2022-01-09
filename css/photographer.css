@@ -1,6 +1,7 @@
 :root {
     --my-start-translateX: 0%;
-    --my-end-translateX: 30%;
+    --my-endRight-translateX: -100%;
+    --my-endLeft-translateX: 100%;
 }
 
 body {
@@ -210,45 +211,50 @@ form input {
 }
 
 .TEST{
+    margin-top: 30px;
     position: relative;
-    width: 90%;
+    width: 641.66px;
+    /*border: 1px solid blue;*/
 }
 
 .panorama {
-    width: 90%;
-    height: 90%;
+    width: 641.66px;
+    height: 550px;
     border: 1px solid blue;
-    overflow: hidden;
+   /* overflow: hidden;*/
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    margin: auto;
 }
 
 
 #lightbox-frame{
     border: 1px solid black;
     text-align: center;
-    width: 90%;
-    height: 700px;
+    width: 641.66px;
+    height: 600px;
     overflow: hidden;
 }
 #lightbox-frame .mediaWrapper{
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    width: 2300px;
+   /*width: 2300px;*/
     height: 100%;
     margin: 0%;
+    border: 2px solid yellow;
 }
 
 #lightbox-frame .mediaWrapper .thumb-imgfull{
-    width: 50%;
+    width: 641.66px;
     height: 100%;
 }
 
 #lightbox-frame .mediaWrapper .thumb-imgfull .thumb-img{
     width: 100%;
-    height: 90%;
+    height: 550px;
 }
 
 
@@ -270,30 +276,39 @@ form input {
     display: block;
 }
 
+.hidden{
+    display: none;
+}
+
+.start {
+    animation: slideLeft forwards;
+    transform-origin: left;
+}
+
 .goBack{
-    animation: slideRight 350ms ease-in-out forwards;
+    animation: slideRight ease-in-out both;
     transform-origin: right;
 }
 
 .goNext{
-    animation: slideLeft 350ms ease-in-out both;
+    animation: slideLeft ease-in-out both;
     transform-origin: left;
 }
 
 @keyframes slideRight {
     0% {
-        transform: translateX(0%);
+        transform: translateX(var(--my-start-translateX));
     }
     100% {
-        transform: translateX(-30%);
+        transform: translateX(var(--my-endRight-translateX));
     }
 }
 
 @keyframes slideLeft {
     0% {
-      transform: translateX(0%);
+      transform: translateX(var(--my-start-translateX));
     }
     100% {
-      transform: translateX(30%);
+      transform: translateX(var(--my-endLeft-translateX));
     }
 }
