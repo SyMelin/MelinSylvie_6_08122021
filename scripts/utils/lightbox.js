@@ -21,11 +21,15 @@ function closeModalL() {
     modal.setAttribute("aria-hidden", "true");
 
     const mediaWrapper = document.querySelector("#lightbox-frame .mediaWrapper");
+    mediaWrapper.style.transform = "translate3d(0%, 0px, 0px)";
+    mediaWrapper.style.width = "90%";
+    const mediaCard = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull");
+    mediaCard.forEach((card) => {
+        card.style.width = "350px";
+    })
+
     document.getElementById("main").appendChild(mediaWrapper);
 
-    mediaWrapper.classList.remove("start");
-    mediaWrapper.classList.remove("goBack");
-    mediaWrapper.classList.remove("goNext");
 
     //Remettre le focus sur le reste du document???????
 
