@@ -68,6 +68,8 @@ class MediaItemFrame {
             document.querySelector("#lightbox-frame").appendChild(mediaWrapper);
             const lightboxCarousel = new Carousel(document.querySelector("#lightbox-frame .mediaWrapper"), cardIndex);
           
+            console.log("cardIndex", cardIndex);
+
             displayModalL();
 
             };

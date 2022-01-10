@@ -206,14 +206,17 @@ form input {
     border: 1px solid black;
     display: block;
     position: relative;
+    background-image : url("../assets/icons/arrow_left.svg");
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+    background-repeat: no-repeat;
+    opacity: 1;
+
 }
 
-.navBtn::after {
-    position: absolute;
-    content: "";
-    width: 50px;
-    background-color: #DB8876;
-    opacity: 1;
+.navBtn-hidden{
+    opacity: 0;
 }
 
 .lightbox__next{

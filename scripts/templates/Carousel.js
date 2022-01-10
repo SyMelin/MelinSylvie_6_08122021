@@ -22,58 +22,74 @@ class Carousel {
     };
 
     createNavBtn () {
-        let button  = document.createElement("img");
+        let button  = document.createElement("div");
         button.setAttribute("role", "link");
-        button.setAttribute("src" , "assets/icons/arrow_left.svg");
         button.classList.add("navBtn");
         return button;
     };
 
     createNavigation () {
-        const prevBtn = this.createNavBtn();
-        prevBtn.classList.add("lightbox__prev");
-        console.log(prevBtn);
-        const nextBtn = this.createNavBtn();
-        nextBtn.classList.add("lightbox__next");
+
+        //Crée le bouton Précédent
+        this._prevBtn = this.createNavBtn();
+        this._prevBtn.classList.add("lightbox__prev");
+        
+
+        //Crée le bouton Suivant
+        this._nextBtn = this.createNavBtn();
+        this._nextBtn.classList.add("lightbox__next");
 
         const lightbox = document.querySelector(".lightbox");
         console.log(lightbox);
-        lightbox.prepend(prevBtn);
-        lightbox.appendChild(nextBtn); 
+        lightbox.prepend(this._prevBtn);
+        lightbox.appendChild(this._nextBtn); 
 
-        prevBtn.addEventListener("click", this.prev.bind(this));
-        nextBtn.addEventListener("click", this.next.bind(this));
+        //Ajout des fonctions appelées au clic sur chaque bouton
+        this._prevBtn.addEventListener("click", this.prev.bind(this));
+        this._nextBtn.addEventListener("click", this.next.bind(this));
     };
 
     prev(){
 
+        console.log("cardIndex", this._index);
         const indexMin = 0;
         const indexMax = this._children.length;
 
         if (this._index >= (1 + indexMin) && this._index < indexMax) {
-            this._index-- ;
+            this._index-- ; //index vers lequel on veut aller
+            console.log("carIndextogoto", this._index);
             this.gotoItem(this._index);
+            if (this._index == indexMin) {
+                this._prevBtn.classList.add("navBtn-hidden");
+            } else if (this._nextBtn.classList.contains("navBtn-hidden")){
+                this._nextBtn.classList.remove("navBtn-hidden");
+            };
         };
     };
 
     next(){
 
-        console.log("cardIndexNext", this._index);
+        console.log("cardIndex", this._index);
         const indexMin = 0;
         const indexMax = this._children.length;
        
         if (this._index >= indexMin && this._index < (indexMax - 1)) {
             this._index++ ;
-            console.log("carIndex", this._index);
+            console.log("carIndextogoto", this._index);
             this.gotoItem(this._index);
+            if (this._index == (indexMax-1)) {
+                this._nextBtn.classList.add("navBtn-hidden");
+            } else if (this._prevBtn.classList.contains("navBtn-hidden")){
+                this._prevBtn.classList.remove("navBtn-hidden");
+            };
         };
     };
 
     gotoItem(index) {
-        console.log("cardIndexGoTO", index);
+       // console.log("cardIndexGoTO", index);
         let translateX = index * -100 / this._children.length + "%";
         console.log(translateX);
-        console.log(this._container);
+        //console.log(this._container);
         this._container.style.transform = `translate3d(${translateX}, 0, 0)`;
     };
 

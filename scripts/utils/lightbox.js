@@ -30,16 +30,14 @@ function closeModalL() {
     });
 
     const frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
-    console.log("frameAll", frameAll);
     frameAll.forEach((item) => {
         item.classList.remove("inLightbox");
         item.style.width = "350px";
     });
 
     const navBtnAll = document.querySelectorAll(".lightbox .navBtn");
-    console.log("navBtnAll", navBtnAll);
     navBtnAll.forEach((btn) => {
-        btn.parentElement.removeChild("btn");
+        btn.parentElement.removeChild(btn);
     });
 
     document.getElementById("main").appendChild(mediaWrapper);
