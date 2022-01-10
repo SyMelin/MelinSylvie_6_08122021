@@ -36,12 +36,28 @@ class MediaItemFrame {
 
         //Au clic sur une image, affichage du carrousel dans la modale
         frame.addEventListener("click", function(e) {
-            console.log(e.target);
+            e.preventDefault();
 
-            const frameCard = e.target;
+            if ((frame.classList.contains("inLightbox")) == true) {
+                console.log("condition", "TRUE");
+                e.preventDefault();
+            } else{
+
+                frame.classList.add("inLightbox");
+                console.log("HEY", frame.className);
+                // console.log(e.target);
+            
+            const frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull  .thumb-img");
+            frameAll.forEach((item) => {
+                item.classList.add("inLightbox");
+            });
+
+           // console.log(e.target);
+
+            //const frameCard = e.target;
 
             //On récupère la mediaCard dont l'image a été cliquée
-            const mediaCard = frameCard.parentElement;
+            const mediaCard = frame.parentElement;
             //On récupère toutes les mediaCard
             mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
             const mediaArray = Array.from(mediaCardAll);
@@ -54,6 +70,7 @@ class MediaItemFrame {
           
             displayModalL();
 
+            };
         });
 
         return frame;

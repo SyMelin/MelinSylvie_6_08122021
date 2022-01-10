@@ -205,6 +205,15 @@ form input {
 .navBtn {
     border: 1px solid black;
     display: block;
+    position: relative;
+}
+
+.navBtn::after {
+    position: absolute;
+    content: "";
+    width: 50px;
+    background-color: #DB8876;
+    opacity: 1;
 }
 
 .lightbox__next{
@@ -257,6 +266,7 @@ form input {
     flex-direction: row;
     justify-content: space-around;
     border-radius: 5px 5px 0 0;
+    z-index: 5;
 }
 
 #info p{

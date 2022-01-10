@@ -22,11 +22,25 @@ function closeModalL() {
 
     const mediaWrapper = document.querySelector("#lightbox-frame .mediaWrapper");
     mediaWrapper.style.transform = "translate3d(0%, 0px, 0px)";
-    mediaWrapper.style.width = "90%";
+    mediaWrapper.style.width = "85%";
+
     const mediaCard = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull");
     mediaCard.forEach((card) => {
         card.style.width = "350px";
-    })
+    });
+
+    const frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
+    console.log("frameAll", frameAll);
+    frameAll.forEach((item) => {
+        item.classList.remove("inLightbox");
+        item.style.width = "350px";
+    });
+
+    const navBtnAll = document.querySelectorAll(".lightbox .navBtn");
+    console.log("navBtnAll", navBtnAll);
+    navBtnAll.forEach((btn) => {
+        btn.parentElement.removeChild("btn");
+    });
 
     document.getElementById("main").appendChild(mediaWrapper);
 
