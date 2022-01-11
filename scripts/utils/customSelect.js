@@ -7,6 +7,7 @@ const optionsCopy = [].slice.call(selectCopy.children);
 optionsCopy.forEach((option) => {
     option.addEventListener("click", function(e){
         console.log(option + " a été cliquée");
+       // option.parentElement.style.width = "150px";
         let optionIndex = optionsCopy.indexOf(option);
         //console.log("optionIndex", optionIndex);
         let optionSelected = options[optionIndex];
