@@ -95,7 +95,7 @@ initPhotographer();
 
 
 ////////////////////// Filtres /////////////////////////////////////
-
+/*
 const select = document.getElementById("sort-select");
 //console.log(select);
 select.addEventListener("change", function(e) {
@@ -109,5 +109,6 @@ select.addEventListener("change", function(e) {
     const filter = new FilterFactory(select.value, photographerMedia);
     console.log("filterCreated", filter);
     filter.createAFilter();
+    console.log("HELLOOO", photographerMedia);
     displayMedia(photographerMedia);
-});
+});*/

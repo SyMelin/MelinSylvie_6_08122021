@@ -57,6 +57,34 @@ select {
 }
 
 
+/* copy-select TEST */
+.select-copy {
+    border: 1px solid red;
+    width: 100px;
+    height: 150px;
+}
+
+.select-copy .option {
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.select-copy .option1 {
+    background-color: yellow;
+}
+
+.select-copy .option2 {
+    background-color: yellowgreen;
+}
+
+.select-copy .option3 {
+    background-color: green;
+}
+
+
+
+
 /* Ajout pour conteneur des media */
 .mediaWrapper{
     /*border: 1px solid black;*/
