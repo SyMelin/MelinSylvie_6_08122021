@@ -10,6 +10,8 @@ let mediaCardAll = document.getElementsByClassName("thumb-imgfull");
 
 let likeTotal = 0;
 
+/*let optionIndexSelect = 0;*/
+
 //Récupère l'id du photographe contenu dans l'url de la page photopgrapher.html
 function getId() {
 

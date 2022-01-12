@@ -8,11 +8,20 @@ optionsCopy.forEach((option) => {
         //console.log(option + " a été cliquée");
         e.preventDefault();
         
+        optionsCopy.forEach((option) => {
+            option.setAttribute("selected", false);
+        });
+        
+        selectCopy.setAttribute("selected", "false");
         option.setAttribute("selected", true);
         //console.log("au clic, on attribut option cliquée", option.getAttribute("selected"));
-
+/*
         let optionIndex = optionsCopy.indexOf(option);
         let optionSelected = options[optionIndex];
+*/
+    
+        let optionSelected = option.getAttribute("id");
+
         if (selectCopy.classList.contains("select-open")){
 
             optionsCopy.forEach((option) => {
@@ -34,9 +43,11 @@ optionsCopy.forEach((option) => {
             
            
         // console.log(optionSelected);
-            let optionSelectedValue = optionSelected.getAttribute("value")
+            //let optionSelectedValue = optionSelected.getAttribute("value")
             //console.log(optionSelectedValue);
-            sortSelect.value = optionSelectedValue;
+
+            sortSelect.value = optionSelected
+            //sortSelect.value = optionSelectedValue;
 
             //On vide le conteneur de cartes media
             const mediaWrapper = document.querySelector(".mediaWrapper");
@@ -53,8 +64,7 @@ optionsCopy.forEach((option) => {
 
 });
 
-
-
+//Evenement sur le bouton expand du select
 
 const expandBtn = document.querySelector(".expandBtn");
 expandBtn.addEventListener("click", function(e){
@@ -63,13 +73,24 @@ expandBtn.addEventListener("click", function(e){
     let state = selectCopy.getAttribute("selected");
     console.log(state);
 
+    /*
+    optionsCopy.forEach((option) => {
+        console.log(option);
+        console.log(option.getAttribute("selected"));
+        if ((option.getAttribute("selected") == "true")) {
+            console.log(option.getAttribute("selected"));
+            optionIndexSelect = optionsCopy.indexOf(option);
+        };
+    });
+    console.log("optionIndexSelect", optionIndexSelect);*/
+
     expandBtn.classList.toggle("expandBtn-less");
     selectCopy.classList.toggle("select-open");
     selectCopy.classList.toggle("select-close");
 
     optionsCopy.forEach((option) => {
         option.style.cursor = "pointer";
-        option.setAttribute("selected", false);
+        /*option.setAttribute("selected", false);*/
         if (option.classList.contains("option-notSelected")) {
             option.classList.remove("option-notSelected");
             option.classList.add("option-selected");
@@ -85,9 +106,14 @@ expandBtn.addEventListener("click", function(e){
         console.log("on vient d'ouvrir et on veut refermer")
         selectCopy.setAttribute("selected", "false");
         console.log(selectCopy.getAttribute("selected"));
+        optionsCopy.forEach((option)=> {
+
+            if ((option.getAttribute("selected")) !== "true") {
+                option.classList.remove("option-selected");
+                option.classList.add("option-notSelected");
+            };
+        })   
     }
-
-
 });
 
 
