@@ -9,28 +9,28 @@
   </head>
   <body>
     <header role="banner" id="header">
-      <a aria-label="Index page" href="index.html">
+      <a tabindex="1" aria-label="Index page" href="index.html">
         <img role="link" alt="Fisheye Home page" src="assets/images/logo.png" class="logo" />
       </a>
     </header>
     <main role="main" id="main">
       <div class="photograph-header">
         <div class="photographer-profile"></div><!-- Ajout-->
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button tabindex="4" class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <div class="user"></div>
       </div>
       <!-- Ajout de la division contenant l'élément de tri des images -->
       <div class="sorting">
-        <label role="input label" for="sort-select">Trier par</label>
-        <div class="custom-select-1">
+        <label tabindex="7" role="input label" for="sort-select">Trier par</label>
+        <div class="select-content">
           <select name="select" id="sort-select">
             <option value="popularity">Popularité</option>
             <option value="date">Date</option>
             <option value="title">Titre</option>
           </select>
         </div>
-        <div class="custom-select">
-          <div class="expandBtn expandBtn-more"></div>
+        <div tabindex="8" class="custom-select">
+          <div role="button" class="expandBtn expandBtn-more"></div>
           <div class="select-copy select-close" selected="false">
             <div id="popularity" class="option option-selected option1" selected="true">un</div>
             <div id="date" class="option option-notSelected option2" selected="false">deux</div>
@@ -40,7 +40,7 @@
       </div>
       <!---------------------------------------------------------------->
       <!-- Ajout de l'élément Info -->
-      <div id="info">
+      <div tabindex="6" id="info">
         <p id="totalLikes"></p><i aria-label="likes" class="fas fa-heart"></i>
         <p id="price"></p>
       </div>

@@ -1,16 +1,21 @@
 class MediaItemFrame {
 
+    /**
+     * @param {Object} mediaItem un élément de media
+     */
+
     constructor(mediaItem) {
         this._mediaItem = mediaItem;
     };
     
     createMediaItemFrame () {
 
-        const frame = document.createElement("div");
-        frame.classList.add("thumb-img");
-        frame.setAttribute("role", "link");
+        this._frame = document.createElement("div");
+        this._frame.classList.add("thumb-img");
+        this._frame.setAttribute("role", "link");
+        this._frame.setAttribute("tabindex", "9");
        
-        frame.setAttribute('alt', ""); //
+       this._frame.setAttribute('alt', ""); //
        // frame.setAttribute('onclick', "displayModalL()");
 
         if(this._mediaItem.video) {
@@ -20,62 +25,65 @@ class MediaItemFrame {
             this._mediaItem.title = videoName;
 
             //Crée l'élement video
-            const video = document.createElement("video");
-            video.setAttribute("src", `assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.video}`);
-            video.setAttribute("controls", true);
+            this._video = document.createElement("video");
+            this._video.setAttribute("src", `assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.video}`);
+            this._video.setAttribute("controls", true);
            // video.style.objectFit = "contain";
-            video.style.borderRadius = this._radius;
-            frame.appendChild(video);
+            this._video.style.borderRadius = this._radius;
+            this._frame.appendChild(this._video);
         } else {
              //Crée l'élement image
-            frame.style.backgroundImage = "url("+`assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.image}`+")";
-            frame.style.backgroundSize = "cover";
-            frame.style.backgroundPosition = "center";
+            this._frame.style.backgroundImage = "url("+`assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.image}`+")";
+            this._frame.style.backgroundSize = "cover";
+            this._frame.style.backgroundPosition = "center";
           //  frame.setAttribute('alt', this._mediaItem.title);
         };
 
-        //Au clic sur une image, affichage du carrousel dans la modale
-        frame.addEventListener("click", function(e) {
-            e.preventDefault();
-
-            if ((frame.classList.contains("inLightbox")) == true) {
-                console.log("condition", "TRUE");
-                e.preventDefault();
-            } else{
-
-                frame.classList.add("inLightbox");
-                console.log("HEY", frame.className);
-                // console.log(e.target);
-            
-            const frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull  .thumb-img");
-            frameAll.forEach((item) => {
-                item.classList.add("inLightbox");
-            });
-
-           // console.log(e.target);
-
-            //const frameCard = e.target;
-
-            //On récupère la mediaCard dont l'image a été cliquée
-            const mediaCard = frame.parentElement;
-            //On récupère toutes les mediaCard
-            mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
-            const mediaArray = Array.from(mediaCardAll);
-            //On récupère l'index de la mediaCard dans le tableau regroupant toutes les mediaCard
-            let cardIndex = mediaArray.indexOf(mediaCard);
-            
-            const mediaWrapper = document.querySelector(".mediaWrapper");
-            document.querySelector("#lightbox-frame").appendChild(mediaWrapper);
-            const lightboxCarousel = new Carousel(document.querySelector("#lightbox-frame .mediaWrapper"), cardIndex);
-          
-            console.log("cardIndex", cardIndex);
-
-            displayModalL();
-
+        //Ouverture de la modale Lightbox au clic sur une image
+        this._frame.addEventListener("click", this.preloadModalLightbox.bind(this));
+        
+        //Ouverture de la modale Lightbox via le touche Echap
+        this._frame.addEventListener("keyup", (e) => {
+            const modal = document.getElementById("lightbox_modal");
+            const modalState = modal.getAttribute("aria-hidden");
+            console.log(modalState);
+            if ((e.key === "Enter") && (modalState === "true")) {
+                this.preloadModalLightbox();
             };
-        });
+        }); 
 
-        return frame;
+        return this._frame;
   
     };
+
+    preloadModalLightbox(){
+        
+        //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
+
+        if ((this._frame.classList.contains("inLightbox")) !== true) {
+            this._frame.classList.add("inLightbox");
+        
+        this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull  .thumb-img");
+        this._frameAll.forEach((item) => {
+            item.classList.add("inLightbox");
+        });
+
+        //On récupère la mediaCard dont l'image a été cliquée
+        this._mediaCard = this._frame.parentElement;
+        //On récupère toutes les mediaCard
+        this._mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
+        const mediaArray = Array.from(this._mediaCardAll);
+        //On récupère l'index de la mediaCard dans le tableau regroupant toutes les mediaCard
+        let cardIndex = mediaArray.indexOf(this._mediaCard);
+        
+        this._mediaWrapper = document.querySelector(".mediaWrapper");
+        document.querySelector("#lightbox-frame").appendChild(this._mediaWrapper);
+        this._lightboxCarousel = new Carousel(document.querySelector("#lightbox-frame .mediaWrapper"), cardIndex);
+        
+        console.log("cardIndex", cardIndex);
+
+        displayModalL();
+
+        };
+    };      
 };

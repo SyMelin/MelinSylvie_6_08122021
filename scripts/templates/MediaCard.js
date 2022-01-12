@@ -1,5 +1,9 @@
 class MediaItemCard {
 
+    /**
+     * @param {Object} mediaItem un élément de media
+     */
+
     constructor(mediaItem) {
         this._mediaItem = mediaItem;
     };
@@ -8,11 +12,12 @@ class MediaItemCard {
 
         const box = document.createElement("div");
         box.classList.add("thumb-imgfull");
-       // box.setAttribute("cardId", this._mediaItem.id);
-        //console.log(box.attributes);
+        box.setAttribute("tabindex", "-1");
+
 
         const template = new MediaItemFrame(this._mediaItem, this._width, this._height, this._radius);
         const frame = template.createMediaItemFrame();
+        frame.setAttribute("tabindex", "0");
         
         const caption = document.createElement("div");
         caption.style.display = "flex";
@@ -20,12 +25,14 @@ class MediaItemCard {
 
         const title = document.createElement("p");
         title.textContent = this._mediaItem.title;
+        title.setAttribute("tabindex", "0");
 
         const like = document.createElement("div");
         like.style.display = "flex";
 
         const likeNb = document.createElement("p");
         likeNb.textContent = this._mediaItem.likes;
+        likeNb.setAttribute("tabindex", "0");
 
         const likeHeart = document.createElement("div");
 
@@ -49,7 +56,6 @@ class MediaItemCard {
             sumLikes();
         });
 
-        //console.log("createMCard");
         return box;
     };
 

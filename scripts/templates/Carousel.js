@@ -2,7 +2,7 @@ class Carousel {
 
     /**
      * @param {HTMLElement} element
-     * @param {Number} number Index de l'élément cliqué
+     * @param {Number} index Index de l'élément cliqué
      */
 
     constructor (element, index) {
