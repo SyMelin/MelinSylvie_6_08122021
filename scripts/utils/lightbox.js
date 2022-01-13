@@ -17,7 +17,7 @@ function displayModalL() {
 function prepareBeforeClosing (){
 
     const mediaWrapper = document.querySelector("#lightbox-frame .mediaWrapper");
-    mediaWrapper.style.transform = "translate3d(0%, 0px, 0px)";
+    mediaWrapper.style.transform = "translate3d(0%, 0em, 0em)";
     mediaWrapper.style.width = "85%";
 
     const mediaCard = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull");
