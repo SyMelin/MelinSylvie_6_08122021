@@ -22,7 +22,7 @@ function prepareBeforeClosing (){
 
     const mediaCard = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull");
     mediaCard.forEach((card) => {
-        card.style.width = "350px";
+        card.style.width = "21.875em";
     });
 
     const mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");
@@ -34,7 +34,7 @@ function prepareBeforeClosing (){
     const frameAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull .thumb-img");
     frameAll.forEach((item) => {
         item.classList.remove("inLightbox");
-        item.style.width = "350px";
+        item.style.width = "100%";
     });
 
     const videoAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img video");
