@@ -13,12 +13,8 @@ function displayModalL() {
 
 };
 
-function closeModalL() {
-    console.log("HELLO");
-    const modal = document.getElementById("lightbox_modal");
-    console.log("modal", modal);
-    modal.style.display = "none";
-    modal.setAttribute("aria-hidden", "true");
+
+function prepareBeforeClosing (){
 
     const mediaWrapper = document.querySelector("#lightbox-frame .mediaWrapper");
     mediaWrapper.style.transform = "translate3d(0%, 0px, 0px)";
@@ -31,14 +27,22 @@ function closeModalL() {
 
     const mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");
     /// console.log(this._container.mediaLike);
-     for (let like of mediaLike){
-         like.style.display = "flex";
-     };
+    for (let like of mediaLike){
+        like.style.display = "flex";
+    };
 
-    const frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
+    const frameAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull .thumb-img");
     frameAll.forEach((item) => {
         item.classList.remove("inLightbox");
         item.style.width = "350px";
+    });
+
+    const videoAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img video");
+    console.log("videoAll", videoAll);
+    videoAll.forEach((video) => {
+        video.removeAttribute("controls");
+        video.pause();
+        video.currentTime = "0";
     });
 
     const navBtnAll = document.querySelectorAll(".lightbox .navBtn");
@@ -47,7 +51,17 @@ function closeModalL() {
     });
 
     document.getElementById("main").appendChild(mediaWrapper);
+};
 
+function closeModalL() {
+
+    prepareBeforeClosing();
+
+    console.log("HELLO");
+    const modal = document.getElementById("lightbox_modal");
+    console.log("modal", modal);
+    modal.style.display = "none";
+    modal.setAttribute("aria-hidden", "true");
 
     //Remettre le focus sur le reste du document???????
 

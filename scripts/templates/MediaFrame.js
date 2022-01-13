@@ -27,8 +27,8 @@ class MediaItemFrame {
             //Crée l'élement video
             this._video = document.createElement("video");
             this._video.setAttribute("src", `assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.video}`);
-            this._video.setAttribute("controls", true);
-           // video.style.objectFit = "contain";
+            //this._video.setAttribute("controls", "false");
+            this._video.style.objectFit = "cover";
             this._video.style.borderRadius = this._radius;
             this._frame.appendChild(this._video);
         } else {
@@ -67,6 +67,13 @@ class MediaItemFrame {
         this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull  .thumb-img");
         this._frameAll.forEach((item) => {
             item.classList.add("inLightbox");
+           // console.log(item);
+            if (item.firstChild){
+                const video = item.firstChild;
+                video.setAttribute("controls", true);
+                video.pause();
+                video.currentTime = "0";
+            };
         });
 
         //On récupère la mediaCard dont l'image a été cliquée
