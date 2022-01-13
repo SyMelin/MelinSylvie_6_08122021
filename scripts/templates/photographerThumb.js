@@ -1,6 +1,10 @@
 // Crée le composant UserCard pour un photographe donné
 class PhotographerThumb {
 
+    /**
+     * @param {Object} object 
+     */
+
     constructor(photographer) {
         this._photographer = photographer;
     };

@@ -9,13 +9,20 @@ class Carousel {
         this._element = element;
         this._index = index;
         this._children = [].slice.call(element.children);
+        this._indexMin = 0;
+        this._indexMax = this._children.length - 1;
+        //console.log("indexMax", this._indexMax);
         let ratio = this._children.length;
         this._container = document.querySelector("#lightbox-frame .mediaWrapper");
         this._container.style.width = (ratio * 100) + "%";
         this._children.forEach((child) => {
             child.style.width = (100 / ratio ) + "%";
-        })
-        
+        });
+        this._container.mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");
+       /// console.log(this._container.mediaLike);
+        for (let like of this._container.mediaLike){
+            like.style.display = "none";
+        }
         this.gotoItem(this._index);
         this.createNavigation();
 
@@ -33,14 +40,22 @@ class Carousel {
         //Crée le bouton Précédent
         this._prevBtn = this.createNavBtn();
         this._prevBtn.classList.add("lightbox__prev");
-        
+        //console.log("index pr btn", this._index);
+        if (this._index == this._indexMin) {
+            //console.log("index = indexMin");
+            this._prevBtn.classList.add("navBtn-hidden");
+        };
 
         //Crée le bouton Suivant
         this._nextBtn = this.createNavBtn();
         this._nextBtn.classList.add("lightbox__next");
+        if (this._index == this._indexMax) {
+            //console.log("index = indexMax");
+            this._nextBtn.classList.add("navBtn-hidden");
+        };  
 
         const lightbox = document.querySelector(".lightbox");
-        console.log(lightbox);
+        //console.log(lightbox);
         lightbox.prepend(this._prevBtn);
         lightbox.appendChild(this._nextBtn); 
 
@@ -51,15 +66,12 @@ class Carousel {
 
     prev(){
 
-        console.log("cardIndex", this._index);
-        const indexMin = 0;
-        const indexMax = this._children.length;
-
-        if (this._index >= (1 + indexMin) && this._index < indexMax) {
+        //console.log("cardIndex", this._index);
+        if (this._index > this._indexMin && this._index <= this._indexMax) {
             this._index-- ; //index vers lequel on veut aller
-            console.log("carIndextogoto", this._index);
+            //console.log("carIndextogoto", this._index);
             this.gotoItem(this._index);
-            if (this._index == indexMin) {
+            if (this._index == this._indexMin) {
                 this._prevBtn.classList.add("navBtn-hidden");
             } else if (this._nextBtn.classList.contains("navBtn-hidden")){
                 this._nextBtn.classList.remove("navBtn-hidden");
@@ -69,15 +81,15 @@ class Carousel {
 
     next(){
 
-        console.log("cardIndex", this._index);
-        const indexMin = 0;
-        const indexMax = this._children.length;
+        //console.log("cardIndex", this._index);
+       // const indexMin = 0;
+        //const indexMax = this._children.length;
        
-        if (this._index >= indexMin && this._index < (indexMax - 1)) {
+        if (this._index >= this._indexMin && this._index < this._indexMax) {
             this._index++ ;
-            console.log("carIndextogoto", this._index);
+            //console.log("carIndextogoto", this._index);
             this.gotoItem(this._index);
-            if (this._index == (indexMax-1)) {
+            if (this._index == (this._indexMax)) {
                 this._nextBtn.classList.add("navBtn-hidden");
             } else if (this._prevBtn.classList.contains("navBtn-hidden")){
                 this._prevBtn.classList.remove("navBtn-hidden");

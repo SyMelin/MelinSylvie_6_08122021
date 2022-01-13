@@ -28,16 +28,17 @@ class MediaItemCard {
         title.setAttribute("tabindex", "0");
 
         const like = document.createElement("div");
+        like.classList.add("mediaCard__like")
         like.style.display = "flex";
 
         const likeNb = document.createElement("p");
         likeNb.textContent = this._mediaItem.likes;
-        likeNb.setAttribute("tabindex", "0");
 
         const likeHeart = document.createElement("div");
-
         likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
         likeHeart.style.border = "1px solid red";
+        likeHeart.style.cursor =  "pointer";
+        likeNb.setAttribute("tabindex", "0");
 
         like.appendChild(likeNb);
         like.appendChild(likeHeart);

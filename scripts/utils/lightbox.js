@@ -29,6 +29,12 @@ function closeModalL() {
         card.style.width = "350px";
     });
 
+    const mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");
+    /// console.log(this._container.mediaLike);
+     for (let like of mediaLike){
+         like.style.display = "flex";
+     };
+
     const frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
     frameAll.forEach((item) => {
         item.classList.remove("inLightbox");
@@ -51,8 +57,6 @@ function closeModalL() {
     main.setAttribute("aria-hidden", "true");
 
 };
-
-
 
 
 // Fermeture de la modale via le touche Echap
