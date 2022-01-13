@@ -27,6 +27,10 @@ body {
     justify-content: space-around;
     align-items: center;
 }
+/*
+.photograph-header:nth-child(1n){
+    width: 90%;
+}*/
 
 /* --- Ajouts --- */
 .sorting {
@@ -69,7 +73,7 @@ select {
     border-radius: 5px;
     box-sizing: border-box;
     width: 170px;
-    padding: 10px;;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -107,6 +111,7 @@ select {
 .select-copy .option {
     width: 100%;
     padding-top: 15px;
+    
 }
 
 .select-copy .option-selected{
