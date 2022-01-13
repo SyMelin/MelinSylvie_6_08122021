@@ -31,6 +31,7 @@ body {
 /* --- Ajouts --- */
 .sorting {
     margin: 50px 100px;
+    height: 40px;
     display: flex;
     flex-direction: row;
 }
@@ -43,22 +44,22 @@ body {
 /* --------------- */
 
 /* custom select styles */
-.custom-select {
-    position: relative;
-    width: 170px;
-    border: 1px solid blue;
-    
-  }
 
 select {
-    font-size: 18px;
+    /*font-size: 18px;
     font-weight: bold; 
     color: white;
-    background-color: #901C1C;
+    background-color: #901C1C;*/
+    display: none;
 }
 
+.custom-select {
+    position: absolute;
+    width: 170px;
+    border: 1px solid blue;
+    z-index: 2;
+  }
 
-/* copy-select TEST */
 .select-copy {
     position: relative;
     font-size: 18px;
