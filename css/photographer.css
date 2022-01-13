@@ -332,8 +332,10 @@ form input {
   /*  width: 641.66px;*/
     height: 100%;
 }
-
+/*
 .lightbox .mediaWrapper .thumb-imgfull .thumb-img{
+*/
+.frame-inLightbox{
     width: 100%;
     height: 550px;
 }

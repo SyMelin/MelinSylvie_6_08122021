@@ -32,9 +32,9 @@ function prepareBeforeClosing (){
     };
 
     const frameAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull .thumb-img");
-    frameAll.forEach((item) => {
-        item.classList.remove("inLightbox");
-        item.style.width = "100%";
+    frameAll.forEach((frame) => {
+        frame.classList.remove("frame-inLightbox");
+      //  item.style.width = "100%";
     });
 
     const videoAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img video");

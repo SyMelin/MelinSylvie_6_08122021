@@ -61,15 +61,15 @@ class MediaItemFrame {
         
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
 
-        if ((this._frame.classList.contains("inLightbox")) !== true) {
-            this._frame.classList.add("inLightbox");
+        if ((this._frame.classList.contains("frame-inLightbox")) !== true) {
+            this._frame.classList.add("frame-inLightbox");
         
-        this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull  .thumb-img");
-        this._frameAll.forEach((item) => {
-            item.classList.add("inLightbox");
+        this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
+        this._frameAll.forEach((frame) => {
+            frame.classList.add("frame-inLightbox");
            // console.log(item);
-            if (item.firstChild){
-                const video = item.firstChild;
+            if (frame.firstChild){
+                const video = frame.firstChild;
                 video.setAttribute("controls", true);
                 video.pause();
                 video.currentTime = "0";
