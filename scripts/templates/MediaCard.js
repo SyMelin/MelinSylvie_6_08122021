@@ -20,16 +20,16 @@ class MediaItemCard {
         frame.setAttribute("tabindex", "0");
         
         const caption = document.createElement("div");
-        caption.style.display = "flex";
-        caption.style.justifyContent = "space-between";
+        caption.classList.add("caption");
 
         const title = document.createElement("p");
+        title.classList.add("title-caption");
         title.textContent = this._mediaItem.title;
         title.setAttribute("tabindex", "0");
 
         const like = document.createElement("div");
+        like.classList.add("like-caption")
         like.classList.add("mediaCard__like")
-        like.style.display = "flex";
 
         const likeNb = document.createElement("p");
         likeNb.textContent = this._mediaItem.likes;

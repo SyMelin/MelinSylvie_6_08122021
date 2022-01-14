@@ -30,14 +30,13 @@ async function displayPhotographerHeader(photographerData) {
 
 //Affiche les medias sur la page du photographe
 async function displayMedia(photographerMedia){
+    
     const mediaWrapper = document.createElement('div');
-    mediaWrapper.classList.add("mediaWrapper");
-    mediaWrapper.style.display = "flex";
-    mediaWrapper.style.justifyContent = "space-between";
-    mediaWrapper.style.flexWrap ="wrap";
+    mediaWrapper.classList.add("mediaWrapper", "mediaWrapper-inMain");
+    
     const main = document.getElementById("main");
     main.appendChild(mediaWrapper);
-    //console.log("photographerMediaTest2", photographerMedia);
+
     for (let mediaItem of photographerMedia) {
         const template = new MediaItemCard(mediaItem);
         const mediaItemCard = template.createMediaItemCard();

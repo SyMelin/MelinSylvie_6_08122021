@@ -14,9 +14,8 @@ class MediaItemFrame {
         this._frame.classList.add("thumb-img");
         this._frame.setAttribute("role", "link");
         this._frame.setAttribute("tabindex", "9");
-       
-       this._frame.setAttribute('alt', ""); //
-       // frame.setAttribute('onclick', "displayModalL()");
+        this._frame.setAttribute('alt', ""); //
+        // frame.setAttribute('onclick', "displayModalL()");
 
         if(this._mediaItem.video) {
 
@@ -78,6 +77,7 @@ class MediaItemFrame {
 
         //On récupère la mediaCard dont l'image a été cliquée
         this._mediaCard = this._frame.parentElement;
+        this._mediaCard.classList.add(".thumb-imgfull-inLightbox");
         //On récupère toutes les mediaCard
         this._mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
         const mediaArray = Array.from(this._mediaCardAll);
@@ -85,6 +85,9 @@ class MediaItemFrame {
         let cardIndex = mediaArray.indexOf(this._mediaCard);
         
         this._mediaWrapper = document.querySelector(".mediaWrapper");
+        this._mediaWrapper.classList.add("mediaWrapper-inLightbox");
+        this._mediaWrapper.classList.remove("mediaWrapper-inMain");
+
         document.querySelector("#lightbox-frame").appendChild(this._mediaWrapper);
         this._lightboxCarousel = new Carousel(document.querySelector("#lightbox-frame .mediaWrapper"), cardIndex);
         

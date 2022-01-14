@@ -3,8 +3,8 @@ function displayModalL() {
     const modal = document.getElementById("lightbox_modal");
 	modal.style.display = "block";
     modal.setAttribute("aria-hidden", "false");
-    document.querySelector("#lightbox_modal .modalContent").focus();
-    const lightframe = document.getElementById("lightbox-frame");//met le focus sur votre modale une fois cette dernière ouverte
+    document.querySelector("#lightbox_modal .modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
+    const lightframe = document.getElementById("lightbox-frame");
  
     const header = document.getElementById("header");
     const main = document.getElementById("main");
@@ -16,19 +16,24 @@ function displayModalL() {
 
 function prepareBeforeClosing (){
 
-    const mediaWrapper = document.querySelector("#lightbox-frame .mediaWrapper");
+    const mediaWrapper = document.querySelector(".mediaWrapper");
+    mediaWrapper.classList.remove("mediaWrapper-inLightbox");
+    mediaWrapper.classList.add("mediaWrapper-inMain");
     mediaWrapper.style.transform = "translate3d(0%, 0em, 0em)";
     mediaWrapper.style.width = "85%";
 
-    const mediaCard = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull");
-    mediaCard.forEach((card) => {
-        card.style.width = "21.875em";
+    const mediaCardAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull");
+    mediaCardAll.forEach((mediaCard) => {
+        mediaCard.classList.remove(".thumb-imgfull-inLightbox");
+        mediaCard.style.width = "21.875em";
     });
 
     const mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");
     /// console.log(this._container.mediaLike);
     for (let like of mediaLike){
-        like.style.display = "flex";
+        like.classList.toggle("hidden");
+        like.classList.toggle("like-caption-visible");
+
     };
 
     const frameAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull .thumb-img");
