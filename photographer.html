@@ -16,7 +16,7 @@
     <main role="main" id="main">
       <div class="photograph-header">
         <div class="photographer-profile"></div><!-- Ajout-->
-        <button tabindex="4" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button tabindex="4" class="contact_button" onclick="NEW()">Contactez-moi</button>
         <div class="user"></div>
       </div>
       <!-- Ajout de la division contenant l'élément de tri des images -->
@@ -71,25 +71,9 @@
    
    
     <!-- Modale contactForm-->
-    <div id="contact_modal" class="modal" aria-hidden="true" role="dialogue">
+    <div id="" class="modal" aria-hidden="true" role="dialogue">
 			<div class="modalContent">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form method="post" action="">
-					<div>
-						<label for="firstname">Prénom</label>
-						<input type="text" name="firstname" id="firstname" class="form-textarea" />
-            <label for="lastname">Nom</label>
-            <input type="text" name="lastname" id="lastname" class="form-textarea"/>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="form-textarea" />
-            <label for="message">Votre message</label>
-            <input type="text" name="message" id="message" /> <!-- ou textarea ??? -->
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
+			
 			</div>
 		</div>
    <!-------------------------------------->

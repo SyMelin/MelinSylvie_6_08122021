@@ -365,7 +365,13 @@ form input {
     position: relative;
 }
 
-
+.closeBtn{
+    display: block;
+    background-image : url("../assets/icons/close.svg");
+    width: 3.125em;
+    height: 3.125em;
+    background-repeat: no-repeat;
+}
 
 
 
