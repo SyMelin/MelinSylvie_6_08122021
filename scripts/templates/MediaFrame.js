@@ -48,6 +48,9 @@ class MediaItemFrame {
             console.log(modalState);
             if ((e.key === "Enter") && (modalState === "true")) {
                 e.preventDefault;
+               // const lightbox = new Lightbox();
+              //  lightbox.create();
+              //  console.log(lightbox);
                 this.preloadModalLightbox();
             };
         }); 
@@ -57,6 +60,10 @@ class MediaItemFrame {
     };
 
     preloadModalLightbox(){
+
+        const lightbox = new Lightbox();
+                lightbox.create();
+                console.log(lightbox);
         
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
 

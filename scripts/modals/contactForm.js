@@ -202,8 +202,10 @@ function displayModal() {
 };
 
 function closeModal() {
-    
-    const modal = document.getElementById("contact_modal");
+
+    const modal = document.querySelector(".modal_test");
+   
+    //const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
 
@@ -223,6 +225,9 @@ function closeModal() {
     const main = document.getElementById("main");
     header.setAttribute("aria-hidden", "false");
     main.setAttribute("aria-hidden", "false");
+
+    modal.setAttribute("id", "");
+    console.log(modal);
 };
 
 

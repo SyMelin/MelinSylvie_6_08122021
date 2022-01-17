@@ -1,3 +1,28 @@
+class Lightbox {
+
+    create() {
+        const modalContent = document.querySelector(".modal .modalContent");
+        modalContent.classList.add("lightbox");
+
+        const carousel = document.createElement("div");
+        carousel.classList.add("carousel");
+
+        const lightboxFrame =  document.createElement("div");
+        lightboxFrame.setAttribute("id", "lightbox-frame");
+    
+        carousel.appendChild(lightboxFrame);
+        modalContent.appendChild(carousel);
+        console.log(modalContent);
+    };
+};
+
+
+
+
+
+
+
+
 function displayModalL() {
 
     const modal = document.getElementById("lightbox_modal");
@@ -50,10 +75,10 @@ function prepareBeforeClosing (){
         video.currentTime = "0";
     });
 
-    const navBtnAll = document.querySelectorAll(".lightbox .navBtn");
-    navBtnAll.forEach((btn) => {
-        btn.parentElement.removeChild(btn);
-    });
+  //  const navBtnAll = document.querySelectorAll(".lightbox .navBtn");
+  //  navBtnAll.forEach((btn) => {
+  //      btn.parentElement.removeChild(btn);
+  //  });
 
     document.getElementById("main").appendChild(mediaWrapper);
 };
@@ -63,17 +88,33 @@ function closeModalL() {
     prepareBeforeClosing();
 
     console.log("HELLO");
-    const modal = document.getElementById("lightbox_modal");
-    console.log("modal", modal);
+    
+    const modal = document.querySelector(".modal");
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
 
     //Remettre le focus sur le reste du document???????
 
+    const modalContent = document.querySelector(".modal .modalContent");
+    const children = [].slice.call(modalContent.children);
+    console.log(children);
+    const closeBtn =  document.querySelector(".modal .modalContent .closeBtn");
+    children.forEach((child) => {
+        if (child != closeBtn) {
+            //console.log("notBTN");
+            modalContent.removeChild(child);
+            console.log(modalContent);
+        };
+    });
+
+
     const header = document.getElementById("header");
     const main = document.getElementById("main");
-    header.setAttribute("aria-hidden", "true");
-    main.setAttribute("aria-hidden", "true");
+    header.setAttribute("aria-hidden", "false");
+    main.setAttribute("aria-hidden", "false");
+
+    modal.setAttribute("id", "");
+    console.log("modal", modal);
 
 };
 
