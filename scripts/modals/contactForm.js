@@ -12,10 +12,10 @@ class Modal {
 
     createModal () {
         
-        const modal = document.querySelector(".modal")
+        const modal = document.querySelector(".modal_test")
         modal.setAttribute("id", this._id);
 
-        const modalContent = document.querySelector(".modalContent");
+        const modalContent = document.querySelector(".modal_test .modalContent");
 
         let closeBtn =  document.createElement("div");
         closeBtn.classList.add("closeBtn");
@@ -27,43 +27,58 @@ class Modal {
         switch (this._type) {
             case 'contactForm' :
                 console.log("HEEEERE");
-                let fields = {
-                    firstame : {
+
+                const header = document.createElement ("header");
+                const h2 = document.createElement ("h2");
+                h2.textContent = "Contactez-moi";
+
+                const closeBtn =  document.querySelector(".modal_test .modalContent .closeBtn");
+
+                header.appendChild(h2);
+                header.appendChild(closeBtn);
+
+                modalContent.appendChild(header);
+
+
+
+                let fields = [
+                    { 
                         label : 'firstame',
                         type : 'text',
                         className: 'text-area',
                         text: 'prénom'
                     },
-                    lastame : {
+                    {
                         label : 'lastame',
                         type : 'text',
                         className: 'text-area',
                         text: 'Nom'
                     },
-                    email : {
+                    {
                         label : 'email',
                         type : 'email',
                         className: 'text-area',
                         text: 'Email'
                     },
-                    message : {
+                    {
                         label : 'message',
                         type : 'text',
                         className: '',
                         text: 'Votre message'
                     }
-                };
+                ];
 
 
                 let contactForm = new ContactForm("post", "", fields);
                 contactForm.create();
                 console.log("CONTACTFORM", contactForm);
-                modalContent.appendChild(contactForm);
+                modalContent.appendChild(contactForm.create());
+                console.log("modal_test", document.querySelector(".modal_test"));
                 break;
             case 'lightbox' :
                 let lightbox = new Lightbox();
                 lightbox.create();
-                modalContent.appendChild(contactForm);
+                modalContent.appendChild(lightbox);
                 break;
         };
     };
@@ -75,7 +90,7 @@ class ContactForm {
     /**
      * @param {string} method methode de traitement des données
      * @param {string} action
-     * @param {object}  fields {firstname {label: 'firstname', type: 'text', className: 'text-area' }}
+     * @param {array} fields [{label: 'firstname', type: 'text', className: 'text-area' }]
      */
 
     constructor (method, action, fields) {
@@ -86,14 +101,7 @@ class ContactForm {
 
     create () {
 
-        const header = document.createElement ("header");
-        const h2 = document.createElement ("h2");
-        h2.textContent = "Contactez-moi";
-
-        const closeBtn =  document.querySelector(".closeBtn");
-
-        header.appendChild(h2);
-        header.appendChild(closeBtn);
+        
 
         const form = document.createElement ("form");
         form.setAttribute("methode", this._method);
@@ -102,13 +110,17 @@ class ContactForm {
         const fieldsContainer = document.createElement("div");
         fieldsContainer.classList.add("fieldsContainer");
         form.appendChild(fieldsContainer);
+        //console.log("CREER ICI", fieldsContainer);
 
-        console.log(this._fields);
+        for (let item of this._fields) {
+           // console.log("HELLOOOOOO", item.text);
+            let formField = new FormField(item.label, item.type, item.className, item.text);
+           // console.log("FORMFIELD", formField.createFormField());
+            fieldsContainer.appendChild(formField.createFormField());
+            
+        };
 
-        Array(this._fields).forEach((field) => {
-            let formField = new FormField(this._field.label, this._field.type, this._field.className, this._field.text);
-            formField.create();
-        });
+       // console.log("fielscontainer", fieldsContainer);
         
         const contactBtn =  document.createElement("button");
         contactBtn.textContent = "Envoyer";
@@ -116,7 +128,9 @@ class ContactForm {
         
        
         form.appendChild(contactBtn);
-        
+        console.log("form", form);
+
+        return form;
         
     };
 
@@ -142,23 +156,32 @@ class FormField {
         this._text = text;
     }
 
-    create() {
+    createFormField() {
+
+        let fieldBox = document.createElement("div");
+
         let label =  document.createElement("label");
         label.setAttribute("for", this._label);
         label.textContent = this._text;
-        console.log(label);
+        //console.log(label);
 
         let input =  document.createElement("input");
         input.setAttribute("type", this._type);
         input.setAttribute("name", this._name);
         input.setAttribute("id", this._id);
         input.setAttribute("class", this._class);
-        console.log(input);
+        //console.log(input);
 
-        let fieldsContainer = document.querySelector("fieldsContainer")
-        console.log(fieldsContainer);
-        fieldsContainer.appendChild(label);
-        fieldsContainer.appendChild(input);
+        fieldBox.appendChild(label);
+        fieldBox.appendChild(input);
+
+        return fieldBox;
+
+
+       // let fieldsContainer = document.querySelector("#main");
+        //console.log(fieldsContainer);
+        //fieldsContainer.appendChild(label);
+       // fieldsContainer.appendChild(input);
     };
 
 };
@@ -169,6 +192,7 @@ function NEW(){
     let newContactForm = new Modal("contact_modal", 'contactForm');
     newContactForm.createModal();
     console.log(newContactForm);
+    displayModal();
 }
 
 
