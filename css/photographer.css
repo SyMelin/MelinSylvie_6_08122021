@@ -13,17 +13,6 @@ body {
     background-color: rgba(196, 196, 196, 0.4);
 }
 
-.modal_test{
-    display: none;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    padding-top: 5.625em;
-    background-color: rgba(196, 196, 196, 0.4);
-}
-
 .photograph-header {
     background-color: #FAFAFA;
     height: 18.75em;
@@ -276,7 +265,7 @@ select {
     margin: auto;
 }
 
-.modal_test header {
+.modal header {
     justify-content: space-between;
     width: 100%;
 }
@@ -285,7 +274,7 @@ select {
     cursor: pointer;
 }
 
-.modal_test header h2 {
+.modal header h2 {
     font-size: 4em;
     font-weight: normal;
     text-align: center;

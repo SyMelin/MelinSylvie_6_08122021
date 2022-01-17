@@ -12,30 +12,22 @@ class Modal {
 
     createModal () {
         
-        const modal = document.querySelector(".modal_test")
+        const modal = document.querySelector(".modal")
         modal.setAttribute("id", this._id);
 
-        const modalContent = document.querySelector(".modal_test .modalContent");
-
-        //let closeBtn =  document.createElement("div");
-        //closeBtn.classList.add("closeBtn");
-        //closeBtn.setAttribute("role", "button");
-        //closeBtn.setAttribute("onclick", "closeModal()");
-
-       // modalContent.appendChild(closeBtn);
+        let modalContent = document.querySelector(".modalContent");
+        let closeBtn =  document.querySelector(".modalContent .closeBtn");
 
         switch (this._type) {
             case 'contactForm' :
-                //console.log("HEEEERE");
 
                 const header = document.createElement ("header");
                 const h2 = document.createElement ("h2");
                 h2.textContent = "Contactez-moi";
 
-               // const closeBtn =  document.querySelector(".modal_test .modalContent .closeBtn");
+                closeBtn.setAttribute("onclick", "closeModal()");
 
                 header.appendChild(h2);
-              //  header.appendChild(closeBtn);
 
                 modalContent.appendChild(header);
 
@@ -69,19 +61,21 @@ class Modal {
 
 
                 let contactForm = new ContactForm("post", "", fields);
-                contactForm.create();
-                //console.log("CONTACTFORM", contactForm);
                 modalContent.appendChild(contactForm.create());
-                //console.log("modal_test", document.querySelector(".modal_test"));
+
                 break;
-            case 'lightbox' :
+
+           case 'lightbox' :
+                console.log("ICIIIIIIIIIIII");
                 let lightbox = new Lightbox();
                 lightbox.create();
-                modalContent.appendChild(lightbox);
-                break;
+               // console.log("MODALCONTENT", modalContent);
+
+                
+                closeBtn.setAttribute("onclick", "closeModalL()");
+         break;
         };
     };
-
 };
 
 class ContactForm {
@@ -107,18 +101,13 @@ class ContactForm {
         const fieldsContainer = document.createElement("div");
         fieldsContainer.classList.add("fieldsContainer");
         form.appendChild(fieldsContainer);
-        //console.log("CREER ICI", fieldsContainer);
 
         for (let item of this._fields) {
-           // console.log("HELLOOOOOO", item.text);
             let formField = new FormField(item.label, item.type, item.className, item.text);
-           // console.log("FORMFIELD", formField.createFormField());
             fieldsContainer.appendChild(formField.createFormField());
             
         };
 
-       // console.log("fielscontainer", fieldsContainer);
-        
         const contactBtn =  document.createElement("button");
         contactBtn.textContent = "Envoyer";
         contactBtn.classList.add("contact_button");
@@ -128,11 +117,8 @@ class ContactForm {
         console.log("form", form);
 
         return form;
-        
     };
-
 };
-
 
 class FormField {
 
@@ -157,25 +143,23 @@ class FormField {
 
         let fieldBox = document.createElement("div");
 
+        //Crée le label
         let label =  document.createElement("label");
         label.setAttribute("for", this._label);
         label.textContent = this._text;
-        //console.log(label);
 
+        //Crée l'input
         let input =  document.createElement("input");
         input.setAttribute("type", this._type);
         input.setAttribute("name", this._name);
         input.setAttribute("id", this._id);
         input.setAttribute("class", this._class);
-        //console.log(input);
 
         fieldBox.appendChild(label);
         fieldBox.appendChild(input);
 
         return fieldBox;
-
     };
-
 };
 
 
@@ -185,7 +169,7 @@ function NEW(){
     newContactForm.createModal();
     //console.log(newContactForm);
     displayModal();
-}
+};
 
 
 function displayModal() {
@@ -203,16 +187,16 @@ function displayModal() {
 
 function closeModal() {
 
-    const modal = document.querySelector(".modal_test");
+    const modal = document.querySelector(".modal");
    
     //const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
 
-    const modalContent = document.querySelector(".modal_test .modalContent");
+    const modalContent = document.querySelector(".modal .modalContent");
     const children = [].slice.call(modalContent.children);
     console.log(children);
-    const closeBtn =  document.querySelector(".modal_test .modalContent .closeBtn");
+    let closeBtn =  document.querySelector(".modal .modalContent .closeBtn");
     children.forEach((child) => {
         if (child != closeBtn) {
             //console.log("notBTN");
@@ -228,6 +212,9 @@ function closeModal() {
 
     modal.setAttribute("id", "");
     console.log(modal);
+
+    closeBtn =  document.querySelector(".modal .modalContent .closeBtn");
+    closeBtn.removeAttribute("onclick");
 };
 
 

@@ -48,9 +48,6 @@ class MediaItemFrame {
             console.log(modalState);
             if ((e.key === "Enter") && (modalState === "true")) {
                 e.preventDefault;
-               // const lightbox = new Lightbox();
-              //  lightbox.create();
-              //  console.log(lightbox);
                 this.preloadModalLightbox();
             };
         }); 
@@ -61,9 +58,8 @@ class MediaItemFrame {
 
     preloadModalLightbox(){
 
-        const lightbox = new Lightbox();
-                lightbox.create();
-                console.log(lightbox);
+        const newLightbox = new Modal("lightbox_modal", 'lightbox');
+        newLightbox.createModal();
         
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
 
@@ -95,6 +91,7 @@ class MediaItemFrame {
         this._mediaWrapper.classList.add("mediaWrapper-inLightbox");
         this._mediaWrapper.classList.remove("mediaWrapper-inMain");
 
+        console.log("loghtboxFrale", document.querySelector("#lightbox-frame") );
         document.querySelector("#lightbox-frame").appendChild(this._mediaWrapper);
         this._lightboxCarousel = new Carousel(document.querySelector("#lightbox-frame .mediaWrapper"), cardIndex);
         

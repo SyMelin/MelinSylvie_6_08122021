@@ -9,18 +9,14 @@ class Lightbox {
 
         const lightboxFrame =  document.createElement("div");
         lightboxFrame.setAttribute("id", "lightbox-frame");
+        console.log(lightboxFrame);
     
         carousel.appendChild(lightboxFrame);
         modalContent.appendChild(carousel);
         console.log(modalContent);
+
     };
 };
-
-
-
-
-
-
 
 
 function displayModalL() {
@@ -54,7 +50,6 @@ function prepareBeforeClosing (){
     });
 
     const mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");
-    /// console.log(this._container.mediaLike);
     for (let like of mediaLike){
         like.classList.toggle("hidden");
         like.classList.toggle("like-caption-visible");
@@ -64,7 +59,6 @@ function prepareBeforeClosing (){
     const frameAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull .thumb-img");
     frameAll.forEach((frame) => {
         frame.classList.remove("frame-inLightbox");
-      //  item.style.width = "100%";
     });
 
     const videoAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img video");
@@ -75,20 +69,14 @@ function prepareBeforeClosing (){
         video.currentTime = "0";
     });
 
-  //  const navBtnAll = document.querySelectorAll(".lightbox .navBtn");
-  //  navBtnAll.forEach((btn) => {
-  //      btn.parentElement.removeChild(btn);
-  //  });
-
     document.getElementById("main").appendChild(mediaWrapper);
 };
+
 
 function closeModalL() {
 
     prepareBeforeClosing();
 
-    console.log("HELLO");
-    
     const modal = document.querySelector(".modal");
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
@@ -98,7 +86,7 @@ function closeModalL() {
     const modalContent = document.querySelector(".modal .modalContent");
     const children = [].slice.call(modalContent.children);
     console.log(children);
-    const closeBtn =  document.querySelector(".modal .modalContent .closeBtn");
+    let closeBtn =  document.querySelector(".modal .modalContent .closeBtn");
     children.forEach((child) => {
         if (child != closeBtn) {
             //console.log("notBTN");
@@ -115,6 +103,9 @@ function closeModalL() {
 
     modal.setAttribute("id", "");
     console.log("modal", modal);
+
+    closeBtn =  document.querySelector(".modal .modalContent .closeBtn");
+    closeBtn.removeAttribute("onclick");
 
 };
 
