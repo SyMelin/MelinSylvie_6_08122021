@@ -92,8 +92,7 @@ class Carousel {
     gotoItem(index) {
         // console.log("cardIndexGoTO", index);
         let translateX = index * -100 / this._children.length + "%";
-        console.log(translateX);
-        //console.log(this._container);
+        //console.log(translateX);
         this._container.style.transform = `translate3d(${translateX}, 0, 0)`;
     };
 

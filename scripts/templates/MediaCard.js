@@ -35,9 +35,9 @@ class MediaItemCard {
         likeNb.textContent = this._mediaItem.likes;
 
         const likeHeart = document.createElement("div");
+        likeHeart.classList.add("likeHeart");
         likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
         likeHeart.style.border = "1px solid red";
-        likeHeart.style.cursor =  "pointer";
         likeNb.setAttribute("tabindex", "0");
 
         like.appendChild(likeNb);

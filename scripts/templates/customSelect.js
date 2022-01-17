@@ -8,8 +8,6 @@ class CustomSelect {
         this._element = element;
     }
 
-
-
 }
 
 

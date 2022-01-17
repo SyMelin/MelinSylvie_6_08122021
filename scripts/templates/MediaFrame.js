@@ -43,7 +43,7 @@ class MediaItemFrame {
         
         //Ouverture de la modale Lightbox via le touche Echap
         this._frame.addEventListener("keyup", (e) => {
-            const modal = document.getElementById("lightbox_modal");
+            const modal = document.querySelector(".modal");
             const modalState = modal.getAttribute("aria-hidden");
             console.log(modalState);
             if ((e.key === "Enter") && (modalState === "true")) {
@@ -57,17 +57,15 @@ class MediaItemFrame {
     };
 
     preloadModalLightbox(){
-
-        const newLightbox = new Modal("lightbox_modal", 'lightbox');
-        newLightbox.createModal();
         
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
 
         if ((this._frame.classList.contains("frame-inLightbox")) !== true) {
+            const newLightbox = new Modal("lightbox_modal", 'lightbox');
+            newLightbox.createModal();
             this._frame.classList.add("frame-inLightbox");
-        
-        this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
-        this._frameAll.forEach((frame) => {
+            this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
+            this._frameAll.forEach((frame) => {
             frame.classList.add("frame-inLightbox");
            // console.log(item);
             if (frame.firstChild){
@@ -97,7 +95,7 @@ class MediaItemFrame {
         
         console.log("cardIndex", cardIndex);
 
-        displayModalL();
+        displayModal();
 
         };
     };      

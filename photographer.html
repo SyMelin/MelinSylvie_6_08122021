@@ -16,7 +16,7 @@
     <main role="main" id="main">
       <div class="photograph-header">
         <div class="photographer-profile"></div><!-- Ajout-->
-        <button tabindex="4" class="contact_button" onclick="NEW()">Contactez-moi</button>
+        <button tabindex="4" class="contact_button" onclick="openContactForm()">Contactez-moi</button>
         <div class="user"></div>
       </div>
       <!-- Ajout de la division contenant l'élément de tri des images -->
@@ -54,7 +54,7 @@
       
       <!-- container du carrousel -->
       <div class="modalContent">
-          <img role="button" class="closeBtn" src="assets/icons/close.svg" onclick="closeModalL()" />
+          <img role="button" class="closeBtn" src="assets/icons/close.svg" />
           
     </div>
     <!-------------------------------------->
@@ -79,6 +79,7 @@
     
     <!-- Factories -->
     <script src="scripts/factories/filterFactory.js"></script>
+    <script src="scripts/factories/modal.js"></script>
     <!-- Pages -->
     <script src="scripts/pages/photographer.js"></script>
 

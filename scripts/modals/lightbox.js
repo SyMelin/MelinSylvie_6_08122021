@@ -18,24 +18,10 @@ class Lightbox {
     };
 };
 
-
-function displayModalL() {
-
-    const modal = document.getElementById("lightbox_modal");
-	modal.style.display = "block";
-    modal.setAttribute("aria-hidden", "false");
-    document.querySelector("#lightbox_modal .modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
-    const lightframe = document.getElementById("lightbox-frame");
- 
-    const header = document.getElementById("header");
-    const main = document.getElementById("main");
-    header.setAttribute("aria-hidden", "true");
-    main.setAttribute("aria-hidden", "true");
-
-};
-
-
 function prepareBeforeClosing (){
+
+    const modalContent = document.querySelector(".modal .modalContent");
+    modalContent.classList.remove("lightbox");
 
     const mediaWrapper = document.querySelector(".mediaWrapper");
     mediaWrapper.classList.remove("mediaWrapper-inLightbox");
@@ -73,40 +59,9 @@ function prepareBeforeClosing (){
 };
 
 
-function closeModalL() {
-
+function closeLightbox() {
     prepareBeforeClosing();
-
-    const modal = document.querySelector(".modal");
-    modal.style.display = "none";
-    modal.setAttribute("aria-hidden", "true");
-
-    //Remettre le focus sur le reste du document???????
-
-    const modalContent = document.querySelector(".modal .modalContent");
-    const children = [].slice.call(modalContent.children);
-    console.log(children);
-    let closeBtn =  document.querySelector(".modal .modalContent .closeBtn");
-    children.forEach((child) => {
-        if (child != closeBtn) {
-            //console.log("notBTN");
-            modalContent.removeChild(child);
-            console.log(modalContent);
-        };
-    });
-
-
-    const header = document.getElementById("header");
-    const main = document.getElementById("main");
-    header.setAttribute("aria-hidden", "false");
-    main.setAttribute("aria-hidden", "false");
-
-    modal.setAttribute("id", "");
-    console.log("modal", modal);
-
-    closeBtn =  document.querySelector(".modal .modalContent .closeBtn");
-    closeBtn.removeAttribute("onclick");
-
+    closeModal();
 };
 
 
@@ -116,6 +71,6 @@ window.addEventListener("keyup", function(e) {
     const modalState = modal.getAttribute("aria-hidden");
     if ((e.key === "Escape") && (modalState === "false")) {
         e.preventDefault();
-        closeModalL();
+        closeLightbox();
     };
 });
