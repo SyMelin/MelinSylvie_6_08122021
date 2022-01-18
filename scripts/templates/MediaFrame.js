@@ -20,7 +20,8 @@ class MediaItemFrame {
         if(this._mediaItem.video) {
 
             //Récupère le nom du fichier video
-            const videoName = String(this._mediaItem.video).replace(".mp4", "").replaceAll("_", " ");
+            const videoName = String(this._mediaItem.video).replace(/\.[^/.]+$/, "").replaceAll("_", " ");
+           // const videoName = String(this._mediaItem.video).replace(".mp4", "").replaceAll("_", " ");
             this._mediaItem.title = videoName;
 
             //Crée l'élement video

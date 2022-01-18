@@ -89,7 +89,6 @@ async function initPhotographer() {
     sumLikes();
     displayInfo(photographerProfile);
 
-
 };
 
 initPhotographer();
