@@ -3,12 +3,14 @@ class Lightbox {
     create() {
         const modalContent = document.querySelector(".modal .modalContent");
         modalContent.classList.add("lightbox");
+        modalContent.setAttribute("arial-label", "image closeup view");
 
         const carousel = document.createElement("div");
         carousel.classList.add("carousel");
 
         const lightboxFrame =  document.createElement("div");
         lightboxFrame.setAttribute("id", "lightbox-frame");
+        lightboxFrame.setAttribute("tabindex", "2");
         console.log(lightboxFrame);
     
         carousel.appendChild(lightboxFrame);
@@ -67,10 +69,16 @@ function closeLightbox() {
 
 // Fermeture de la modale via le touche Echap
 window.addEventListener("keyup", function(e) {
+    e.preventDefault;
     const modal = document.getElementById("lightbox_modal");
-    const modalState = modal.getAttribute("aria-hidden");
-    if ((e.key === "Escape") && (modalState === "false")) {
-        e.preventDefault();
-        closeLightbox();
+   // console.log("modal", modal);
+    if (modal) {
+        const modalState = modal.getAttribute("aria-hidden");
+           // console.log("modalStateLightbox", modalState);
+            if ((e.key === "Escape") && (modalState === "false")) {
+                e.preventDefault();
+                closeLightbox();
+            };
     };
+    
 });

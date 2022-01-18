@@ -6,9 +6,10 @@ class ContactForm {
      * @param {array} fields [{label: 'firstname', type: 'text', className: 'text-area' }]
      */
 
-    constructor (method, action, fields) {
+    constructor (method, action, photographerData, fields) {
         this._method = method;
         this._action = action;
+        this._photographerData = photographerData;
         this._fields = fields;
     }
 
@@ -20,7 +21,8 @@ class ContactForm {
         const header = document.createElement ("header");
         
         const h2 = document.createElement ("h2");
-        h2.textContent = "Contactez-moi";
+        h2.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
+        console.log("h2",h2);
 
         const form = document.createElement ("form");
         form.setAttribute("methode", this._method);
@@ -116,10 +118,15 @@ function closeContactForm() {
 // Fermeture de la modale via le touche Echap
 
 window.addEventListener("keyup", function(e) {
+    e.preventDefault;
     const modal = document.getElementById("contact_modal");
-    const modalState = modal.getAttribute("aria-hidden");
-    if ((e.key === "Escape") && (modalState === "false")) {
-        e.preventDefault();
-        closeContactForm();
+   // console.log("modal", modal);
+    if (modal) {
+        const modalState = modal.getAttribute("aria-hidden");
+            //console.log("modalState", modalState);
+            if ((e.key === "Escape") && (modalState === "false")) {
+                e.preventDefault();
+                closeContactForm();
+            };
     };
 });

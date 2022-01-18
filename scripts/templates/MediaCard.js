@@ -33,12 +33,13 @@ class MediaItemCard {
 
         const likeNb = document.createElement("p");
         likeNb.textContent = this._mediaItem.likes;
+        likeNb.setAttribute("tabindex", "0");
 
         const likeHeart = document.createElement("div");
         likeHeart.classList.add("likeHeart");
         likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
         likeHeart.style.border = "1px solid red";
-        likeNb.setAttribute("tabindex", "0");
+        likeHeart.setAttribute("tabindex", "0");
 
         like.appendChild(likeNb);
         like.appendChild(likeHeart);
@@ -56,6 +57,14 @@ class MediaItemCard {
             likeNb.textContent = template._mediaItem.likes;
             sumLikes();
         });
+
+        likeHeart.addEventListener("keyup", (e) => {
+            if (e.key === "Enter") {
+                template._mediaItem.likes++ ;
+                likeNb.textContent = template._mediaItem.likes;
+                sumLikes(); 
+            };
+        }); 
 
         return box;
     };

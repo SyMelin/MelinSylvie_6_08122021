@@ -42,6 +42,7 @@ class Carousel {
         //Crée le bouton Précédent
         this._prevBtn = this.createNavBtn();
         this._prevBtn.classList.add("lightbox__prev");
+        this._prevBtn.setAttribute("tabindex", "4");
         if (this._index == this._indexMin) {
             this._prevBtn.classList.add("navBtn-hidden");
         };
@@ -49,6 +50,7 @@ class Carousel {
         //Crée le bouton Suivant
         this._nextBtn = this.createNavBtn();
         this._nextBtn.classList.add("navBtn-next");
+        this._nextBtn.setAttribute("tabindex", "5");
         if (this._index == this._indexMax) {
             this._nextBtn.classList.add("navBtn-hidden");
         };  

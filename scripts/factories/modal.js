@@ -48,7 +48,7 @@ class Modal {
                     }
                 ];
 
-                let contactForm = new ContactForm("post", "", fields);
+                let contactForm = new ContactForm("post", "", photographerProfile, fields);
                 contactForm.create();
                 closeBtn.setAttribute("onclick", "closeContactForm()");
             break;

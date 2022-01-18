@@ -150,6 +150,8 @@ select {
     justify-content: space-between;
     flex-wrap: wrap;
     width: 85%;
+    row-gap: 2em;
+   
    /* transform: translate3d(0%, 0em, 0em);*/
 }
 
@@ -281,7 +283,7 @@ select {
 
 .modalContent {
     border-radius: 0.3125em;
-    
+    position: relative;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -292,7 +294,7 @@ select {
 }
 
 .modal header {
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
 }
 
@@ -301,9 +303,9 @@ select {
 }
 
 .modal header h2 {
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: normal;
-    text-align: center;
+    text-align: left;
 }
 
 form {
@@ -341,10 +343,27 @@ form input {
 
 .closeBtn{
     display: block;
+    position: absolute;
     background-image : url("../assets/icons/close.svg");
+   /* height: 3.125em;*/
+    background-repeat: no-repeat;
+    width: 2.625em;
+}
+/*
+.contactForm .closeBtn {
+    position: relative;
     width: 3.125em;
     height: 3.125em;
-    background-repeat: no-repeat;
+}*/
+
+.contactForm .closeBtn{
+    right: 1.25em;
+    top: 1.25em;
+}
+
+.lightbox .closeBtn{
+    right: 1.25em;
+    top: 1.25em;
 }
 
 .contactForm {
@@ -358,13 +377,6 @@ form input {
     width: 90%;
     position : relative;
     background-color: white;
-}
-
-.lightbox .closeBtn{
-    position: absolute;
-    right: 1.25em;
-    top: 1.25em;
-    width: 2.625em;
 }
 
 .navBtn {
