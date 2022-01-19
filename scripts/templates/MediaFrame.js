@@ -14,7 +14,7 @@ class MediaItemFrame {
         this._frame.classList.add("thumb-img");
         this._frame.setAttribute("role", "link");
         this._frame.setAttribute("tabindex", "9");
-        this._frame.setAttribute('alt', this.mediaItem.alt); //
+        this._frame.setAttribute('alt', this._mediaItem.alt); //
         // frame.setAttribute('onclick', "displayModalL()");
 
         if(this._mediaItem.video) {
