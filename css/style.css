@@ -12,17 +12,19 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 85%;
+    margin: 0 auto;
     height: 5.625em;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 6.25em;
+    color: #D3573C;
+    /*margin-right: 6.25em;*/
 }
 
 .logo {
     height: 3.125em;
-    margin-left: 6.25em;
+    /*margin-left: 6.25em;*/
 }
 
 .photographer_section {
@@ -65,12 +67,12 @@ h1 {
 
 .photographer_section article p {
     color: #000000;
-    font-size: 0.625em;
+    font-size: 0.875em;
     text-align: center;
    /* border: 1px solid black;*/
 }
 
 .photographer_section .text-location {
     color: #901C1C;
-    font-size: 0.8em;
+    font-size: 1.125em;
 }

@@ -16,10 +16,38 @@ body {
 .photograph-header {
     background-color: #FAFAFA;
     height: 18.75em;
-    margin: 0 6.25em;
+    box-sizing: border-box;
+    width: 85%;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
     display: flex; /* ajout */
     justify-content: space-around;
     align-items: center;
+}
+
+.photographer-profile, .user-container {
+    flex: 1;
+}
+.photographer-profile h1{
+    font-size: 4em;
+    font-weight: normal;
+  /*  border: 1px solid black;*/
+    margin: 0px;
+}
+
+.photographer-profile .text{
+  /*  border: 1px solid black;*/
+    margin: 0px;
+}
+
+.photograph-header .text-location {
+    font-size: 1.5em;
+    color: #901C1C;
+}
+
+.user-container {
+    text-align: right;
 }
 /*
 .photograph-header:nth-child(1n){
@@ -238,17 +266,21 @@ select {
 
 
 .contact_button {
+    box-sizing: content-box;
+    transform: scaleX(1.1);
     font-size: 1.25em;
     font-weight: bold;
     color: white;
-    padding: 0.6875em;
-    width: 10.625em;
-    height: 4.375em;
+    padding: 1.3125em 0.6875em;
+  /*  width: 10.625em;*/
+   /* height: 4.3125em;*/
     border: none;
     background-color: #901C1C;
     border-radius: 0.3125em;
     cursor: pointer;
     position: relative;/*ajout*/
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 /* Ajout pour bouton au hover ou focus */
@@ -263,10 +295,10 @@ select {
     flex-direction:row;
     align-items: center;
     justify-content: center;
-    font-size: 1.25em;
+    font-size: inherit;
     font-weight: bold;
     color: black;
-    padding: 0.6875em;
+  /*  padding: 0.6875em;*/
     background-color: #DB8876;
     border: none;
     border-radius: 0.3125em;

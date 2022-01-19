@@ -2,7 +2,7 @@
 class PhotographerThumb {
 
     /**
-     * @param {Object} object 
+     * @param {Object} photographer 
      */
 
     constructor(photographer) {
