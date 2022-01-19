@@ -69,7 +69,7 @@ function closeLightbox() {
 
 // Fermeture de la modale via le touche Echap
 window.addEventListener("keyup", function(e) {
-    e.preventDefault;
+    e.preventDefault();
     const modal = document.getElementById("lightbox_modal");
    // console.log("modal", modal);
     if (modal) {
@@ -80,5 +80,4 @@ window.addEventListener("keyup", function(e) {
                 closeLightbox();
             };
     };
-    
 });

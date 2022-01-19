@@ -62,6 +62,23 @@ class Carousel {
         //Ajout des fonctions appelées au clic sur chaque bouton
         this._prevBtn.addEventListener("click", this.prev.bind(this));
         this._nextBtn.addEventListener("click", this.next.bind(this));
+
+        //Ajout des fonctions appelées avec ENTRER sur le bouton
+        this._prevBtn.addEventListener("keyup", (e) => {
+            e.preventDefault();
+            if (e.key === "Enter") {
+                this.prev();
+            };
+
+        });
+
+        this._nextBtn.addEventListener("keyup", (e) => {
+            e.preventDefault();
+            if (e.key === "Enter") {
+                this.next();
+            };
+
+        });
     };
 
     prev(){

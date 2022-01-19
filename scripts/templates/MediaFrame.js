@@ -48,7 +48,7 @@ class MediaItemFrame {
             const modalState = modal.getAttribute("aria-hidden");
             console.log(modalState);
             if ((e.key === "Enter") && (modalState === "true")) {
-                e.preventDefault;
+                e.preventDefault();
                 this.preloadModalLightbox();
             };
         }); 

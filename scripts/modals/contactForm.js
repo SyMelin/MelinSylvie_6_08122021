@@ -118,7 +118,7 @@ function closeContactForm() {
 // Fermeture de la modale via le touche Echap
 
 window.addEventListener("keyup", function(e) {
-    e.preventDefault;
+    e.preventDefault();
     const modal = document.getElementById("contact_modal");
    // console.log("modal", modal);
     if (modal) {

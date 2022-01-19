@@ -99,7 +99,7 @@ initPhotographer();
 const select = document.getElementById("sort-select");
 //console.log(select);
 select.addEventListener("change", function(e) {
-    e.preventDefault;
+    e.preventDefault();
 
     //On vide le conteneur de cartes media
     const mediaWrapper = document.querySelector(".mediaWrapper");

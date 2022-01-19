@@ -104,3 +104,16 @@ function closeModal() {
 
     closeBtn.removeAttribute("onclick");
 };
+/*
+let closeBtn = document.querySelector(".modalContent .closeBtn");
+console.log(closeBtn);
+console.log(closeBtn.attributes);
+console.log(closeBtn.getAttribute("onclick"));
+console.log(closeFunction);
+closeBtn.addEventListener("keyup", (e) => {
+    e.preventDefault;
+    if (e.key === "Enter") {
+        console.log(closeBtn.getAttribute("onclick"));
+        closeFunction();
+    };
+});*/
