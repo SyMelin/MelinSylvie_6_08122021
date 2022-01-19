@@ -14,15 +14,15 @@ class MediaItemFrame {
         this._frame.classList.add("thumb-img");
         this._frame.setAttribute("role", "link");
         this._frame.setAttribute("tabindex", "9");
-        this._frame.setAttribute('alt', ""); //
+        this._frame.setAttribute('alt', this.mediaItem.alt); //
         // frame.setAttribute('onclick', "displayModalL()");
 
         if(this._mediaItem.video) {
 
             //Récupère le nom du fichier video
-            const videoName = String(this._mediaItem.video).replace(/\.[^/.]+$/, "").replaceAll("_", " ");
+           // const videoName = String(this._mediaItem.video).replace(/\.[^/.]+$/, "").replaceAll("_", " ");
            // const videoName = String(this._mediaItem.video).replace(".mp4", "").replaceAll("_", " ");
-            this._mediaItem.title = videoName;
+           // this._mediaItem.title = videoName;
 
             //Crée l'élement video
             this._video = document.createElement("video");
