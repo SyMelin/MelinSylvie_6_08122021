@@ -81,7 +81,12 @@ class FormField {
         label.textContent = this._text;
 
         //Crée l'input
-        let input =  document.createElement("input");
+        let input;
+        if (this._type == "textarea") {
+            input =  document.createElement("textarea");
+        } else {
+            input =  document.createElement("input");
+        };
         input.setAttribute("type", this._type);
         input.setAttribute("name", this._name);
         input.setAttribute("id", this._id);

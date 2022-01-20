@@ -267,24 +267,32 @@ select {
 
 .contact_button {
     box-sizing: content-box;
-    transform: scaleX(1.1);
     font-size: 1.25em;
     font-weight: bold;
     color: white;
-    padding: 1.3125em 0.6875em;
-  /*  width: 10.625em;*/
-   /* height: 4.3125em;*/
     border: none;
     background-color: #901C1C;
     border-radius: 0.3125em;
     cursor: pointer;
     position: relative;/*ajout*/
+    
+}
+
+form .contact_button{
+    font-size: 1.125em;
+    padding: 1.4375em 3.1875em;    
+}
+
+.photograph-header .contact_button{
+    font-size: 1.25em;
+    transform: scaleX(1.1);
+    padding: 1.3125em 0.6875em;
     margin-left: 1em;
     margin-right: 1em;
 }
 
 /* Ajout pour bouton au hover ou focus */
-.contact_button::after{
+.photograph-header .contact_button::after{
     content: "Contactez-moi";
     position: absolute;
     top: 0;
@@ -328,6 +336,7 @@ select {
 .modal header {
     justify-content: flex-start;
     width: 100%;
+    margin-bottom: 3em;
 }
 
 .modal header img {
@@ -360,11 +369,19 @@ form div {
     margin-bottom: 1.625em;
 }
 
-form input {
+form .text, form .text-area {
     width: 100%;
     height: 4.25em;
     border: none;
     border-radius: 0.3125em;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1em;
+}
+
+form .text-area {
+    width: 100%;
+    height: 10.625em;
+    resize: none;
 }
 
 /* Modal Lightbox */

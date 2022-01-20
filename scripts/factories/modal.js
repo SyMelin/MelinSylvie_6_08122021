@@ -25,25 +25,25 @@ class Modal {
                     { 
                         label : 'firstame',
                         type : 'text',
-                        className: 'text-area',
-                        text: 'prénom'
+                        className: 'text',
+                        text: 'Prénom'
                     },
                     {
                         label : 'lastame',
                         type : 'text',
-                        className: 'text-area',
+                        className: 'text',
                         text: 'Nom'
                     },
                     {
                         label : 'email',
                         type : 'email',
-                        className: 'text-area',
+                        className: 'text',
                         text: 'Email'
                     },
                     {
                         label : 'message',
-                        type : 'text',
-                        className: '',
+                        type : 'textarea',
+                        className: 'text-area',
                         text: 'Votre message'
                     }
                 ];
