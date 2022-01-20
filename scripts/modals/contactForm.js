@@ -66,6 +66,7 @@ class FormField {
         this._type = type;
         this._name = label;
         this._id = label;
+        this._ariaLabelledby = label
         this._class = className;
         this._text = text;
     }
@@ -85,6 +86,9 @@ class FormField {
         input.setAttribute("name", this._name);
         input.setAttribute("id", this._id);
         input.setAttribute("class", this._class);
+        input.setAttribute("aria-labelledby", this._ariaLabelledby);
+        input.setAttribute("required", true);
+        input.setAttribute('aria-required', true);
 
         fieldBox.appendChild(label);
         fieldBox.appendChild(input);
