@@ -68,19 +68,21 @@ function displayModal() {
 
     const modal = document.querySelector(".modal");
 	modal.style.display = "block";
-    modal.setAttribute("aria-hidden", "false");
+    modal.setAttribute("aria-hidden", false);
+    modal.setAttribute("aria-modal", true);
     document.querySelector(".modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
     const header = document.getElementById("header");
     const main = document.getElementById("main");
-    header.setAttribute("aria-hidden", "true");
-    main.setAttribute("aria-hidden", "true");
+   // header.setAttribute("aria-hidden", true);
+  //  main.setAttribute("aria-hidden", true);
 };
 
 function closeModal() {
 
     const modal = document.querySelector(".modal");
     modal.style.display = "none";
-    modal.setAttribute("aria-hidden", "true");
+    modal.setAttribute("aria-hidden", true);
+    modal.setAttribute("aria-modal", false);
 
     //Remettre le focus sur le reste du document???????
 
@@ -98,8 +100,8 @@ function closeModal() {
 
     const header = document.getElementById("header");
     const main = document.getElementById("main");
-    header.setAttribute("aria-hidden", "false");
-    main.setAttribute("aria-hidden", "false");
+    header.setAttribute("aria-hidden", false);
+    main.setAttribute("aria-hidden", false);
 
     modal.setAttribute("id", "");
     console.log("modal", modal);

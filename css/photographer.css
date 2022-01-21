@@ -480,18 +480,30 @@ form .text-area {
     position: fixed;
     right: 20%;
     bottom: 0%;
-    width: 15%;
+   /* width: 15%;*/
     background-color: #DB8876;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+   /* justify-content: space-around;*/
     border-radius: 0.3125em 0.3125em 0 0;
     z-index: 3;
 }
 
 #info p{
     color: black;
-    display: block;
+    font-weight: bold;
+    /*display: block;*/
+    margin: 1.5em 2em;
+}
+
+#info #totalLikes{
+    text-align: right;
+    margin-right: 0;
+}
+
+#info .fa-heart{
+    display: flex;
+    align-items: center;
 }
 
 .hidden{

@@ -13,7 +13,7 @@ class MediaItemFrame {
         this._frame = document.createElement("div");
         this._frame.classList.add("thumb-img");
         this._frame.setAttribute("role", "link");
-        this._frame.setAttribute("arial-label", `${this._mediaItem.alt}`+", closeup view");
+        this._frame.setAttribute("aria-label", `${this._mediaItem.alt}`+", closeup view");
         this._frame.setAttribute("tabindex", "9");
        // this._frame.setAttribute('alt', this._mediaItem.alt); //
         // frame.setAttribute('onclick', "displayModalL()");
@@ -71,7 +71,7 @@ class MediaItemFrame {
             frame.classList.add("frame-inLightbox");
             let ariaLabel = String(frame.getAttribute("arial-label"));
             ariaLabel = ariaLabel.replace(", closeup view", "");
-            frame.setAttribute("arial-label", ariaLabel);
+            frame.setAttribute("aria-label", ariaLabel);
            // console.log(item);
             if (frame.firstChild){
                 const video = frame.firstChild;
