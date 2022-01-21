@@ -47,6 +47,9 @@ function prepareBeforeClosing (){
     const frameAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull .thumb-img");
     frameAll.forEach((frame) => {
         frame.classList.remove("frame-inLightbox");
+        let ariaLabel = String(frame.getAttribute("arial-label"));
+            ariaLabel = ariaLabel + ", closeup view";
+            frame.setAttribute("arial-label", ariaLabel);
     });
 
     const videoAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img video");

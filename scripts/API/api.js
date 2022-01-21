@@ -20,10 +20,15 @@ class Api {
                 .then(function(photographers){
                     console.log("photographers", photographers);
                     for (let photographer of photographers){
-                        console.log(photographer.name)
+                       // console.log(photographer.name)
+                       /*
                         if (!photographer.alt || photographer.alt == ""){
                             photographer.alt = String(photographer.name);
                         };
+                        */
+                       if (!photographer.alt || photographer.alt !== "") {
+                           photographer.alt = "";
+                       }
                         console.log(photographer);
                         console.log(photographer.alt);
                     };
@@ -66,9 +71,14 @@ class Api {
                     console.log("photographers", photographers);
                     for (let photographer of photographers){
                       //  console.log(photographer.name)
+                        if (!photographer.alt || photographer.alt !== "") {
+                           photographer.alt = "";
+                        };
+                        /*
                         if (!photographer.alt || photographer.alt == ""){
                             photographer.alt = String(photographer.name);
                         };
+                        */
                         //console.log(photographer);
                       //  console.log(photographer.alt);
                     };

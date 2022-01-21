@@ -51,12 +51,14 @@ class Modal {
                 let contactForm = new ContactForm("post", "", photographerProfile, fields);
                 contactForm.create();
                 closeBtn.setAttribute("onclick", "closeContactForm()");
+                closeBtn.setAttribute("aria-label", "Close Contact form");
             break;
 
             case 'lightbox' :
                 let lightbox = new Lightbox();
                 lightbox.create();
                 closeBtn.setAttribute("onclick", "closeLightbox()");
+                closeBtn.setAttribute("aria-label", "Close dialog");
             break;
         };
     };

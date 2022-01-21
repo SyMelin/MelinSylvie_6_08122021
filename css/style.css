@@ -6,6 +6,15 @@ body {
     margin: 0;
 }
 
+.screenreader-text {
+    height: 1px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: -10000px;
+    width: 1px;
+ }
+
 header {
     display: flex;
     flex-direction: row;

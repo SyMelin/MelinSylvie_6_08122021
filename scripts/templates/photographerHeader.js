@@ -45,6 +45,7 @@ class PhotographerHeader {
         img.setAttribute("src", `assets/photographers/photographers_ID_photos/${this._photographerData.portrait}`);
         img.classList.add('user');
         img.setAttribute("tabindex", "5");
+        img.setAttribute("alt", this._photographerData.alt);
 
         user.appendChild(img);
 

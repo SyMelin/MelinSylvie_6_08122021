@@ -40,6 +40,7 @@ class ContactForm {
 
         const contactBtn =  document.createElement("button");
         contactBtn.textContent = "Envoyer";
+        contactBtn.setAttribute("aria-label", "Envoyer");
         contactBtn.classList.add("contact_button");
         
         form.appendChild(contactBtn);

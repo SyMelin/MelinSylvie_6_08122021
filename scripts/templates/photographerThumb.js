@@ -21,12 +21,13 @@ class PhotographerThumb {
         link.setAttribute('href', "../photographer.html?id=" + this._photographer.id); //ajout
         link.setAttribute('title', this._photographer.name + "-page"); //ajout
         link.setAttribute('tabindex', "0");
+        link.setAttribute('aria-label', `${this._photographer.name}`);
        
         const img = document.createElement('img');
         img.classList.add('user');
         img.setAttribute('src', `assets/photographers/photographers_ID_photos/${this._photographer.portrait}`);
         img.setAttribute('role', 'link');
-        img.setAttribute('alt', '');
+        img.setAttribute('alt', this._photographer.alt);
        
         const h2 = document.createElement( 'h2' );
         h2.textContent = this._photographer.name;
@@ -49,10 +50,15 @@ class PhotographerThumb {
         
         const textPrice = document.createElement('p'); //ajout
         textPrice.textContent = this._photographer.price +"€/jour"; //ajout
+        textPrice.setAttribute("aria-hidden", true);
+        const textPriceSpan = document.createElement('span');
+        textPriceSpan.classList.add("screenreader-text");
+        textPriceSpan.textContent = this._photographer.price +"€ par jour"; //ajout
         
         paragraphe.appendChild(textLocation); //ajout
         paragraphe.appendChild(textTagline); //ajout
         paragraphe.appendChild(textPrice); //ajout
+        paragraphe.appendChild(textPriceSpan); //ajout
        
         article.appendChild(paragraphe); //ajout
         

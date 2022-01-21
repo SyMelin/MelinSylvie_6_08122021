@@ -230,11 +230,13 @@ select {
     height: 2.5em;
 
 }
-/*
-.title-caption{
 
+.title-caption{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-*/
+
 .like-caption-visible{
     display: flex;
 }
@@ -275,12 +277,37 @@ select {
     border-radius: 0.3125em;
     cursor: pointer;
     position: relative;/*ajout*/
-    
 }
+
+.contact_button::after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    font-size: inherit;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.3125em;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 300ms ease-in-out;
+}
+
 
 form .contact_button{
     font-size: 1.125em;
     padding: 1.4375em 3.1875em;    
+}
+
+form .contact_button::after{
+    content: "Envoyer";
+    color: #901C1C;
+    background-color: white;
 }
 
 .photograph-header .contact_button{
@@ -294,25 +321,8 @@ form .contact_button{
 /* Ajout pour bouton au hover ou focus */
 .photograph-header .contact_button::after{
     content: "Contactez-moi";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display:flex;
-    flex-direction:row;
-    align-items: center;
-    justify-content: center;
-    font-size: inherit;
-    font-weight: bold;
     color: black;
-  /*  padding: 0.6875em;*/
     background-color: #DB8876;
-    border: none;
-    border-radius: 0.3125em;
-    opacity: 0;
-    z-index: 2;
-    transition: opacity 300ms ease-in-out;
 }
 
 .contact_button:hover::after, .contact_button:focus::after {
