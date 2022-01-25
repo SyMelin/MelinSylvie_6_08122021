@@ -472,6 +472,10 @@ form .text-area {
     opacity: 0;
 }
 
+.navBtn-prev{
+    order: -1;
+}
+
 .navBtn-next{
     transform: rotate(180deg);
 }
@@ -479,8 +483,10 @@ form .text-area {
 .carousel{
     margin-top: 1.875em;
    /* position: relative;*/
-    width: 641.66px;
+    width: 85%;
     /*border: 1px solid blue;*/
+    display: flex;
+    flex-direction: row;
 }
 
 #lightbox-frame{

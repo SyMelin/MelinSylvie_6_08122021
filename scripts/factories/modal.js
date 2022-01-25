@@ -14,6 +14,7 @@ class Modal {
         
         const modal = document.querySelector(".modal")
         modal.setAttribute("id", this._id);
+        modal.setAttribute("aria-label", "image closeup view");
 
         let modalContent = document.querySelector(".modalContent");
         let closeBtn =  document.querySelector(".modalContent .closeBtn");
@@ -69,12 +70,12 @@ function displayModal() {
     const modal = document.querySelector(".modal");
 	modal.style.display = "block";
     modal.setAttribute("aria-hidden", false);
-    modal.setAttribute("aria-modal", true);
-    document.querySelector(".modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
+    //modal.setAttribute("aria-modal", true);
+    //document.querySelector(".modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
     const header = document.getElementById("header");
     const main = document.getElementById("main");
-   // header.setAttribute("aria-hidden", true);
-  //  main.setAttribute("aria-hidden", true);
+    header.setAttribute("aria-hidden", true);
+    main.setAttribute("aria-hidden", true);
 };
 
 function closeModal() {
@@ -82,7 +83,7 @@ function closeModal() {
     const modal = document.querySelector(".modal");
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", true);
-    modal.setAttribute("aria-modal", false);
+    //modal.setAttribute("aria-modal", false);
 
     //Remettre le focus sur le reste du document???????
 

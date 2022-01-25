@@ -14,7 +14,6 @@ class MediaItemFrame {
         this._frame.classList.add("thumb-img");
         this._frame.setAttribute("role", "link");
         this._frame.setAttribute("aria-label", `${this._mediaItem.alt}`+", closeup view");
-        this._frame.setAttribute("tabindex", "9");
        // this._frame.setAttribute('alt', this._mediaItem.alt); //
         // frame.setAttribute('onclick', "displayModalL()");
 
@@ -71,9 +70,11 @@ class MediaItemFrame {
                 frame.classList.add("frame-inLightbox");
                 let ariaLabel = String(frame.getAttribute("aria-label"));
                 ariaLabel = ariaLabel.replace(", closeup view", "");
+                frame.setAttribute("role", "image");
                 frame.setAttribute("aria-label", ariaLabel);
                 // console.log(item);
                 if (frame.firstChild){
+                    frame.setAttribute("role", "video");
                     const video = frame.firstChild;
                     video.setAttribute("controls", true);
                     video.pause();
@@ -94,7 +95,7 @@ class MediaItemFrame {
         this._mediaWrapper.classList.add("mediaWrapper-inLightbox");
         this._mediaWrapper.classList.remove("mediaWrapper-inMain");
 
-        console.log("loghtboxFrale", document.querySelector("#lightbox-frame") );
+        //console.log("lightboxFrame", document.querySelector("#lightbox-frame") );
         document.querySelector("#lightbox-frame").appendChild(this._mediaWrapper);
         this._lightboxCarousel = new Carousel(document.querySelector("#lightbox-frame .mediaWrapper"), cardIndex);
         
