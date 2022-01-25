@@ -69,7 +69,7 @@ class MediaItemFrame {
             this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
             this._frameAll.forEach((frame) => {
                 frame.classList.add("frame-inLightbox");
-                let ariaLabel = String(frame.getAttribute("arial-label"));
+                let ariaLabel = String(frame.getAttribute("aria-label"));
                 ariaLabel = ariaLabel.replace(", closeup view", "");
                 frame.setAttribute("aria-label", ariaLabel);
                 // console.log(item);
