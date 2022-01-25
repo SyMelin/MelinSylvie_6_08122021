@@ -7,6 +7,7 @@ class Lightbox {
 
         const carousel = document.createElement("div");
         carousel.classList.add("carousel");
+        carousel.setAttribute("tabindex", "-1");
 
         const lightboxFrame =  document.createElement("div");
         lightboxFrame.setAttribute("id", "lightbox-frame");

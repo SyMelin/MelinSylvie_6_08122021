@@ -15,7 +15,7 @@ class Carousel {
         //console.log("indexMax", this._indexMax);
         let ratio = this._children.length;
         this._container = document.querySelector(".mediaWrapper-inLightbox");
-       // this._container.setAttribute("tabindex", "2");
+        this._container.setAttribute("tabindex", "1");
         this._container.style.width = (ratio * 100) + "%";
         this._children.forEach((child) => {
             child.style.width = (100 / ratio ) + "%";
@@ -54,7 +54,7 @@ class Carousel {
         //Crée le bouton Précédent
         this._prevBtn = this.createNavBtn();
         this._prevBtn.classList.add("navBtn-prev");
-        this._prevBtn.setAttribute("tabindex", "3");
+        this._prevBtn.setAttribute("tabindex", "1");
         this._prevBtn.setAttribute("aria-label", "Previous image");
         if (this._index == this._indexMin) {
             this._prevBtn.classList.add("navBtn-hidden");
@@ -64,7 +64,7 @@ class Carousel {
         //Crée le bouton Suivant
         this._nextBtn = this.createNavBtn();
         this._nextBtn.classList.add("navBtn-next");
-        this._nextBtn.setAttribute("tabindex", "4");
+        this._nextBtn.setAttribute("tabindex", "2");
         this._nextBtn.setAttribute("aria-label", "Next image");
         if (this._index == this._indexMax) {
             this._nextBtn.classList.add("navBtn-hidden");
