@@ -68,18 +68,18 @@ class MediaItemFrame {
             this._frame.classList.add("frame-inLightbox");
             this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
             this._frameAll.forEach((frame) => {
-            frame.classList.add("frame-inLightbox");
-            let ariaLabel = String(frame.getAttribute("arial-label"));
-            ariaLabel = ariaLabel.replace(", closeup view", "");
-            frame.setAttribute("aria-label", ariaLabel);
-           // console.log(item);
-            if (frame.firstChild){
-                const video = frame.firstChild;
-                video.setAttribute("controls", true);
-                video.pause();
-                video.currentTime = "0";
-            };
-        });
+                frame.classList.add("frame-inLightbox");
+                let ariaLabel = String(frame.getAttribute("arial-label"));
+                ariaLabel = ariaLabel.replace(", closeup view", "");
+                frame.setAttribute("aria-label", ariaLabel);
+                // console.log(item);
+                if (frame.firstChild){
+                    const video = frame.firstChild;
+                    video.setAttribute("controls", true);
+                    video.pause();
+                    video.currentTime = "0";
+                };
+            });
 
         //On récupère la mediaCard dont l'image a été cliquée
         this._mediaCard = this._frame.parentElement;

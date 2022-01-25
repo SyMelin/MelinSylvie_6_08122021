@@ -12,7 +12,7 @@ class MediaItemCard {
 
         const box = document.createElement("div");
         box.classList.add("thumb-imgfull");
-        box.setAttribute("tabindex", "-1");
+       // box.setAttribute("tabindex", "-1");
 
 
         const template = new MediaItemFrame(this._mediaItem, this._width, this._height, this._radius);

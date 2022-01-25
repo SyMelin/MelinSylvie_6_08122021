@@ -245,6 +245,12 @@ select {
     display: flex;
 }
 
+.fas {
+    display: block;
+    width: 1.5em;
+    transform: scale(0.88,1);
+}
+
 .likeHeart{
     cursor: pointer;
     display: flex;
@@ -253,15 +259,26 @@ select {
     text-align: right;
     margin-top: 0.25em;
     margin-bottom: 0.25em;
+    position: relative;
 }
 
-.fas {
-    display: block;
-    width: 1.5em;
+.likeHeart::after{
+    font-family: "Font Awesome 5 Free";
+    content: "\f004";
+    font-weight: 900;
+    right: 0.03em;
+    margin-top: 0.05em;
+    display:flex;
+    opacity: 0;
+    color: #DB8876;
+    position: absolute; 
     transform: scale(0.88,1);
+    transition: opacity 300ms ease-in-out;
 }
 
-
+.likeHeart:hover::after, .likeHeart:focus::after{
+    opacity: 1;
+}
 
 
 /**********************************/  
@@ -396,7 +413,7 @@ form .text-area {
 
 /* Modal Lightbox */
 
-.closeBtn, .thumb-imgfull .thumb-img, .navBtn{
+.closeBtn, .mediaWrapper-inMain .thumb-imgfull .thumb-img, .navBtn{
     cursor: pointer;
 }
 

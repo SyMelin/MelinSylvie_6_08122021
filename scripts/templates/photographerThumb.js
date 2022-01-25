@@ -14,13 +14,13 @@ class PhotographerThumb {
         
         const article = document.createElement('article');
         article.classList.add("thumb-photographer");
-        article.setAttribute('tabindex', '-1');
+       // article.setAttribute('tabindex', '-1');
 
         // crée le lien img + h2
         const link = document.createElement('a'); //ajout
         link.setAttribute('href', "../photographer.html?id=" + this._photographer.id); //ajout
         link.setAttribute('title', this._photographer.name + "-page"); //ajout
-        link.setAttribute('tabindex', "0");
+       // link.setAttribute('tabindex', "0");
         link.setAttribute('aria-label', `${this._photographer.name}`);
        
         const img = document.createElement('img');
