@@ -12,12 +12,11 @@ class MediaItemCard {
 
         const box = document.createElement("div");
         box.classList.add("thumb-imgfull");
-       // box.setAttribute("tabindex", "-1");
-
 
         const template = new MediaItemFrame(this._mediaItem, this._width, this._height, this._radius);
         const frame = template.createMediaItemFrame();
         frame.setAttribute("tabindex", "0");
+        frame.classList.add("tabindex0");
         
         const caption = document.createElement("div");
         caption.classList.add("caption");
@@ -26,6 +25,7 @@ class MediaItemCard {
         title.classList.add("title-caption");
         title.textContent = this._mediaItem.title;
         title.setAttribute("tabindex", "0");
+        title.classList.add("tabindex0");
 
         const like = document.createElement("div");
         like.classList.add("like-caption")
@@ -34,12 +34,14 @@ class MediaItemCard {
         const likeNb = document.createElement("p");
         likeNb.textContent = this._mediaItem.likes;
         likeNb.setAttribute("tabindex", "0");
+        likeNb.classList.add("tabindex0");
 
         const likeHeart = document.createElement("div");
         likeHeart.classList.add("likeHeart");
         likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
         likeHeart.style.border = "1px solid red";
         likeHeart.setAttribute("tabindex", "0");
+        likeHeart.classList.add("tabindex0");
 
         like.appendChild(likeNb);
         like.appendChild(likeHeart);

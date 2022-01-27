@@ -19,15 +19,17 @@ class ContactForm {
         modalContent.classList.add("contactForm");
 
         const header = document.createElement ("header");
-        header.setAttribute("tabindex", 1);
+        header.setAttribute("tabindex", -1);
         
-        const h2 = document.createElement ("h2");
-        h2.setAttribute("id", "contactForm__title");
-        h2.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
-        console.log("h2",h2);
+        const h1 = document.createElement ("h1");
+
+        h1.setAttribute("id", "contactForm__title");
+        h1.setAttribute("tabindex", 0);
+        h1.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
+        console.log("h1", h1);
 
         const form = document.createElement ("form");
-        form.setAttribute("tabindex", 2);
+        form.setAttribute("tabindex", -1);
         form.setAttribute("methode", this._method);
         form.setAttribute("action", this._action);
 
@@ -43,7 +45,7 @@ class ContactForm {
         };
 
         const contactBtn =  document.createElement("button");
-        contactBtn.setAttribute("tabindex", 1);
+      //  contactBtn.setAttribute("tabindex", 0);
         contactBtn.textContent = "Envoyer";
         contactBtn.setAttribute("aria-label", "Envoyer");
         contactBtn.classList.add("contact_button");
@@ -51,9 +53,9 @@ class ContactForm {
         form.appendChild(contactBtn);
         console.log("form", form);
 
-        header.appendChild(h2);
-        modalContent.appendChild(header);
-        modalContent.appendChild(form);
+        header.appendChild(h1);
+        modalContent.prepend(form);
+        modalContent.prepend(header);
     };
 };
 
@@ -72,7 +74,6 @@ class FormField {
         this._type = type;
         this._name = label;
         this._id = label;
-        this._ariaLabelledby = label
         this._class = className;
         this._text = text;
     }
@@ -84,7 +85,7 @@ class FormField {
 
         //Crée le label
         let label =  document.createElement("label");
-        label.setAttribute("tabindex", 1);
+        label.setAttribute("tabindex", 0);
         label.setAttribute("for", this._label);
         label.textContent = this._text;
 
@@ -99,10 +100,9 @@ class FormField {
         input.setAttribute("name", this._name);
         input.setAttribute("id", this._id);
         input.setAttribute("class", this._class);
-        input.setAttribute("aria-labelledby", this._ariaLabelledby);
         input.setAttribute("required", true);
         input.setAttribute('aria-required', true);
-        input.setAttribute("tabindex", 1);
+      //  input.setAttribute("tabindex", 0);
 
         fieldBox.appendChild(label);
         fieldBox.appendChild(input);

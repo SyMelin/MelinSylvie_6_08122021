@@ -9,19 +9,25 @@
   </head>
   <body>
     <header aria-hidden="false" role="banner" id="header">
-      <a tabindex="1" aria-label="Index page" href="index.html">
+      <a aria-label="Index page" href="index.html">
         <img role="link" alt="Fisheye Home page" src="assets/images/logo.png" class="logo" />
       </a>
     </header>
     <main aria-hidden="false" role="main" id="main">
       <div class="photograph-header">
         <div class="photographer-profile"></div><!-- Ajout-->
-        <button aria-label="Contactez-moi" tabindex="4" class="contact_button" onclick="openContactForm()">Contactez-moi</button>
+        <button aria-label="Contactez-moi" class="contact_button" onclick="openContactForm()">Contactez-moi</button>
         <div class="user-container"></div>
       </div>
+      <!-- Ajout de l'élément Info -->
+      <div tabindex="0" class="tabindex0" id="info">
+        <p id="totalLikes"></p><i aria-label="likes" class="fas fa-heart"></i>
+        <p id="price"></p>
+      </div>
+      <!---------------------------------------------------------------->
       <!-- Ajout de la division contenant l'élément de tri des images -->
       <div class="sorting">
-        <label tabindex="7" role="input label" for="sort-select">Trier par</label>
+        <label tabindex="0" class="tabindex0" role="input label" for="sort-select">Trier par</label>
         <div class="select-content">
           <select name="select" id="sort-select">
             <option value="popularity">Popularité</option>
@@ -29,7 +35,7 @@
             <option value="title">Titre</option>
           </select>
 
-          <div tabindex="8" class="custom-select">
+          <div tabindex="0" class="tabindex0 custom-select">
             <div role="button" class="expandBtn expandBtn-more"></div>
             <div class="select-copy select-close" selected="false">
               <div id="popularity" class="option option-selected option1" selected="true">un</div>
@@ -40,20 +46,15 @@
         </div>
       </div>
       <!---------------------------------------------------------------->
-      <!-- Ajout de l'élément Info -->
-      <div tabindex="6" id="info">
-        <p id="totalLikes"></p><i aria-label="likes" class="fas fa-heart"></i>
-        <p id="price"></p>
-      </div>
-      <!---------------------------------------------------------------->
+      
     </main>
     
     
     <!-- Modale -->
-     <div tabindex="1" id="" class="modal" aria-label="" aria-hidden="true" aria-modal="" role="dialog">
+     <div id="" class="modal" aria-hidden="true" role="dialog">
       
       <!-- container qui accueille le contenu (contactForm ou Lightbox) -->
-      <div tabindex="1" class="modalContent">
+      <div class="modalContent">
           <img role="button" class="closeBtn" src="assets/icons/close.svg" />
       </div>
 

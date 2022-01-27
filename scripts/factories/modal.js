@@ -23,8 +23,6 @@ class Modal {
 
             case 'contactForm' :
 
-                modal.setAttribute("aria-labelledby", "contactForm__title");
-
                 const fields = [
                     { 
                         label : 'firstame',
@@ -56,18 +54,28 @@ class Modal {
                 contactForm.create();
                 closeBtn.setAttribute("onclick", "closeContactForm()");
                 closeBtn.setAttribute("aria-label", "Close Contact form");
-                closeBtn.setAttribute("tabindex", 2);
+                closeBtn.setAttribute("tabindex", "0");
+
+                modal.style.height = "100%";
+                modal.setAttribute("aria-labelledby", "contactForm__title");
+                modal.setAttribute("tabindex", "1");
+                modalContent.setAttribute("tabindex", "-1");
+    
             break;
 
             case 'lightbox' :
-
-                modal.setAttribute("aria-label", "image closeup view");
                 
                 let lightbox = new Lightbox();
                 lightbox.create();
                 closeBtn.setAttribute("onclick", "closeLightbox()");
                 closeBtn.setAttribute("aria-label", "Close dialog");
-                closeBtn.setAttribute("tabindex", 3);
+                closeBtn.setAttribute("tabindex", "3");
+
+                modal.style.height = "auto";
+                modal.setAttribute("aria-label", "image closeup view");
+                modal.setAttribute("tabindex", "1");
+                modalContent.setAttribute("tabindex", "1");
+
             break;
         };
     };
@@ -76,19 +84,21 @@ class Modal {
 function displayModal() {
 
     const modal = document.querySelector(".modal");
-    //modal.focus();
 	modal.style.display = "block";
     modal.setAttribute("aria-hidden", false);
+    document.querySelector(".modal").focus();
+   // modal.setAttribute("tabindex", 1);
     //modal.setAttribute("aria-modal", true);
-    document.querySelector(".modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
+    //document.querySelector(".modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
     const header = document.getElementById("header");
     const main = document.getElementById("main");
-    const mainChildren = [].slice.call(main.children);
-    mainChildren.forEach((child) => {
-        child.setAttribute("aria-hidden", true);
-    });
     header.setAttribute("aria-hidden", true);
     main.setAttribute("aria-hidden", true);
+    
+    const allTabindex0 = [].slice.call(document.getElementsByClassName("tabindex0"));
+    allTabindex0.forEach((element) => {
+        element.removeAttribute("tabindex");
+    });
 };
 
 function closeModal() {
@@ -114,12 +124,14 @@ function closeModal() {
 
     const header = document.getElementById("header");
     const main = document.getElementById("main");
-    const mainChildren = [].slice.call(main.children);
-    mainChildren.forEach((child) => {
-        child.setAttribute("aria-hidden", false);
-    });
+
     header.setAttribute("aria-hidden", false);
     main.setAttribute("aria-hidden", false);
+
+    const allTabindex0 = [].slice.call(document.getElementsByClassName("tabindex0"));
+    allTabindex0.forEach((element) => {
+        element.setAttribute("tabindex", 0);
+    });
 
     modal.setAttribute("id", "");
     console.log("modal", modal);
