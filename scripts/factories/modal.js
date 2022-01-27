@@ -59,7 +59,7 @@ class Modal {
                 modal.style.height = "100%";
                 modal.setAttribute("aria-labelledby", "contactForm__title");
                 modal.setAttribute("tabindex", "1");
-                modalContent.setAttribute("tabindex", "-1");
+               // modalContent.setAttribute("tabindex", "-1");
     
             break;
 

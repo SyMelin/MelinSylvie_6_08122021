@@ -19,22 +19,22 @@ class ContactForm {
         modalContent.classList.add("contactForm");
 
         const header = document.createElement ("header");
-        header.setAttribute("tabindex", -1);
+        header.setAttribute("tabindex", "-1");
         
         const h1 = document.createElement ("h1");
 
         h1.setAttribute("id", "contactForm__title");
-        h1.setAttribute("tabindex", 0);
+        h1.setAttribute("tabindex", "0");
         h1.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
         console.log("h1", h1);
 
         const form = document.createElement ("form");
-        form.setAttribute("tabindex", -1);
+        form.setAttribute("tabindex", "-1");
         form.setAttribute("methode", this._method);
         form.setAttribute("action", this._action);
 
         const fieldsContainer = document.createElement("div");
-        fieldsContainer.setAttribute("tabindex", -1);
+        fieldsContainer.setAttribute("tabindex", "-1");
         fieldsContainer.classList.add("fieldsContainer");
         form.appendChild(fieldsContainer);
 
