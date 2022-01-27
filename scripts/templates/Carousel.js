@@ -64,7 +64,7 @@ class Carousel {
         //Crée le bouton Suivant
         this._nextBtn = this.createNavBtn();
         this._nextBtn.classList.add("navBtn-next");
-        this._nextBtn.setAttribute("tabindex", "2");
+        this._nextBtn.setAttribute("tabindex", "1");
         this._nextBtn.setAttribute("aria-label", "Next image");
         if (this._index == this._indexMax) {
             this._nextBtn.classList.add("navBtn-hidden");

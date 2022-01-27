@@ -69,12 +69,13 @@ class Modal {
                 lightbox.create();
                 closeBtn.setAttribute("onclick", "closeLightbox()");
                 closeBtn.setAttribute("aria-label", "Close dialog");
-                closeBtn.setAttribute("tabindex", "3");
+                //closeBtn.setAttribute("tabindex", "3");
+                closeBtn.setAttribute("tabindex", "0");
 
                 modal.style.height = "auto";
                 modal.setAttribute("aria-label", "image closeup view");
                 modal.setAttribute("tabindex", "1");
-                modalContent.setAttribute("tabindex", "1");
+                modalContent.setAttribute("tabindex", "-1");
 
             break;
         };
