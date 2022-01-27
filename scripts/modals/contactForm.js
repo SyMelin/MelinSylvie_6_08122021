@@ -19,16 +19,20 @@ class ContactForm {
         modalContent.classList.add("contactForm");
 
         const header = document.createElement ("header");
+        header.setAttribute("tabindex", 1);
         
         const h2 = document.createElement ("h2");
+        h2.setAttribute("id", "contactForm__title");
         h2.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
         console.log("h2",h2);
 
         const form = document.createElement ("form");
+        form.setAttribute("tabindex", 2);
         form.setAttribute("methode", this._method);
         form.setAttribute("action", this._action);
 
         const fieldsContainer = document.createElement("div");
+        fieldsContainer.setAttribute("tabindex", -1);
         fieldsContainer.classList.add("fieldsContainer");
         form.appendChild(fieldsContainer);
 
@@ -39,6 +43,7 @@ class ContactForm {
         };
 
         const contactBtn =  document.createElement("button");
+        contactBtn.setAttribute("tabindex", 1);
         contactBtn.textContent = "Envoyer";
         contactBtn.setAttribute("aria-label", "Envoyer");
         contactBtn.classList.add("contact_button");
@@ -75,9 +80,11 @@ class FormField {
     createFormField() {
 
         let fieldBox = document.createElement("div");
+        fieldBox.setAttribute("tabindex", -1);
 
         //Crée le label
         let label =  document.createElement("label");
+        label.setAttribute("tabindex", 1);
         label.setAttribute("for", this._label);
         label.textContent = this._text;
 
@@ -95,6 +102,7 @@ class FormField {
         input.setAttribute("aria-labelledby", this._ariaLabelledby);
         input.setAttribute("required", true);
         input.setAttribute('aria-required', true);
+        input.setAttribute("tabindex", 1);
 
         fieldBox.appendChild(label);
         fieldBox.appendChild(input);
@@ -113,7 +121,10 @@ function openContactForm(){
 };
 
 function closeContactForm() {
+    const modal = document.querySelector(".modal");
+    modal.removeAttribute("aria-labelledby");
     const modalContent = document.querySelector(".modal .modalContent");
+   // modalContent.removeAttribute("tabindex");
     modalContent.classList.remove("contactForm");
     closeModal();
 }

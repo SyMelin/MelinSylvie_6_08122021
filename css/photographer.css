@@ -442,8 +442,15 @@ form .text-area {
     top: 1.25em;
 }
 
+.modal:focus{
+    background-color: violet;
+}
+
 .contactForm {
     background-color: #DB8876;
+}
+.modalContent:focus{
+    background-color: yellowgreen;
 }
 
 .lightbox {

@@ -14,13 +14,16 @@ class Modal {
         
         const modal = document.querySelector(".modal")
         modal.setAttribute("id", this._id);
-        modal.setAttribute("aria-label", "image closeup view");
+        
 
         let modalContent = document.querySelector(".modalContent");
         let closeBtn =  document.querySelector(".modalContent .closeBtn");
 
         switch (this._type) {
+
             case 'contactForm' :
+
+                modal.setAttribute("aria-labelledby", "contactForm__title");
 
                 const fields = [
                     { 
@@ -53,13 +56,18 @@ class Modal {
                 contactForm.create();
                 closeBtn.setAttribute("onclick", "closeContactForm()");
                 closeBtn.setAttribute("aria-label", "Close Contact form");
+                closeBtn.setAttribute("tabindex", 2);
             break;
 
             case 'lightbox' :
+
+                modal.setAttribute("aria-label", "image closeup view");
+                
                 let lightbox = new Lightbox();
                 lightbox.create();
                 closeBtn.setAttribute("onclick", "closeLightbox()");
                 closeBtn.setAttribute("aria-label", "Close dialog");
+                closeBtn.setAttribute("tabindex", 3);
             break;
         };
     };
@@ -68,12 +76,17 @@ class Modal {
 function displayModal() {
 
     const modal = document.querySelector(".modal");
+    //modal.focus();
 	modal.style.display = "block";
     modal.setAttribute("aria-hidden", false);
     //modal.setAttribute("aria-modal", true);
-    //document.querySelector(".modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
+    document.querySelector(".modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
     const header = document.getElementById("header");
     const main = document.getElementById("main");
+    const mainChildren = [].slice.call(main.children);
+    mainChildren.forEach((child) => {
+        child.setAttribute("aria-hidden", true);
+    });
     header.setAttribute("aria-hidden", true);
     main.setAttribute("aria-hidden", true);
 };
@@ -101,6 +114,10 @@ function closeModal() {
 
     const header = document.getElementById("header");
     const main = document.getElementById("main");
+    const mainChildren = [].slice.call(main.children);
+    mainChildren.forEach((child) => {
+        child.setAttribute("aria-hidden", false);
+    });
     header.setAttribute("aria-hidden", false);
     main.setAttribute("aria-hidden", false);
 

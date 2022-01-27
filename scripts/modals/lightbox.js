@@ -23,6 +23,9 @@ class Lightbox {
 
 function prepareBeforeClosing (){
 
+    const modal = document.querySelector(".modal");
+    modal.removeAttribute("aria-label");
+
     const modalContent = document.querySelector(".modalContent");
     modalContent.classList.remove("lightbox");
 
