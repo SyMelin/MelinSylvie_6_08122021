@@ -10,7 +10,6 @@ let mediaCardAll = document.getElementsByClassName("thumb-imgfull");
 
 let likeTotal = 0;
 
-/*let optionIndexSelect = 0;*/
 
 //Récupère l'id du photographe contenu dans l'url de la page photographer.html
 function getId() {
@@ -92,23 +91,3 @@ async function initPhotographer() {
 };
 
 initPhotographer();
-
-
-////////////////////// Filtres /////////////////////////////////////
-/*
-const select = document.getElementById("sort-select");
-//console.log(select);
-select.addEventListener("change", function(e) {
-    e.preventDefault();
-
-    //On vide le conteneur de cartes media
-    const mediaWrapper = document.querySelector(".mediaWrapper");
-    mediaWrapper.parentElement.removeChild(mediaWrapper);
-
-    //On crée un nouveau fltre en fonction de select.value et on réaffiche les cartes media
-    const filter = new FilterFactory(select.value, photographerMedia);
-    console.log("filterCreated", filter);
-    filter.createAFilter();
-    console.log("HELLOOO", photographerMedia);
-    displayMedia(photographerMedia);
-});*/

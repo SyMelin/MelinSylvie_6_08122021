@@ -1,7 +1,7 @@
-class CustomSelect {
+class Listbox {
 
     /**
-     * @param {HTMLElement} element select
+     * @param {HTMLElement} element listbox
      */
 
     constructor (element) {
@@ -10,8 +10,8 @@ class CustomSelect {
 
 }
 
-const selectCopy = document.querySelector(".select-copy");
-const optionsCopy = [].slice.call(selectCopy.children);
+const listbox = document.querySelector(".listbox");
+const options = [].slice.call(listbox.children);
 
 const expandBtn = document.querySelector(".expandBtn");
 
@@ -21,22 +21,22 @@ const expandBtn = document.querySelector(".expandBtn");
 
 function selectAnOption (option) {
 
-    optionsCopy.forEach((childOption) => {
-        childOption.setAttribute("aria-selected", false);
+    options.forEach((childOption) => {
+        childOption.setAttribute("aria-selected", "false");
     });
     
-    selectCopy.setAttribute("aria-expanded", "false");
-    selectCopy.focus();
+    listbox.setAttribute("aria-expanded", "false");
+    listbox.focus();
     
     //Au clic, on attribut option cliquée", option.getAttribute("aria-selected"));
-    option.setAttribute("aria-selected", true);
+    option.setAttribute("aria-selected", "true");
     
     //On récupère l'id de l'option cliquée
     let optionSelected = option.getAttribute("id");
 
-    if (selectCopy.classList.contains("select-open")){
+    if (listbox.classList.contains("listbox-open")){
 
-        optionsCopy.forEach((childOption) => {
+        options.forEach((childOption) => {
             //console.log("Attribut aria-selected", option.getAttribute("aria-selected"));
             if ((childOption.getAttribute("aria-selected")) == "false"){
                 childOption.classList.remove("option-selected");
@@ -47,16 +47,15 @@ function selectAnOption (option) {
         //on ferme les options du select
         expandBtn.setAttribute("aria-expanded", "false");
         expandBtn.classList.toggle("expandBtn-less");
-        selectCopy.classList.toggle("select-open");
-        selectCopy.classList.toggle("select-close");
+        listbox.classList.toggle("listbox-open");
+        listbox.classList.toggle("listbox-close");
 
 
         //On vide le conteneur de cartes media
         const mediaWrapper = document.querySelector(".mediaWrapper");
         mediaWrapper.parentElement.removeChild(mediaWrapper);
 
-        //On crée un nouveau filtre en fonction de select.value et on réaffiche les cartes media
-      
+        //On crée un nouveau filtre en fonction de Value et on réaffiche les cartes media
         const filter = new FilterFactory(optionSelected, photographerMedia);
         filter.createAFilter();
         displayMedia(photographerMedia);
@@ -68,7 +67,7 @@ function selectAnOption (option) {
 //////////// Evenement sur une option de la listbox /////////////////
 
 //au  clic sur une option
-optionsCopy.forEach((option) => {
+options.forEach((option) => {
     option.addEventListener("click", function(e){
         //console.log(option + " a été cliquée");
         e.preventDefault();
@@ -77,7 +76,7 @@ optionsCopy.forEach((option) => {
 });
 
 //avec ENTER sur une option
-optionsCopy.forEach((option) => {
+options.forEach((option) => {
     option.addEventListener("keyup", function(e){
         e.preventDefault();
         if (e.key === "Enter") {
@@ -88,41 +87,40 @@ optionsCopy.forEach((option) => {
 
 
 
-//////////// Fonction utile pour !'évenement sur le bouton expand du select /////////////////
+//////////// Fonction utile pour !'évenement sur le bouton expand de la listbox /////////////////
 
-function changeSelectDisplay () {
+function changeListboxDisplay () {
 
-    let state = selectCopy.getAttribute("aria-expanded");
+    let state = listbox.getAttribute("aria-expanded");
     console.log(state);
 
-    //on affiche le menu select
+    //on affiche les options de la listbox
     expandBtn.setAttribute("aria-expanded", "true");
     expandBtn.classList.toggle("expandBtn-less");
-    selectCopy.classList.toggle("select-open");
-    selectCopy.classList.toggle("select-close");
+    listbox.classList.toggle("listbox-open");
+    listbox.classList.toggle("listbox-close");
 
-    selectCopy.focus();
+    listbox.focus();
 
-    optionsCopy.forEach((option) => {
+    options.forEach((option) => {
         option.style.cursor = "pointer";
         if (option.classList.contains("option-notSelected")) {
             option.classList.remove("option-notSelected");
             option.classList.add("option-selected");
         };
-        //console.log("Etat à l'ouverture des choix : ", option.className);
     });
 
-    //Selon l'état du select enregistré au clic
+    //Selon l'état de la listbox enregistré au clic
     if (state == "false") {
         console.log("on vient de boucler");
-        selectCopy.setAttribute("aria-expanded", "true");
-        console.log(selectCopy.getAttribute("aria-expanded"));
+        listbox.setAttribute("aria-expanded", "true");
+        console.log(listbox.getAttribute("aria-expanded"));
     } else {
         console.log("on vient d'ouvrir et on veut refermer")
         expandBtn.setAttribute("aria-expanded", "false");
-        selectCopy.setAttribute("aria-expanded", "false");
-        console.log(selectCopy.getAttribute("aria-expanded"));
-        optionsCopy.forEach((option)=> {
+        listbox.setAttribute("aria-expanded", "false");
+        console.log(listbox.getAttribute("aria-expanded"));
+        options.forEach((option)=> {
 
             if ((option.getAttribute("aria-selected")) !== "true") {
                 option.classList.remove("option-selected");
@@ -133,18 +131,18 @@ function changeSelectDisplay () {
 };
 
 
-//////////// Evenement sur le bouton expand du select /////////////////
+//////////// Evenement sur le bouton expand de la listbox /////////////////
 
 //au  clic sur le bouton expand
 expandBtn.addEventListener("click", function(e){
     e.preventDefault();
-    changeSelectDisplay();
+    changeListboxDisplay();
 });
 
  //avec ENTRER sur le bouton expand
  expandBtn.addEventListener("keyup", function(e){
     e.preventDefault();
     if (e.key === "Enter") {
-        changeSelectDisplay;
+        changeListboxDisplay();
     };
 });

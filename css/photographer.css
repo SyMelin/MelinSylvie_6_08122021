@@ -58,16 +58,20 @@ body {
     flex-direction: row;
 }
 
-#select-label {
+.listbox-container {
+    position: relative;
+}
+
+#listbox-label {
     font-size: 1.125em;
     font-weight: bold;
     margin-right: 1.25em;
     padding-top: 1em;
 }
 
-/* custom select styles */
+/* listbox styles */
 
-.select-copy {
+.listbox {
     position: relative;
     font-size: 1.125em;
     font-weight: bold; 
@@ -82,11 +86,11 @@ body {
     justify-content: space-between;
 }
 
-.select-close{
+.listbox-close{
     height: 4.3125em;
 }
 
-.select-open{
+.listbox-open{
     height: 10.625em;  
 }
 
@@ -99,8 +103,8 @@ body {
     background-position: center;
     width: 2em;
     height: 2em;
-    border: 1px solid black;
-    z-index: 2;
+    border: 5px solid blue;
+    z-index: 1;
 }
 
 .expandBtn-more{
@@ -111,31 +115,31 @@ body {
 }
 
 
-.select-copy .option {
+.listbox .option {
     width: 100%;
     padding-top: 0.9375em;
     
 }
 
-.select-copy .option-selected{
+.listbox .option-selected{
     height: 33.33%;
     border: none;
 }
 
-.select-copy .option-notSelected{
+.listbox .option-notSelected{
     display: none;
 }
 
-.select-copy .option1 {
+.listbox .option1 {
     /*background-color: yellow;*/
 }
 
-.select-open .option2 {
+.listbox-open .option2 {
     border-top: 0.0625em solid white;
     border-bottom: 0.0625em solid white ;
 }
 
-.select-copy .option3 {
+.listbox .option3 {
    /* background-color: green;*/
 }
 
