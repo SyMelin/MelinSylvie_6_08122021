@@ -10,9 +10,6 @@ class CustomSelect {
 
 }
 
-const sortSelect = document.getElementById("sort-select");
-const options = [].slice.call(sortSelect.children);
-
 const selectCopy = document.querySelector(".select-copy");
 const optionsCopy = [].slice.call(selectCopy.children);
 
@@ -60,8 +57,7 @@ function selectAnOption (option) {
 
         //On crée un nouveau filtre en fonction de select.value et on réaffiche les cartes media
       
-        sortSelect.value = optionSelected
-        const filter = new FilterFactory(sortSelect.value, photographerMedia);
+        const filter = new FilterFactory(optionSelected, photographerMedia);
         filter.createAFilter();
         displayMedia(photographerMedia);
 

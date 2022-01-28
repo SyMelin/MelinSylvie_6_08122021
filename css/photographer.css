@@ -58,7 +58,7 @@ body {
     flex-direction: row;
 }
 
-.sorting label {
+#select-label {
     font-size: 1.125em;
     font-weight: bold;
     margin-right: 1.25em;
@@ -66,15 +66,6 @@ body {
 }
 
 /* custom select styles */
-
-select {
-    display: none;
-}
-
-.custom-select {
-    position: absolute;
-    z-index: 2;
-  }
 
 .select-copy {
     position: relative;
