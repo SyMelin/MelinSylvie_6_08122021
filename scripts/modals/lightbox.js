@@ -5,6 +5,11 @@ class Lightbox {
         modalContent.classList.add("lightbox");
       //  modalContent.setAttribute("aria-label", "image closeup view");
 
+        const carouselContainer = document.createElement("div");
+        carouselContainer.classList.add("carousel-container");
+        carouselContainer.setAttribute("tabindex", "-1");
+
+
         const carousel = document.createElement("div");
         carousel.classList.add("carousel");
         carousel.setAttribute("tabindex", "-1");
@@ -15,13 +20,17 @@ class Lightbox {
        // console.log(lightboxFrame);
     
         carousel.appendChild(lightboxFrame);
-        modalContent.appendChild(carousel);
+        carouselContainer.appendChild(carousel)
+        modalContent.prepend(carouselContainer);
        // console.log(modalContent);
 
     };
 };
 
 function prepareBeforeClosing (){
+
+    const main = document.getElementById("main");
+    main.classList.remove("hidden");
 
     const modal = document.querySelector(".modal");
     modal.removeAttribute("aria-label");

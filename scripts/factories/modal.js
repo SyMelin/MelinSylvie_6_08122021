@@ -23,6 +23,11 @@ class Modal {
 
             case 'contactForm' :
 
+                const allTabindex0 = [].slice.call(document.getElementsByClassName("tabindex0"));
+                allTabindex0.forEach((element) => {
+                    element.removeAttribute("tabindex");
+                });
+
                 const fields = [
                     { 
                         label : 'firstame',
@@ -70,12 +75,15 @@ class Modal {
                 closeBtn.setAttribute("onclick", "closeLightbox()");
                 closeBtn.setAttribute("aria-label", "Close dialog");
                 //closeBtn.setAttribute("tabindex", "3");
-                closeBtn.setAttribute("tabindex", "0");
+                closeBtn.setAttribute("tabindex", "1");
 
                 modal.style.height = "auto";
                 modal.setAttribute("aria-label", "image closeup view");
-                modal.setAttribute("tabindex", "1");
-                modalContent.setAttribute("tabindex", "-1");
+                modal.setAttribute("tabindex", "0");
+                //modalContent.setAttribute("tabindex", "-1");
+
+                const main = document.getElementById("main");
+                main.classList.add("hidden");
 
             break;
         };
@@ -95,11 +103,12 @@ function displayModal() {
     const main = document.getElementById("main");
     header.setAttribute("aria-hidden", true);
     main.setAttribute("aria-hidden", true);
-    
+    /*
     const allTabindex0 = [].slice.call(document.getElementsByClassName("tabindex0"));
     allTabindex0.forEach((element) => {
         element.removeAttribute("tabindex");
     });
+    */
 };
 
 function closeModal() {

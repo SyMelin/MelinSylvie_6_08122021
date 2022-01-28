@@ -15,21 +15,25 @@ class Carousel {
         //console.log("indexMax", this._indexMax);
         let ratio = this._children.length;
         this._container = document.querySelector(".mediaWrapper-inLightbox");
-        this._container.setAttribute("tabindex", "1");
+        this._container.setAttribute("tabindex", "0");
         this._container.style.width = (ratio * 100) + "%";
         this._children.forEach((child) => {
             child.style.width = (100 / ratio ) + "%";
         });
-     /*   const thumbImg = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-img");
-        thumbImg.forEach((image) => {
-            image.setAttribute("tabindex", "2");
+        /*
+        const thumbImgAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-img");
+        console.log("thumbimgALL", thumbImgAll);
+        thumbImgAll.forEach((image) => {
+            image.removeAttribute("tabindex");
             console.log("done");
         });
         const titles = document.querySelectorAll("#lightbox-frame .mediaWrapper .title-caption");
+        console.log("titles", thumbImgAll);
         titles.forEach((title) => {
-            title.setAttribute("tabindex", "3");
+            title.removeAttribute("tabindex");
             console.log("titledone");
-        });*/
+        });
+    */
         this._container.mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");
        /// console.log(this._container.mediaLike);
         this._container.mediaLike.forEach((like) => {
@@ -71,11 +75,11 @@ class Carousel {
             this._nextBtn.setAttribute("aria-hidden", true);
         };  
 
-        const lightbox = document.querySelector(".lightbox");
-        lightbox.appendChild(this._prevBtn); 
+        const carouselContainer = document.querySelector(".carousel-container");
+        carouselContainer.appendChild(this._prevBtn); 
 
        // lightbox.prepend(this._prevBtn);
-        lightbox.appendChild(this._nextBtn); 
+        carouselContainer.appendChild(this._nextBtn); 
 
         //Ajout des fonctions appelées au clic sur chaque bouton
         this._prevBtn.addEventListener("click", this.prev.bind(this));
@@ -104,6 +108,9 @@ class Carousel {
         //console.log("cardIndex", this._index);
         if (this._index > this._indexMin && this._index <= this._indexMax) {
             this._index-- ; //index vers lequel on veut aller
+         /*   ([].slice.call(this._children[this._index + 1].children)).forEach((child) => {
+                child.removeAttribute("tabindex");
+            });*/
             this.gotoItem(this._index);
             if (this._index == this._indexMin) {
                 this._prevBtn.classList.add("navBtn-hidden");
@@ -119,6 +126,9 @@ class Carousel {
 
         if (this._index >= this._indexMin && this._index < this._indexMax) {
             this._index++ ;
+          /*  ([].slice.call(this._children[this._index - 1].children)).forEach((child) => {
+                child.removeAttribute("tabindex");
+            });*/
             this.gotoItem(this._index);
             if (this._index == (this._indexMax)) {
                 this._nextBtn.classList.add("navBtn-hidden");
@@ -140,6 +150,9 @@ class Carousel {
         });
         console.log("index", index);
         this._children[index].setAttribute("aria-hidden", false);
+      /*  ([].slice.call(this._children[index].children)).forEach((child) => {
+            child.setAttribute("tabindex", "0");
+        });*/
        
         //console.log(this._children[index]);
        // console.log(this._children[index - 1]);

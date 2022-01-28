@@ -447,7 +447,7 @@ form .text-area {
 .lightbox {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+   /* justify-content: space-between;*/
     width: 90%;
     position : relative;
     background-color: white;
@@ -476,6 +476,15 @@ form .text-area {
 
 .navBtn-next{
     transform: rotate(180deg);
+}
+
+
+.carousel-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid greenyellow;
 }
 
 .carousel{
