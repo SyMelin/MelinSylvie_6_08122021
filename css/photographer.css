@@ -49,12 +49,8 @@ body {
 .user-container {
     text-align: right;
 }
-/*
-.photograph-header:nth-child(1n){
-    width: 90%;
-}*/
 
-/* --- Ajouts --- */
+/* --- Division contenant la région de tri --- */
 .sorting {
     margin: 3.125em 6.25em;
     height: 2.5em;
@@ -66,23 +62,17 @@ body {
     font-size: 1.125em;
     font-weight: bold;
     margin-right: 1.25em;
+    padding-top: 1em;
 }
-/* --------------- */
 
 /* custom select styles */
 
 select {
-    /*font-size: 18px;
-    font-weight: bold; 
-    color: white;
-    background-color: #901C1C;*/
     display: none;
 }
 
 .custom-select {
     position: absolute;
-    width: 10.625em;
-    border: 1px solid blue;
     z-index: 2;
   }
 
@@ -152,7 +142,6 @@ select {
 .select-open .option2 {
     border-top: 0.0625em solid white;
     border-bottom: 0.0625em solid white ;
-    
 }
 
 .select-copy .option3 {
