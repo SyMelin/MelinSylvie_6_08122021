@@ -75,7 +75,7 @@ class Modal {
                 closeBtn.setAttribute("onclick", "closeLightbox()");
                 closeBtn.setAttribute("aria-label", "Close dialog");
                 //closeBtn.setAttribute("tabindex", "3");
-                closeBtn.setAttribute("tabindex", "1");
+                closeBtn.setAttribute("tabindex", "0");
 
                 modal.style.height = "auto";
                 modal.setAttribute("aria-label", "image closeup view");

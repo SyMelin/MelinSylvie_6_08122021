@@ -29,6 +29,7 @@ class ContactForm {
         console.log("h1", h1);
 
         const form = document.createElement ("form");
+        form.setAttribute("role", "form");
         form.setAttribute("tabindex", "-1");
         form.setAttribute("methode", this._method);
         form.setAttribute("action", this._action);

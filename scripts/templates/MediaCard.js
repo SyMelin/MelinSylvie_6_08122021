@@ -10,8 +10,8 @@ class MediaItemCard {
 
     createMediaItemCard () {
 
-        const box = document.createElement("div");
-        box.classList.add("thumb-imgfull");
+        const mediaItemCard = document.createElement("div");
+        mediaItemCard.classList.add("thumb-imgfull", "thumb-imgfull-inMain");
 
         const template = new MediaItemFrame(this._mediaItem, this._width, this._height, this._radius);
         const frame = template.createMediaItemFrame();
@@ -20,6 +20,7 @@ class MediaItemCard {
         
         const caption = document.createElement("div");
         caption.classList.add("caption");
+       // caption.setAttribute("tabindex", "-1");
 
         const title = document.createElement("p");
         title.classList.add("title-caption");
@@ -28,13 +29,18 @@ class MediaItemCard {
         title.classList.add("tabindex0");
 
         const like = document.createElement("div");
-        like.classList.add("like-caption")
-        like.classList.add("mediaCard__like")
+        like.classList.add("like-caption");
+        like.classList.add("mediaCard__like");
+        like.setAttribute("tabindex", "-1");
 
         const likeNb = document.createElement("p");
+        likeNb.setAttribute("aria-hidden", true);
         likeNb.textContent = this._mediaItem.likes;
-        likeNb.setAttribute("tabindex", "0");
-        likeNb.classList.add("tabindex0");
+        const likeNbSpan = document.createElement('span');
+        likeNbSpan.classList.add("screenreader-text");
+        likeNbSpan.textContent = this._mediaItem.likes + " likes";
+        likeNbSpan.setAttribute("tabindex", "0");
+        likeNbSpan.classList.add("tabindex0");
 
         const likeHeart = document.createElement("div");
         likeHeart.classList.add("likeHeart");
@@ -44,13 +50,14 @@ class MediaItemCard {
         likeHeart.classList.add("tabindex0");
 
         like.appendChild(likeNb);
+        like.appendChild(likeNbSpan);
         like.appendChild(likeHeart);
 
         caption.appendChild(title);
         caption.appendChild(like);
 
-        box.appendChild(frame);
-        box.appendChild(caption);
+        mediaItemCard.appendChild(frame);
+        mediaItemCard.appendChild(caption);
        
 
         likeHeart.addEventListener("click", function(e) {
@@ -68,7 +75,7 @@ class MediaItemCard {
             };
         }); 
 
-        return box;
+        return mediaItemCard;
     };
 
 };

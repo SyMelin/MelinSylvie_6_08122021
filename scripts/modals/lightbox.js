@@ -42,13 +42,13 @@ function prepareBeforeClosing (){
     mediaWrapper.classList.remove("mediaWrapper-inLightbox");
     mediaWrapper.classList.add("mediaWrapper-inMain");
     mediaWrapper.removeAttribute("tabindex");
-    mediaWrapper.style.transform = "translate3d(0%, 0em, 0em)";
-    mediaWrapper.style.width = "85%";
+    //mediaWrapper.style.transform = "translate3d(0%, 0em, 0em)";
 
     const mediaCardAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull");
     mediaCardAll.forEach((mediaCard) => {
-        mediaCard.classList.remove(".thumb-imgfull-inLightbox");
-        mediaCard.style.width = "21.875em";
+        mediaCard.classList.remove("thumb-imgfull-inLightbox", "hidden");
+        mediaCard.classList.add("thumb-imgfull-inMain");
+        mediaCard.setAttribute("role", "image link");
     });
 
     const mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");

@@ -172,6 +172,7 @@ body {
     justify-content: flex-start;
     flex-wrap: nowrap;
    /*width: 2300px;*/
+    width: 100%;
     height: 100%;
     margin: 0%;
    /* border: 2px solid yellow;*/
@@ -179,12 +180,17 @@ body {
 
 .thumb-imgfull{
     border-radius: 0.3125em;
+    
+}
+
+.thumb-imgfull-inMain{
     width: 21.875em;
 }
 
 .thumb-imgfull-inLightbox{
     /*  width: 641.66px;*/
-      height: 100%;
+    width: 100%;
+    height: 100%;
   }
 
 .thumb-img{
@@ -483,6 +489,7 @@ form .text-area {
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content:center;
     align-items: center;
     border: 1px solid greenyellow;
 }
@@ -500,6 +507,7 @@ form .text-area {
   /*  border: 1px solid black;*/
     text-align: center;
    /* width: 641.66px;*/
+    width: 100%;
     height: 600px;
     overflow: hidden;
     position: relative;

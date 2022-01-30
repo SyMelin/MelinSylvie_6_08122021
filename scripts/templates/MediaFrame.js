@@ -12,7 +12,7 @@ class MediaItemFrame {
 
         this._frame = document.createElement("div");
         this._frame.classList.add("thumb-img");
-        this._frame.setAttribute("role", "link");
+        this._frame.setAttribute("role", "image link");
         this._frame.setAttribute("aria-label", `${this._mediaItem.alt}`+", closeup view");
        // this._frame.setAttribute('alt', this._mediaItem.alt); //
         // frame.setAttribute('onclick', "displayModalL()");
@@ -84,7 +84,8 @@ class MediaItemFrame {
 
         //On récupère la mediaCard dont l'image a été cliquée
         this._mediaCard = this._frame.parentElement;
-        this._mediaCard.classList.add(".thumb-imgfull-inLightbox");
+        this._mediaCard.classList.remove("thumb-imgfull-inMain");
+        this._mediaCard.classList.add("thumb-imgfull-inLightbox");
         //On récupère toutes les mediaCard
         this._mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
         const mediaArray = Array.from(this._mediaCardAll);
