@@ -70,9 +70,9 @@ class Modal {
 
             case 'lightbox' :
                 
-                let lightbox = new Lightbox();
-                lightbox.create();
-                closeBtn.setAttribute("onclick", "closeLightbox()");
+                let lightboxModal = new LightboxModal();
+                lightboxModal.create();
+                closeBtn.setAttribute("onclick", "closeLightboxModal()");
                 closeBtn.setAttribute("aria-label", "Close dialog");
                 //closeBtn.setAttribute("tabindex", "3");
                 closeBtn.setAttribute("tabindex", "0");

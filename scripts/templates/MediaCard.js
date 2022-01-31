@@ -29,8 +29,8 @@ class MediaItemCard {
         title.classList.add("tabindex0");
 
         const like = document.createElement("div");
-        like.classList.add("like-caption");
         like.classList.add("mediaCard__like");
+        like.classList.add("like-caption-visible");
         like.setAttribute("tabindex", "-1");
 
         const likeNb = document.createElement("p");
