@@ -20,7 +20,7 @@ class PhotographerHeader {
 
         
         // crée le paragraphe texte statique
-        const paragraphe = document.createElement('p'); //ajout
+        const paragraphe = document.createElement('p');
         paragraphe.classList.add("text");
         paragraphe.setAttribute('tabindex', "0");
         paragraphe.classList.add("tabindex0");
@@ -32,8 +32,8 @@ class PhotographerHeader {
         const textTagline = document.createElement('p');
         textTagline.textContent = this._photographerData.tagline;
 
-        paragraphe.appendChild(textLocation); //ajout
-        paragraphe.appendChild(textTagline); //ajout
+        paragraphe.appendChild(textLocation);
+        paragraphe.appendChild(textTagline);
 
         photographerProfile.appendChild(h1);
         photographerProfile.appendChild(paragraphe);

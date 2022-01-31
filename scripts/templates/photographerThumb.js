@@ -16,9 +16,9 @@ class PhotographerThumb {
         article.classList.add("thumb-photographer");
 
         // crée le lien img + h2
-        const link = document.createElement('a'); //ajout
-        link.setAttribute('href', "../photographer.html?id=" + this._photographer.id); //ajout
-        link.setAttribute('title', this._photographer.name + "-page"); //ajout
+        const link = document.createElement('a');
+        link.setAttribute('href', "../photographer.html?id=" + this._photographer.id);
+        link.setAttribute('title', this._photographer.name + "-page");
         link.setAttribute('aria-label', `${this._photographer.name}`);
        
         const img = document.createElement('img');
@@ -36,29 +36,29 @@ class PhotographerThumb {
         article.appendChild(link);
 
         // crée le paragraphe texte statique
-        const paragraphe = document.createElement('p'); //ajout
+        const paragraphe = document.createElement('p');
         paragraphe.setAttribute('tabindex', "0");
        
-        const textLocation = document.createElement('p'); //ajout
+        const textLocation = document.createElement('p');
         textLocation.classList.add('text-location');
-        textLocation.textContent = this._photographer.city + ", " + this._photographer.country; //ajout
+        textLocation.textContent = this._photographer.city + ", " + this._photographer.country;
         
-        const textTagline = document.createElement('p'); //ajout
-        textTagline.textContent = this._photographer.tagline; //ajout
+        const textTagline = document.createElement('p');
+        textTagline.textContent = this._photographer.tagline;
         
-        const textPrice = document.createElement('p'); //ajout
-        textPrice.textContent = this._photographer.price +"€/jour"; //ajout
+        const textPrice = document.createElement('p');
+        textPrice.textContent = this._photographer.price +"€/jour";
         textPrice.setAttribute("aria-hidden", true);
         const textPriceSpan = document.createElement('span');
         textPriceSpan.classList.add("screenreader-text");
-        textPriceSpan.textContent = this._photographer.price +"€ par jour"; //ajout
+        textPriceSpan.textContent = this._photographer.price +"€ par jour";
         
-        paragraphe.appendChild(textLocation); //ajout
-        paragraphe.appendChild(textTagline); //ajout
-        paragraphe.appendChild(textPrice); //ajout
-        paragraphe.appendChild(textPriceSpan); //ajout
+        paragraphe.appendChild(textLocation);
+        paragraphe.appendChild(textTagline);
+        paragraphe.appendChild(textPrice);
+        paragraphe.appendChild(textPriceSpan);
        
-        article.appendChild(paragraphe); //ajout
+        article.appendChild(paragraphe);
         
         return (article);
     };

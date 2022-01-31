@@ -43,7 +43,7 @@ async function displayMedia(photographerMedia){
     };
 };
 
-
+// Calcul la somme totale des likes de medias cumulés
 function sumLikes() {
     likeTotal = 0;
     for (let mediaItem of photographerMedia) {
@@ -80,7 +80,7 @@ async function initPhotographer() {
 
     //Media filtrer par popularité par défaut
     const filter = new Filter(photographerMedia);
-    filter.filterByPopularity();
+    filter.filterByDate();
 
     //Affichage des média
     displayMedia(photographerMedia);

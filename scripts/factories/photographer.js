@@ -11,9 +11,9 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
 
         // crée le lien img + h2
-        const link = document.createElement('a'); //ajout
-        link.setAttribute('href', "../photographer.html?id=" + id); //ajout
-        link.setAttribute('title', name + "-page"); //ajout
+        const link = document.createElement('a');
+        link.setAttribute('href', "../photographer.html?id=" + id);
+        link.setAttribute('title', name + "-page");
        
         const img = document.createElement( 'img' );
         img.classList.add('user');
@@ -29,23 +29,23 @@ function photographerFactory(data) {
         article.appendChild(link);
 
         // crée le paragraphe texte statique
-        const paragraphe = document.createElement('p'); //ajout
+        const paragraphe = document.createElement('p');
        
-        const textLocation = document.createElement('p'); //ajout
+        const textLocation = document.createElement('p');
         textLocation.classList.add('text-location');
-        textLocation.textContent = city + ", " + country; //ajout
+        textLocation.textContent = city + ", " + country;
         
-        const textTagline = document.createElement('p'); //ajout
-        textTagline.textContent = tagline; //ajout
+        const textTagline = document.createElement('p');
+        textTagline.textContent = tagline;
         
-        const textPrice = document.createElement('p'); //ajout
-        textPrice.textContent = price +"€/jour"; //ajout
+        const textPrice = document.createElement('p');
+        textPrice.textContent = price +"€/jour";
         
-        paragraphe.appendChild(textLocation); //ajout
-        paragraphe.appendChild(textTagline); //ajout
-        paragraphe.appendChild(textPrice); //ajout
+        paragraphe.appendChild(textLocation);
+        paragraphe.appendChild(textTagline);
+        paragraphe.appendChild(textPrice);
        
-        article.appendChild(paragraphe); //ajout
+        article.appendChild(paragraphe);
         
         return (article);
     }

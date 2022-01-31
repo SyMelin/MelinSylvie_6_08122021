@@ -29,13 +29,12 @@ body {
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 18.75em;
     box-sizing: border-box;
     width: 85%;
     margin: 0 auto;
     padding-left: 5%;
     padding-right: 5%;
-    display: flex; /* ajout */
+    display: flex;
     justify-content: space-around;
     align-items: center;
 }
@@ -136,6 +135,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .listbox-close{
@@ -156,7 +156,7 @@ body {
     width: 2em;
     height: 2em;
     border: 5px solid blue;
-    z-index: 1;
+    z-index: 2;
 }
 
 .expandBtn-more{
