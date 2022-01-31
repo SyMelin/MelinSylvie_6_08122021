@@ -86,6 +86,7 @@ class MediaItemFrame {
         this._mediaCard = this._frame.parentElement;
         this._mediaCard.classList.remove("thumb-imgfull--inMain");
         this._mediaCard.classList.add("thumb-imgfull--inLightbox");
+ 
         //On récupère toutes les mediaCard
         this._mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
         const mediaArray = Array.from(this._mediaCardAll);
