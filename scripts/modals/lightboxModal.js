@@ -1,7 +1,7 @@
 class LightboxModal {
 
     create() {
-        const modalContent = document.querySelector(".modalContent");
+        const modalContent = document.querySelector(".modal__content");
         modalContent.classList.add("modal--lightbox");
       //  modalContent.setAttribute("aria-label", "image closeup view");
 
@@ -21,7 +21,7 @@ function prepareBeforeClosing (){
     const modal = document.querySelector(".modal");
     modal.removeAttribute("aria-label");
 
-    const modalContent = document.querySelector(".modalContent");
+    const modalContent = document.querySelector(".modal__content");
     modalContent.classList.remove("modal--lightbox");
 
     const mediaWrapper = document.querySelector(".mediaWrapper");

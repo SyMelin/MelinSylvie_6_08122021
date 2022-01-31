@@ -394,11 +394,11 @@ body {
     background-color: violet;
 }
 
-.modalContent:focus{
+.modal__content:focus{
     background-color: yellowgreen;
 }
 
-.modalContent {
+.modal__content {
     box-sizing: border-box;
     border-radius: 0.3125em;
     position: relative;

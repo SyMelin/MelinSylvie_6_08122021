@@ -16,8 +16,8 @@ class Modal {
         modal.setAttribute("id", this._id);
         
 
-        let modalContent = document.querySelector(".modalContent");
-        let closeBtn =  document.querySelector(".modalContent .closeBtn");
+        let modalContent = document.querySelector(".modal__content");
+        let closeBtn =  document.querySelector(".modal__content .closeBtn");
 
         switch (this._type) {
 
@@ -95,10 +95,10 @@ function displayModal() {
     const modal = document.querySelector(".modal");
 	modal.style.display = "block";
     modal.setAttribute("aria-hidden", false);
-    document.querySelector(".modal").focus();
+    document.querySelector(".modal").focus();//met le focus sur votre modale une fois cette dernière ouverte
    // modal.setAttribute("tabindex", 1);
     //modal.setAttribute("aria-modal", true);
-    //document.querySelector(".modalContent").focus();//met le focus sur votre modale une fois cette dernière ouverte
+    //document.querySelector(".modal__content").focus();
     const header = document.getElementById("header");
     const main = document.getElementById("main");
     header.setAttribute("aria-hidden", true);
@@ -120,10 +120,10 @@ function closeModal() {
 
     //Remettre le focus sur le reste du document???????
 
-    const modalContent = document.querySelector(".modalContent");
+    const modalContent = document.querySelector(".modal__content");
     const children = [].slice.call(modalContent.children);
     console.log(children);
-    let closeBtn =  document.querySelector(".modalContent .closeBtn");
+    let closeBtn =  document.querySelector(".modal__content .closeBtn");
     children.forEach((child) => {
         if (child != closeBtn) {
             //console.log("notBTN");
@@ -149,7 +149,7 @@ function closeModal() {
     closeBtn.removeAttribute("onclick");
 };
 /*
-let closeBtn = document.querySelector(".modalContent .closeBtn");
+let closeBtn = document.querySelector(".modal__content .closeBtn");
 console.log(closeBtn);
 console.log(closeBtn.attributes);
 console.log(closeBtn.getAttribute("onclick"));

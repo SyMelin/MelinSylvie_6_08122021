@@ -15,7 +15,7 @@ class ContactFormModal {
 
     create () {
 
-        const modalContent = document.querySelector(".modal .modalContent");
+        const modalContent = document.querySelector(".modal .modal__content");
         modalContent.classList.add("modal--contact-form");
 
         const header = document.createElement ("header");
@@ -125,7 +125,7 @@ function openContactFormModal(){
 function closeContactFormModal() {
     const modal = document.querySelector(".modal");
     modal.removeAttribute("aria-labelledby");
-    const modalContent = document.querySelector(".modal .modalContent");
+    const modalContent = document.querySelector(".modal .modal__content");
    // modalContent.removeAttribute("tabindex");
     modalContent.classList.remove("modal--contact-form");
     closeModal();
