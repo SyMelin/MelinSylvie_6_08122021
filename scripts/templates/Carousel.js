@@ -19,7 +19,11 @@ class Carousel {
         //this._container.style.width = (ratio * 100) + "%";
         this._children.forEach((child) => {
             child.classList.remove("thumb-imgfull--inMain");
+<<<<<<< HEAD
             child.classList.add("thumb-imgfull--inLightbox");
+=======
+            child.classList.add("thumb-imgfull-inLightbox");
+>>>>>>> ca0d7edd854e3179c3a05fe589267a7ca4584c77
             child.setAttribute("role", "image");
         });
         //this._children.forEach((child) => {
