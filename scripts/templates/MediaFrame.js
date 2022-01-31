@@ -84,7 +84,7 @@ class MediaItemFrame {
 
         //On récupère la mediaCard dont l'image a été cliquée
         this._mediaCard = this._frame.parentElement;
-        this._mediaCard.classList.remove("thumb-imgfull-inMain");
+        this._mediaCard.classList.remove("thumb-imgfull--inMain");
         this._mediaCard.classList.add("thumb-imgfull-inLightbox");
         //On récupère toutes les mediaCard
         this._mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
@@ -94,7 +94,7 @@ class MediaItemFrame {
         
         this._mediaWrapper = document.querySelector(".mediaWrapper");
         this._mediaWrapper.classList.add("mediaWrapper-inLightbox");
-        this._mediaWrapper.classList.remove("mediaWrapper-inMain");
+        this._mediaWrapper.classList.remove("mediaWrapper--inMain");
 
         document.querySelector(".carousel").appendChild(this._mediaWrapper);
         this._lightboxCarousel = new Carousel(document.querySelector(".carousel .mediaWrapper"), cardIndex);

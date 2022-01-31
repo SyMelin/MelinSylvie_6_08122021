@@ -26,14 +26,14 @@ function prepareBeforeClosing (){
 
     const mediaWrapper = document.querySelector(".mediaWrapper");
     mediaWrapper.classList.remove("mediaWrapper-inLightbox");
-    mediaWrapper.classList.add("mediaWrapper-inMain");
+    mediaWrapper.classList.add("mediaWrapper--inMain");
     mediaWrapper.removeAttribute("tabindex");
     //mediaWrapper.style.transform = "translate3d(0%, 0em, 0em)";
 
     const mediaCardAll = document.querySelectorAll(".carousel .mediaWrapper .thumb-imgfull");
     mediaCardAll.forEach((mediaCard) => {
         mediaCard.classList.remove("thumb-imgfull-inLightbox", "hidden");
-        mediaCard.classList.add("thumb-imgfull-inMain");
+        mediaCard.classList.add("thumb-imgfull--inMain");
         mediaCard.setAttribute("role", "image link");
     });
 

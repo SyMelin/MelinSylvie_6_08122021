@@ -18,7 +18,7 @@ class Carousel {
         this._container.setAttribute("tabindex", "-1");
         //this._container.style.width = (ratio * 100) + "%";
         this._children.forEach((child) => {
-            child.classList.remove("thumb-imgfull-inMain");
+            child.classList.remove("thumb-imgfull--inMain");
             child.classList.add("thumb-imgfull-inLightbox");
             child.setAttribute("role", "image");
         });

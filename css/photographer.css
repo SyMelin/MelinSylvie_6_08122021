@@ -17,7 +17,7 @@ body {
 }
 
 /* Elements avec cursor: pointer par défaut */
-.closeBtn, .mediaWrapper-inMain .thumb-imgfull .thumb-img, .navBtn{
+.closeBtn, .mediaWrapper--inMain .thumb-imgfull .thumb-img, .navBtn{
     cursor: pointer;
 }
 
@@ -208,7 +208,7 @@ body {
     flex-direction: row;
 }
 
-.mediaWrapper-inMain{
+.mediaWrapper--inMain{
     justify-content: space-between;
     flex-wrap: wrap;
     width: 85%;
@@ -229,7 +229,7 @@ body {
     
 }
 
-.thumb-imgfull-inMain{
+.thumb-imgfull--inMain{
     width: 21.875em;
 }
 
