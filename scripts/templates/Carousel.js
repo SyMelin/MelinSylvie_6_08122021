@@ -69,17 +69,19 @@ class Carousel {
 
         carouselContainer.appendChild(this._nextBtn); 
 
-        //Ajout des fonctions appelées au clic sur chaque bouton
+
+        ///////////////// Navigation au clavier////////////////////
+
+        //Fonctions appelées au clic sur chaque bouton
         this._prevBtn.addEventListener("click", this.prev.bind(this));
         this._nextBtn.addEventListener("click", this.next.bind(this));
 
-        //Ajout des fonctions appelées avec ENTRER sur le bouton
+        //Fonctions appelées avec ENTRER sur le bouton
         this._prevBtn.addEventListener("keyup", (e) => {
             e.preventDefault();
             if (e.key === "Enter") {
                 this.prev();
             };
-
         });
 
         this._nextBtn.addEventListener("keyup", (e) => {
@@ -87,7 +89,27 @@ class Carousel {
             if (e.key === "Enter") {
                 this.next();
             };
+        });
 
+        //Fontions appelées avec les flèches gauche et droite
+        window.addEventListener("keyup", (e) => {
+            e.preventDefault();
+            const lightboxModalState = document.getElementById("lightbox_modal").getAttribute("aria-hidden");
+            console.log("modalState", lightboxModalState);
+            if (lightboxModalState === "false") {
+
+                switch(e.key) {
+
+                    case 'ArrowLeft' :
+                        this.prev();
+                    break;
+
+                    case 'ArrowRight' :
+                        this.next();
+                    break;
+
+                }
+            }
         });
     };
 
