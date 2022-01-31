@@ -48,21 +48,21 @@ class Carousel {
 
         //Crée le bouton Précédent
         this._prevBtn = this.createNavBtn();
-        this._prevBtn.classList.add("navBtn-prev");
+        this._prevBtn.classList.add("navBtn--prev");
         this._prevBtn.setAttribute("tabindex", "0");
         this._prevBtn.setAttribute("aria-label", "Previous image");
         if (this._index == this._indexMin) {
-            this._prevBtn.classList.add("navBtn-hidden");
+            this._prevBtn.classList.add("navBtn--hidden");
             this._prevBtn.setAttribute("aria-hidden", true);
         };
 
         //Crée le bouton Suivant
         this._nextBtn = this.createNavBtn();
-        this._nextBtn.classList.add("navBtn-next");
+        this._nextBtn.classList.add("navBtn--next");
         this._nextBtn.setAttribute("tabindex", "0");
         this._nextBtn.setAttribute("aria-label", "Next image");
         if (this._index == this._indexMax) {
-            this._nextBtn.classList.add("navBtn-hidden");
+            this._nextBtn.classList.add("navBtn--hidden");
             this._nextBtn.setAttribute("aria-hidden", true);
         };  
 
@@ -103,10 +103,10 @@ class Carousel {
             });*/
             this.gotoItem(this._index);
             if (this._index == this._indexMin) {
-                this._prevBtn.classList.add("navBtn-hidden");
+                this._prevBtn.classList.add("navBtn--hidden");
                 this._prevBtn.setAttribute("aria-hidden", true);
-            } else if (this._nextBtn.classList.contains("navBtn-hidden")){
-                this._nextBtn.classList.remove("navBtn-hidden");
+            } else if (this._nextBtn.classList.contains("navBtn--hidden")){
+                this._nextBtn.classList.remove("navBtn--hidden");
                 this._nextBtn.setAttribute("aria-hidden", false);
             };
         };
@@ -121,10 +121,10 @@ class Carousel {
             });*/
             this.gotoItem(this._index);
             if (this._index == (this._indexMax)) {
-                this._nextBtn.classList.add("navBtn-hidden");
+                this._nextBtn.classList.add("navBtn--hidden");
                 this._nextBtn.setAttribute("aria-hidden", true);
-            } else if (this._prevBtn.classList.contains("navBtn-hidden")){
-                this._prevBtn.classList.remove("navBtn-hidden");
+            } else if (this._prevBtn.classList.contains("navBtn--hidden")){
+                this._prevBtn.classList.remove("navBtn--hidden");
                 this._prevBtn.setAttribute("aria-hidden", false);
             };
         };
