@@ -28,38 +28,65 @@ class ContactFormModal {
         contactTitle.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
         //console.log("contactTitle", contactTitle);
 
-        const contactForm = document.createElement ("form");
-        contactForm.classList.add("contact-form");
-        contactForm.setAttribute("role", "form");
-        contactForm.setAttribute("tabindex", "-1");
-        contactForm.setAttribute("methode", this._method);
-        contactForm.setAttribute("action", this._action);
+        this._contactForm = document.createElement ("form");
+        this._contactForm.classList.add("contact-form");
+        this._contactForm.setAttribute("role", "form");
+        this._contactForm.setAttribute("tabindex", "-1");
+        this._contactForm.setAttribute("methode", this._method);
+        this._contactForm.setAttribute("action", this._action);
 
         const fieldsContainer = document.createElement("div");
         fieldsContainer.setAttribute("tabindex", "-1");
         fieldsContainer.classList.add("fieldsContainer");
-        contactForm.appendChild(fieldsContainer);
+        this._contactForm.appendChild(fieldsContainer);
 
         for (let item of this._fields) {
             let formField = new FormField(item.label, item.type, item.className, item.text);
             fieldsContainer.appendChild(formField.createFormField());
-            
         };
 
+        header.appendChild(contactTitle);
+        modalContent.prepend(this._contactForm);
+        modalContent.prepend(header);
+
+        this.createContactBtn();
+    };
+
+    createContactBtn () {
+        
         const contactBtn =  document.createElement("button");
       //  contactBtn.setAttribute("tabindex", 0);
         contactBtn.textContent = "Envoyer";
         contactBtn.setAttribute("aria-label", "Envoyer");
         contactBtn.classList.add("contact-button");
         
-        contactForm.appendChild(contactBtn);
-        //console.log("contactForm", contactForm);
+        this._contactForm.appendChild(contactBtn);
 
-        header.appendChild(contactTitle);
-        modalContent.prepend(contactForm);
-        modalContent.prepend(header);
+
+        //////////// Evenement sur contactBtn //////////////////
+
+        contactBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            this.sendMessage();
+        });
+
+        contactBtn.addEventListener("keyup", (e) => {
+            e.preventDefault();
+            if (e.key === "Enter") {
+                this.sendMessage();
+            };
+        });
+    };
+
+    sendMessage () {
+        const allInputs = [].slice.call(document.getElementsByClassName("contact-form__input"));
+        console.log(allInputs);
+        allInputs.forEach((input) => {
+            console.log(input.value);
+        });
     };
 };
+
 
 class FormField {
 
@@ -104,6 +131,7 @@ class FormField {
         input.setAttribute("class", this._class);
         input.setAttribute("required", true);
         input.setAttribute('aria-required', true);
+        input.classList.add("contact-form__input");
       //  input.setAttribute("tabindex", 0);
 
         fieldBox.appendChild(label);
@@ -131,14 +159,7 @@ function closeContactFormModal() {
     closeModal();
 }
 
-// on récupère l'élément bouton de contact
-//const contactBtn = document.querySelector(".contact-button");
-// on écoute l'évènement "click" sur le bouton:  celui-ci déclenche la fermeture de la modale
-//contactBtn.addEventListener("click", displayModal);
-
-// Fermeture de la modale quand in appuie sur échap
-
-// Fermeture de la modale via le touche Echap
+// Fermeture de la modale via la touche Echap
 
 window.addEventListener("keyup", function(e) {
     e.preventDefault();
