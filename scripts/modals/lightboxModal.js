@@ -25,30 +25,14 @@ function prepareBeforeClosing (){
     modalContent.classList.remove("modal--lightbox");
 
     const mediaWrapper = document.querySelector(".mediaWrapper");
-<<<<<<< HEAD
     mediaWrapper.classList.remove("mediaWrapper--inLightbox");
-=======
-<<<<<<< HEAD
-    mediaWrapper.classList.remove("mediaWrapper--inLightbox");
-=======
-    mediaWrapper.classList.remove("mediaWrapper-inLightbox");
->>>>>>> ca0d7edd854e3179c3a05fe589267a7ca4584c77
->>>>>>> ba948c7c1ac35af85cf98bcc3ca9e4c23b798404
     mediaWrapper.classList.add("mediaWrapper--inMain");
     mediaWrapper.removeAttribute("tabindex");
     //mediaWrapper.style.transform = "translate3d(0%, 0em, 0em)";
 
     const mediaCardAll = document.querySelectorAll(".carousel .mediaWrapper .thumb-imgfull");
     mediaCardAll.forEach((mediaCard) => {
-<<<<<<< HEAD
         mediaCard.classList.remove("thumb-imgfull--inLightbox", "hidden");
-=======
-<<<<<<< HEAD
-        mediaCard.classList.remove("thumb-imgfull--inLightbox", "hidden");
-=======
-        mediaCard.classList.remove("thumb-imgfull-inLightbox", "hidden");
->>>>>>> ca0d7edd854e3179c3a05fe589267a7ca4584c77
->>>>>>> ba948c7c1ac35af85cf98bcc3ca9e4c23b798404
         mediaCard.classList.add("thumb-imgfull--inMain");
         mediaCard.setAttribute("role", "image link");
     });
