@@ -26,7 +26,7 @@ class ContactFormModal {
         contactTitle.setAttribute("id", "contact-title");
         contactTitle.setAttribute("tabindex", "0");
         contactTitle.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
-        console.log("contactTitle", contactTitle);
+        //console.log("contactTitle", contactTitle);
 
         const contactForm = document.createElement ("form");
         contactForm.classList.add("contact-form");
@@ -53,7 +53,7 @@ class ContactFormModal {
         contactBtn.classList.add("contact-button");
         
         contactForm.appendChild(contactBtn);
-        console.log("contactForm", contactForm);
+        //console.log("contactForm", contactForm);
 
         header.appendChild(contactTitle);
         modalContent.prepend(contactForm);

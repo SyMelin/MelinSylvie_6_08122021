@@ -9,7 +9,7 @@ class Carousel {
         this._element = element;
         this._index = index;
         this._children = [].slice.call(element.children);
-        console.log([].slice.call(element.children));
+        //console.log([].slice.call(element.children));
         this._indexMin = 0;
         this._indexMax = this._children.length - 1;
         //console.log("indexMax", this._indexMax);
@@ -25,7 +25,7 @@ class Carousel {
             //child.style.width = (100 / ratio ) + "%";
        // });
         this._container.mediaLike = document.querySelectorAll(".carousel .mediaCard__like");
-        console.log("likes",  this._container.mediaLike);
+        //console.log("likes",  this._container.mediaLike);
         this._container.mediaLike.forEach((like) => {
             ["like-caption-visible", "hidden" ].map(element => like.classList.toggle(element));
         });
@@ -133,12 +133,12 @@ class Carousel {
       //  let translateX = index * -100 / this._children.length + "%";
         //console.log(translateX);
      //   this._container.style.transform = `translate3d(${translateX}, 0, 0)`;
-        console.log(this._children[index]);
+        //console.log(this._children[index]);
         this._children.forEach((child) => {
             if (child !== this._children[index]) {
                // child.setAttribute("aria-hidden", true);
                 child.classList.add("hidden");
-                console.log(child);
+                //console.log(child);
             } else {
                // child.setAttribute("aria-hidden", false);
                 child.classList.remove("hidden");

@@ -219,14 +219,13 @@ body {
 .mediaWrapper--inLightbox{
     justify-content: flex-start;
     flex-wrap: nowrap;
-    width: 100%;
+    width: 85%;
     height: 100%;
     margin: 0%;
 }
 
 .thumb-imgfull{
-    border-radius: 0.3125em;
-    
+    border-radius: 0.3125em;  
 }
 
 .thumb-imgfull--inMain{
@@ -234,10 +233,8 @@ body {
 }
 
 .thumb-imgfull--inLightbox{
-    /*  width: 641.66px;*/
     width: 100%;
-    height: 100%;
-  }
+}
 
 .thumb-img{
     width: 100%;
@@ -245,14 +242,17 @@ body {
 }
 
 .thumb-img--inMain{
+    width: inherit;
     height: 21.875em;
 }
 
 .thumb-img--inLightbox{
-    height: 550px;
+  /*  height: 34.375em;*/
+  height: 60em;
 }
 
 .thumb-img video{
+    width: inherit;
     height: 100%;
 }
 

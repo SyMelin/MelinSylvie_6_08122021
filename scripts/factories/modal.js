@@ -122,13 +122,13 @@ function closeModal() {
 
     const modalContent = document.querySelector(".modal__content");
     const children = [].slice.call(modalContent.children);
-    console.log(children);
+    //console.log(children);
     let closeBtn =  document.querySelector(".modal__content .closeBtn");
     children.forEach((child) => {
         if (child != closeBtn) {
             //console.log("notBTN");
             modalContent.removeChild(child);
-            console.log(modalContent);
+            //console.log(modalContent);
         };
     });
 

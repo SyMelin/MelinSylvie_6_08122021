@@ -51,7 +51,7 @@ function prepareBeforeClosing (){
     });
 
     const videoAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img video");
-    console.log("videoAll", videoAll);
+    //console.log("videoAll", videoAll);
     videoAll.forEach((video) => {
         video.removeAttribute("controls");
         video.pause();
