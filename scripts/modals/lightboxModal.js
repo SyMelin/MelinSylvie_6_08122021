@@ -2,28 +2,14 @@ class Lightbox {
 
     create() {
         const modalContent = document.querySelector(".modalContent");
-        modalContent.classList.add("lightbox");
+        modalContent.classList.add("modal--lightbox");
       //  modalContent.setAttribute("aria-label", "image closeup view");
-
-        const carouselContainer = document.createElement("div");
-        carouselContainer.classList.add("carousel-container");
-        carouselContainer.setAttribute("tabindex", "-1");
-
 
         const carousel = document.createElement("div");
         carousel.classList.add("carousel");
         carousel.setAttribute("tabindex", "-1");
 
-        const lightboxFrame =  document.createElement("div");
-        lightboxFrame.setAttribute("id", "lightbox-frame");
-        lightboxFrame.setAttribute("tabindex", "-1");
-       // console.log(lightboxFrame);
-    
-        carousel.appendChild(lightboxFrame);
-        carouselContainer.appendChild(carousel)
-        modalContent.prepend(carouselContainer);
-       // console.log(modalContent);
-
+        modalContent.prepend(carousel);
     };
 };
 
@@ -36,7 +22,7 @@ function prepareBeforeClosing (){
     modal.removeAttribute("aria-label");
 
     const modalContent = document.querySelector(".modalContent");
-    modalContent.classList.remove("lightbox");
+    modalContent.classList.remove("modal--lightbox");
 
     const mediaWrapper = document.querySelector(".mediaWrapper");
     mediaWrapper.classList.remove("mediaWrapper-inLightbox");
@@ -44,21 +30,21 @@ function prepareBeforeClosing (){
     mediaWrapper.removeAttribute("tabindex");
     //mediaWrapper.style.transform = "translate3d(0%, 0em, 0em)";
 
-    const mediaCardAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull");
+    const mediaCardAll = document.querySelectorAll(".carousel .mediaWrapper .thumb-imgfull");
     mediaCardAll.forEach((mediaCard) => {
         mediaCard.classList.remove("thumb-imgfull-inLightbox", "hidden");
         mediaCard.classList.add("thumb-imgfull-inMain");
         mediaCard.setAttribute("role", "image link");
     });
 
-    const mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");
+    const mediaLike = document.querySelectorAll(".carousel .mediaCard__like");
     for (let like of mediaLike){
         like.classList.toggle("hidden");
         like.classList.toggle("like-caption-visible");
 
     };
 
-    const frameAll = document.querySelectorAll("#lightbox-frame .mediaWrapper .thumb-imgfull .thumb-img");
+    const frameAll = document.querySelectorAll(".carousel .mediaWrapper .thumb-imgfull .thumb-img");
     frameAll.forEach((frame) => {
         frame.classList.remove("frame-inLightbox");
         frame.setAttribute("role", "link");
@@ -79,7 +65,7 @@ function prepareBeforeClosing (){
 };
 
 
-function closeLightbox() {
+function closeLightboxModal() {
     prepareBeforeClosing();
     closeModal();
 };
@@ -95,7 +81,7 @@ window.addEventListener("keyup", function(e) {
            // console.log("modalStateLightbox", modalState);
             if ((e.key === "Escape") && (modalState === "false")) {
                 e.preventDefault();
-                closeLightbox();
+                closeLightboxModal();
             };
     };
 });

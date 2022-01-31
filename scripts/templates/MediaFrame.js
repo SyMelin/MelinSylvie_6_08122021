@@ -62,8 +62,8 @@ class MediaItemFrame {
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
 
         if ((this._frame.classList.contains("frame-inLightbox")) !== true) {
-            const newLightbox = new Modal("lightbox_modal", 'lightbox');
-            newLightbox.createModal();
+            const newLightboxModal = new Modal("lightbox_modal", 'lightbox');
+            newLightboxModal.createModal();
             this._frame.classList.add("frame-inLightbox");
             this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
             this._frameAll.forEach((frame) => {
@@ -96,9 +96,8 @@ class MediaItemFrame {
         this._mediaWrapper.classList.add("mediaWrapper-inLightbox");
         this._mediaWrapper.classList.remove("mediaWrapper-inMain");
 
-        //console.log("lightboxFrame", document.querySelector("#lightbox-frame") );
-        document.querySelector("#lightbox-frame").appendChild(this._mediaWrapper);
-        this._lightboxCarousel = new Carousel(document.querySelector("#lightbox-frame .mediaWrapper"), cardIndex);
+        document.querySelector(".carousel").appendChild(this._mediaWrapper);
+        this._lightboxCarousel = new Carousel(document.querySelector(".carousel .mediaWrapper"), cardIndex);
         
         console.log("cardIndex", cardIndex);
 

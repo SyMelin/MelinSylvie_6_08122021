@@ -25,7 +25,8 @@ class Carousel {
         //this._children.forEach((child) => {
             //child.style.width = (100 / ratio ) + "%";
        // });
-        this._container.mediaLike = document.querySelectorAll("#lightbox-frame .mediaCard__like");
+        this._container.mediaLike = document.querySelectorAll(".carousel .mediaCard__like");
+        console.log("likes",  this._container.mediaLike);
         this._container.mediaLike.forEach((like) => {
             like.classList.toggle("like-caption-visible");
             like.classList.toggle("hidden");
@@ -65,10 +66,9 @@ class Carousel {
             this._nextBtn.setAttribute("aria-hidden", true);
         };  
 
-        const carouselContainer = document.querySelector(".carousel-container");
+        const carouselContainer = document.querySelector(".carousel");
         carouselContainer.appendChild(this._prevBtn); 
 
-       // lightbox.prepend(this._prevBtn);
         carouselContainer.appendChild(this._nextBtn); 
 
         //Ajout des fonctions appelées au clic sur chaque bouton

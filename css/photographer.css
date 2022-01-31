@@ -276,10 +276,11 @@ body {
 .like-caption-visible{
     display: flex;
 }
-
+/*
 .mediaCard__like{
     display: flex;
 }
+*/
 
 .fas {
     display: block;
@@ -495,7 +496,7 @@ body {
 /******************************* Modal Lightbox ***********************************/
 
 
-.lightbox {
+.modal--lightbox {
     display: flex;
     flex-direction: row;
    /* justify-content: space-between;*/
@@ -529,8 +530,7 @@ body {
     transform: rotate(180deg);
 }
 
-
-.carousel-container {
+.carousel {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -538,22 +538,18 @@ body {
     align-items: center;
     border: 1px solid greenyellow;
 }
-
+/*
 .carousel{
     margin-top: 1.875em;
-   /* position: relative;*/
     width: 85%;
-    /*border: 1px solid blue;*/
     display: flex;
     flex-direction: row;
-}
-
+}*/
+/*
 #lightbox-frame{
-  /*  border: 1px solid black;*/
     text-align: center;
-   /* width: 641.66px;*/
     width: 100%;
     height: 600px;
     overflow: hidden;
     position: relative;
-}
+}*/
