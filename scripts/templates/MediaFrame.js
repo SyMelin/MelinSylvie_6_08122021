@@ -61,13 +61,13 @@ class MediaItemFrame {
         
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
 
-        if ((this._frame.classList.contains("frame-inLightbox")) !== true) {
+        if ((this._frame.classList.contains("frame--inLightbox")) !== true) {
             const newLightboxModal = new Modal("lightbox_modal", 'lightbox');
             newLightboxModal.createModal();
-            this._frame.classList.add("frame-inLightbox");
+            this._frame.classList.add("frame--inLightbox");
             this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
             this._frameAll.forEach((frame) => {
-                frame.classList.add("frame-inLightbox");
+                frame.classList.add("frame--inLightbox");
                 let ariaLabel = String(frame.getAttribute("aria-label"));
                 ariaLabel = ariaLabel.replace(", closeup view", "");
                 frame.setAttribute("role", "image");
@@ -84,8 +84,8 @@ class MediaItemFrame {
 
         //On récupère la mediaCard dont l'image a été cliquée
         this._mediaCard = this._frame.parentElement;
-        this._mediaCard.classList.remove("thumb-imgfull-inMain");
-        this._mediaCard.classList.add("thumb-imgfull-inLightbox");
+        this._mediaCard.classList.remove("thumb-imgfull--inMain");
+        this._mediaCard.classList.add("thumb-imgfull--inLightbox");
         //On récupère toutes les mediaCard
         this._mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
         const mediaArray = Array.from(this._mediaCardAll);
@@ -93,8 +93,8 @@ class MediaItemFrame {
         let cardIndex = mediaArray.indexOf(this._mediaCard);
         
         this._mediaWrapper = document.querySelector(".mediaWrapper");
-        this._mediaWrapper.classList.add("mediaWrapper-inLightbox");
-        this._mediaWrapper.classList.remove("mediaWrapper-inMain");
+        this._mediaWrapper.classList.add("mediaWrapper--inLightbox");
+        this._mediaWrapper.classList.remove("mediaWrapper--inMain");
 
         document.querySelector(".carousel").appendChild(this._mediaWrapper);
         this._lightboxCarousel = new Carousel(document.querySelector(".carousel .mediaWrapper"), cardIndex);

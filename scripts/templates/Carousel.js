@@ -14,12 +14,12 @@ class Carousel {
         this._indexMax = this._children.length - 1;
         //console.log("indexMax", this._indexMax);
         let ratio = this._children.length;
-        this._container = document.querySelector(".mediaWrapper-inLightbox");
+        this._container = document.querySelector(".mediaWrapper--inLightbox");
         this._container.setAttribute("tabindex", "-1");
         //this._container.style.width = (ratio * 100) + "%";
         this._children.forEach((child) => {
-            child.classList.remove("thumb-imgfull-inMain");
-            child.classList.add("thumb-imgfull-inLightbox");
+            child.classList.remove("thumb-imgfull--inMain");
+            child.classList.add("thumb-imgfull--inLightbox");
             child.setAttribute("role", "image");
         });
         //this._children.forEach((child) => {
