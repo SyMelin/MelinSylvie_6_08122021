@@ -1,4 +1,4 @@
-class Lightbox {
+class LightboxModal {
 
     create() {
         const modalContent = document.querySelector(".modalContent");
