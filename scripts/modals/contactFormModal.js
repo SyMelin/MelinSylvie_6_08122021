@@ -1,4 +1,4 @@
-class ContactForm {
+class ContactFormModal {
 
     /**
      * @param {string} method methode de traitement des données
@@ -16,28 +16,29 @@ class ContactForm {
     create () {
 
         const modalContent = document.querySelector(".modal .modalContent");
-        modalContent.classList.add("contactForm");
+        modalContent.classList.add("modal--contact-form");
 
         const header = document.createElement ("header");
         header.setAttribute("tabindex", "-1");
         
-        const h1 = document.createElement ("h1");
+        const contactTitle = document.createElement ("h1");
 
-        h1.setAttribute("id", "contactForm__title");
-        h1.setAttribute("tabindex", "0");
-        h1.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
-        console.log("h1", h1);
+        contactTitle.setAttribute("id", "contact-title");
+        contactTitle.setAttribute("tabindex", "0");
+        contactTitle.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
+        console.log("contactTitle", contactTitle);
 
-        const form = document.createElement ("form");
-        form.setAttribute("role", "form");
-        form.setAttribute("tabindex", "-1");
-        form.setAttribute("methode", this._method);
-        form.setAttribute("action", this._action);
+        const contactForm = document.createElement ("form");
+        contactForm.classList.add("contact-form");
+        contactForm.setAttribute("role", "form");
+        contactForm.setAttribute("tabindex", "-1");
+        contactForm.setAttribute("methode", this._method);
+        contactForm.setAttribute("action", this._action);
 
         const fieldsContainer = document.createElement("div");
         fieldsContainer.setAttribute("tabindex", "-1");
         fieldsContainer.classList.add("fieldsContainer");
-        form.appendChild(fieldsContainer);
+        contactForm.appendChild(fieldsContainer);
 
         for (let item of this._fields) {
             let formField = new FormField(item.label, item.type, item.className, item.text);
@@ -49,13 +50,13 @@ class ContactForm {
       //  contactBtn.setAttribute("tabindex", 0);
         contactBtn.textContent = "Envoyer";
         contactBtn.setAttribute("aria-label", "Envoyer");
-        contactBtn.classList.add("contact_button");
+        contactBtn.classList.add("contact-button");
         
-        form.appendChild(contactBtn);
-        console.log("form", form);
+        contactForm.appendChild(contactBtn);
+        console.log("contactForm", contactForm);
 
-        header.appendChild(h1);
-        modalContent.prepend(form);
+        header.appendChild(contactTitle);
+        modalContent.prepend(contactForm);
         modalContent.prepend(header);
     };
 };
@@ -113,7 +114,7 @@ class FormField {
 };
 
 
-function openContactForm(){
+function openContactFormModal(){
 
     let newContactForm = new Modal("contact_modal", 'contactForm');
     newContactForm.createModal();
@@ -121,17 +122,17 @@ function openContactForm(){
     displayModal();
 };
 
-function closeContactForm() {
+function closeContactFormModal() {
     const modal = document.querySelector(".modal");
     modal.removeAttribute("aria-labelledby");
     const modalContent = document.querySelector(".modal .modalContent");
    // modalContent.removeAttribute("tabindex");
-    modalContent.classList.remove("contactForm");
+    modalContent.classList.remove("modal--contact-form");
     closeModal();
 }
 
 // on récupère l'élément bouton de contact
-//const contactBtn = document.querySelector(".contact_button");
+//const contactBtn = document.querySelector(".contact-button");
 // on écoute l'évènement "click" sur le bouton:  celui-ci déclenche la fermeture de la modale
 //contactBtn.addEventListener("click", displayModal);
 
@@ -148,7 +149,7 @@ window.addEventListener("keyup", function(e) {
             //console.log("modalState", modalState);
             if ((e.key === "Escape") && (modalState === "false")) {
                 e.preventDefault();
-                closeContactForm();
+                closeContactFormModal();
             };
     };
 });

@@ -55,14 +55,14 @@ class Modal {
                     }
                 ];
 
-                let contactForm = new ContactForm("post", "", photographerProfile, fields);
-                contactForm.create();
-                closeBtn.setAttribute("onclick", "closeContactForm()");
+                let contactFormModal = new ContactFormModal("post", "", photographerProfile, fields);
+                contactFormModal.create();
+                closeBtn.setAttribute("onclick", "closeContactFormModal()");
                 closeBtn.setAttribute("aria-label", "Close Contact form");
                 closeBtn.setAttribute("tabindex", "0");
 
                 modal.style.height = "100%";
-                modal.setAttribute("aria-labelledby", "contactForm__title");
+                modal.setAttribute("aria-labelledby", "contact-title");
                 modal.setAttribute("tabindex", "1");
                // modalContent.setAttribute("tabindex", "-1");
     

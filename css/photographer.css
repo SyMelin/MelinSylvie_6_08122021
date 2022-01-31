@@ -7,11 +7,25 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-   /* height: 100%;*/
     z-index: 3;
     padding-top: 5.625em;
     background-color: rgba(196, 196, 196, 0.4);
 }
+
+.hidden{
+    display: none;
+}
+
+/* Elements avec cursor: pointer par défaut */
+.closeBtn, .mediaWrapper-inMain .thumb-imgfull .thumb-img, .navBtn{
+    cursor: pointer;
+}
+
+
+
+
+/*************************** Photograph Header *********************************/
+
 
 .photograph-header {
     background-color: #FAFAFA;
@@ -50,7 +64,45 @@ body {
     text-align: right;
 }
 
-/* --- Division contenant la région de tri --- */
+
+
+
+/************** Division contenant les informations supplémentaires en position fixe ************************/
+
+
+#info{
+    position: fixed;
+    right: 20%;
+    bottom: 0%;
+    background-color: #DB8876;
+    display: flex;
+    flex-direction: row;
+    border-radius: 0.3125em 0.3125em 0 0;
+    z-index: 3;
+}
+
+#info p{
+    color: black;
+    font-weight: bold;
+    margin: 1.5em 2em;
+}
+
+#info #totalLikes{
+    text-align: right;
+    margin-right: 0;
+}
+
+#info .fa-heart{
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+/*******************  Division contenant la région de tri **************************/
+
+
 .sorting {
     margin: 3.125em 6.25em;
     height: 2.5em;
@@ -145,37 +197,31 @@ body {
 
 
 
+/******************************** Conteneur des media **********************************/
 
-/* Ajout pour conteneur des media */
+
 .mediaWrapper{
-    /*border: 1px solid black;*/
     box-sizing: border-box;
     margin: 0 6.25em;
-    /*width: 85%;*/
     /*transform: translate3d(0%, 0em, 0em);*/
     display : flex;
     flex-direction: row;
 }
 
 .mediaWrapper-inMain{
-    
     justify-content: space-between;
     flex-wrap: wrap;
     width: 85%;
     row-gap: 2em;
-   
    /* transform: translate3d(0%, 0em, 0em);*/
 }
 
 .mediaWrapper-inLightbox{
-    /*flex-direction: column;*/
     justify-content: flex-start;
     flex-wrap: nowrap;
-   /*width: 2300px;*/
     width: 100%;
     height: 100%;
     margin: 0%;
-   /* border: 2px solid yellow;*/
 }
 
 .thumb-imgfull{
@@ -271,10 +317,12 @@ body {
 }
 
 
-/**********************************/  
 
 
-.contact_button {
+/*************************** Boutons Contact **********************************/  
+
+
+.contact-button {
     box-sizing: content-box;
     font-size: 1.25em;
     font-weight: bold;
@@ -283,10 +331,10 @@ body {
     background-color: #901C1C;
     border-radius: 0.3125em;
     cursor: pointer;
-    position: relative;/*ajout*/
+    position: relative;
 }
 
-.contact_button::after{
+.contact-button::after{
     position: absolute;
     top: 0;
     right: 0;
@@ -305,25 +353,7 @@ body {
     transition: opacity 300ms ease-in-out;
 }
 
-.contactForm h1 {
-    color: black;
-    font-size: 3.5em;
-    font-weight: normal;
-    text-align: left;
-}
-
-form .contact_button{
-    font-size: 1.125em;
-    padding: 1.4375em 3.1875em;    
-}
-
-form .contact_button::after{
-    content: "Envoyer";
-    color: #901C1C;
-    background-color: white;
-}
-
-.photograph-header .contact_button{
+.photograph-header .contact-button{
     font-size: 1.25em;
     transform: scaleX(1.1);
     padding: 1.3125em 0.6875em;
@@ -331,18 +361,41 @@ form .contact_button::after{
     margin-right: 1em;
 }
 
-/* Ajout pour bouton au hover ou focus */
-.photograph-header .contact_button::after{
+.photograph-header .contact-button::after{
     content: "Contactez-moi";
     color: black;
     background-color: #DB8876;
 }
 
-.contact_button:hover::after, .contact_button:focus::after {
+.contact-form .contact-button{
+    font-size: 1.125em;
+    padding: 1.4375em 3.1875em;    
+}
+
+.contact-form .contact-button::after{
+    content: "Envoyer";
+    color: #901C1C;
+    background-color: white;
+}
+
+/* Ajout pour bouton au hover ou focus */
+.contact-button:hover::after, .contact-button:focus::after {
     opacity: 1;
 }
 
-/*******************************************/
+
+
+
+/***************************** Modal *************************************/
+
+
+.modal:focus{
+    background-color: violet;
+}
+
+.modalContent:focus{
+    background-color: yellowgreen;
+}
 
 .modalContent {
     box-sizing: border-box;
@@ -355,6 +408,17 @@ form .contact_button::after{
     justify-content: space-between;
     padding: 2.1875em;
     margin: auto;
+}
+
+.closeBtn{
+    display: block;
+    position: absolute;
+    right: 1.25em;
+    top: 1.25em;
+    background-image : url("../assets/icons/close.svg");
+    background-repeat: no-repeat;
+    width: 2.625em;
+    cursor: pointer;
 }
 
 .modal header {
@@ -373,19 +437,36 @@ form .contact_button::after{
     text-align: left;
 }
 
-form {
+
+
+
+/****************************** Modal ContactForm ********************************/
+
+
+.modal--contact-form {
+    background-color: #DB8876;
+}
+
+#contact-title {
+    color: black;
+    font-size: 3.5em;
+    font-weight: normal;
+    text-align: left;
+}
+
+.contact-form {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
 }
 
-form label {
+.contact-form label {
     color: #312E2E;
     font-size: 2.25em;
 }
 
-form div {
+.contact-form div {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -393,7 +474,7 @@ form div {
     margin-bottom: 1.625em;
 }
 
-form .text, form .text-area {
+.contact-form .text, .contact-form .text-area {
     width: 100%;
     height: 4.25em;
     border: none;
@@ -402,53 +483,17 @@ form .text, form .text-area {
     font-size: 1em;
 }
 
-form .text-area {
+.contact-form .text-area {
     width: 100%;
     height: 10.625em;
     resize: none;
 }
 
-/* Modal Lightbox */
 
-.closeBtn, .mediaWrapper-inMain .thumb-imgfull .thumb-img, .navBtn{
-    cursor: pointer;
-}
 
-.closeBtn{
-    display: block;
-    position: absolute;
-    background-image : url("../assets/icons/close.svg");
-   /* height: 3.125em;*/
-    background-repeat: no-repeat;
-    width: 2.625em;
-}
-/*
-.contactForm .closeBtn {
-    position: relative;
-    width: 3.125em;
-    height: 3.125em;
-}*/
 
-.contactForm .closeBtn{
-    right: 1.25em;
-    top: 1.25em;
-}
+/******************************* Modal Lightbox ***********************************/
 
-.lightbox .closeBtn{
-    right: 1.25em;
-    top: 1.25em;
-}
-
-.modal:focus{
-    background-color: violet;
-}
-
-.contactForm {
-    background-color: #DB8876;
-}
-.modalContent:focus{
-    background-color: yellowgreen;
-}
 
 .lightbox {
     display: flex;
@@ -511,39 +556,4 @@ form .text-area {
     height: 600px;
     overflow: hidden;
     position: relative;
-}
-
-
-#info{
-    position: fixed;
-    right: 20%;
-    bottom: 0%;
-   /* width: 15%;*/
-    background-color: #DB8876;
-    display: flex;
-    flex-direction: row;
-   /* justify-content: space-around;*/
-    border-radius: 0.3125em 0.3125em 0 0;
-    z-index: 3;
-}
-
-#info p{
-    color: black;
-    font-weight: bold;
-    /*display: block;*/
-    margin: 1.5em 2em;
-}
-
-#info #totalLikes{
-    text-align: right;
-    margin-right: 0;
-}
-
-#info .fa-heart{
-    display: flex;
-    align-items: center;
-}
-
-.hidden{
-    display: none;
 }
