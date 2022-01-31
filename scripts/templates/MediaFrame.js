@@ -11,7 +11,7 @@ class MediaItemFrame {
     createMediaItemFrame () {
 
         this._frame = document.createElement("div");
-        this._frame.classList.add("thumb-img");
+        this._frame.classList.add("thumb-img", "thumb-img--inMain");
         this._frame.setAttribute("role", "image link");
         this._frame.setAttribute("aria-label", `${this._mediaItem.alt}`+", closeup view");
        // this._frame.setAttribute('alt', this._mediaItem.alt); //
@@ -61,18 +61,16 @@ class MediaItemFrame {
         
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
 
-        if ((this._frame.classList.contains("frame--inLightbox")) !== true) {
+        if ((this._frame.classList.contains("thumb-img--inLightbox")) !== true) {
             const newLightboxModal = new Modal("lightbox_modal", 'lightbox');
             newLightboxModal.createModal();
-            this._frame.classList.add("frame--inLightbox");
             this._frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
             this._frameAll.forEach((frame) => {
-                frame.classList.add("frame--inLightbox");
+                ["thumb-img--inMain", "thumb-img--inLightbox" ].map(element => frame.classList.toggle(element));
                 let ariaLabel = String(frame.getAttribute("aria-label"));
                 ariaLabel = ariaLabel.replace(", closeup view", "");
                 frame.setAttribute("role", "image");
                 frame.setAttribute("aria-label", ariaLabel);
-                // console.log(item);
                 if (frame.firstChild){
                     frame.setAttribute("role", "video");
                     const video = frame.firstChild;
@@ -84,23 +82,21 @@ class MediaItemFrame {
 
         //On récupère la mediaCard dont l'image a été cliquée
         this._mediaCard = this._frame.parentElement;
-        this._mediaCard.classList.remove("thumb-imgfull--inMain");
-        this._mediaCard.classList.add("thumb-imgfull--inLightbox");
  
         //On récupère toutes les mediaCard
         this._mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
         const mediaArray = Array.from(this._mediaCardAll);
+        
         //On récupère l'index de la mediaCard dans le tableau regroupant toutes les mediaCard
         let cardIndex = mediaArray.indexOf(this._mediaCard);
         
         this._mediaWrapper = document.querySelector(".mediaWrapper");
-        this._mediaWrapper.classList.add("mediaWrapper--inLightbox");
-        this._mediaWrapper.classList.remove("mediaWrapper--inMain");
+        ["mediaWrapper--inMain", "mediaWrapper--inLightbox" ].map(element => this._mediaWrapper.classList.toggle(element));
 
         document.querySelector(".carousel").appendChild(this._mediaWrapper);
         this._lightboxCarousel = new Carousel(document.querySelector(".carousel .mediaWrapper"), cardIndex);
         
-        console.log("cardIndex", cardIndex);
+       // console.log("cardIndex", cardIndex);
 
         displayModal();
 

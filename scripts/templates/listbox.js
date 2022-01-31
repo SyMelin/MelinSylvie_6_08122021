@@ -105,8 +105,7 @@ function changeListboxDisplay () {
     options.forEach((option) => {
         option.style.cursor = "pointer";
         if (option.classList.contains("option-notSelected")) {
-            option.classList.remove("option-notSelected");
-            option.classList.add("option-selected");
+            ["option-notSelected", "option-selected" ].map(element => option.classList.toggle(element));
         };
     });
 
@@ -123,8 +122,7 @@ function changeListboxDisplay () {
         options.forEach((option)=> {
 
             if ((option.getAttribute("aria-selected")) !== "true") {
-                option.classList.remove("option-selected");
-                option.classList.add("option-notSelected");
+                ["option-notSelected", "option-selected" ].map(element => option.classList.toggle(element));
             };
         })   
     };

@@ -241,19 +241,19 @@ body {
 
 .thumb-img{
     width: 100%;
-    height: 21.875em;
     border-radius: inherit;
+}
+
+.thumb-img--inMain{
+    height: 21.875em;
+}
+
+.thumb-img--inLightbox{
+    height: 550px;
 }
 
 .thumb-img video{
-    width: 100%;
     height: 100%;
-    border-radius: inherit;
-}
-
-.frame--inLightbox{
-    width: 100%;
-    height: 550px;
 }
 
 .caption{

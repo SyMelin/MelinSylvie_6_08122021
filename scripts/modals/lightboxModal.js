@@ -25,28 +25,25 @@ function prepareBeforeClosing (){
     modalContent.classList.remove("modal--lightbox");
 
     const mediaWrapper = document.querySelector(".mediaWrapper");
-    mediaWrapper.classList.remove("mediaWrapper--inLightbox");
-    mediaWrapper.classList.add("mediaWrapper--inMain");
+    ["mediaWrapper--inMain", "mediaWrapper--inLightbox" ].map(element => mediaWrapper.classList.toggle(element));
     mediaWrapper.removeAttribute("tabindex");
     //mediaWrapper.style.transform = "translate3d(0%, 0em, 0em)";
 
     const mediaCardAll = document.querySelectorAll(".carousel .mediaWrapper .thumb-imgfull");
     mediaCardAll.forEach((mediaCard) => {
-        mediaCard.classList.remove("thumb-imgfull--inLightbox", "hidden");
-        mediaCard.classList.add("thumb-imgfull--inMain");
+        ["thumb-imgfull--inMain", "thumb-imgfull--inLightbox" ].map(element => mediaCard.classList.toggle(element));
+        mediaCard.classList.remove("hidden");
         mediaCard.setAttribute("role", "image link");
     });
 
     const mediaLike = document.querySelectorAll(".carousel .mediaCard__like");
     for (let like of mediaLike){
-        like.classList.toggle("hidden");
-        like.classList.toggle("like-caption-visible");
-
+        ["like-caption-visible", "hidden" ].map(element => like.classList.toggle(element));
     };
 
     const frameAll = document.querySelectorAll(".carousel .mediaWrapper .thumb-imgfull .thumb-img");
     frameAll.forEach((frame) => {
-        frame.classList.remove("frame--inLightbox");
+        ["thumb-img--inMain", "thumb-img--inLightbox" ].map(element => frame.classList.toggle(element));
         frame.setAttribute("role", "link");
         let ariaLabel = String(frame.getAttribute("aria-label"));
         ariaLabel = ariaLabel + ", closeup view";

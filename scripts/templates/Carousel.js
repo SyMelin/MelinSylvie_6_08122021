@@ -18,8 +18,7 @@ class Carousel {
         this._container.setAttribute("tabindex", "-1");
         //this._container.style.width = (ratio * 100) + "%";
         this._children.forEach((child) => {
-            child.classList.remove("thumb-imgfull--inMain");
-            child.classList.add("thumb-imgfull--inLightbox");
+            ["thumb-imgfull--inMain", "thumb-imgfull--inLightbox" ].map(element => child.classList.toggle(element));
             child.setAttribute("role", "image");
         });
         //this._children.forEach((child) => {
@@ -28,8 +27,7 @@ class Carousel {
         this._container.mediaLike = document.querySelectorAll(".carousel .mediaCard__like");
         console.log("likes",  this._container.mediaLike);
         this._container.mediaLike.forEach((like) => {
-            like.classList.toggle("like-caption-visible");
-            like.classList.toggle("hidden");
+            ["like-caption-visible", "hidden" ].map(element => like.classList.toggle(element));
         });
 
         this.gotoItem(this._index);
