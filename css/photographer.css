@@ -78,7 +78,7 @@ body {
     display: flex;
     flex-direction: row;
     border-radius: 0.3125em 0.3125em 0 0;
-    z-index: 3;
+    z-index: 2;
 }
 
 #info p{
@@ -350,7 +350,7 @@ body {
     border: none;
     border-radius: 0.3125em;
     opacity: 0;
-    z-index: 2;
+    z-index: 1;
     transition: opacity 300ms ease-in-out;
 }
 
@@ -521,7 +521,6 @@ body {
     background-image : url("../assets/icons/arrow_left.svg");
     width: 3.125em;
     height: 3.125em;
-    z-index: 5;
     background-repeat: no-repeat;
     opacity: 1;
 
