@@ -235,7 +235,6 @@ function checkFieldValidity(element, type) {
 
 
 function openContactFormModal(){
-
     let newContactForm = new Modal("contact_modal", 'contactForm');
     newContactForm.createModal();
     displayModal();
@@ -247,7 +246,14 @@ function closeContactFormModal() {
     const modalContent = document.querySelector(".modal .modal__content");
    // modalContent.removeAttribute("tabindex");
     modalContent.classList.remove("modal--contact-form");
+
+    // Le bouton contact du header récupère le focus à la fermeture du formulaire de contact
+    const contactBtn = document.querySelector(".photograph-header .contact-button");
+    contactBtn.focus();
+    
     closeModal();
+    console.log("active element", document.activeElement);
+
 }
 
 // Fermeture de la modale via la touche Echap

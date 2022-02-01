@@ -240,6 +240,10 @@ body {
     border-radius: inherit;
 }
 
+.thumb-img:focus {
+    border: 5px solid blue;
+}
+
 .thumb-img--inMain{
     width: inherit;
     height: 21.875em;
@@ -388,7 +392,7 @@ body {
 
 /***************************** Modal *************************************/
 
-
+/*
 .modal:focus{
     background-color: violet;
 }
@@ -396,6 +400,7 @@ body {
 .modal__content:focus{
     background-color: yellowgreen;
 }
+*/
 
 .modal__content {
     box-sizing: border-box;

@@ -1,3 +1,6 @@
+// La classe Modal génère des modales selon leur type.
+// Elle permet également de gérer les éléments communs aux différents types de modale.
+// Elle contient éga
 class Modal {
 
     /**
@@ -77,13 +80,12 @@ class Modal {
                 lightboxModal.create();
                 closeBtn.setAttribute("onclick", "closeLightboxModal()");
                 closeBtn.setAttribute("aria-label", "Close dialog");
-                //closeBtn.setAttribute("tabindex", "3");
                 closeBtn.setAttribute("tabindex", "0");
 
                 modal.style.height = "auto";
                 modal.setAttribute("aria-label", "image closeup view");
-                modal.setAttribute("tabindex", "0");
-                modalContent.setAttribute("tabindex", "-1");
+                modal.setAttribute("tabindex", "1");
+               // modalContent.setAttribute("tabindex", "-1");
 
                 const main = document.getElementById("main");
                 main.classList.add("hidden");
@@ -93,74 +95,52 @@ class Modal {
     };
 };
 
+
 function displayModal() {
 
     const modal = document.querySelector(".modal");
 	modal.style.display = "block";
     modal.setAttribute("aria-hidden", false);
-    document.querySelector(".modal").focus();//met le focus sur votre modale une fois cette dernière ouverte
-   // modal.setAttribute("tabindex", 1);
-    //modal.setAttribute("aria-modal", true);
-    //document.querySelector(".modal__content").focus();
+    document.querySelector(".modal").focus();//met le focus sur la modale une fois cette dernière ouverte
+  
     const header = document.getElementById("header");
     const main = document.getElementById("main");
     header.setAttribute("aria-hidden", true);
     main.setAttribute("aria-hidden", true);
-    /*
-    const allTabindex0 = [].slice.call(document.getElementsByClassName("tabindex0"));
-    allTabindex0.forEach((element) => {
-        element.removeAttribute("tabindex");
-    });
-    */
+   
 };
+
 
 function closeModal() {
 
+    //On rend la modale inaccessible
     const modal = document.querySelector(".modal");
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", true);
-    //modal.setAttribute("aria-modal", false);
 
-    //Remettre le focus sur le reste du document???????
-
+    //On vide le contenu de la modale de tout ses éléments sauf le bouton close
     const modalContent = document.querySelector(".modal__content");
     const children = [].slice.call(modalContent.children);
-    //console.log(children);
     let closeBtn =  document.querySelector(".modal__content .closeBtn");
     children.forEach((child) => {
         if (child != closeBtn) {
-            //console.log("notBTN");
             modalContent.removeChild(child);
-            //console.log(modalContent);
         };
     });
 
+    //On rend accessible le reste de la page
     const header = document.getElementById("header");
     const main = document.getElementById("main");
-
     header.setAttribute("aria-hidden", false);
     main.setAttribute("aria-hidden", false);
 
+    //On rétablit les tabindex = 0 sur les éléments concernés
     const allTabindex0 = [].slice.call(document.getElementsByClassName("tabindex0"));
     allTabindex0.forEach((element) => {
         element.setAttribute("tabindex", 0);
     });
 
-    modal.setAttribute("id", "");
-   // console.log("modal", modal);
-
+    //On établit de retour la modale par défaut
+    modal.removeAttribute("id");
     closeBtn.removeAttribute("onclick");
 };
-/*
-let closeBtn = document.querySelector(".modal__content .closeBtn");
-console.log(closeBtn);
-console.log(closeBtn.attributes);
-console.log(closeBtn.getAttribute("onclick"));
-console.log(closeFunction);
-closeBtn.addEventListener("keyup", (e) => {
-    e.preventDefault;
-    if (e.key === "Enter") {
-        console.log(closeBtn.getAttribute("onclick"));
-        closeFunction();
-    };
-});*/
