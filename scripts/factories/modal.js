@@ -83,7 +83,7 @@ class Modal {
                 modal.style.height = "auto";
                 modal.setAttribute("aria-label", "image closeup view");
                 modal.setAttribute("tabindex", "0");
-                //modalContent.setAttribute("tabindex", "-1");
+                modalContent.setAttribute("tabindex", "-1");
 
                 const main = document.getElementById("main");
                 main.classList.add("hidden");

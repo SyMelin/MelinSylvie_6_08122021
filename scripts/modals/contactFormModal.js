@@ -71,8 +71,8 @@ class ContactFormModal {
         });
 
         contactBtn.addEventListener("keydown", (e) => {
-            e.preventDefault();
             if (e.key === "Enter") {
+                e.preventDefault();
                 this.sendMessage();
             };
         });

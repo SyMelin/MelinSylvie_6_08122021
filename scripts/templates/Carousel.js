@@ -93,22 +93,19 @@ class Carousel {
 
         //Fontions appelées avec les flèches gauche et droite
         window.addEventListener("keyup", (e) => {
-            e.preventDefault();
             const lightboxModal = document.getElementById("lightbox_modal");
             if (lightboxModal) {
-
                 switch(e.key) {
-
                     case 'ArrowLeft' :
+                        e.preventDefault();
                         this.prev();
                     break;
-
                     case 'ArrowRight' :
+                        e.preventDefault();
                         this.next();
                     break;
-
-                }
-            }
+                };
+            };
         });
     };
 
@@ -121,6 +118,8 @@ class Carousel {
                 child.removeAttribute("tabindex");
             });*/
             this.gotoItem(this._index);
+            let thumbImg = this._children[this._index].firstChild;
+            thumbImg.focus();
             if (this._index == this._indexMin) {
                 this._prevBtn.classList.add("navBtn--hidden");
                 this._prevBtn.setAttribute("aria-hidden", true);
@@ -139,6 +138,8 @@ class Carousel {
                 child.removeAttribute("tabindex");
             });*/
             this.gotoItem(this._index);
+            let thumbImg = this._children[this._index].firstChild;
+            thumbImg.focus();
             if (this._index == (this._indexMax)) {
                 this._nextBtn.classList.add("navBtn--hidden");
                 this._nextBtn.setAttribute("aria-hidden", true);
