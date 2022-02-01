@@ -33,7 +33,7 @@ function prepareBeforeClosing (){
     mediaCardAll.forEach((mediaCard) => {
         ["thumb-imgfull--inMain", "thumb-imgfull--inLightbox" ].map(element => mediaCard.classList.toggle(element));
         mediaCard.classList.remove("hidden");
-        mediaCard.setAttribute("role", "image link");
+        mediaCard.setAttribute("role", "link");
     });
 
     const mediaLike = document.querySelectorAll(".carousel .mediaCard__like");
