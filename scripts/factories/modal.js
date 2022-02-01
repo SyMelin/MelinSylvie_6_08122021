@@ -33,13 +33,15 @@ class Modal {
                         label : 'firstame',
                         type : 'text',
                         className: 'text',
-                        text: 'Prénom'
+                        text: 'Prénom',
+                        minlength: '2'
                     },
                     {
                         label : 'lastame',
                         type : 'text',
                         className: 'text',
-                        text: 'Nom'
+                        text: 'Nom',
+                        minlength: '2'
                     },
                     {
                         label : 'email',
@@ -51,7 +53,8 @@ class Modal {
                         label : 'message',
                         type : 'textarea',
                         className: 'text-area',
-                        text: 'Votre message'
+                        text: 'Votre message',
+                        maxlength: '1000'
                     }
                 ];
 
@@ -144,7 +147,7 @@ function closeModal() {
     });
 
     modal.setAttribute("id", "");
-    console.log("modal", modal);
+   // console.log("modal", modal);
 
     closeBtn.removeAttribute("onclick");
 };

@@ -13,7 +13,7 @@ class Carousel {
         this._indexMin = 0;
         this._indexMax = this._children.length - 1;
         //console.log("indexMax", this._indexMax);
-        let ratio = this._children.length;
+        //let ratio = this._children.length;
         this._container = document.querySelector(".mediaWrapper--inLightbox");
         this._container.setAttribute("tabindex", "-1");
         //this._container.style.width = (ratio * 100) + "%";
@@ -94,9 +94,8 @@ class Carousel {
         //Fontions appelées avec les flèches gauche et droite
         window.addEventListener("keyup", (e) => {
             e.preventDefault();
-            const lightboxModalState = document.getElementById("lightbox_modal").getAttribute("aria-hidden");
-            console.log("modalState", lightboxModalState);
-            if (lightboxModalState === "false") {
+            const lightboxModal = document.getElementById("lightbox_modal");
+            if (lightboxModal) {
 
                 switch(e.key) {
 

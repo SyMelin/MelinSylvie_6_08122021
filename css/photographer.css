@@ -472,16 +472,18 @@ body {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 1.625em;
+    margin-bottom: 1.5em;
 }
 
 .contact-form .text, .contact-form .text-area {
+    box-sizing: border-box;
     width: 100%;
     height: 4.25em;
     border: none;
     border-radius: 0.3125em;
     font-family: "DM Sans", sans-serif;
-    font-size: 1em;
+    font-size: 1.375em;
+    padding: 0.5em;
 }
 
 .contact-form .text-area {
@@ -489,6 +491,27 @@ body {
     height: 10.625em;
     resize: none;
 }
+
+
+/**** Validation / invalidation des champs du formulaire ****/
+
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 1.25em;
+    font-weight: bold;
+    color: black;
+    display: block;
+    margin-top: 0.5em;
+    text-align: left;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
+  .formData[data-error-visible="true"] .contact-form__input {
+    border: 0.5em solid black;
+  }
 
 
 
