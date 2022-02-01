@@ -92,6 +92,7 @@ class Carousel {
         });
 
         //Fontions appelées avec les flèches gauche et droite
+        // !!! Ne fonctionne pas si lecteur d'écran NVDA utilisé
         window.addEventListener("keyup", (e) => {
             const lightboxModal = document.getElementById("lightbox_modal");
             if (lightboxModal) {
