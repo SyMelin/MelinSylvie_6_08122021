@@ -23,34 +23,33 @@ class MediaItemCard {
        // caption.setAttribute("tabindex", "-1");
 
         const title = document.createElement("p");
-        title.classList.add("title-caption");
-        title.textContent = this._mediaItem.title;
         title.setAttribute("tabindex", "0");
-        title.classList.add("tabindex0");
-
+        title.classList.add("tabindex0", "title-caption");
+        title.textContent = this._mediaItem.title;
+    
         const like = document.createElement("div");
-        like.classList.add("mediaCard__like");
-        like.classList.add("like-caption-visible");
+        like.classList.add("mediaCard__like", "like-caption-visible");
         like.setAttribute("tabindex", "-1");
 
+        const likeNbBox = document.createElement("div");
+        likeNbBox.setAttribute("tabindex", "0");
         const likeNb = document.createElement("p");
         likeNb.setAttribute("aria-hidden", true);
         likeNb.textContent = this._mediaItem.likes;
         const likeNbSpan = document.createElement('span');
-        likeNbSpan.classList.add("screenreader-text");
-        likeNbSpan.textContent = this._mediaItem.likes + " likes";
-        likeNbSpan.setAttribute("tabindex", "0");
-        likeNbSpan.classList.add("tabindex0");
+        //likeNbSpan.setAttribute("tabindex", "0");
+        likeNbSpan.classList.add("tabindex0", "screenreader-text");
+        likeNbSpan.textContent = this._mediaItem.likes + " likes";  
 
         const likeHeart = document.createElement("div");
-        likeHeart.classList.add("likeHeart");
+        likeHeart.setAttribute("tabindex", "0");
+        likeHeart.classList.add("tabindex0", "likeHeart");
         likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
         likeHeart.style.border = "1px solid red";
-        likeHeart.setAttribute("tabindex", "0");
-        likeHeart.classList.add("tabindex0");
 
-        like.appendChild(likeNb);
-        like.appendChild(likeNbSpan);
+        likeNbBox.appendChild(likeNb);
+        likeNbBox.appendChild(likeNbSpan);
+        like.appendChild(likeNbBox);
         like.appendChild(likeHeart);
 
         caption.appendChild(title);
@@ -77,5 +76,4 @@ class MediaItemCard {
 
         return mediaItemCard;
     };
-
 };
