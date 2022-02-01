@@ -103,7 +103,6 @@ function changeListboxDisplay () {
     listbox.focus();
 
     options.forEach((option) => {
-        option.style.cursor = "pointer";
         if (option.classList.contains("option-notSelected")) {
             ["option-notSelected", "option-selected" ].map(element => option.classList.toggle(element));
         };

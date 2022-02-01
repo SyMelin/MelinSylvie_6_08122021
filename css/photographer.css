@@ -148,13 +148,12 @@ body {
 .expandBtn{
     cursor: pointer;
     position: absolute;
-    right: 0;
-    top: 1.125em;
+    right: 0.625em;
+    top: 1.3125em;
     background-repeat: no-repeat;
     background-position: center;
-    width: 2em;
-    height: 2em;
-    border: 5px solid blue;
+    width: 2.25em;
+    height: 2.25em;
     z-index: 2;
 }
 
@@ -169,7 +168,8 @@ body {
 .listbox .option {
     width: 100%;
     padding-top: 0.9375em;
-    
+    position: relative;
+    opacity: 1;
 }
 
 .listbox .option-selected{
@@ -181,8 +181,38 @@ body {
     display: none;
 }
 
-.listbox .option1 {
-    /*background-color: yellow;*/
+.listbox-open .option::after {
+    color: black;
+    background-color: #DB8876;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: inherit;
+    font-weight: bold;
+    box-sizing: border-box;
+    margin-left: -0.625em;
+    width: 10.625em;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 100ms ease-in-out;
+}
+
+.listbox-open .option {
+    cursor: pointer;
+}
+
+.listbox-open .option1::after {
+    content: "Popularité";
+    border-radius: 0.3125em 0.3125em 0 0;
+    margin-top: -0.625em;
+    height: 123%;
+    padding: 0.625em 0.625em 0 0.625em;
 }
 
 .listbox-open .option2 {
@@ -190,8 +220,23 @@ body {
     border-bottom: 0.0625em solid white ;
 }
 
-.listbox .option3 {
-   /* background-color: green;*/
+.listbox-open .option2::after {
+    content: "Date";
+    padding: 0 0.625em 0 0.625em;
+    top: -0.0625em;
+    height: 105%;
+}
+
+.listbox-open .option3::after {
+    content: "Titre";
+    border-radius: 0 0 0.3125em 0.3125em;
+    margin-top: -0.0625em;
+    margin-bottom: -0.625em;
+    height: 123%;
+    padding: 0.125em 0.625em 0.625em 0.625em;
+}
+.option:hover::after, .option:focus::after {
+    opacity: 1;
 }
 
 
@@ -239,10 +284,10 @@ body {
     width: 100%;
     border-radius: inherit;
 }
-
+/*
 .thumb-img:focus {
     border: 5px solid blue;
-}
+}*/
 
 .thumb-img--inMain{
     width: inherit;
