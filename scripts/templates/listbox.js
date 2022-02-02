@@ -11,7 +11,7 @@ class Listbox {
 }
 
 const listbox = document.querySelector(".listbox");
-const options = [].slice.call(listbox.children);
+const options = Array.from(listbox.children);
 
 const expandBtn = document.querySelector(".expandBtn");
 

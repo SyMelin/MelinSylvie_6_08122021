@@ -26,7 +26,7 @@ class Modal {
 
             case 'contactForm' :
 
-                const allTabindex0 = [].slice.call(document.getElementsByClassName("tabindex0"));
+                const allTabindex0 = Array.from(document.getElementsByClassName("tabindex0"));
                 allTabindex0.forEach((element) => {
                     element.removeAttribute("tabindex");
                 });
@@ -120,7 +120,7 @@ function closeModal() {
 
     //On vide le contenu de la modale de tout ses éléments sauf le bouton close
     const modalContent = document.querySelector(".modal__content");
-    const children = [].slice.call(modalContent.children);
+    const children = Array.from(modalContent.children);
     let closeBtn =  document.querySelector(".modal__content .closeBtn");
     children.forEach((child) => {
         if (child != closeBtn) {
@@ -135,7 +135,7 @@ function closeModal() {
     main.setAttribute("aria-hidden", false);
 
     //On rétablit les tabindex = 0 sur les éléments concernés
-    const allTabindex0 = [].slice.call(document.getElementsByClassName("tabindex0"));
+    const allTabindex0 = Array.from(document.getElementsByClassName("tabindex0"));
     allTabindex0.forEach((element) => {
         element.setAttribute("tabindex", 0);
     });

@@ -8,8 +8,7 @@ class Carousel {
     constructor (element, index) {
         this._element = element;
         this._index = index;
-        this._children = [].slice.call(element.children);
-        //console.log([].slice.call(element.children));
+        this._children = Array.from(element.children);
         this._indexMin = 0;
         this._indexMax = this._children.length - 1;
         //console.log("indexMax", this._indexMax);
@@ -67,7 +66,7 @@ class Carousel {
         const carousel = document.querySelector(".carousel");
 
         [this._prevBtn, this._nextBtn].map(element => carousel.appendChild(element));
-        
+
 
         ///////////////// Navigation au clavier////////////////////
 
@@ -114,7 +113,7 @@ class Carousel {
         //console.log("cardIndex", this._index);
         if (this._index > this._indexMin && this._index <= this._indexMax) {
             this._index-- ; //index vers lequel on veut aller
-         /*   ([].slice.call(this._children[this._index + 1].children)).forEach((child) => {
+         /*   (Array.from(this._children[this._index + 1].children)).forEach((child) => {
                 child.removeAttribute("tabindex");
             });*/
             this.gotoItem(this._index);
@@ -134,7 +133,7 @@ class Carousel {
 
         if (this._index >= this._indexMin && this._index < this._indexMax) {
             this._index++ ;
-          /*  ([].slice.call(this._children[this._index - 1].children)).forEach((child) => {
+          /*  (Array.from(this._children[this._index - 1].children)).forEach((child) => {
                 child.removeAttribute("tabindex");
             });*/
             this.gotoItem(this._index);
@@ -170,7 +169,7 @@ class Carousel {
         console.log("index", index);
        // this._children[index]
         //this._children[index].setAttribute("tabindex", "-1");
-      /*  ([].slice.call(this._children[index].children)).forEach((child) => {
+      /*  (Array.from(this._children[index].children)).forEach((child) => {
             child.setAttribute("tabindex", "0");
         });*/
        

@@ -78,7 +78,7 @@ class ContactFormModal {
     };
 
     sendMessage () {
-        const allInputs = [].slice.call(document.getElementsByClassName("contact-form__input"));
+        const allInputs = Array.from(document.getElementsByClassName("contact-form__input"));
         let validityForm = 0;
         allInputs.forEach((input) => {
             if (checkFieldValidity(input, (input.getAttribute("type"))) === true) {
