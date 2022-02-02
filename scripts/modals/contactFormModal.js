@@ -46,8 +46,7 @@ class ContactFormModal {
         };
 
         header.appendChild(contactTitle);
-        modalContent.prepend(this._contactForm);
-        modalContent.prepend(header);
+        [this._contactForm, header].map(element => modalContent.prepend(element));
 
         this.createContactBtn();
     };
@@ -169,11 +168,9 @@ class FormField {
         this._input.setAttribute("required", true);
         this._input.setAttribute('aria-required', true);
         this._input.classList.add("contact-form__input");
-      //  input.setAttribute("tabindex", 0);
+        // input.setAttribute("tabindex", 0);
 
-
-        fieldBox.appendChild(label);
-        fieldBox.appendChild(this._input);
+        [label, this._input].map(element => fieldBox.appendChild(element));
 
 
         ///////////////////////////// Evènement au change sur un champ ///////////////////////////////////////

@@ -20,7 +20,6 @@ class MediaItemCard {
         
         const caption = document.createElement("div");
         caption.classList.add("caption");
-       // caption.setAttribute("tabindex", "-1");
 
         const title = document.createElement("p");
         title.setAttribute("tabindex", "0");
@@ -28,17 +27,19 @@ class MediaItemCard {
         title.textContent = this._mediaItem.title;
     
         const like = document.createElement("div");
-        like.classList.add("mediaCard__like", "like-caption-visible");
         like.setAttribute("tabindex", "-1");
+        like.classList.add("mediaCard__like", "like-caption-visible");
 
         const likeNbBox = document.createElement("div");
         likeNbBox.setAttribute("tabindex", "0");
+        likeNbBox.classList.add("tabindex0");
+
         const likeNb = document.createElement("p");
         likeNb.setAttribute("aria-hidden", true);
         likeNb.textContent = this._mediaItem.likes;
+        // ajout de span pour accessibilité de likeNB
         const likeNbSpan = document.createElement('span');
-        //likeNbSpan.setAttribute("tabindex", "0");
-        likeNbSpan.classList.add("tabindex0", "screenreader-text");
+        likeNbSpan.classList.add("screenreader-text");
         likeNbSpan.textContent = this._mediaItem.likes + " likes";  
 
         const likeHeart = document.createElement("div");
@@ -47,17 +48,14 @@ class MediaItemCard {
         likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
         likeHeart.style.border = "1px solid red";
 
-        likeNbBox.appendChild(likeNb);
-        likeNbBox.appendChild(likeNbSpan);
-        like.appendChild(likeNbBox);
-        like.appendChild(likeHeart);
 
-        caption.appendChild(title);
-        caption.appendChild(like);
+        [likeNb, likeNbSpan].map(element => likeNbBox.appendChild(element));
+        [likeNbBox, likeHeart].map(element => like.appendChild(element));
+        [title, like].map(element => caption.appendChild(element));
+        [frame, caption].map(element => mediaItemCard.appendChild(element));
 
-        mediaItemCard.appendChild(frame);
-        mediaItemCard.appendChild(caption);
-       
+
+        ///////////// EVenement sur l'icone coeur cliquable ///////////////////////
 
         likeHeart.addEventListener("click", function(e) {
             //console.log(template._mediaItem.likes);

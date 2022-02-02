@@ -32,11 +32,8 @@ class PhotographerHeader {
         const textTagline = document.createElement('p');
         textTagline.textContent = this._photographerData.tagline;
 
-        paragraphe.appendChild(textLocation);
-        paragraphe.appendChild(textTagline);
-
-        photographerProfile.appendChild(h1);
-        photographerProfile.appendChild(paragraphe);
+        [textLocation, textTagline].map(element => paragraphe.appendChild(element));
+        [h1, paragraphe].map(element => photographerProfile.appendChild(element));
 
 
         //Element .user

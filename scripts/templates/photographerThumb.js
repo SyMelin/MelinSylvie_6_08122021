@@ -30,9 +30,7 @@ class PhotographerThumb {
         const h2 = document.createElement( 'h2' );
         h2.textContent = this._photographer.name;
         
-        link.appendChild(img);
-        link.appendChild(h2);
-        
+        [img, h2].map(element => link.appendChild(element));        
         article.appendChild(link);
 
         // crée le paragraphe texte statique
@@ -49,15 +47,12 @@ class PhotographerThumb {
         const textPrice = document.createElement('p');
         textPrice.textContent = this._photographer.price +"€/jour";
         textPrice.setAttribute("aria-hidden", true);
+        //Ajout de span pour accessibilité de textPrice
         const textPriceSpan = document.createElement('span');
         textPriceSpan.classList.add("screenreader-text");
         textPriceSpan.textContent = this._photographer.price +"€ par jour";
-        
-        paragraphe.appendChild(textLocation);
-        paragraphe.appendChild(textTagline);
-        paragraphe.appendChild(textPrice);
-        paragraphe.appendChild(textPriceSpan);
-       
+
+        [textLocation, textTagline, textPrice, textPriceSpan].map(element => paragraphe.appendChild(element));
         article.appendChild(paragraphe);
         
         return (article);

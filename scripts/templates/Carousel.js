@@ -64,11 +64,10 @@ class Carousel {
             this._nextBtn.setAttribute("aria-hidden", true);
         };  
 
-        const carouselContainer = document.querySelector(".carousel");
-        carouselContainer.appendChild(this._prevBtn); 
+        const carousel = document.querySelector(".carousel");
 
-        carouselContainer.appendChild(this._nextBtn); 
-
+        [this._prevBtn, this._nextBtn].map(element => carousel.appendChild(element));
+        
 
         ///////////////// Navigation au clavier////////////////////
 

@@ -22,10 +22,8 @@ function photographerFactory(data) {
        
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
-        
-        link.appendChild(img);
-        link.appendChild(h2);
-        
+
+        [img, h2].map(element => link.appendChild(element));        
         article.appendChild(link);
 
         // crée le paragraphe texte statique
@@ -41,10 +39,7 @@ function photographerFactory(data) {
         const textPrice = document.createElement('p');
         textPrice.textContent = price +"€/jour";
         
-        paragraphe.appendChild(textLocation);
-        paragraphe.appendChild(textTagline);
-        paragraphe.appendChild(textPrice);
-       
+        [textLocation, textTagline, textPrice].map(element => paragraphe.appendChild(element));
         article.appendChild(paragraphe);
         
         return (article);
