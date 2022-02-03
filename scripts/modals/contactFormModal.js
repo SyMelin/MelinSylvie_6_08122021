@@ -1,4 +1,4 @@
-class ContactFormModal {
+class ContactFormModal extends CloseBtnContactForm{
 
     /**
      * @param {string} method methode de traitement des données
@@ -6,12 +6,41 @@ class ContactFormModal {
      * @param {array} fields [{label: 'firstname', type: 'text', className: 'text-area' }]
      */
 
-    constructor (method, action, photographerData, fields) {
-        this._method = method;
-        this._action = action;
-        this._photographerData = photographerData;
-        this._fields = fields;
-    }
+    constructor (type, method, action, photographerData) {
+        super(type)
+        this._method = method
+        this._action = action
+        this._photographerData = photographerData
+        this._fields = [
+            { 
+                label : 'firstame',
+                type : 'text',
+                className: 'text',
+                text: 'Prénom',
+                minlength: '2'
+            },
+            {
+                label : 'lastame',
+                type : 'text',
+                className: 'text',
+                text: 'Nom',
+                minlength: '2'
+            },
+            {
+                label : 'email',
+                type : 'email',
+                className: 'text',
+                text: 'Email'
+            },
+            {
+                label : 'message',
+                type : 'textarea',
+                className: 'text-area',
+                text: 'Votre message',
+                maxlength: '1000'
+            }
+        ];
+    };
 
     create () {
 
@@ -26,7 +55,6 @@ class ContactFormModal {
         contactTitle.setAttribute("id", "contact-title");
         contactTitle.setAttribute("tabindex", "0");
         contactTitle.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
-        //console.log("contactTitle", contactTitle);
 
         this._contactForm = document.createElement ("form");
         this._contactForm.classList.add("contact-form");
@@ -91,7 +119,7 @@ class ContactFormModal {
             allInputs.forEach((input) => {
                 console.log(input.value);
             });
-            closeContactFormModal();
+            this.initContactFormModal();
             alert("Le message a bien été envoyé");
         } else {
            console.log("Le formulaire n'est pas valide");
@@ -178,14 +206,12 @@ class FormField {
             checkFieldValidity(this._input, this._type);
         });
 
-        ////////////////// Evènement via la touche ENTER => Evite d'envoyer en formulaire ////////////////////
+        ////////////////// Evènement via la touche ENTREE => Evite d'envoyer le formulaire ////////////////////
         this._input.addEventListener("keydown", function(e) {
             if (e.key === "Enter") {
-                "j'ai appuyé sue ENTER";
                 e.preventDefault();
             };
         });
-
 
         return fieldBox;
     };
@@ -193,7 +219,6 @@ class FormField {
 
 
 function checkFieldValidity(element, type) {
-    //console.log("type", type);
 
     switch (type) {
 
@@ -218,7 +243,6 @@ function checkFieldValidity(element, type) {
         break;
 
         case 'textarea' :
-            //console.log(element.value.length);
             if (!(element.value) == "") {
                 element.parentElement.setAttribute("data-error-visible", "false");
                 return true;
@@ -229,42 +253,3 @@ function checkFieldValidity(element, type) {
         break;
     };
 };
-
-
-function openContactFormModal(){
-    let newContactForm = new Modal("contact_modal", 'contactForm');
-    newContactForm.createModal();
-    displayModal();
-};
-
-function closeContactFormModal() {
-    const modal = document.querySelector(".modal");
-    modal.removeAttribute("aria-labelledby");
-    const modalContent = document.querySelector(".modal .modal__content");
-   // modalContent.removeAttribute("tabindex");
-    modalContent.classList.remove("modal--contact-form");
-
-    // Le bouton contact du header récupère le focus à la fermeture du formulaire de contact
-    const contactBtn = document.querySelector(".photograph-header .contact-button");
-    contactBtn.focus();
-    
-    closeModal();
-    console.log("active element", document.activeElement);
-
-}
-
-// Fermeture de la modale via la touche Echap
-
-window.addEventListener("keyup", function(e) {
-    e.preventDefault();
-    const modal = document.getElementById("contact_modal");
-   // console.log("modal", modal);
-    if (modal) {
-        const modalState = modal.getAttribute("aria-hidden");
-            //console.log("modalState", modalState);
-            if ((e.key === "Escape") && (modalState === "false")) {
-                e.preventDefault();
-                closeContactFormModal();
-            };
-    };
-});

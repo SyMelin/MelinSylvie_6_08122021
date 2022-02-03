@@ -56,8 +56,7 @@ function selectAnOption (option) {
         mediaWrapper.parentElement.removeChild(mediaWrapper);
 
         //On crée un nouveau filtre en fonction de Value et on réaffiche les cartes media
-        const filter = new FilterFactory(optionSelected, photographerMedia);
-        filter.createAFilter();
+        new FilterFactory(optionSelected, photographerMedia);
         displayMedia(photographerMedia);
 
     };

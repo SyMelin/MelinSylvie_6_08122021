@@ -79,8 +79,7 @@ async function initPhotographer() {
     photographerMedia = await api.getPhotographerMedia();
 
     //Media filtrer par popularité par défaut
-    const filter = new Filter(photographerMedia);
-    filter.filterByDate();
+    new Filter('date', photographerMedia);
 
     //Affichage des média
     displayMedia(photographerMedia);
@@ -88,6 +87,10 @@ async function initPhotographer() {
     sumLikes();
     displayInfo(photographerProfile);
 
+    let modal = new Modal('', 'init');
+    modal.createModal();
+
 };
 
 initPhotographer();
+

@@ -11,27 +11,19 @@ class Carousel {
         this._children = Array.from(element.children);
         this._indexMin = 0;
         this._indexMax = this._children.length - 1;
-        //console.log("indexMax", this._indexMax);
-        //let ratio = this._children.length;
         this._container = document.querySelector(".mediaWrapper--inLightbox");
         this._container.setAttribute("tabindex", "-1");
-        //this._container.style.width = (ratio * 100) + "%";
         this._children.forEach((child) => {
             ["thumb-imgfull--inMain", "thumb-imgfull--inLightbox" ].map(element => child.classList.toggle(element));
             child.setAttribute("role", "image");
         });
-        //this._children.forEach((child) => {
-            //child.style.width = (100 / ratio ) + "%";
-       // });
         this._container.mediaLike = document.querySelectorAll(".carousel .mediaCard__like");
-        //console.log("likes",  this._container.mediaLike);
         this._container.mediaLike.forEach((like) => {
             ["like-caption-visible", "hidden" ].map(element => like.classList.toggle(element));
         });
 
         this.gotoItem(this._index);
         this.createNavigation();
-
     };
 
     createNavBtn () {
@@ -74,7 +66,7 @@ class Carousel {
         this._prevBtn.addEventListener("click", this.prev.bind(this));
         this._nextBtn.addEventListener("click", this.next.bind(this));
 
-        //Fonctions appelées avec ENTRER sur le bouton
+        //Fonctions appelées avec ENTREE sur chaque bouton
         this._prevBtn.addEventListener("keyup", (e) => {
             e.preventDefault();
             if (e.key === "Enter") {
@@ -109,13 +101,8 @@ class Carousel {
     };
 
     prev(){
-
-        //console.log("cardIndex", this._index);
         if (this._index > this._indexMin && this._index <= this._indexMax) {
             this._index-- ; //index vers lequel on veut aller
-         /*   (Array.from(this._children[this._index + 1].children)).forEach((child) => {
-                child.removeAttribute("tabindex");
-            });*/
             this.gotoItem(this._index);
             let thumbImg = this._children[this._index].firstChild;
             thumbImg.focus();
@@ -130,12 +117,8 @@ class Carousel {
     };
 
     next(){
-
         if (this._index >= this._indexMin && this._index < this._indexMax) {
-            this._index++ ;
-          /*  (Array.from(this._children[this._index - 1].children)).forEach((child) => {
-                child.removeAttribute("tabindex");
-            });*/
+            this._index++ ; //index vers lequel on veut aller
             this.gotoItem(this._index);
             let thumbImg = this._children[this._index].firstChild;
             thumbImg.focus();
@@ -150,31 +133,13 @@ class Carousel {
     };
 
     gotoItem(index) {
-        // console.log("cardIndexGoTO", index);
-      //  let translateX = index * -100 / this._children.length + "%";
-        //console.log(translateX);
-     //   this._container.style.transform = `translate3d(${translateX}, 0, 0)`;
-        //console.log(this._children[index]);
         this._children.forEach((child) => {
             if (child !== this._children[index]) {
-               // child.setAttribute("aria-hidden", true);
                 child.classList.add("hidden");
-                //console.log(child);
             } else {
-               // child.setAttribute("aria-hidden", false);
-                child.classList.remove("hidden");
-               
+                child.classList.remove("hidden");  
             };
         });
-        console.log("index", index);
-       // this._children[index]
-        //this._children[index].setAttribute("tabindex", "-1");
-      /*  (Array.from(this._children[index].children)).forEach((child) => {
-            child.setAttribute("tabindex", "0");
-        });*/
-       
-        //console.log(this._children[index]);
-       // console.log(this._children[index - 1]);
-       // console.log(this._children[index + 1]);
+        //console.log("index", index);
     };
 };

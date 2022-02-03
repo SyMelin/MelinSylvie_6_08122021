@@ -1,7 +1,8 @@
 class Api {
+
     constructor (url) {
         this._url = url;
-    };
+    }
 
     
     //Un tableau contenant tous les photographes est retourné

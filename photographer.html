@@ -17,7 +17,7 @@
     <main role="main" aria-hidden="false" id="main">
       <div class="photograph-header">
         <div class="photographer-profile"></div>
-        <button aria-label="Contactez-moi" class="contact-button" onclick="openContactFormModal()">Contactez-moi</button>
+        <button aria-label="Contactez-moi" class="contact-button">Contactez-moi</button>
         <div class="user-container"></div>
       </div>
       <!-- Elément Infos supplémentaires -->
@@ -65,18 +65,22 @@
     <script src="scripts/templates/carousel.js"></script>
     <script src="scripts/templates/photographerHeader.js"></script>
     <script src="scripts/templates/photographerInfo.js"></script>
-    
+
+  
     <!-- Factories -->
     <script src="scripts/factories/filterFactory.js"></script>
-    <script src="scripts/factories/modal.js"></script>
+    <script src="scripts/factories/OpenTriggerFactory.js"></script>
+    <script src="scripts/factories/ModalContentFactory.js"></script>
+    <script src="scripts/factories/CloseBtnFactory.js"></script>
+    <script src="scripts/factories/megaModal.js"></script>
+
+    <!-- Modals-->
+    <script src="scripts/modals/lightboxModal.js"></script>
+    <script src="scripts/modals/contactFormModal.js"></script>
+
 
     <!-- Pages -->
     <script src="scripts/pages/photographer.js"></script>
-
-    <!-- Modals-->
-   
-    <script src="scripts/modals/contactFormModal.js"></script>
-    <script src="scripts/modals/lightboxModal.js"></script>
 
   </body>
 </html>
