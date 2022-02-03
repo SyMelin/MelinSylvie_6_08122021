@@ -24,6 +24,7 @@ class PhotographerHeader {
         paragraphe.setAttribute('tabindex', "0");
         paragraphe.classList.add("text", "tabindex0", "inMain");
 
+
         const textLocation = document.createElement("p");
         textLocation.classList.add('text-location');
         textLocation.textContent = this._photographerData.city + ", " + this._photographerData.country;
