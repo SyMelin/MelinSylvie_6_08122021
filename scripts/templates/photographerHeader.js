@@ -1,3 +1,4 @@
+//La class PhotographerHeader remplit l'éléménent photographer-header de la page d'un photographe
 class PhotographerHeader {
 
     /**

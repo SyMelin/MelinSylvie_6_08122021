@@ -1,4 +1,4 @@
-// Crée le composant UserCard pour un photographe donné
+// La class PhotographerThumb crée le composant UserCard pour un photographe donné pour la page index
 class PhotographerThumb {
 
     /**

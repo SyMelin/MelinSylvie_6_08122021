@@ -9,12 +9,15 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
+    <!-- header -->
     <header role="banner" aria-hidden="false" id="header">
       <a aria-label="Index page" href="index.html">
         <img role="link" alt="Fisheye Home page" src="assets/images/logo.png" class="logo" />
       </a>
     </header>
+    <!-- main -->
     <main role="main" aria-hidden="false" id="main">
+      <!-- photographer-header -->
       <div class="photograph-header">
         <div class="photographer-profile"></div>
         <button aria-label="Contactez-moi" class="contact-button">Contactez-moi</button>
@@ -25,7 +28,6 @@
         <p id="totalLikes"></p><i aria-label="likes" class="fas fa-heart"></i>
         <p id="price"></p>
       </div>
-      <!---------------------------------------------------------------->
       <!-- Division contenant l'élément de tri des images -->
       <div class="sorting">
         <div tabindex="0" role="label" id="listbox-label" class="tabindex0 inMain">Trier par</div>
@@ -38,23 +40,17 @@
           <div tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false" class="tabindex0 inMain expandBtn expandBtn-more"></div>
         </div>
       </div>
-      <!---------------------------------------------------------------->
-      
     </main>
-    
-    
     <!-- Modale -->
-     <div role="dialog" aria-hidden="true" class="modal"  >
-      
-      <!-- container qui accueille le contenu (contactForm ou lightbox) -->
+    <div role="dialog" aria-hidden="true" class="modal"  >
+      <!-- conteneur qui accueille le contenu de la modale: {contactForm ou lightbox} + le bouton de fermeture  -->
       <div class="modal__content">
           <img role="button" src="assets/icons/close.svg" class="closeBtn"/>
       </div>
-
     </div>
-    <!-------------------------------------->
 
-
+    <!-- SCRIPTS  ----------------------------------------------------------------------------------------------------------------------------------------------------->
+    
     <!-- API -->
     <script src="scripts/API/api.js"></script>
 
@@ -65,7 +61,6 @@
     <script src="scripts/templates/carousel.js"></script>
     <script src="scripts/templates/photographerHeader.js"></script>
     <script src="scripts/templates/photographerInfo.js"></script>
-
   
     <!-- Factories -->
     <script src="scripts/factories/filterFactory.js"></script>

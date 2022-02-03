@@ -71,7 +71,6 @@ class OpenTriggerLightbox extends OpenTrigger {
             // console.log("cardIndex", cardIndex);
 
             
-        
             this.displayModal(); //Méthode de la class OpenTrigger
         };
     };

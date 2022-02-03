@@ -1,3 +1,4 @@
+/*
 // Crée le composant UserCard pour un photographe donné
 function photographerFactory(data) {
     
@@ -46,3 +47,4 @@ function photographerFactory(data) {
     }
     return { name, picture, getUserCardDOM }
 }
+*/
