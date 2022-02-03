@@ -69,6 +69,8 @@ class OpenTriggerLightbox extends OpenTrigger {
             document.querySelector(".carousel").appendChild(mediaWrapper);
             const lightboxCarousel = new Carousel(document.querySelector(".carousel .mediaWrapper"), cardIndex);
             // console.log("cardIndex", cardIndex);
+
+            
         
             this.displayModal(); //Méthode de la class OpenTrigger
         };

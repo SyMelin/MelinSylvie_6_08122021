@@ -46,9 +46,6 @@ class Modal {
                 modal.setAttribute("tabindex", "1");
                // modalContent.setAttribute("tabindex", "-1");
 
-                const main = document.getElementById("main");
-                main.classList.add("hidden");
-
                 this.createModalContent(this._type);
                 this.createCloseBtn(this._type);
             break;
