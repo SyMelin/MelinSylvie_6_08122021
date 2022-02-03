@@ -58,7 +58,6 @@ class MediaItemCard {
         ///////////// EVenement sur l'icone coeur cliquable ///////////////////////
 
         likeHeart.addEventListener("click", function(e) {
-            //console.log(template._mediaItem.likes);
             template._mediaItem.likes++ ;
             likeNb.textContent = template._mediaItem.likes;
             sumLikes();

@@ -37,7 +37,6 @@ function selectAnOption (option) {
     if (listbox.classList.contains("listbox-open")){
 
         options.forEach((childOption) => {
-            //console.log("Attribut aria-selected", option.getAttribute("aria-selected"));
             if ((childOption.getAttribute("aria-selected")) == "false"){
                 childOption.classList.remove("option-selected");
                 childOption.classList.add("option-notSelected");
@@ -91,7 +90,6 @@ options.forEach((option) => {
 function changeListboxDisplay () {
 
     let state = listbox.getAttribute("aria-expanded");
-    console.log(state);
 
     //on affiche les options de la listbox
     expandBtn.setAttribute("aria-expanded", "true");
@@ -109,14 +107,14 @@ function changeListboxDisplay () {
 
     //Selon l'état de la listbox enregistré au clic
     if (state == "false") {
-        console.log("on vient de boucler");
+       // console.log("on vient de boucler");
         listbox.setAttribute("aria-expanded", "true");
-        console.log(listbox.getAttribute("aria-expanded"));
+      //  console.log(listbox.getAttribute("aria-expanded"));
     } else {
-        console.log("on vient d'ouvrir et on veut refermer")
+       // console.log("on vient d'ouvrir et on veut refermer")
         expandBtn.setAttribute("aria-expanded", "false");
         listbox.setAttribute("aria-expanded", "false");
-        console.log(listbox.getAttribute("aria-expanded"));
+       // console.log(listbox.getAttribute("aria-expanded"));
         options.forEach((option)=> {
 
             if ((option.getAttribute("aria-selected")) !== "true") {

@@ -18,7 +18,6 @@ class OpenTriggerLightbox extends OpenTrigger {
             frame.addEventListener("keyup", (e) => {
                 const modal = document.querySelector(".modal");
                 const modalState = modal.getAttribute("aria-hidden");
-                //console.log(modalState);
                 if ((e.key === "Enter") && (modalState === "true")) {
                     e.preventDefault();
                     this.preloadModalLightbox(frame);
@@ -33,7 +32,6 @@ class OpenTriggerLightbox extends OpenTrigger {
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
         if ((frame.classList.contains("inLightbox")) == false) {
             const lightboxModal = new Modal("lightbox_modal", 'lightbox');
-            //console.log("L", lightboxModal);
             lightboxModal.createModal();
             
             const frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
@@ -68,8 +66,7 @@ class OpenTriggerLightbox extends OpenTrigger {
            
             document.querySelector(".carousel").appendChild(mediaWrapper);
             const lightboxCarousel = new Carousel(document.querySelector(".carousel .mediaWrapper"), cardIndex);
-            // console.log("cardIndex", cardIndex);
-
+            
             
             this.displayModal(); //Méthode de la class OpenTrigger
         };

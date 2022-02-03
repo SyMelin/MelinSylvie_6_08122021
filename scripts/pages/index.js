@@ -12,7 +12,6 @@ async function displayData(photographers) {
 async function init() {
     const api = new Api("../data/photographers.json"); 
     const photographers = await api.getPhotographers(); //On récupère tous les photographes
-    //console.log(photographers);
     displayData(photographers);
 };
 

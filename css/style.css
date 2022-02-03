@@ -2,7 +2,7 @@
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 
 *:focus{
-    outline: 4px solid;
+    outline: 2.75px solid;
     border-radius: 0.3125em;
 }
 

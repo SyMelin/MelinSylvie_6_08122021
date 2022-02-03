@@ -79,11 +79,9 @@ class CloseBtnLightbox extends CloseBtn {
         mediaCardAll.forEach((mediaCard) => {
             ["inMain", "inLightbox" ].map(element => mediaCard.classList.toggle(element));
             if (mediaCard.classList.contains("hidden")){
-                //console.log("HIDDEN");
                 mediaCard.classList.remove("hidden");
             } else {
                 mediaCard.firstChild.focus();
-                //console.log(document.activeElement);
             };
         });
     };

@@ -15,9 +15,7 @@ let likeTotal = 0;
 function getId() {
 
     const param = window.location.search;
-    //console.log(param);
     const idPhotographer = param.replace("?id=", ""); //retire ?id= des pramètres de l'URL, récupère uniquement l'identifiant
-    //console.log(idPhotographer);
     return idPhotographer;
 };
 
@@ -47,10 +45,8 @@ async function displayMedia(photographerMedia){
 function sumLikes() {
     likeTotal = 0;
     for (let mediaItem of photographerMedia) {
-        //console.log(mediaItem.likes);
         likeTotal += mediaItem.likes;
     };
-    //console.log(likeTotal);
     const totalLikes = document.getElementById("totalLikes");
     totalLikes.textContent = likeTotal;
     return likeTotal;

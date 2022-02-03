@@ -140,6 +140,5 @@ class Carousel {
                 child.classList.remove("hidden");  
             };
         });
-        //console.log("index", index);
     };
 };

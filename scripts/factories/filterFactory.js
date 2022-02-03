@@ -1,9 +1,6 @@
 class FilterFactory {
     constructor (value, photographerMedia) {
-      //  this._value = value;
-      //  this._photographerMedia = photographerMedia;
         this._filter = new Filter(photographerMedia);
-        //console.log(this._value);
         switch(value) {
             case "date" :
                 this._filter.filterByDate();

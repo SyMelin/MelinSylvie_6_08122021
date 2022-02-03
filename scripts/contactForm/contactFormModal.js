@@ -15,27 +15,23 @@ class ContactFormModal extends CloseBtnContactForm{
             { 
                 label : 'firstame',
                 type : 'text',
-                className: 'text',
                 text: 'Prénom',
                 minlength: '2'
             },
             {
                 label : 'lastame',
                 type : 'text',
-                className: 'text',
                 text: 'Nom',
                 minlength: '2'
             },
             {
                 label : 'email',
                 type : 'email',
-                className: 'text',
                 text: 'Email'
             },
             {
                 label : 'message',
                 type : 'textarea',
-                className: 'text-area',
                 text: 'Votre message',
                 maxlength: '1000'
             }
@@ -69,7 +65,7 @@ class ContactFormModal extends CloseBtnContactForm{
         this._contactForm.appendChild(fieldsContainer);
 
         for (let item of this._fields) {
-            let formField = new FormField(item.label, item.type, item.className, item.text, item.minlength, item.maxlength);
+            let formField = new FormField(item);
             fieldsContainer.appendChild(formField.createFormField());
         };
 
@@ -131,90 +127,81 @@ class ContactFormModal extends CloseBtnContactForm{
 class FormField {
 
     /**
-     * 
      * @param {string} label label du champs
      * @param {string} type type de champs
      * @param {string} className class du champs
      * @param {string} text contenu texte du lab
      */
 
-    constructor (label, type, className, text, minlength, maxlength) {
-        this._label = label;
-        this._type = type;
-        this._name = label;
-        this._id = label;
-        this._class = className;
-        this._text = text;
-        this._minlength = minlength;
-        this._maxlength = maxlength;
+    constructor (item) {
+        this._item = item;
     }
 
     createFormField() {
 
-        let fieldBox = document.createElement("div");
-        fieldBox.classList.add("formData");
-        fieldBox.setAttribute("tabindex", -1);
-        fieldBox.setAttribute("data-error-visible", "false");
-
+        let formField = document.createElement("div");
+        formField.classList.add("formData");
+        formField.setAttribute("tabindex", -1);
+        formField.setAttribute("data-error-visible", "false");
 
         //Crée le label
         let label =  document.createElement("label");
         label.setAttribute("tabindex", 0);
-        label.setAttribute("for", this._label);
-        label.textContent = this._text;
+        label.setAttribute("for", this._item.label);
+        label.textContent = this._item.text;
 
         //Crée l'input
-        if (this._type == "textarea") {
-            this._input =  document.createElement("textarea");
+        let input;
+        if (this._item.type == "textarea") {
+            input = document.createElement("textarea");
+            input.classList.add("text-area");
         } else {
-            this._input = document.createElement("input");
+            input = document.createElement("input");
+            input.classList.add("text");
         };
-        this._input.setAttribute("type", this._type);
+        input.setAttribute("required", true);
+        input.setAttribute('aria-required', true);
+        input.classList.add("contact-form__input"); 
+        for (let [key, value] of Object.entries(this._item)) {
+            input.setAttribute(key, value);
+        };
 
-        switch (this._type) {
+        //Crée le message d'erreur
+        switch (this._item.type) {
 
             case 'text' :
-                this._input.setAttribute("minlength", this._minlength);
-                fieldBox.setAttribute("data-error", "Veuillez entrer au minimum " + this._minlength + " caractères ou plus");
+                input.setAttribute("minlength", this._item.minlength);
+                formField.setAttribute("data-error", "Veuillez entrer au minimum " + this._item.minlength + " caractères ou plus");
             break;
 
             case 'email' :
-                fieldBox.setAttribute("data-error", "Veuillez entrer une adresse e-mail valide");
+                formField.setAttribute("data-error", "Veuillez entrer une adresse e-mail valide");
             break;
 
             case 'textarea' :
-                this._input.setAttribute("maxlength", this._maxlength);
-                this._input.setAttribute("placeholder", "2000 caractères maximum");
-                fieldBox.setAttribute("data-error", "Veuillez rédiger votre message. Maximum 2000 caractères");
+                input.setAttribute("maxlength", this._item.maxlength);
+                input.setAttribute("placeholder", "2000 caractères maximum");
+                formField.setAttribute("data-error", "Veuillez rédiger votre message. Maximum 2000 caractères");
             break;
 
         };
         
-        this._input.setAttribute("name", this._name);
-        this._input.setAttribute("id", this._id);
-        this._input.setAttribute("class", this._class);
-        this._input.setAttribute("required", true);
-        this._input.setAttribute('aria-required', true);
-        this._input.classList.add("contact-form__input");
-        // input.setAttribute("tabindex", 0);
-
-        [label, this._input].map(element => fieldBox.appendChild(element));
+        //Ajoute le label et le champ à leur conteneur formField
+        [label, input].map(element => formField.appendChild(element));
 
 
         ///////////////////////////// Evènement au change sur un champ ///////////////////////////////////////
-        this._input.addEventListener("change", (e) => {
-            checkFieldValidity(this._input, this._type);
+        input.addEventListener("change", (e) => {
+            checkFieldValidity(input, this._item.type);
         });
 
-        ////////////////// Evènement via la touche ENTREE => Evite d'envoyer le formulaire ////////////////////
-        this._input.addEventListener("keydown", (e) => {
+        ////////////////// Evènement via la touche ENTREE => Evite d'envoyer le formulaire et met le focus sur le champ suivant ////////////////////
+        input.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 e.preventDefault();
                 const allInputs = Array.from(document.getElementsByClassName("contact-form__input"));
-                let indexInput = allInputs.indexOf(this._input);
-                console.log(indexInput);
+                let indexInput = allInputs.indexOf(input);
                 indexInput++ ;
-                console.log (indexInput);
                 if (indexInput < allInputs.length) {
                     allInputs[indexInput].focus();
                 } else {
@@ -224,7 +211,7 @@ class FormField {
             };
         });
 
-        return fieldBox;
+        return formField;
     };
 };
 
