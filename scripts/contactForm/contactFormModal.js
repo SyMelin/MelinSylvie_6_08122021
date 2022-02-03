@@ -119,7 +119,7 @@ class ContactFormModal extends CloseBtnContactForm{
             allInputs.forEach((input) => {
                 console.log(input.value);
             });
-            this.initContactFormModal();
+            this.initContactFormModal(); //Méthode de la class CloseBtnContactForm
             alert("Le message a bien été envoyé");
         } else {
            console.log("Le formulaire n'est pas valide");
