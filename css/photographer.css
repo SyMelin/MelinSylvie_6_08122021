@@ -302,6 +302,7 @@ body {
 .thumb-img video{
     width: inherit;
     height: 100%;
+    border-radius: inherit;
 }
 
 .caption{
