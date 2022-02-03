@@ -1,6 +1,11 @@
 @import url("photographer.css");
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 
+*:focus{
+    outline: 4px solid;
+    border-radius: 0.3125em;
+}
+
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;

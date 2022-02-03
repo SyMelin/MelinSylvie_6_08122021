@@ -376,7 +376,7 @@ body {
     font-size: 1.25em;
     font-weight: bold;
     color: white;
-    border: none;
+  /*  border: 4px solid #901C1C;*/
     background-color: #901C1C;
     border-radius: 0.3125em;
     cursor: pointer;
@@ -395,7 +395,7 @@ body {
     justify-content: center;
     font-size: inherit;
     font-weight: bold;
-    border: none;
+    border: 4px solid black;
     border-radius: 0.3125em;
     opacity: 0;
     z-index: 1;
