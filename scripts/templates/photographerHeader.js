@@ -16,13 +16,13 @@ class PhotographerHeader {
         const h1 = document.createElement("h1");
         h1.textContent = this._photographerData.name;
         h1.setAttribute("tabindex", "0");
-        h1.classList.add("tabindex0");
+        h1.classList.add("tabindex0", "inMain");
 
         
         // Crée le paragraphe texte statique
         const paragraphe = document.createElement('p');
         paragraphe.setAttribute('tabindex', "0");
-        ["text", "tabindex0"].map(element => paragraphe.classList.add(element));
+        paragraphe.classList.add("text", "tabindex0", "inMain");
 
         const textLocation = document.createElement("p");
         textLocation.classList.add('text-location');
@@ -42,7 +42,7 @@ class PhotographerHeader {
         img.setAttribute("src", `assets/photographers/photographers_ID_photos/${this._photographerData.portrait}`);
         img.setAttribute("tabindex", "0");
         img.setAttribute("aria", this._photographerData.alt);
-        ['user', 'tabindex0'].map(element => img.classList.add(element));
+        img.classList.add('user', 'tabindex0', 'inMain');
 
         user.appendChild(img);
     };

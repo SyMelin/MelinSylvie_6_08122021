@@ -17,7 +17,8 @@ class Modal {
         
         const modal = document.querySelector(".modal")
         modal.setAttribute("id", this._id);
-        
+
+        const allTabindex0 = Array.from(document.getElementsByClassName("tabindex0"));
 
         let modalContent = document.querySelector(".modal__content");
         let closeBtn =  document.querySelector(".modal__content .closeBtn");
@@ -26,7 +27,6 @@ class Modal {
 
             case 'contactForm' :
 
-                const allTabindex0 = Array.from(document.getElementsByClassName("tabindex0"));
                 allTabindex0.forEach((element) => {
                     element.removeAttribute("tabindex");
                 });
@@ -76,7 +76,11 @@ class Modal {
 
             case 'lightbox' :
 
-               
+                allTabindex0.forEach((element) => {
+                    if (element.classList.contains("inMain")){
+                        element.removeAttribute("tabindex");
+                    };
+                }); 
                 
                 let lightboxModal = new LightboxModal();
                 lightboxModal.create();
@@ -89,68 +93,7 @@ class Modal {
                 modal.setAttribute("tabindex", "1");
                // modalContent.setAttribute("tabindex", "-1");
 
-                const main = document.getElementById("main");
-                main.classList.add("hidden");
-
-                console.log("helloooo");
-                const allTabindex0inMain = Array.from(document.querySelectorAll("tabindex0.inMain"));
-                console.log("helloooo");
-                console.log("allTabindex0inMain", allTabindex0inMain);
-                allTabindex0inMain.forEach((element) => {
-                    element.removeAttribute("tabindex");
-                });
-
             break;
         };
     };
-};
-
-
-function displayModal() {
-
-    const modal = document.querySelector(".modal");
-	modal.style.display = "block";
-    modal.setAttribute("aria-hidden", false);
-    document.querySelector(".modal").focus();//met le focus sur la modale une fois cette dernière ouverte
-  
-    const header = document.getElementById("header");
-    const main = document.getElementById("main");
-    header.setAttribute("aria-hidden", true);
-    main.setAttribute("aria-hidden", true);
-   
-};
-
-
-function closeModal() {
-
-    //On rend la modale inaccessible
-    const modal = document.querySelector(".modal");
-    modal.style.display = "none";
-    modal.setAttribute("aria-hidden", true);
-
-    //On vide le contenu de la modale de tout ses éléments sauf le bouton close
-    const modalContent = document.querySelector(".modal__content");
-    const children = Array.from(modalContent.children);
-    let closeBtn =  document.querySelector(".modal__content .closeBtn");
-    children.forEach((child) => {
-        if (child != closeBtn) {
-            modalContent.removeChild(child);
-        };
-    });
-
-    //On rend accessible le reste de la page
-    const header = document.getElementById("header");
-    const main = document.getElementById("main");
-    header.setAttribute("aria-hidden", false);
-    main.setAttribute("aria-hidden", false);
-
-    //On rétablit les tabindex = 0 sur les éléments concernés
-    const allTabindex0 = Array.from(document.getElementsByClassName("tabindex0"));
-    allTabindex0.forEach((element) => {
-        element.setAttribute("tabindex", 0);
-    });
-
-    //On établit de retour la modale par défaut
-    modal.removeAttribute("id");
-    closeBtn.removeAttribute("onclick");
 };
