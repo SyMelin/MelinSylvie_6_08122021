@@ -75,6 +75,8 @@ class Modal {
             break;
 
             case 'lightbox' :
+
+               
                 
                 let lightboxModal = new LightboxModal();
                 lightboxModal.create();
@@ -89,6 +91,14 @@ class Modal {
 
                 const main = document.getElementById("main");
                 main.classList.add("hidden");
+
+                console.log("helloooo");
+                const allTabindex0inMain = Array.from(document.querySelectorAll("tabindex0.inMain"));
+                console.log("helloooo");
+                console.log("allTabindex0inMain", allTabindex0inMain);
+                allTabindex0inMain.forEach((element) => {
+                    element.removeAttribute("tabindex");
+                });
 
             break;
         };

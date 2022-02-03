@@ -11,7 +11,7 @@ class MediaItemCard {
     createMediaItemCard () {
 
         const mediaItemCard = document.createElement("div");
-        mediaItemCard.classList.add("thumb-imgfull", "thumb-imgfull--inMain");
+        mediaItemCard.classList.add("thumb-imgfull", "inMain");
 
         const template = new MediaItemFrame(this._mediaItem, this._width, this._height, this._radius);
         const frame = template.createMediaItemFrame();

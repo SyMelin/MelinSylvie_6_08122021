@@ -11,7 +11,7 @@ class MediaItemFrame {
     createMediaItemFrame () {
 
         this._frame = document.createElement("div");
-        this._frame.classList.add("thumb-img", "thumb-img--inMain");
+        this._frame.classList.add("thumb-img", "inMain");
         this._frame.setAttribute("role", "link");
         this._frame.setAttribute("aria-label", `${this._mediaItem.alt}`+", closeup view");
 

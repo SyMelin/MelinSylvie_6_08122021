@@ -11,10 +11,10 @@ class Carousel {
         this._children = Array.from(element.children);
         this._indexMin = 0;
         this._indexMax = this._children.length - 1;
-        this._container = document.querySelector(".mediaWrapper--inLightbox");
+        this._container = document.querySelector(".mediaWrapper.inLightbox");
         this._container.setAttribute("tabindex", "-1");
         this._children.forEach((child) => {
-            ["thumb-imgfull--inMain", "thumb-imgfull--inLightbox" ].map(element => child.classList.toggle(element));
+            ["inMain", "inLightbox" ].map(element => child.classList.toggle(element));
             child.setAttribute("role", "image");
         });
         this._container.mediaLike = document.querySelectorAll(".carousel .mediaCard__like");

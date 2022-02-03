@@ -31,7 +31,7 @@ async function displayPhotographerHeader(photographerData) {
 async function displayMedia(photographerMedia){
     
     const mediaWrapper = document.createElement('div');
-    mediaWrapper.classList.add("mediaWrapper", "mediaWrapper--inMain");
+    mediaWrapper.classList.add("mediaWrapper", "inMain");
     
     const main = document.getElementById("main");
     main.appendChild(mediaWrapper);

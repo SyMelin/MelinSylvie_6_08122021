@@ -39,7 +39,7 @@ class CloseBtn {
                 modalContent.removeChild(child);
             };
         });
-        console.log("modalContent", modalContent);
+        //console.log("modalContent", modalContent);
     
         //On rend accessible le reste de la page
         const header = document.getElementById("header");

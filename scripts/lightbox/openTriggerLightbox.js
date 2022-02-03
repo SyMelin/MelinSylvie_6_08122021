@@ -18,7 +18,7 @@ class OpenTriggerLightbox extends OpenTrigger {
             frame.addEventListener("keyup", (e) => {
                 const modal = document.querySelector(".modal");
                 const modalState = modal.getAttribute("aria-hidden");
-                console.log(modalState);
+                //console.log(modalState);
                 if ((e.key === "Enter") && (modalState === "true")) {
                     e.preventDefault();
                     this.preloadModalLightbox(frame);
@@ -31,14 +31,14 @@ class OpenTriggerLightbox extends OpenTrigger {
     preloadModalLightbox(frame){
         
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
-        if ((frame.classList.contains("thumb-img--inLightbox")) == false) {
+        if ((frame.classList.contains("inLightbox")) == false) {
             const lightboxModal = new Modal("lightbox_modal", 'lightbox');
-            console.log("L", lightboxModal);
+            //console.log("L", lightboxModal);
             lightboxModal.createModal();
             
             const frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
             frameAll.forEach((frame) => {
-                ["thumb-img--inMain", "thumb-img--inLightbox" ].map(element => frame.classList.toggle(element));
+                ["inMain", "inLightbox" ].map(element => frame.classList.toggle(element));
                 let ariaLabel = String(frame.getAttribute("aria-label"));
                 ariaLabel = ariaLabel.replace(", closeup view", "");
                 frame.setAttribute("role", "image");
@@ -63,7 +63,7 @@ class OpenTriggerLightbox extends OpenTrigger {
             let cardIndex = mediaArray.indexOf(mediaCard);
             
             const mediaWrapper = document.querySelector(".mediaWrapper");
-            ["mediaWrapper--inMain", "mediaWrapper--inLightbox" ].map(element => mediaWrapper.classList.toggle(element));
+            ["inMain", "inLightbox" ].map(element => mediaWrapper.classList.toggle(element));
         
            
             document.querySelector(".carousel").appendChild(mediaWrapper);

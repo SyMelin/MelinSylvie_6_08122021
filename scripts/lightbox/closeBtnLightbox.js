@@ -47,7 +47,7 @@ class CloseBtnLightbox extends CloseBtn {
 
         //On réinitialise le conteneur de médias ainsi que leurs éléments
         const mediaWrapper = document.querySelector(".mediaWrapper");
-        ["mediaWrapper--inMain", "mediaWrapper--inLightbox" ].map(element => mediaWrapper.classList.toggle(element));
+        ["inMain", "inLightbox" ].map(element => mediaWrapper.classList.toggle(element));
         mediaWrapper.removeAttribute("tabindex");
 
         const mediaLike = document.querySelectorAll(".carousel .mediaCard__like");
@@ -57,7 +57,7 @@ class CloseBtnLightbox extends CloseBtn {
 
         const frameAll = document.querySelectorAll(".carousel .mediaWrapper .thumb-imgfull .thumb-img");
         frameAll.forEach((frame) => {
-            ["thumb-img--inMain", "thumb-img--inLightbox" ].map(element => frame.classList.toggle(element));
+            ["inMain", "inLightbox" ].map(element => frame.classList.toggle(element));
             frame.setAttribute("role", "link");
             let ariaLabel = String(frame.getAttribute("aria-label"));
             ariaLabel = ariaLabel + ", closeup view";
@@ -77,13 +77,13 @@ class CloseBtnLightbox extends CloseBtn {
         //On remet le focus sur le dernier media visualisé dans la lightbox 
         const mediaCardAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull");
         mediaCardAll.forEach((mediaCard) => {
-            ["thumb-imgfull--inMain", "thumb-imgfull--inLightbox" ].map(element => mediaCard.classList.toggle(element));
+            ["inMain", "inLightbox" ].map(element => mediaCard.classList.toggle(element));
             if (mediaCard.classList.contains("hidden")){
-                console.log("HIDDEN");
+                //console.log("HIDDEN");
                 mediaCard.classList.remove("hidden");
             } else {
                 mediaCard.firstChild.focus();
-                console.log(document.activeElement);
+                //console.log(document.activeElement);
             };
         });
     };
