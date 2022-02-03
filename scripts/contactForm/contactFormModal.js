@@ -207,9 +207,20 @@ class FormField {
         });
 
         ////////////////// Evènement via la touche ENTREE => Evite d'envoyer le formulaire ////////////////////
-        this._input.addEventListener("keydown", function(e) {
+        this._input.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 e.preventDefault();
+                const allInputs = Array.from(document.getElementsByClassName("contact-form__input"));
+                let indexInput = allInputs.indexOf(this._input);
+                console.log(indexInput);
+                indexInput++ ;
+                console.log (indexInput);
+                if (indexInput < allInputs.length) {
+                    allInputs[indexInput].focus();
+                } else {
+                    const contactBtn = document.querySelector(".contact-form .contact-button");
+                    contactBtn.focus();
+                };
             };
         });
 
