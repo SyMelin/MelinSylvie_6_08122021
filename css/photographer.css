@@ -545,7 +545,7 @@ body {
 
 /**** Validation / invalidation des champs du formulaire ****/
 
-.formData[data-error]::after {
+.formField[data-error]::after {
     content: attr(data-error);
     font-size: 1.25em;
     font-weight: bold;
@@ -556,10 +556,10 @@ body {
     opacity: 0;
     transition: 0.3s;
   }
-  .formData[data-error-visible="true"]::after {
+  .formField[data-error-visible="true"]::after {
     opacity: 1;
   }
-  .formData[data-error-visible="true"] .contact-form__input {
+  .formField[data-error-visible="true"] .contact-form__input {
     border: 0.5em solid black;
   }
 

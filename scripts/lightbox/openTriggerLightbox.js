@@ -18,7 +18,7 @@ class OpenTriggerLightbox extends OpenTrigger {
             frame.addEventListener("keyup", (e) => {
                 const modal = document.querySelector(".modal");
                 const modalState = modal.getAttribute("aria-hidden");
-                if ((e.key === "Enter") && (modalState === true)) {
+                if ((e.key === "Enter") && (modalState == "true")) {
                     e.preventDefault();
                     this.preloadModalLightbox(frame);
                 };

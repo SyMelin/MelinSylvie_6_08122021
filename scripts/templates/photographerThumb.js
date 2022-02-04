@@ -41,6 +41,7 @@ class PhotographerThumb {
         const paragraphe = document.createElement('p');
         paragraphe.setAttribute("aria-label", this._photographer.name+" informations");
         paragraphe.setAttribute('tabindex', '0');
+        paragraphe.classList.add('tabindex0');
 
         const paragrapheSpan = document.createElement('span');
         paragrapheSpan.innerText = this._photographer.name+" informations.";

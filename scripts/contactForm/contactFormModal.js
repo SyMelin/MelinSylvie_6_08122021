@@ -48,17 +48,18 @@ class ContactFormModal extends CloseBtnContactForm{
         header.setAttribute('tabindex', '-1');
         
         const contactTitle = document.createElement ('h1');
-
+        contactTitle.innerHTML = `Contactez-moi<br />${this._data.name}`;
         contactTitle.setAttribute('id', 'contact-title');
         contactTitle.setAttribute('tabindex', '0');
-        contactTitle.innerHTML = `Contactez-moi<br />${this._data.name}`;
+        contactTitle.classList.add('tabindex0');
 
         this._contactForm = document.createElement ('form');
         this._contactForm.classList.add('contact-form');
         this._contactForm.setAttribute('role', 'form');
-        this._contactForm.setAttribute('tabindex', '-1');
         this._contactForm.setAttribute('methode', this._method);
         this._contactForm.setAttribute('action', this._action);
+        this._contactForm.setAttribute('tabindex', '-1');
+
 
         const fieldsContainer = document.createElement('div');
         fieldsContainer.setAttribute('tabindex', '-1');
@@ -106,7 +107,7 @@ class ContactFormModal extends CloseBtnContactForm{
         const allInputs = Array.from(document.getElementsByClassName('contact-form__input'));
         let validityForm = 0;
         allInputs.forEach((input) => {
-            if (checkFieldValidity(input, (input.getAttribute('type'))) === true) {
+            if (checkFieldValidity(input, (input.getAttribute('type'))) == true) {
                 validityForm++;
             };
         return validityForm;
@@ -128,9 +129,9 @@ class ContactFormModal extends CloseBtnContactForm{
 class FormField {
 
     /**
-     * @param {string} label label du champs
-     * @param {string} type type de champs
-     * @param {string} className class du champs
+     * @param {string} label label du champ
+     * @param {string} type type de champ
+     * @param {string} className class du champ
      * @param {string} text contenu texte du lab
      */
 
@@ -142,7 +143,7 @@ class FormField {
     createFormField() {
 
         let formField = document.createElement('div');
-        formField.classList.add('formData');
+        formField.classList.add('formField');
         formField.setAttribute('tabindex', -1);
         formField.setAttribute('data-error-visible', false);
 
@@ -152,6 +153,7 @@ class FormField {
         label.setAttribute('tabindex', 0);
         label.setAttribute('for', this._item.id);
         label.setAttribute('id', this._item.idLabel);
+        label.classList.add('tabindex0');
        
 
         //Crée l'input
@@ -243,7 +245,8 @@ function checkFieldValidity(element, type) {
         break;
 
         case 'textarea' :
-            if (!(element.value) == "") {
+            console.log("elementvalue", element.value);
+            if (element.value) {
                 element.parentElement.setAttribute('data-error-visible', false);
                 return true;
             } else {

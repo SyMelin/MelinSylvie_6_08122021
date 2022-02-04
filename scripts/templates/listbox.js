@@ -28,7 +28,7 @@ function selectAnOption (option) {
     listbox.setAttribute("aria-expanded", false);
     listbox.focus();
     
-    //Au clic, on attribut option cliquée", option.getAttribute("aria-selected"));
+    //Au clic, on attribut option cliquée", option.setAttribute("aria-selected"));
     option.setAttribute("aria-selected", true);
     
     //On récupère l'id de l'option cliquée
