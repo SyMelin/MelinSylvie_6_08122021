@@ -1,50 +1,23 @@
-//consigne : Mettre le code JavaScript lié à la page photographer.html
+/**
+ * code JavaScript lié à la page photographer.html
+*/
 
+//Déclaration des variables globales
 
-//Déclaration des variables utiles
-const api = new Api("../data/photographers.json");
-let photographerProfile;
-let photographerMedia;
-
-let mediaCardAll = document.getElementsByClassName("thumb-imgfull");
-
+//let photographerData;
 let likeTotal = 0;
-
 
 //Récupère l'id du photographe contenu dans l'url de la page photographer.html
 function getId() {
-
     const param = window.location.search;
     const idPhotographer = param.replace("?id=", ""); //retire ?id= des pramètres de l'URL, récupère uniquement l'identifiant
     return idPhotographer;
 };
 
-//Affiche le header complété de la page du photographe
-async function displayPhotographerHeader(photographerData) {
-    const template = new PhotographerHeader(photographerData);
-    return photographerHeader = template.createPhotographerHeader();
-};
-
-//Affiche les medias sur la page du photographe
-async function displayMedia(photographerMedia){
-    
-    const mediaWrapper = document.createElement('div');
-    mediaWrapper.classList.add("mediaWrapper", "inMain");
-    
-    const main = document.getElementById("main");
-    main.appendChild(mediaWrapper);
-
-    for (let mediaItem of photographerMedia) {
-        const template = new MediaItemCard(mediaItem);
-        const mediaItemCard = template.createMediaItemCard();
-        mediaWrapper.appendChild(mediaItemCard);
-    };
-};
-
 // Calcul la somme totale des likes de medias cumulés
-function sumLikes() {
+async function sumLikes(media) {
     likeTotal = 0;
-    for (let mediaItem of photographerMedia) {
+    for (let mediaItem of media) {
         likeTotal += mediaItem.likes;
     };
     const totalLikes = document.getElementById("totalLikes");
@@ -52,40 +25,47 @@ function sumLikes() {
     return likeTotal;
 };
 
-//Affiche les infos supplémentaires
-async function displayInfo(photographerData){
-    const template = new PhotographerInfo(photographerData);
-    return photographerInfo = template.createPhotographerInfo();
+//Affiche les medias sur la page du photographe
+async function displayMedia(media){
+    
+    //Crée le conteneur de media
+    const mediaWrapper = document.createElement('div');
+    mediaWrapper.classList.add("mediaWrapper", "inMain");
+
+    //Ajout de chaque media au conteneur
+    for (let mediaItem of media) {
+        const mediaItemCard = new MediaItemCard(mediaItem).createMediaItemCard();
+        mediaWrapper.appendChild(mediaItemCard);
+    };
+    
+    //Ajout du conteneur au main
+    const main = document.getElementById("main");
+    main.appendChild(mediaWrapper);  
 };
 
 
-////////////// Initialise la page photographer.html ////////////////
+// Initialise la page photographer.html
 async function initPhotographer() {
-    
-    //const idPhotographer = getId();
-    //const api = new Api("../data/photographers.json"); 
 
-    //Récupération des données profil du photographe
-    photographerProfile = await api.getPhotographerProfileWithAlt();
+    //Récupération des données du photographe
+    const api = new Api("../data/photographers.json");
+    const photographerData = await api.getPhotographerData();
 
     //Affichage des données profil du photographe
-    displayPhotographerHeader(photographerProfile);
-    
-    //Récupération des données media du photographe
-    photographerMedia = await api.getPhotographerMedia();
+    new PhotographerHeader(photographerData.profile).createPhotographerHeader();
 
-    //Media filtrer par popularité par défaut
-    new Filter('date', photographerMedia);
+    //Affichage des données supplémentaires
+    sumLikes(photographerData.media);
+    new PhotographerInfo(photographerData.profile).createPhotographerInfo();
+
+    //Media filtrés par date par défaut au chargement
+    new Filter('date', photographerData.media);
 
     //Affichage des média
-    displayMedia(photographerMedia);
+    displayMedia(photographerData.media);
 
-    sumLikes();
-    displayInfo(photographerProfile);
-
-    let modal = new Modal('', 'init');
-    modal.createModal();
-
+    //Initialisation de la modale
+    new Modal('', 'init').createModal();
 };
 
 initPhotographer();

@@ -11,6 +11,8 @@ class PhotographerThumb {
 
     //Crée la structure de l'élément UserCard
     getUserCardDOM() {
+
+        console.log("HELLO", this._photographer);
         
         const article = document.createElement('article');
         article.classList.add("thumb-photographer");
