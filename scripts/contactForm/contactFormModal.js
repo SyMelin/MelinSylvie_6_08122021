@@ -6,11 +6,11 @@ class ContactFormModal extends CloseBtnContactForm{
      * @param {array} fields [{label: 'firstname', type: 'text', className: 'text-area' }]
      */
 
-    constructor (type, method, action, photographerData) {
+    constructor (type, method, action, data) {
         super(type)
         this._method = method
         this._action = action
-        this._photographerData = photographerData
+        this._data = data
         this._fields = [
             { 
                 label : 'firstame',
@@ -50,7 +50,7 @@ class ContactFormModal extends CloseBtnContactForm{
 
         contactTitle.setAttribute("id", "contact-title");
         contactTitle.setAttribute("tabindex", "0");
-        contactTitle.innerHTML = `Contactez-moi<br />${this._photographerData.name}`;
+        contactTitle.innerHTML = `Contactez-moi<br />${this._data.name}`;
 
         this._contactForm = document.createElement ("form");
         this._contactForm.classList.add("contact-form");

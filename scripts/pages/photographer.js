@@ -4,7 +4,7 @@
 
 //Déclaration des variables globales
 
-//let photographerData;
+let photographerData;
 let likeTotal = 0;
 
 //Récupère l'id du photographe contenu dans l'url de la page photographer.html
@@ -49,7 +49,7 @@ async function initPhotographer() {
 
     //Récupération des données du photographe
     const api = new Api("../data/photographers.json");
-    const photographerData = await api.getPhotographerData();
+    photographerData = await api.getPhotographerData();
 
     //Affichage des données profil du photographe
     new PhotographerHeader(photographerData.profile).createPhotographerHeader();
