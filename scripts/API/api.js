@@ -5,8 +5,8 @@ class Api {
     }
 
     
-    //Un tableau contenant tous les photographes est retourné
-    async getPhotographers () {
+    //Un tableau contenant tous les photographes est retourné - sans attribut alt
+    async getPhotographersWithoutAlt () {
         return fetch(this._url) //on interroge le service web: ici le fichier json est déjà fourni en exemple
                 .then(function(res) {
                     if (res.ok) {
@@ -31,15 +31,46 @@ class Api {
                            photographer.alt = "";
                        }
                         console.log(photographer);
-                        console.log(photographer.alt);
+                       // console.log(photographer.alt);
                     };
                     return photographers;
                 })
-                .catch(function(err){ //En cas d'erreur, la fonction affixhe le type d'erreur
+                .catch(function(err){ //En cas d'erreur, la fonction affiche le type d'erreur
                     console.log(err);
                 });
     };
-
+/*
+     //Un tableau contenant tous les photographes est retourné - avec d'attribut alt
+     async getPhotographersWithAlt () {
+        return fetch(this._url) //on interroge le service web: ici le fichier json est déjà fourni en exemple
+                .then(function(res) {
+                    if (res.ok) {
+                        return res.json(); //si la requête s'est bien passée, les données sont retournées au format JSON
+                    }
+                })
+                .then(function(value) { //les données profil concernant les photographes sont retournées
+                    let photographers;
+                    return photographers = value.photographers;
+                })
+                //ajout de la propriété ALT
+                .then(function(photographers){
+                    console.log("photographers", photographers);
+                    for (let photographer of photographers){
+                       // console.log(photographer.name)
+                        if (!photographer.alt || photographer.alt == ""){
+                            photographer.alt = String(photographer.name);
+                        };
+                        console.log(photographer);
+                      //  console.log(photographer.alt);
+                    };
+                    return photographers;
+                })
+                .catch(function(err){ //En cas d'erreur, la fonction affiche le type d'erreur
+                    console.log(err);
+                });
+    };
+*/
+/*
     //Un tableau contenant tous les media est retourné
     async getMedia () {
         return fetch(this._url)
@@ -55,9 +86,10 @@ class Api {
                     console.log(err);
                 });
     };
+*/
 
     //Un tableau contenant les données profile d'un photographe est retourné
-    async getPhotographerProfile () {
+    async getPhotographerProfileWithAlt () {
         return fetch(this._url)
                 .then(function(res) {
                     if (res.ok) {
@@ -72,16 +104,11 @@ class Api {
                     console.log("photographers", photographers);
                     for (let photographer of photographers){
                       //  console.log(photographer.name)
-                        if (!photographer.alt || photographer.alt !== "") {
-                           photographer.alt = "";
-                        };
-                        /*
                         if (!photographer.alt || photographer.alt == ""){
                             photographer.alt = String(photographer.name);
-                        };
-                        */
+                        }
                         //console.log(photographer);
-                      //  console.log(photographer.alt);
+                        //console.log(photographer.alt);
                     };
                     return photographers;
                 })
@@ -111,7 +138,7 @@ class Api {
                 .then(function(res) {
                     if (res.ok) {
                         return res.json();
-                    }
+                    };
                 })
                 .then(function(value) {
                     let media;

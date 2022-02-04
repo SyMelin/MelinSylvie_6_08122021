@@ -11,7 +11,7 @@ async function displayData(photographers) {
 //Initialise la page index.html
 async function init() {
     const api = new Api("../data/photographers.json"); 
-    const photographers = await api.getPhotographers(); //On récupère tous les photographes
+    const photographers = await api.getPhotographersWithoutAlt(); //On récupère tous les photographes
     displayData(photographers);
 };
 

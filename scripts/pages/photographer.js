@@ -66,7 +66,7 @@ async function initPhotographer() {
     //const api = new Api("../data/photographers.json"); 
 
     //Récupération des données profil du photographe
-    photographerProfile = await api.getPhotographerProfile();
+    photographerProfile = await api.getPhotographerProfileWithAlt();
 
     //Affichage des données profil du photographe
     displayPhotographerHeader(photographerProfile);
