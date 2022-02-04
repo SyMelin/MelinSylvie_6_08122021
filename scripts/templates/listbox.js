@@ -22,14 +22,14 @@ const expandBtn = document.querySelector(".expandBtn");
 function selectAnOption (option) {
 
     options.forEach((childOption) => {
-        childOption.setAttribute("aria-selected", "false");
+        childOption.setAttribute("aria-selected", false);
     });
     
-    listbox.setAttribute("aria-expanded", "false");
+    listbox.setAttribute("aria-expanded", false);
     listbox.focus();
     
     //Au clic, on attribut option cliquée", option.getAttribute("aria-selected"));
-    option.setAttribute("aria-selected", "true");
+    option.setAttribute("aria-selected", true);
     
     //On récupère l'id de l'option cliquée
     let optionSelected = option.getAttribute("id");
@@ -44,7 +44,7 @@ function selectAnOption (option) {
         });
 
         //on ferme les options du select
-        expandBtn.setAttribute("aria-expanded", "false");
+        expandBtn.setAttribute("aria-expanded", false);
         expandBtn.classList.toggle("expandBtn-less");
         listbox.classList.toggle("listbox-open");
         listbox.classList.toggle("listbox-close");
@@ -92,7 +92,7 @@ function changeListboxDisplay () {
     let state = listbox.getAttribute("aria-expanded");
 
     //on affiche les options de la listbox
-    expandBtn.setAttribute("aria-expanded", "true");
+    expandBtn.setAttribute("aria-expanded", true);
     expandBtn.classList.toggle("expandBtn-less");
     listbox.classList.toggle("listbox-open");
     listbox.classList.toggle("listbox-close");
@@ -108,16 +108,16 @@ function changeListboxDisplay () {
     //Selon l'état de la listbox enregistré au clic
     if (state == "false") {
        // console.log("on vient de boucler");
-        listbox.setAttribute("aria-expanded", "true");
+        listbox.setAttribute("aria-expanded", true);
       //  console.log(listbox.getAttribute("aria-expanded"));
     } else {
        // console.log("on vient d'ouvrir et on veut refermer")
-        expandBtn.setAttribute("aria-expanded", "false");
-        listbox.setAttribute("aria-expanded", "false");
+        expandBtn.setAttribute("aria-expanded", false);
+        listbox.setAttribute("aria-expanded", false);
        // console.log(listbox.getAttribute("aria-expanded"));
         options.forEach((option)=> {
 
-            if ((option.getAttribute("aria-selected")) !== "true") {
+            if ((option.getAttribute("aria-selected")) == "false") {
                 ["option-notSelected", "option-selected" ].map(element => option.classList.toggle(element));
             };
         })   

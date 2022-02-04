@@ -95,7 +95,7 @@ class CloseBtnLightbox extends CloseBtn {
         const modal = document.getElementById("lightbox_modal");
         if (modal) {
             const modalState = modal.getAttribute("aria-hidden");
-            if (modalState === "false") {
+            if (modalState == "false") {
                 event.preventDefault();
                 this.initLightboxModal();
             };
