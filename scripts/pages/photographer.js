@@ -4,7 +4,9 @@
 
 //Déclaration des variables globales
 
-//let photographerData;
+let photographerData;
+let photographerProfile;
+let photographerMedia;
 let likeTotal = 0;
 
 //Récupère l'id du photographe contenu dans l'url de la page photographer.html
@@ -15,7 +17,7 @@ function getId() {
 };
 
 // Calcul la somme totale des likes de medias cumulés
-async function sumLikes(media) {
+function sumLikes(media) {
     likeTotal = 0;
     for (let mediaItem of media) {
         likeTotal += mediaItem.likes;
@@ -49,20 +51,22 @@ async function initPhotographer() {
 
     //Récupération des données du photographe
     const api = new Api("../data/photographers.json");
-    const photographerData = await api.getPhotographerData();
+    photographerData = await api.getPhotographerData();
+    photographerProfile = photographerData.profile;
+    photographerMedia = photographerData.media;
 
     //Affichage des données profil du photographe
-    new PhotographerHeader(photographerData.profile).createPhotographerHeader();
+    new PhotographerHeader(photographerProfile).createPhotographerHeader();
 
     //Affichage des données supplémentaires
-    sumLikes(photographerData.media);
-    new PhotographerInfo(photographerData.profile).createPhotographerInfo();
+    sumLikes(photographerMedia);
+    new PhotographerInfo(photographerProfile).createPhotographerInfo();
 
     //Media filtrés par date par défaut au chargement
-    new Filter('date', photographerData.media);
+    new Filter('date', photographerMedia);
 
     //Affichage des média
-    displayMedia(photographerData.media);
+    displayMedia(photographerMedia);
 
     //Initialisation de la modale
     new Modal('', 'init').createModal();

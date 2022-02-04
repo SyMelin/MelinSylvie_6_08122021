@@ -60,14 +60,14 @@ class MediaItemCard {
         likeHeart.addEventListener("click", function(e) {
             template._mediaItem.likes++ ;
             likeNb.textContent = template._mediaItem.likes;
-            sumLikes();
+            sumLikes(photographerMedia);
         });
 
         likeHeart.addEventListener("keyup", (e) => {
             if (e.key === "Enter") {
                 template._mediaItem.likes++ ;
                 likeNb.textContent = template._mediaItem.likes;
-                sumLikes(); 
+                sumLikes(photographerMedia); 
             };
         }); 
 

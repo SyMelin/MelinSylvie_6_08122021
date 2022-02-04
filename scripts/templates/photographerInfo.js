@@ -1,7 +1,11 @@
 class PhotographerInfo {
 
-    constructor(photographerData) {
-        this._photographerData = photographerData;
+    /**
+     * @param {Object} profile photographerProfile
+     */
+
+    constructor(profile) {
+        this._profile = profile;
     };
 
     createPhotographerInfo () {
@@ -12,10 +16,10 @@ class PhotographerInfo {
 
         const price = document.getElementById("price");
         price.setAttribute("aria-hidden", true);
-        price.textContent = this._photographerData.price + "€ / jour";
+        price.textContent = this._profile.price + "€ / jour";
         const priceSpan = document.createElement('span');
         priceSpan.classList.add("screenreader-text");
-        priceSpan.textContent = this._photographerData.price +"€ par jour";
+        priceSpan.textContent = this._profile.price +"€ par jour";
 
         info.appendChild(priceSpan);
 

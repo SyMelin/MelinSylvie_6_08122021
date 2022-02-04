@@ -1,6 +1,11 @@
 class FilterFactory {
-    constructor (value, photographerMedia) {
-        this._filter = new Filter(photographerMedia);
+
+    /**
+     * @param {Object} media photographerMedia
+     */
+
+    constructor (value, media) {
+        this._filter = new Filter(media);
         switch(value) {
             case "date" :
                 this._filter.filterByDate();
@@ -18,25 +23,29 @@ class FilterFactory {
 
 class Filter {
 
-    constructor(photographerMedia) {
-        this._photographerMedia = photographerMedia;
+    /**
+     * @param {Object} media photographerMedia
+     */
+
+    constructor(media) {
+        this._media = media;
     };
 
     filterByPopularity () {
-        this._photographerMedia.sort(function (a, b) {
+        this._media.sort(function (a, b) {
             return b.likes - a.likes;
         });
     };
 
     filterByDate () {
 
-        this._photographerMedia.sort(function (a, b) {
+        this._media.sort(function (a, b) {
             return Date.parse(b.date) - Date.parse(a.date);
         });
     };
 
     filterByTitle () {
-            this._photographerMedia.sort(function (a, b) {
+            this._media.sort(function (a, b) {
                if (a.video) {
                     a.title = a.video;//
                 };

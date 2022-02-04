@@ -2,11 +2,11 @@
 class PhotographerHeader {
 
     /**
-     * @param {Object} photographerData 
+     * @param {Object} profile photographerProfile
      */
 
-    constructor(photographerData) {
-        this._photographerData = photographerData;
+    constructor(profile) {
+        this._profile = profile;
     };
 
     createPhotographerHeader () {
@@ -15,7 +15,7 @@ class PhotographerHeader {
         const photographerProfile = document.querySelector('.photographer-profile');
         
         const h1 = document.createElement("h1");
-        h1.textContent = this._photographerData.name;
+        h1.textContent = this._profile.name;
         h1.setAttribute("tabindex", "0");
         h1.classList.add("tabindex0", "inMain");
 
@@ -28,10 +28,10 @@ class PhotographerHeader {
 
         const textLocation = document.createElement("p");
         textLocation.classList.add('text-location');
-        textLocation.textContent = this._photographerData.city + ", " + this._photographerData.country;
+        textLocation.textContent = this._profile.city + ", " + this._profile.country;
 
         const textTagline = document.createElement('p');
-        textTagline.textContent = this._photographerData.tagline;
+        textTagline.textContent = this._profile.tagline;
 
         [textLocation, textTagline].map(element => paragraphe.appendChild(element));
         [h1, paragraphe].map(element => photographerProfile.appendChild(element));
@@ -41,9 +41,9 @@ class PhotographerHeader {
         const user = document.querySelector('.photograph-header .user-container');
         
         const img = document.createElement("img");
-        img.setAttribute("src", `assets/photographers/photographers_ID_photos/${this._photographerData.portrait}`);
+        img.setAttribute("src", `assets/photographers/photographers_ID_photos/${this._profile.portrait}`);
         img.setAttribute("tabindex", "0");
-        img.setAttribute("alt", this._photographerData.alt);
+        img.setAttribute("alt", this._profile.alt);
         img.classList.add('user', 'tabindex0', 'inMain');
 
         user.appendChild(img);
