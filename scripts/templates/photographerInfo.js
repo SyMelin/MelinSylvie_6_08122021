@@ -11,6 +11,9 @@ class PhotographerInfo {
     createPhotographerInfo () {
         const info = document.getElementById('info');
         info.setAttribute('aria-label', this._profile.name + "informations supplémentaires");
+        const infoSpan = document.createElement('span');
+        infoSpan.textContent = this._profile.name + "informations supplémentaires .";
+        infoSpan.classList.add('screenreader-text');
 
         const totalLikes = document.getElementById('totalLikes');
         totalLikes.textContent = likeTotal;
@@ -24,6 +27,7 @@ class PhotographerInfo {
         priceSpan.classList.add('screenreader-text');
         priceSpan.textContent = this._profile.price +"€ par jour";
 
+        info.prepend(infoSpan);
         info.appendChild(priceSpan);
     };
 };

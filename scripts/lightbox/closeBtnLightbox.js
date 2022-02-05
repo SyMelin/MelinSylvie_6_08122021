@@ -55,7 +55,7 @@ class CloseBtnLightbox extends CloseBtn {
             ['like-caption-visible', 'hidden'].map(element => like.classList.toggle(element));
         };
 
-        const frameAll = document.querySelectorAll('carousel .mediaWrapper .thumb-imgfull .thumb-img');
+        const frameAll = document.querySelectorAll('.carousel .mediaWrapper .thumb-imgfull .thumb-img');
         frameAll.forEach((frame) => {
             ['inMain', 'inLightbox'].map(element => frame.classList.toggle(element));
             frame.setAttribute('role', 'link');

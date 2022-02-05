@@ -51,6 +51,9 @@ class CloseBtn {
         allTabindex0.forEach((element) => {
             element.setAttribute('tabindex', 0);
         });
+
+        const headerLink = document.getElementById('header__link');
+        headerLink.removeAttribute('tabindex');
     
         //On établit de retour la modale par défaut
         modal.removeAttribute('id');

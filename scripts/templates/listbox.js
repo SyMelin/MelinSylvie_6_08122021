@@ -10,10 +10,10 @@ class Listbox {
 
 }
 
-const listbox = document.querySelector(".listbox");
+const listbox = document.querySelector('.listbox');
 const options = Array.from(listbox.children);
 
-const expandBtn = document.querySelector(".expandBtn");
+const expandBtn = document.querySelector('.expandBtn');
 
 
 
@@ -22,36 +22,36 @@ const expandBtn = document.querySelector(".expandBtn");
 function selectAnOption (option) {
 
     options.forEach((childOption) => {
-        childOption.setAttribute("aria-selected", false);
+        childOption.setAttribute('aria-selected', false);
     });
     
-    listbox.setAttribute("aria-expanded", false);
+    listbox.setAttribute('aria-expanded', false);
     listbox.focus();
     
     //Au clic, on attribut option cliquée", option.setAttribute("aria-selected"));
-    option.setAttribute("aria-selected", true);
+    option.setAttribute('aria-selected', true);
     
     //On récupère l'id de l'option cliquée
-    let optionSelected = option.getAttribute("id");
+    let optionSelected = option.getAttribute('id');
 
-    if (listbox.classList.contains("listbox--open")){
+    if (listbox.classList.contains('listbox--open')){
 
         options.forEach((childOption) => {
-            if ((childOption.getAttribute("aria-selected")) == "false"){
+            if ((childOption.getAttribute('aria-selected')) == "false"){
                 childOption.classList.remove("option--selected");
                 childOption.classList.add("option--notSelected");
             };
         });
 
         //on ferme les options du select
-        expandBtn.setAttribute("aria-expanded", false);
-        expandBtn.classList.toggle("expandBtn--less");
-        listbox.classList.toggle("listbox--open");
-        listbox.classList.toggle("listbox--close");
+        expandBtn.setAttribute('aria-expanded', false);
+        expandBtn.classList.toggle('expandBtn--less');
+        listbox.classList.toggle('listbox--open');
+        listbox.classList.toggle('listbox--close');
 
 
         //On vide le conteneur de cartes media
-        const mediaWrapper = document.querySelector(".mediaWrapper");
+        const mediaWrapper = document.querySelector('.mediaWrapper');
         mediaWrapper.parentElement.removeChild(mediaWrapper);
 
         //On crée un nouveau filtre en fonction de Value et on réaffiche les cartes media

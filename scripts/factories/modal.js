@@ -16,8 +16,6 @@ class Modal {
     constructor (id, type) {
         this._id = id;
         this._type = type;
-
-        //this.createModal(this._type);
     }
 
     createModal() {
@@ -25,7 +23,8 @@ class Modal {
         const modal = document.querySelector('.modal')
         modal.setAttribute('id', this._id);
 
-        const allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
+        const headerLink = document.getElementById("header__link");
+        headerLink.setAttribute('tabindex', -1);
 
         switch (this._type) {
 
@@ -35,7 +34,8 @@ class Modal {
             break;
 
             case 'contactForm' :
-                
+
+                const allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
                 allTabindex0.forEach((element) => {
                     element.removeAttribute('tabindex');
                 });
@@ -50,18 +50,12 @@ class Modal {
 
             case 'lightbox' :
 
-                allTabindex0.forEach((element) => {
-                    if (element.classList.contains('inMain')){
-                        element.removeAttribute('tabindex');
-                    };
-                }); 
-
                 modal.style.height = "auto";
                 modal.setAttribute('aria-label', 'image closeup view');
                 modal.setAttribute('tabindex', 1);
                // modalContent.setAttribute('tabindex', -1);
                 this.createModalContent(this._type);
-                this.createCloseBtn(this._type);
+                this.createCloseBtn(this._type); 
             break;
         };
     };
@@ -76,5 +70,5 @@ class Modal {
 
     createModalContent(type){
         new ModalContentFactory(type);
-    };
+    };   
 };
