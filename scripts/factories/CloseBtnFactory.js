@@ -54,6 +54,5 @@ class CloseBtn {
     
         //On établit de retour la modale par défaut
         modal.removeAttribute("id");
-        //closeBtn.removeAttribute("onclick");
     };
 };

@@ -67,7 +67,6 @@ function selectAnOption (option) {
 //au  clic sur une option
 options.forEach((option) => {
     option.addEventListener("click", function(e){
-        //console.log(option + " a été cliquée");
         e.preventDefault();
         selectAnOption(option);
     });
@@ -91,7 +90,7 @@ function changeListboxDisplay () {
 
     let state = listbox.getAttribute("aria-expanded");
 
-    //on affiche les options de la listbox
+    //On affiche les options de la listbox
     expandBtn.setAttribute("aria-expanded", true);
     expandBtn.classList.toggle("expandBtn-less");
     listbox.classList.toggle("listbox-open");
@@ -107,16 +106,11 @@ function changeListboxDisplay () {
 
     //Selon l'état de la listbox enregistré au clic
     if (state == "false") {
-       // console.log("on vient de boucler");
         listbox.setAttribute("aria-expanded", true);
-      //  console.log(listbox.getAttribute("aria-expanded"));
     } else {
-       // console.log("on vient d'ouvrir et on veut refermer")
         expandBtn.setAttribute("aria-expanded", false);
         listbox.setAttribute("aria-expanded", false);
-       // console.log(listbox.getAttribute("aria-expanded"));
         options.forEach((option)=> {
-
             if ((option.getAttribute("aria-selected")) == "false") {
                 ["option-notSelected", "option-selected" ].map(element => option.classList.toggle(element));
             };

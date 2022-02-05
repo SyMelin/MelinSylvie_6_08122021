@@ -46,8 +46,6 @@ class MediaItemCard {
         likeHeart.setAttribute("tabindex", "0");
         likeHeart.classList.add("tabindex0", "likeHeart");
         likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
-        likeHeart.style.border = "1px solid red";
-
 
         [likeNb, likeNbSpan].map(element => likeNbBox.appendChild(element));
         [likeNbBox, likeHeart].map(element => like.appendChild(element));

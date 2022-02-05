@@ -42,12 +42,10 @@ body {
 .photographer-profile h1{
     font-size: 4em;
     font-weight: normal;
-  /*  border: 1px solid black;*/
     margin: 0px;
 }
 
 .photographer-profile .text{
-  /*  border: 1px solid black;*/
     margin: 0px;
 }
 
@@ -110,18 +108,12 @@ body {
     position: relative;
 }
 
-.listbox.tabindex0:focus {
-    outline: 2.75px solid black;
-}
-
 #listbox-label {
     font-size: 1.125em;
     font-weight: bold;
     margin-right: 1.25em;
     padding-top: 1em;
 }
-
-/* listbox styles */
 
 .listbox {
     position: relative;
@@ -249,7 +241,6 @@ body {
 .mediaWrapper{
     box-sizing: border-box;
     margin: 0 6.25em;
-    /*transform: translate3d(0%, 0em, 0em);*/
     display : flex;
     flex-direction: row;
 }
@@ -259,7 +250,6 @@ body {
     flex-wrap: wrap;
     width: 85%;
     row-gap: 2em;
-   /* transform: translate3d(0%, 0em, 0em);*/
 }
 
 .mediaWrapper.inLightbox{
@@ -286,10 +276,6 @@ body {
     width: 100%;
     border-radius: inherit;
 }
-/*
-.thumb-img:focus {
-    border: 5px solid blue;
-}*/
 
 .thumb-img.inMain{
     width: inherit;
@@ -297,8 +283,7 @@ body {
 }
 
 .thumb-img.inLightbox{
-  /*  height: 34.375em;*/
-  height: 60em;
+    height: 60em;
 }
 
 .thumb-img video{
@@ -313,9 +298,7 @@ body {
     align-items: center;
     color: #901C1C;
     font-size: 1.5em;
-    border: 1px solid black;
     height: 2.5em;
-
 }
 
 .title-caption{
@@ -545,25 +528,8 @@ body {
 }
 
 
-/**** Validation / invalidation des champs du formulaire ****/
-/*
-.formField[data-error]::after {
-    content: attr(data-error);
-    font-size: 1.25em;
-    font-weight: bold;
-    color: black;
-    display: block;
-    margin-top: 0.5em;
-    text-align: left;
-    opacity: 0;
-    transition: 0.3s;
-  }
-  .formField[data-error-visible="true"]::after {
-    opacity: 1;
-  }
-  .formField[data-error-visible="true"] .formField__input {
-    border: 0.5em solid black;
-  }*/
+/************* Validation / invalidation des champs du formulaire *****************/
+
 
   .formField[data-error-visible="true"] .formField__input {
     border: 0.5em solid black;
@@ -581,15 +547,12 @@ body {
  
  
 
-
-
 /******************************* Modal Lightbox ***********************************/
 
 
 .modal--lightbox {
     display: flex;
     flex-direction: row;
-   /* justify-content: space-between;*/
     width: 90%;
     position : relative;
     background-color: white;
@@ -601,11 +564,9 @@ body {
     flex-direction: row;
     justify-content:center;
     align-items: center;
-    border: 1px solid greenyellow;
 }
 
 .navBtn {
-   /* border: 1px solid black;*/
     display: block;
     position: relative;
     background-image : url("../assets/icons/arrow_left.svg");
@@ -613,7 +574,6 @@ body {
     height: 3.125em;
     background-repeat: no-repeat;
     opacity: 1;
-
 }
 
 .navBtn--hidden {

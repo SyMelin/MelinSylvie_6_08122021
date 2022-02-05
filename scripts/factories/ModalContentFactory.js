@@ -2,7 +2,6 @@ class ModalContentFactory {
 
     constructor(type) {
 
-        //const modalContent = document.querySelector(".modal__content");
         switch (type) {
 
             case 'contactForm' :

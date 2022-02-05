@@ -10,7 +10,6 @@ class OpenTriggerContactButton extends OpenTrigger {
         contactButton.addEventListener("click", (e) => {
             this.openContactFormModal();
         });
-        //  contactButton.setAttribute("onclick", "openContactFormModal()");
 
         contactButton.addEventListener("keyup", (e) => {
             e.preventDefault();

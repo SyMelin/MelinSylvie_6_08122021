@@ -7,7 +7,6 @@ class CloseBtnContactForm extends CloseBtn {
     create() {
 
         let closeBtn =  document.querySelector(".modal__content .closeBtn");
-        // closeBtn.setAttribute("onclick", "closeContactFormModal()");
         closeBtn.setAttribute("aria-label", "Close Contact form");
         closeBtn.setAttribute("tabindex", "0");
 
@@ -39,7 +38,6 @@ class CloseBtnContactForm extends CloseBtn {
         const modal = document.querySelector(".modal");
         modal.removeAttribute("aria-labelledby");
         const modalContent = document.querySelector(".modal .modal__content");
-       // modalContent.removeAttribute("tabindex");
         modalContent.classList.remove("modal--contact-form");
     
         // Le bouton contact du header récupère le focus à la fermeture du formulaire de contact
@@ -50,7 +48,6 @@ class CloseBtnContactForm extends CloseBtn {
     initContactFormModal() {
         this.prepareBeforeClosingContactForm();
         this.closeModal(); //méthode de la class CloseBtn
-       // console.log("active element", document.activeElement);
     };
 
     closeContactFormModal(event){

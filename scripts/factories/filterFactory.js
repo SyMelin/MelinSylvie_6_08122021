@@ -47,7 +47,7 @@ class Filter {
     filterByTitle () {
             this._media.sort(function (a, b) {
                if (a.video) {
-                    a.title = a.video;//
+                    a.title = a.video;
                 };
                 return a.title.localeCompare(b.title) ;
             });

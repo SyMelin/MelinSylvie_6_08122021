@@ -9,8 +9,6 @@ class Api {
         return fetch(this._url) //on interroge le service web: ici le fichier json est déjà fourni en exemple
                 .then(function(res) {
                     if (res.ok) {
-                      //  let data = res.json(); //si la requête s'est bien passée, les données sont retournées au format JSON
-                       // console.log(data);
                         return res.json(); //si la requête s'est bien passée, les données sont retournées au format JSON
                     }
                 })
@@ -23,7 +21,7 @@ class Api {
                        }
                         console.log(photographer);
                     };
-                    return value.photographers;//les données profil concernant les photographes sont retournées
+                    return value.photographers; //les données profil concernant les photographes sont retournées
                 })
                 .catch(function(err){ //En cas d'erreur, la fonction affiche le type d'erreur
                     console.log(err);
@@ -133,55 +131,3 @@ class Api {
     };
 
 };
-
-
-
-//Fonctions non utilisées
-/*
-     //Un tableau contenant tous les photographes est retourné - avec d'attribut alt
-     async getPhotographersWithAlt () {
-        return fetch(this._url) //on interroge le service web: ici le fichier json est déjà fourni en exemple
-                .then(function(res) {
-                    if (res.ok) {
-                        return res.json(); //si la requête s'est bien passée, les données sont retournées au format JSON
-                    }
-                })
-                .then(function(value) { //les données profil concernant les photographes sont retournées
-                    let photographers;
-                    return photographers = value.photographers;
-                })
-                //ajout de la propriété ALT
-                .then(function(photographers){
-                    console.log("photographers", photographers);
-                    for (let photographer of photographers){
-                       // console.log(photographer.name)
-                        if (!photographer.alt || photographer.alt == ""){
-                            photographer.alt = String(photographer.name);
-                        };
-                        console.log(photographer);
-                      //  console.log(photographer.alt);
-                    };
-                    return photographers;
-                })
-                .catch(function(err){ //En cas d'erreur, la fonction affiche le type d'erreur
-                    console.log(err);
-                });
-    };
-*/
-/*
-    //Un tableau contenant tous les media est retourné
-    async getMedia () {
-        return fetch(this._url)
-                .then(function(res) {
-                    if (res.ok) {
-                        return res.json();
-                    }
-                })
-                .then(function(value) { //les données concernant tous les media sont retournées
-                    return value.media;
-                })
-                .catch(function(err){ //En cas d'erreur, la fonction affixhe le type d'erreur
-                    console.log(err);
-                });
-    };
-*/
