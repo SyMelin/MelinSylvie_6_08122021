@@ -49,6 +49,10 @@ async function displayMedia(media){
 // Initialise la page photographer.html
 async function initPhotographer() {
 
+    //On met le focus sur l'image-lien logo du site
+    const headerLink = document.getElementById("header__link");
+    headerLink.focus();
+
     //Récupération des données du photographe
     const api = new Api("../data/photographers.json");
     photographerData = await api.getPhotographerData();

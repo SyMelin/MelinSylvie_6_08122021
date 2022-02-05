@@ -24,7 +24,6 @@ class Modal {
         modal.setAttribute('id', this._id);
 
         const headerLink = document.getElementById("header__link");
-        headerLink.setAttribute('tabindex', -1);
 
         switch (this._type) {
 
@@ -46,6 +45,10 @@ class Modal {
                // modalContent.setAttribute('tabindex', -1);
                 this.createModalContent(this._type);
                 this.createCloseBtn(this._type);
+
+                //On enlève le focus de l'image-lien logo du header
+                headerLink.removeAttribute('autofocus');
+                headerLink.setAttribute('tabindex', -1);
             break;
 
             case 'lightbox' :
@@ -55,7 +58,11 @@ class Modal {
                 modal.setAttribute('tabindex', 1);
                // modalContent.setAttribute('tabindex', -1);
                 this.createModalContent(this._type);
-                this.createCloseBtn(this._type); 
+                this.createCloseBtn(this._type);
+
+                //On enlève le focus de l'image-lien logo du header
+                headerLink.removeAttribute('autofocus');
+                headerLink.setAttribute('tabindex', -1);
             break;
         };
     };
@@ -66,6 +73,7 @@ class Modal {
 
     createCloseBtn(type){
         new CloseBtnFactory(type);
+        console.log("HEELLLLLLLOOOO");
     };
 
     createModalContent(type){

@@ -9,15 +9,15 @@ class Carousel {
         this._element = element;
         this._index = index;
         this._indexMin = 0;
-        this._indexMax = this._children.length - 1;
+        this._mediaCards = Array.from(element.children);
+        this._indexMax = this._mediaCards.length - 1;
         this._container = document.querySelector('.mediaWrapper.inLightbox');
         this._container.setAttribute('tabindex', -1);
-        this._container.mediaCards = Array.from(element.children);
-        this._container.mediaCards.forEach((card) => {
+        this._mediaCards.forEach((card) => {
             ['inMain', 'inLightbox'].map(element => card.classList.toggle(element));
         });
-        this._container.mediaLike = document.querySelectorAll('.carousel .mediaCard__like');
-        this._container.mediaLike.forEach((like) => {
+        this._mediaLikes = document.querySelectorAll('.carousel .mediaCard__like');
+        this._mediaLikes.forEach((like) => {
             ['like-caption-visible', 'hidden'].map(element => like.classList.toggle(element));
         });
 
@@ -103,7 +103,7 @@ class Carousel {
         if (this._index > this._indexMin && this._index <= this._indexMax) {
             this._index-- ; //index vers lequel on veut aller
             this.gotoItem(this._index);
-            let thumbImg = this._container.mediaCards[this._index].firstChild;
+            let thumbImg = this._mediaCards[this._index].firstChild;
             thumbImg.focus();
             if (this._index == this._indexMin) {
                 this._prevBtn.classList.add('navBtn--hidden');
@@ -119,7 +119,7 @@ class Carousel {
         if (this._index >= this._indexMin && this._index < this._indexMax) {
             this._index++ ; //index vers lequel on veut aller
             this.gotoItem(this._index);
-            let thumbImg = this._container.mediaCards[this._index].firstChild;
+            let thumbImg = this._mediaCards[this._index].firstChild;
             thumbImg.focus();
             if (this._index == (this._indexMax)) {
                 this._nextBtn.classList.add('navBtn--hidden');
@@ -132,8 +132,8 @@ class Carousel {
     };
 
     gotoItem(index) {
-        this._container.mediaCards.forEach((card) => {
-            if (card !== this._container.mediaCards[index]) {
+        this._mediaCards.forEach((card) => {
+            if (card !== this._mediaCards[index]) {
                 card.classList.add('hidden');
             } else {
                 card.classList.remove('hidden');  

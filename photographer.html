@@ -10,18 +10,18 @@
   </head>
   <body>
     <!-- header -->
-    <header role="banner" aria-hidden="false" id="header" autofocus>
-      <a aria-label="Index page" href="index.html" id="header__link">
-        <img role="link" alt="Fisheye Home page" src="assets/images/logo.png" class="logo" />
+    <header role="banner" aria-hidden="false" id="header">
+      <a aria-label="Index page" href="index.html" id="header__link" tabindex="0">
+        <img role="link" alt="Fisheye Home page" src="assets/images/logo.png" class="logo"/>
       </a>
     </header>
     <!-- main -->
     <main role="main" aria-hidden="false" id="main">
       <!-- photographer-header -->
-      <div class="photograph-header">
+      <div class="photograph-header" tabindex="-1">
         <div class="photographer-profile"></div>
-        <button aria-label="Contactez-moi" class="contact-button">Contactez-moi</button>
-        <div class="user-container"></div>
+        <button aria-label="Contactez-moi" class="contact-button" tabindex="0">Contactez-moi</button>
+        <div class="user-container" tabindex="-1"></div>
       </div>
       <!-- Elément Infos supplémentaires -->
       <div tabindex="0" class="tabindex0 inMain" id="info">

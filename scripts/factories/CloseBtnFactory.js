@@ -53,7 +53,8 @@ class CloseBtn {
         });
 
         const headerLink = document.getElementById('header__link');
-        headerLink.removeAttribute('tabindex');
+        headerLink.setAttribute('tabindex', 0);
+        //headerLink.setAttribute('autofocus', true);
     
         //On établit de retour la modale par défaut
         modal.removeAttribute('id');

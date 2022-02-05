@@ -262,7 +262,7 @@ function checkFieldValidity(element, type) {
                     allLabels[indexLabel].focus();
                 } else {
                     const contactBtn = document.querySelector('.contact-form .contact-button');
-                    contactBtn.focus();
+                    //contactBtn.focus();
                 };
         return true;
     } else {
