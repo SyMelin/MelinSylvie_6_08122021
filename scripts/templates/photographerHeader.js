@@ -14,19 +14,19 @@ class PhotographerHeader {
         //Rempli l'élément .photographer-profile
         const photographerProfile = document.querySelector('.photographer-profile');
         
-        const h1 = document.createElement("h1");
+        const h1 = document.createElement('h1');
         h1.textContent = this._profile.name;
-        h1.setAttribute("tabindex", "0");
-        h1.classList.add("tabindex0", "inMain");
+        h1.setAttribute('tabindex', 0);
+        h1.classList.add('tabindex0', 'inMain');
 
         
         // Crée le paragraphe texte statique
         const paragraphe = document.createElement('p');
-        paragraphe.setAttribute('tabindex', "0");
-        paragraphe.classList.add("text", "tabindex0", "inMain");
+        paragraphe.setAttribute('tabindex', 0);
+        paragraphe.classList.add('text', 'tabindex0', 'inMain');
 
 
-        const textLocation = document.createElement("p");
+        const textLocation = document.createElement('p');
         textLocation.classList.add('text-location');
         textLocation.textContent = this._profile.city + ", " + this._profile.country;
 
@@ -40,10 +40,10 @@ class PhotographerHeader {
         //Element .user
         const user = document.querySelector('.photograph-header .user-container');
         
-        const img = document.createElement("img");
-        img.setAttribute("src", `assets/photographers/photographers_ID_photos/${this._profile.portrait}`);
-        img.setAttribute("tabindex", "0");
-        img.setAttribute("alt", this._profile.alt);
+        const img = document.createElement('img');
+        img.setAttribute('src', `assets/photographers/photographers_ID_photos/${this._profile.portrait}`);
+        img.setAttribute('tabindex', 0);
+        img.setAttribute('alt', this._profile.alt);
         img.classList.add('user', 'tabindex0', 'inMain');
 
         user.appendChild(img);

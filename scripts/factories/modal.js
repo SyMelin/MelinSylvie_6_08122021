@@ -22,10 +22,10 @@ class Modal {
 
     createModal() {
         
-        const modal = document.querySelector(".modal")
-        modal.setAttribute("id", this._id);
+        const modal = document.querySelector('.modal')
+        modal.setAttribute('id', this._id);
 
-        const allTabindex0 = Array.from(document.getElementsByClassName("tabindex0"));
+        const allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
 
         switch (this._type) {
 
@@ -37,13 +37,13 @@ class Modal {
             case 'contactForm' :
                 
                 allTabindex0.forEach((element) => {
-                    element.removeAttribute("tabindex");
+                    element.removeAttribute('tabindex');
                 });
 
                 modal.style.height = "100%";
-                modal.setAttribute("aria-labelledby", "contact-title");
-                modal.setAttribute("tabindex", "1");
-               // modalContent.setAttribute("tabindex", "-1");
+                modal.setAttribute('aria-labelledby', 'contact-title');
+                modal.setAttribute('tabindex', 1);
+               // modalContent.setAttribute('tabindex', -1);
                 this.createModalContent(this._type);
                 this.createCloseBtn(this._type);
             break;
@@ -51,15 +51,15 @@ class Modal {
             case 'lightbox' :
 
                 allTabindex0.forEach((element) => {
-                    if (element.classList.contains("inMain")){
-                        element.removeAttribute("tabindex");
+                    if (element.classList.contains('inMain')){
+                        element.removeAttribute('tabindex');
                     };
                 }); 
 
                 modal.style.height = "auto";
-                modal.setAttribute("aria-label", "image closeup view");
-                modal.setAttribute("tabindex", "1");
-               // modalContent.setAttribute("tabindex", "-1");
+                modal.setAttribute('aria-label', 'image closeup view');
+                modal.setAttribute('tabindex', 1);
+               // modalContent.setAttribute('tabindex', -1);
                 this.createModalContent(this._type);
                 this.createCloseBtn(this._type);
             break;

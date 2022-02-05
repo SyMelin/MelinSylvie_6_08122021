@@ -11,15 +11,15 @@ class MediaItemFrame extends OpenTriggerLightbox {
     
     createMediaItemFrame () {
 
-        this._frame = document.createElement("div");
-        this._frame.classList.add("thumb-img", "inMain");
-        this._frame.setAttribute("role", "link");
-        this._frame.setAttribute("aria-label", `${this._mediaItem.alt}`+", closeup view");
+        this._frame = document.createElement('div');
+        this._frame.classList.add('thumb-img', 'inMain');
+        this._frame.setAttribute('role', 'link');
+        this._frame.setAttribute('aria-label', `${this._mediaItem.alt}`+", closeup view");
 
         if(this._mediaItem.video) {
             //Crée l'élement video
-            this._video = document.createElement("video");
-            this._video.setAttribute("src", `assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.video}`);
+            this._video = document.createElement('video');
+            this._video.setAttribute('src', `assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.video}`);
             this._video.style.objectFit = "cover";
             this._video.style.borderRadius = this._radius;
             this._frame.appendChild(this._video);

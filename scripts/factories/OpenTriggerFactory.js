@@ -23,14 +23,14 @@ class OpenTrigger {
     }
 
     displayModal() {
-        const modal = document.querySelector(".modal");
+        const modal = document.querySelector('.modal');
         modal.style.display = "block";
-        modal.setAttribute("aria-hidden", false);
-        document.querySelector(".modal").focus(); //met le focus sur la modale une fois cette dernière ouverte
+        modal.setAttribute('aria-hidden', false);
+        document.querySelector('.modal').focus(); //met le focus sur la modale une fois cette dernière ouverte
       
-        const header = document.getElementById("header");
-        const main = document.getElementById("main");
-        header.setAttribute("aria-hidden", true);
-        main.setAttribute("aria-hidden", true);
+        const header = document.getElementById('header');
+        const main = document.getElementById('main');
+        header.setAttribute('aria-hidden', true);
+        main.setAttribute('aria-hidden', true);
     };
 };

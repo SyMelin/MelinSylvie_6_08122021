@@ -34,20 +34,20 @@ function selectAnOption (option) {
     //On récupère l'id de l'option cliquée
     let optionSelected = option.getAttribute("id");
 
-    if (listbox.classList.contains("listbox-open")){
+    if (listbox.classList.contains("listbox--open")){
 
         options.forEach((childOption) => {
             if ((childOption.getAttribute("aria-selected")) == "false"){
-                childOption.classList.remove("option-selected");
-                childOption.classList.add("option-notSelected");
+                childOption.classList.remove("option--selected");
+                childOption.classList.add("option--notSelected");
             };
         });
 
         //on ferme les options du select
         expandBtn.setAttribute("aria-expanded", false);
-        expandBtn.classList.toggle("expandBtn-less");
-        listbox.classList.toggle("listbox-open");
-        listbox.classList.toggle("listbox-close");
+        expandBtn.classList.toggle("expandBtn--less");
+        listbox.classList.toggle("listbox--open");
+        listbox.classList.toggle("listbox--close");
 
 
         //On vide le conteneur de cartes media
@@ -66,7 +66,7 @@ function selectAnOption (option) {
 
 //au  clic sur une option
 options.forEach((option) => {
-    option.addEventListener("click", function(e){
+    option.addEventListener('click', function(e){
         e.preventDefault();
         selectAnOption(option);
     });
@@ -74,7 +74,7 @@ options.forEach((option) => {
 
 //avec ENTER sur une option
 options.forEach((option) => {
-    option.addEventListener("keyup", function(e){
+    option.addEventListener('keyup', function(e){
         e.preventDefault();
         if (e.key === "Enter") {
             selectAnOption(option);
@@ -84,35 +84,35 @@ options.forEach((option) => {
 
 
 
-//////////// Fonction utile pour !'évenement sur le bouton expand de la listbox /////////////////
+//////////// Fonction utile pour l'évenement sur le bouton expand de la listbox /////////////////
 
 function changeListboxDisplay () {
 
-    let state = listbox.getAttribute("aria-expanded");
+    let state = listbox.getAttribute('aria-expanded');
 
     //On affiche les options de la listbox
-    expandBtn.setAttribute("aria-expanded", true);
-    expandBtn.classList.toggle("expandBtn-less");
-    listbox.classList.toggle("listbox-open");
-    listbox.classList.toggle("listbox-close");
+    expandBtn.setAttribute('aria-expanded', true);
+    expandBtn.classList.toggle('expandBtn--less');
+    listbox.classList.toggle('listbox--open');
+    listbox.classList.toggle('listbox--close');
 
     listbox.focus();
 
     options.forEach((option) => {
-        if (option.classList.contains("option-notSelected")) {
-            ["option-notSelected", "option-selected" ].map(element => option.classList.toggle(element));
+        if (option.classList.contains('option--notSelected')) {
+            ['option--notSelected', 'option--selected'].map(element => option.classList.toggle(element));
         };
     });
 
     //Selon l'état de la listbox enregistré au clic
     if (state == "false") {
-        listbox.setAttribute("aria-expanded", true);
+        listbox.setAttribute('aria-expanded', true);
     } else {
-        expandBtn.setAttribute("aria-expanded", false);
-        listbox.setAttribute("aria-expanded", false);
+        expandBtn.setAttribute('aria-expanded', false);
+        listbox.setAttribute('aria-expanded', false);
         options.forEach((option)=> {
-            if ((option.getAttribute("aria-selected")) == "false") {
-                ["option-notSelected", "option-selected" ].map(element => option.classList.toggle(element));
+            if ((option.getAttribute('aria-selected')) == "false") {
+                ['option--notSelected', 'option--selected'].map(element => option.classList.toggle(element));
             };
         })   
     };
@@ -122,13 +122,13 @@ function changeListboxDisplay () {
 //////////// Evenement sur le bouton expand de la listbox /////////////////
 
 //au  clic sur le bouton expand
-expandBtn.addEventListener("click", function(e){
+expandBtn.addEventListener('click', function(e){
     e.preventDefault();
     changeListboxDisplay();
 });
 
  //avec ENTRER sur le bouton expand
- expandBtn.addEventListener("keyup", function(e){
+ expandBtn.addEventListener('keyup', function(e){
     e.preventDefault();
     if (e.key === "Enter") {
         changeListboxDisplay();

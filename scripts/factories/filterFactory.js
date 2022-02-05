@@ -52,5 +52,4 @@ class Filter {
                 return a.title.localeCompare(b.title) ;
             });
         };
-
 };

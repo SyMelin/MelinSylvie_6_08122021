@@ -12,10 +12,8 @@ class PhotographerThumb {
     //Crée la structure de l'élément UserCard
     getUserCardDOM() {
 
-        console.log("HELLO", this._photographer);
-        
         const article = document.createElement('article');
-        article.classList.add("thumb-photographer");
+        article.classList.add('thumb-photographer');
 
         // crée le lien img + h2
         const link = document.createElement('a');
@@ -29,7 +27,7 @@ class PhotographerThumb {
         img.setAttribute('alt', this._photographer.alt);
         img.classList.add('user');
        
-        const h2 = document.createElement( 'h2' );
+        const h2 = document.createElement('h2');
         h2.textContent = this._photographer.name;
         
         [img, h2].map(element => link.appendChild(element));        
@@ -39,25 +37,25 @@ class PhotographerThumb {
         /* L'élément <span class="pause screenreader-text"> sert à marquer une pause dans la lecture du texte par le lecteur d'écran*/
 
         const paragraphe = document.createElement('p');
-        paragraphe.setAttribute("aria-label", this._photographer.name+" informations");
-        paragraphe.setAttribute('tabindex', '0');
+        paragraphe.setAttribute('aria-label', this._photographer.name+" informations");
+        paragraphe.setAttribute('tabindex', 0);
         paragraphe.classList.add('tabindex0');
 
         const paragrapheSpan = document.createElement('span');
         paragrapheSpan.innerText = this._photographer.name+" informations.";
-        paragrapheSpan.classList.add("screenreader-text");
+        paragrapheSpan.classList.add('screenreader-text');
 
         const location = document.createElement('p');
         location.innerHTML = `${this._photographer.city}, ${this._photographer.country}<span class="pause screenreader-text">.</span>`;
-        location.setAttribute("aria-label", "location");
+        location.setAttribute('aria-label', 'location');
         location.classList.add('text-location');
         
         const tagline = document.createElement('p');
         tagline.innerHTML = `${this._photographer.tagline}<span class=" pause screenreader-text">.</span>`;
-        tagline.setAttribute("aria-label", "tagline");
+        tagline.setAttribute('aria-label', 'tagline');
         
         const price = document.createElement('div');
-        price.setAttribute("aria-label", "price");
+        price.setAttribute('aria-label', 'price');
 
         const priceText = document.createElement('p');
         priceText.textContent = this._photographer.price +"€/jour";

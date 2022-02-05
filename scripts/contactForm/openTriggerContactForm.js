@@ -5,13 +5,13 @@ class OpenTriggerContactButton extends OpenTrigger {
     }
 
     set() {
-        const contactButton = document.querySelector(".contact-button");
+        const contactButton = document.querySelector('.contact-button');
 
-        contactButton.addEventListener("click", (e) => {
+        contactButton.addEventListener('click', (e) => {
             this.openContactFormModal();
         });
 
-        contactButton.addEventListener("keyup", (e) => {
+        contactButton.addEventListener('keyup', (e) => {
             e.preventDefault();
             if (e.key === "Enter") {
                 this.openContactFormModal();
@@ -20,7 +20,7 @@ class OpenTriggerContactButton extends OpenTrigger {
     };
 
     openContactFormModal() {
-        let newContactForm = new Modal("contact_modal", 'contactForm');
+        let newContactForm = new Modal('contact_modal', 'contactForm');
         newContactForm.createModal();
         this.displayModal(); //Méthode de la class OpenTrigger
     };

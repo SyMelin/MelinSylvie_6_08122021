@@ -13,13 +13,11 @@ class Api {
                     }
                 })
                 .then(function(value){
-                    console.log("photographers", value.photographers);
                     //ajout de la propriété ALT vide
                     for (let photographer of value.photographers){
                        if (!photographer.alt || photographer.alt !== "") {
                            photographer.alt = "";
                        }
-                        console.log(photographer);
                     };
                     return value.photographers; //les données profil concernant les photographes sont retournées
                 })
@@ -61,7 +59,6 @@ class Api {
                             photographerProfile = value.photographers[photographerIndex];
                         };
                     };
-                    console.log("photographerProfile", photographerProfile);
                     photographerData.profile =  photographerProfile;
 
                     //On récupère les média du photographe
@@ -83,7 +80,6 @@ class Api {
                             photographerMedia.push(mediaItem);
                         };
                     };
-                    console.log("photographerMedia", photographerMedia);
                     photographerData.media =  photographerMedia;
 
                     return photographerData;
@@ -122,12 +118,10 @@ class Api {
                             photographerMedia.push(mediaItem);
                         };
                     };
-                    console.log("photographerMedia", photographerMedia);
                     return photographerMedia;
                 })
                 .catch(function(err){
                     console.log(err);
                 });
     };
-
 };

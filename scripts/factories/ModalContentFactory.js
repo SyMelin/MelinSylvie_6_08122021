@@ -5,7 +5,7 @@ class ModalContentFactory {
         switch (type) {
 
             case 'contactForm' :
-                let contactFormModal = new ContactFormModal(type, "post", "", photographerProfile);
+                let contactFormModal = new ContactFormModal(type, 'post', "", photographerProfile);
                 contactFormModal.create();
             break;
 

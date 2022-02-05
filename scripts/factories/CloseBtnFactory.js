@@ -26,14 +26,14 @@ class CloseBtn {
     closeModal() {
 
         //On rend la modale inaccessible
-        const modal = document.querySelector(".modal");
+        const modal = document.querySelector('.modal');
         modal.style.display = "none";
-        modal.setAttribute("aria-hidden", true);
+        modal.setAttribute('aria-hidden', true);
     
         //On vide le contenu de la modale de tout ses éléments sauf le bouton close
-        const modalContent = document.querySelector(".modal__content");
+        const modalContent = document.querySelector('.modal__content');
         const children = Array.from(modalContent.children);
-        let closeBtn =  document.querySelector(".modal__content .closeBtn");
+        let closeBtn =  document.querySelector('.modal__content .closeBtn');
         children.forEach((child) => {
             if (child != closeBtn) {
                 modalContent.removeChild(child);
@@ -41,18 +41,18 @@ class CloseBtn {
         });
     
         //On rend accessible le reste de la page
-        const header = document.getElementById("header");
-        const main = document.getElementById("main");
-        header.setAttribute("aria-hidden", false);
-        main.setAttribute("aria-hidden", false);
+        const header = document.getElementById('header');
+        const main = document.getElementById('main');
+        header.setAttribute('aria-hidden', false);
+        main.setAttribute('aria-hidden', false);
     
         //On rétablit les tabindex = 0 sur les éléments concernés
-        const allTabindex0 = Array.from(document.getElementsByClassName("tabindex0"));
+        const allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
         allTabindex0.forEach((element) => {
-            element.setAttribute("tabindex", 0);
+            element.setAttribute('tabindex', 0);
         });
     
         //On établit de retour la modale par défaut
-        modal.removeAttribute("id");
+        modal.removeAttribute('id');
     };
 };

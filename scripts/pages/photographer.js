@@ -22,7 +22,7 @@ function sumLikes(media) {
     for (let mediaItem of media) {
         likeTotal += mediaItem.likes;
     };
-    const totalLikes = document.getElementById("totalLikes");
+    const totalLikes = document.getElementById('totalLikes');
     totalLikes.textContent = likeTotal;
     return likeTotal;
 };
@@ -32,7 +32,7 @@ async function displayMedia(media){
     
     //Crée le conteneur de media
     const mediaWrapper = document.createElement('div');
-    mediaWrapper.classList.add("mediaWrapper", "inMain");
+    mediaWrapper.classList.add('mediaWrapper', 'inMain');
 
     //Ajout de chaque media au conteneur
     for (let mediaItem of media) {
@@ -41,7 +41,7 @@ async function displayMedia(media){
     };
     
     //Ajout du conteneur au main
-    const main = document.getElementById("main");
+    const main = document.getElementById('main');
     main.appendChild(mediaWrapper);  
 };
 
@@ -70,9 +70,6 @@ async function initPhotographer() {
 
     //Initialisation de la modale
     new Modal('', 'init').createModal();
-
-    //manageFocusOutline();
 };
 
 initPhotographer();
-

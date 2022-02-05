@@ -2,7 +2,7 @@ body {
     position: relative;
 }
 
-.modal{
+.modal {
     display: none;
     position: absolute;
     top: 0;
@@ -39,13 +39,13 @@ body {
 .photographer-profile, .user-container {
     flex: 1;
 }
-.photographer-profile h1{
+.photographer-profile h1 {
     font-size: 4em;
     font-weight: normal;
     margin: 0px;
 }
 
-.photographer-profile .text{
+.photographer-profile .text {
     margin: 0px;
 }
 
@@ -64,7 +64,7 @@ body {
 /************** Division contenant les informations supplémentaires en position fixe ************************/
 
 
-#info{
+#info {
     position: fixed;
     right: 20%;
     bottom: 0%;
@@ -75,18 +75,18 @@ body {
     z-index: 2;
 }
 
-#info p{
+#info p {
     color: black;
     font-weight: bold;
     margin: 1.5em 2em;
 }
 
-#info #totalLikes{
+#info #totalLikes {
     text-align: right;
     margin-right: 0;
 }
 
-#info .fa-heart{
+#info .fa-heart {
     display: flex;
     align-items: center;
 }
@@ -104,15 +104,15 @@ body {
     flex-direction: row;
 }
 
-.listbox-container {
-    position: relative;
-}
-
 #listbox-label {
     font-size: 1.125em;
     font-weight: bold;
     margin-right: 1.25em;
     padding-top: 1em;
+}
+
+.listbox-container {
+    position: relative;
 }
 
 .listbox {
@@ -131,15 +131,15 @@ body {
     z-index: 1;
 }
 
-.listbox-close{
+.listbox--close {
     height: 4.3125em;
 }
 
-.listbox-open{
+.listbox--open {
     height: 10.625em;  
 }
 
-.expandBtn{
+.expandBtn {
     cursor: pointer;
     position: absolute;
     right: 0.625em;
@@ -151,13 +151,12 @@ body {
     z-index: 2;
 }
 
-.expandBtn-more{
+.expandBtn--more {
     background-image: url("../assets/icons/arrow_down.svg");
 }
-.expandBtn-less{
+.expandBtn--less {
     transform: rotate(180deg);
 }
-
 
 .listbox .option {
     width: 100%;
@@ -166,16 +165,16 @@ body {
     opacity: 1;
 }
 
-.listbox .option-selected{
+.listbox .option--selected {
     height: 33.33%;
     border: none;
 }
 
-.listbox .option-notSelected{
+.listbox .option--notSelected {
     display: none;
 }
 
-.listbox-open .option::after {
+.listbox--open .option::after {
     color: black;
     background-color: #DB8876;
     position: absolute;
@@ -197,11 +196,11 @@ body {
     transition: opacity 100ms ease-in-out;
 }
 
-.listbox-open .option {
+.listbox--open .option {
     cursor: pointer;
 }
 
-.listbox-open .option1::after {
+.listbox--open .option1::after {
     content: "Popularité";
     border-radius: 0.3125em 0.3125em 0 0;
     margin-top: -0.625em;
@@ -209,19 +208,19 @@ body {
     padding: 0.625em 0.625em 0 0.625em;
 }
 
-.listbox-open .option2 {
+.listbox--open .option2 {
     border-top: 0.0625em solid white;
     border-bottom: 0.0625em solid white ;
 }
 
-.listbox-open .option2::after {
+.listbox--open .option2::after {
     content: "Date";
     padding: 0 0.625em 0 0.625em;
     top: -0.0625em;
     height: 105%;
 }
 
-.listbox-open .option3::after {
+.listbox--open .option3::after {
     content: "Titre";
     border-radius: 0 0 0.3125em 0.3125em;
     margin-top: -0.0625em;
@@ -229,6 +228,7 @@ body {
     height: 123%;
     padding: 0.125em 0.625em 0.625em 0.625em;
 }
+
 .option:hover::after, .option:focus::after {
     opacity: 1;
 }
@@ -238,21 +238,21 @@ body {
 /******************************** Conteneur des media **********************************/
 
 
-.mediaWrapper{
+.mediaWrapper {
     box-sizing: border-box;
     margin: 0 6.25em;
     display : flex;
     flex-direction: row;
 }
 
-.mediaWrapper.inMain{
+.mediaWrapper.inMain {
     justify-content: space-between;
     flex-wrap: wrap;
     width: 85%;
     row-gap: 2em;
 }
 
-.mediaWrapper.inLightbox{
+.mediaWrapper.inLightbox {
     justify-content: flex-start;
     flex-wrap: nowrap;
     width: 85%;
@@ -260,39 +260,39 @@ body {
     margin: 0%;
 }
 
-.thumb-imgfull{
+.thumb-imgfull {
     border-radius: 0.3125em;  
 }
 
-.thumb-imgfull.inMain{
+.thumb-imgfull.inMain {
     width: 21.875em;
 }
 
-.thumb-imgfull.inLightbox{
+.thumb-imgfull.inLightbox {
     width: 100%;
 }
 
-.thumb-img{
+.thumb-img {
     width: 100%;
     border-radius: inherit;
 }
 
-.thumb-img.inMain{
+.thumb-img.inMain {
     width: inherit;
     height: 21.875em;
 }
 
-.thumb-img.inLightbox{
+.thumb-img.inLightbox {
     height: 60em;
 }
 
-.thumb-img video{
+.thumb-img video {
     width: inherit;
     height: 100%;
     border-radius: inherit;
 }
 
-.caption{
+.caption {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -301,20 +301,15 @@ body {
     height: 2.5em;
 }
 
-.title-caption{
+.title-caption {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.like-caption-visible{
+.like-caption-visible {
     display: flex;
 }
-/*
-.mediaCard__like{
-    display: flex;
-}
-*/
 
 .fas {
     display: block;
@@ -322,7 +317,7 @@ body {
     transform: scale(0.88,1);
 }
 
-.likeHeart{
+.likeHeart {
     cursor: pointer;
     display: flex;
     flex-direction: row;
@@ -333,7 +328,7 @@ body {
     position: relative;
 }
 
-.likeHeart::after{
+.likeHeart::after {
     font-family: "Font Awesome 5 Free";
     content: "\f004";
     font-weight: 900;
@@ -347,7 +342,7 @@ body {
     transition: opacity 300ms ease-in-out;
 }
 
-.likeHeart:hover::after, .likeHeart:focus::after{
+.likeHeart:hover::after, .likeHeart:focus::after {
     opacity: 1;
 }
 
@@ -369,7 +364,7 @@ body {
     border: none;
 }
 
-.contact-button::after{
+.contact-button::after {
     position: absolute;
     top: 0;
     right: 0;
@@ -388,7 +383,7 @@ body {
     transition: opacity 300ms ease-in-out;
 }
 
-.photograph-header .contact-button{
+.photograph-header .contact-button {
     font-size: 1.25em;
     transform: scaleX(1.1);
     padding: 1.3125em 0.6875em;
@@ -396,18 +391,18 @@ body {
     margin-right: 1em;
 }
 
-.photograph-header .contact-button::after{
+.photograph-header .contact-button::after {
     content: "Contactez-moi";
     color: black;
     background-color: #DB8876;
 }
 
-.contact-form .contact-button{
+.contact-form .contact-button {
     font-size: 1.125em;
     padding: 1.4375em 3.1875em;    
 }
 
-.contact-form .contact-button::after{
+.contact-form .contact-button::after {
     content: "Envoyer";
     color: #901C1C;
     background-color: #FAFAFA;
@@ -446,7 +441,7 @@ body {
     margin: auto;
 }
 
-.closeBtn{
+.closeBtn {
     display: block;
     position: absolute;
     right: 1.25em;

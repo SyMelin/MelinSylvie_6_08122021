@@ -45,12 +45,12 @@ class ContactFormModal extends CloseBtnContactForm{
         modalContent.classList.add("modal--contact-form");
 
         const header = document.createElement ('header');
-        header.setAttribute('tabindex', '-1');
+        header.setAttribute('tabindex', -1);
         
         const contactTitle = document.createElement ('h1');
         contactTitle.innerHTML = `Contactez-moi<br />${this._data.name}`;
         contactTitle.setAttribute('id', 'contact-title');
-        contactTitle.setAttribute('tabindex', '0');
+        contactTitle.setAttribute('tabindex', 0);
         contactTitle.classList.add('tabindex0');
 
         this._contactForm = document.createElement ('form');
@@ -58,11 +58,11 @@ class ContactFormModal extends CloseBtnContactForm{
         this._contactForm.setAttribute('role', 'form');
         this._contactForm.setAttribute('methode', this._method);
         this._contactForm.setAttribute('action', this._action);
-        this._contactForm.setAttribute('tabindex', '-1');
+        this._contactForm.setAttribute('tabindex', -1);
 
 
         const fieldsContainer = document.createElement('div');
-        fieldsContainer.setAttribute('tabindex', '-1');
+        fieldsContainer.setAttribute('tabindex', -1);
         fieldsContainer.classList.add('fieldsContainer');
         this._contactForm.appendChild(fieldsContainer);
 
@@ -80,7 +80,6 @@ class ContactFormModal extends CloseBtnContactForm{
     createContactBtn () {
 
         const contactBtn =  document.createElement('button');
-      //  contactBtn.setAttribute("tabindex", 0);
         contactBtn.textContent = 'Envoyer';
         contactBtn.setAttribute('aria-label', 'Envoyer');
         contactBtn.classList.add('contact-button');
@@ -169,7 +168,7 @@ class FormField {
         };
         input.setAttribute('required', true);
         input.setAttribute('aria-labelledby', this._item.idLabel);
-        input.classList.add("formField__input"); 
+        input.classList.add('formField__input'); 
         for (let [key, value] of Object.entries(this._item)) {
             input.setAttribute(key, value);
         };
@@ -204,12 +203,12 @@ class FormField {
 
 
         ///////////////////////////// Evènement au change sur un champ ///////////////////////////////////////
-        input.addEventListener("change", (e) => {
+        input.addEventListener('change', (e) => {
             checkFieldValidity(input, this._item.type);
         });
 
         ////////////////// Evènement via la touche ENTREE ou Tab=> Evite d'envoyer le formulaire et met le focus sur l'élément suivant ////////////////////
-        input.addEventListener("keydown", (e) => {
+        input.addEventListener('keydown', (e) => {
             if ((e.key === "Enter" || e.key === "Tab") && (e.key !=="Escape")) {
                 e.preventDefault();
                 checkFieldValidity(input, this._item.type);
