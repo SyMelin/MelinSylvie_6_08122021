@@ -13,7 +13,7 @@ class MediaItemCard {
         const mediaItemCard = document.createElement("article");
         mediaItemCard.classList.add("thumb-imgfull", "inMain");
 
-        const template = new MediaItemFrame(this._mediaItem, this._width, this._height, this._radius);
+        const template = new MediaItemFrame("lightbox", this._mediaItem, this._width, this._height, this._radius); //le param lightbox fait référence au type nécessaire pour le class OpenTriggerLightbox
         const frame = template.createMediaItemFrame();
         frame.setAttribute("tabindex", "0");
         frame.classList.add("tabindex0");

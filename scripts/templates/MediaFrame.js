@@ -1,10 +1,11 @@
-class MediaItemFrame {
+class MediaItemFrame extends OpenTriggerLightbox {
 
     /**
      * @param {Object} mediaItem un élément de media
      */
 
-    constructor(mediaItem) {
+    constructor(type, mediaItem) {
+        super(type);
         this._mediaItem = mediaItem;
     };
     
@@ -28,6 +29,8 @@ class MediaItemFrame {
             this._frame.style.backgroundSize = "cover";
             this._frame.style.backgroundPosition = "center";
         };
+
+        this.setEventListener(this._frame);
 
         return this._frame;
     };

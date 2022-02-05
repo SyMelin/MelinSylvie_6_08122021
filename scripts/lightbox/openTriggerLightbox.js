@@ -5,27 +5,28 @@ class OpenTriggerLightbox extends OpenTrigger {
     }
 
     set(){
-
         const frameAll = document.querySelectorAll(".mediaWrapper .thumb-imgfull .thumb-img");
         frameAll.forEach((frame) => {
-
-            //Ouverture de la modale Lightbox au clic sur une image
-            frame.addEventListener("click", (e) => {
-                this.preloadModalLightbox(frame);
-            });
-
-            //Ouverture de la modale Lightbox via la touche ENTREE
-            frame.addEventListener("keyup", (e) => {
-                const modal = document.querySelector(".modal");
-                const modalState = modal.getAttribute("aria-hidden");
-                if ((e.key === "Enter") && (modalState == "true")) {
-                    e.preventDefault();
-                    this.preloadModalLightbox(frame);
-                };
-            });   
+            this.setEventListener(frame);
         });
     };
 
+    setEventListener(frame){
+        //Ouverture de la modale Lightbox au clic sur une image
+        frame.addEventListener("click", (e) => {
+            console.log("cliqué");
+            this.preloadModalLightbox(frame);
+        });
+        //Ouverture de la modale Lightbox via la touche ENTREE
+        frame.addEventListener("keyup", (e) => {
+            const modal = document.querySelector(".modal");
+            const modalState = modal.getAttribute("aria-hidden");
+            if ((e.key === "Enter") && (modalState == "true")) {
+                e.preventDefault();
+                this.preloadModalLightbox(frame);
+            };
+        });   
+    };
 
     preloadModalLightbox(frame){
         

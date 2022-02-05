@@ -56,7 +56,7 @@ function selectAnOption (option) {
 
         //On crée un nouveau filtre en fonction de Value et on réaffiche les cartes media
         new FilterFactory(optionSelected, photographerMedia);
-        displayMedia(photographerMedia);
+        displayMedia(photographerMedia); //fonction du script pages/photographers.js
 
     };
 };
