@@ -23,8 +23,8 @@ class Modal {
         const modal = document.querySelector('.modal')
         modal.setAttribute('id', this._id);
 
-        const headerLink = document.getElementById("header__link");
-
+        const noAccessAll = Array.from(document.getElementsByClassName('noAccess'));
+       
         switch (this._type) {
 
             case 'init' :
@@ -46,9 +46,12 @@ class Modal {
                 this.createModalContent(this._type);
                 this.createCloseBtn(this._type);
 
-                //On enlève le focus de l'image-lien logo du header
-                headerLink.removeAttribute('autofocus');
-                headerLink.setAttribute('tabindex', -1);
+                //On enlève l'accessibilité aux éléments concernés
+                noAccessAll.forEach((element) => {
+                element.removeAttribute('autofocus');
+                element.setAttribute('tabindex', -1);
+                });
+               
             break;
 
             case 'lightbox' :
@@ -60,9 +63,12 @@ class Modal {
                 this.createModalContent(this._type);
                 this.createCloseBtn(this._type);
 
-                //On enlève le focus de l'image-lien logo du header
-                headerLink.removeAttribute('autofocus');
-                headerLink.setAttribute('tabindex', -1);
+                //On enlève l'accessibilité aux éléments concernés
+                noAccessAll.forEach((element) => {
+                element.removeAttribute('autofocus');
+                element.setAttribute('tabindex', -1);
+                });
+                
             break;
         };
     };

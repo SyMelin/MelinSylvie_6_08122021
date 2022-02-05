@@ -52,10 +52,12 @@ class CloseBtn {
             element.setAttribute('tabindex', 0);
         });
 
-        const headerLink = document.getElementById('header__link');
-        headerLink.setAttribute('tabindex', 0);
-        //headerLink.setAttribute('autofocus', true);
-    
+        //On rend l'accessibilité aux éléments concernés
+        const noAccessAll = Array.from(document.getElementsByClassName('noAccess'));
+        noAccessAll.forEach((element) => {
+             element.setAttribute('tabindex', 0);
+        });
+       
         //On établit de retour la modale par défaut
         modal.removeAttribute('id');
     };
