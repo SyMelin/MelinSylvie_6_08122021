@@ -1,16 +1,6 @@
 @import url("photographer.css");
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 
-.tabindex0:focus{
-    outline: 2.75px solid;
-    border-radius: 0.3125em;
-}
-
-body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
-}
-
 .screenreader-text {
     height: 1px;
     left: 0;
@@ -19,6 +9,18 @@ body {
     top: -10000px;
     width: 1px;
  }
+
+ .hidden{
+    display: none;
+}
+
+
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+}
+
+
 
 header {
     display: flex;

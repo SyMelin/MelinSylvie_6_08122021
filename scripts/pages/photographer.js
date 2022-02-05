@@ -70,6 +70,8 @@ async function initPhotographer() {
 
     //Initialisation de la modale
     new Modal('', 'init').createModal();
+
+    //manageFocusOutline();
 };
 
 initPhotographer();

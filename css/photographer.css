@@ -12,9 +12,7 @@ body {
     background-color: rgba(196, 196, 196, 0.4);
 }
 
-.hidden{
-    display: none;
-}
+
 
 /* Elements avec cursor: pointer par défaut */
 .closeBtn, .mediaWrapper.inMain .thumb-imgfull .thumb-img, .navBtn{
@@ -110,6 +108,10 @@ body {
 
 .listbox-container {
     position: relative;
+}
+
+.listbox.tabindex0:focus {
+    outline: 2.75px solid black;
 }
 
 #listbox-label {
@@ -429,7 +431,7 @@ body {
 }
 
 /* Ajout pour bouton au hover ou focus */
-.contact-button:hover::after, .contact-button:focus::after {
+.contact-button:hover::after {
     opacity: 1;
 }
 
@@ -512,7 +514,7 @@ body {
     align-items: flex-start;
 }
 
-.contact-form label {
+.formField__label {
     color: black;
     font-size: 2.25em;
 }
@@ -544,7 +546,7 @@ body {
 
 
 /**** Validation / invalidation des champs du formulaire ****/
-
+/*
 .formField[data-error]::after {
     content: attr(data-error);
     font-size: 1.25em;
@@ -559,10 +561,25 @@ body {
   .formField[data-error-visible="true"]::after {
     opacity: 1;
   }
-  .formField[data-error-visible="true"] .contact-form__input {
+  .formField[data-error-visible="true"] .formField__input {
+    border: 0.5em solid black;
+  }*/
+
+  .formField[data-error-visible="true"] .formField__input {
     border: 0.5em solid black;
   }
 
+ 
+  .formField[data-error-visible="true"] .formField__data-error {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: black;
+    display: block;
+    margin-top: 0.5em;
+    text-align: left;
+  }
+ 
+ 
 
 
 

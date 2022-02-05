@@ -104,7 +104,7 @@ class ContactFormModal extends CloseBtnContactForm{
     };
 
     sendMessage () {
-        const allInputs = Array.from(document.getElementsByClassName('contact-form__input'));
+        const allInputs = Array.from(document.getElementsByClassName('formField__input'));
         let validityForm = 0;
         allInputs.forEach((input) => {
             if (checkFieldValidity(input, (input.getAttribute('type'))) == true) {
@@ -121,7 +121,9 @@ class ContactFormModal extends CloseBtnContactForm{
             alert('Le message a bien été envoyé');
         } else {
            console.log("Le formulaire n'est pas valide");
-        }
+           const firstInvalidInput = document.querySelector('.formField[data-error-visible="true"] .formField__input');
+           firstInvalidInput.focus();
+        };
     };
 };
 
@@ -153,7 +155,7 @@ class FormField {
         label.setAttribute('tabindex', 0);
         label.setAttribute('for', this._item.id);
         label.setAttribute('id', this._item.idLabel);
-        label.classList.add('tabindex0');
+        label.classList.add('tabindex0', 'formField__label');
        
 
         //Crée l'input
@@ -166,32 +168,39 @@ class FormField {
             input.classList.add('text');
         };
         input.setAttribute('required', true);
-        input.setAttribute('aria-required', true);
         input.setAttribute('aria-labelledby', this._item.idLabel);
-        input.classList.add("contact-form__input"); 
+        input.classList.add("formField__input"); 
         for (let [key, value] of Object.entries(this._item)) {
             input.setAttribute(key, value);
         };
 
         //Crée le message d'erreur
+        let dataError = document.createElement('span');
+        dataError.setAttribute('tabindex', 0);
+        dataError.classList.add('formField__data-error', 'tabindex0', 'hidden');
+       
+        let dataErrorText;
+
         switch (this._item.type) {
 
             case 'text' :
-                formField.setAttribute("data-error", "Veuillez entrer au minimum " + this._item.minlength + " caractères ou plus");
+                dataErrorText = "Veuillez entrer au minimum " + this._item.minlength + " caractères ou plus";
             break;
 
             case 'email' :
-                formField.setAttribute("data-error", "Veuillez entrer une adresse e-mail valide");
+                dataErrorText = "Veuillez entrer une adresse e-mail valide";
             break;
 
             case 'textarea' :
-                formField.setAttribute("data-error", "Veuillez rédiger votre message. Maximum 2000 caractères");
+                dataErrorText = "Veuillez rédiger votre message. Maximum 2000 caractères";
             break;
 
         };
+
+        dataError.textContent = dataErrorText;
         
         //Ajoute le label et le champ à leur conteneur formField
-        [label, input].map(element => formField.appendChild(element));
+        [label, input, dataError].map(element => formField.appendChild(element));
 
 
         ///////////////////////////// Evènement au change sur un champ ///////////////////////////////////////
@@ -199,19 +208,11 @@ class FormField {
             checkFieldValidity(input, this._item.type);
         });
 
-        ////////////////// Evènement via la touche ENTREE => Evite d'envoyer le formulaire et met le focus sur le champ suivant ////////////////////
+        ////////////////// Evènement via la touche ENTREE ou Tab=> Evite d'envoyer le formulaire et met le focus sur l'élément suivant ////////////////////
         input.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
+            if ((e.key === "Enter" || e.key === "Tab") && (e.key !=="Escape")) {
                 e.preventDefault();
-                const allInputs = Array.from(document.getElementsByClassName('contact-form__input'));
-                let indexInput = allInputs.indexOf(input);
-                indexInput++ ;
-                if (indexInput < allInputs.length) {
-                    allInputs[indexInput].focus();
-                } else {
-                    const contactBtn = document.querySelector('.contact-form .contact-button');
-                    contactBtn.focus();
-                };
+                checkFieldValidity(input, this._item.type);
             };
         });
 
@@ -219,40 +220,57 @@ class FormField {
     };
 };
 
+let isTextValid = function (element) {
+    if (element.value.length >= (element.getAttribute('minlength')) && (/^\b([A-zÀ-ÿ][-,a-zà-ÿ. ']+[ ]*)+$/gm.test(element.value) === true)){
+        return true;
+    }};
+
+let isEmailValid = function (element) {
+    if (!(element.validity.typeMismatch) && (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(element.value))) {
+        return true;    
+    }};
+
+let isMessageValid = function(element) {
+   if (element.value) {
+       return true;
+   }};
+
 
 function checkFieldValidity(element, type) {
-
+    let test;
     switch (type) {
 
         case 'text' :
-            if (element.value.length >= (element.getAttribute('minlength')) && (/^\b([A-zÀ-ÿ][-,a-zà-ÿ. ']+[ ]*)+$/gm.test(element.value) === true)) {
-                element.parentElement.setAttribute('data-error-visible', false);
-                return true;
-            } else {
-                element.parentElement.setAttribute('data-error-visible', true);
-                return false;
-            };
+            test = isTextValid(element);
         break;
-
         case 'email' :
-            if(!(element.validity.typeMismatch) && (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(element.value) === true)) {
-                element.parentElement.setAttribute('data-error-visible', false);
-                return true;
-            } else {
-                element.parentElement.setAttribute('data-error-visible', true);
-                return false;
-            };
+            test = isEmailValid(element);
+        break;
+        case 'textarea' :
+            test = isMessageValid(element);
         break;
 
-        case 'textarea' :
-            console.log("elementvalue", element.value);
-            if (element.value) {
-                element.parentElement.setAttribute('data-error-visible', false);
-                return true;
-            } else {
-                element.parentElement.setAttribute('data-error-visible', true);
-                return false;
-            };
-        break;
+    };
+    if (test) {
+        element.parentElement.setAttribute('data-error-visible', false);
+        element.nextSibling.classList.add('hidden');
+        element.setAttribute('aria-invalid', false);
+        const label = element.previousSibling;
+        const allLabels = Array.from(document.getElementsByClassName('formField__label'));
+                let indexLabel = allLabels.indexOf(label);
+                indexLabel++ ;
+                if (indexLabel < allLabels.length) {
+                    allLabels[indexLabel].focus();
+                } else {
+                    const contactBtn = document.querySelector('.contact-form .contact-button');
+                    contactBtn.focus();
+                };
+        return true;
+    } else {
+        element.parentElement.setAttribute('data-error-visible', true)
+        element.nextSibling.classList.remove('hidden');
+        element.nextSibling.focus();
+        element.setAttribute('aria-invalid', true);
+        return false;
     };
 };
