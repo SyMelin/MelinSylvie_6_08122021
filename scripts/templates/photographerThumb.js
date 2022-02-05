@@ -59,11 +59,12 @@ class PhotographerThumb {
 
         const priceText = document.createElement('p');
         priceText.textContent = this._photographer.price +"€/jour";
-        priceText.setAttribute("aria-hidden", true);
+        priceText.setAttribute('aria-hidden', true);
+        priceText.setAttribute('id', 'price__text');
         //Ajout de span pour accessibilité de price
         const priceSpan = document.createElement('span');
         priceSpan.textContent = this._photographer.price +"€ par jour";
-        priceSpan.classList.add("screenreader-text");
+        priceSpan.classList.add('screenreader-text');
 
         [priceText, priceSpan].map(element => price.appendChild(element));
         [location, tagline, price].map(element => paragraphe.appendChild(element));

@@ -33,7 +33,6 @@ class ContactFormModal extends CloseBtnContactForm{
                 id : 'message',
                 type : 'textarea',
                 text: 'Votre message',
-                placeholder: '2000 caractères maximum',
                 maxlength: '1000'
             }
         ];
@@ -162,9 +161,11 @@ class FormField {
         if (this._item.type == 'textarea') {
             input = document.createElement('textarea');
             input.classList.add('text-area');
+            input.setAttribute('placeholder', this._item.maxlength + " caractères maximum");
         } else {
             input = document.createElement('input');
             input.classList.add('text');
+            input.setAttribute('placeholder', this._item.text);
         };
         input.setAttribute('required', true);
         input.setAttribute('aria-labelledby', this._item.idLabel);

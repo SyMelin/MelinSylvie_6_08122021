@@ -27,11 +27,12 @@ class PhotographerHeader {
 
 
         const textLocation = document.createElement('p');
-        textLocation.classList.add('text-location');
         textLocation.textContent = this._profile.city + ", " + this._profile.country;
+        textLocation.classList.add('text-location');
 
         const textTagline = document.createElement('p');
         textTagline.textContent = this._profile.tagline;
+        textTagline.classList.add('tagline');
 
         [textLocation, textTagline].map(element => paragraphe.appendChild(element));
         [h1, paragraphe].map(element => photographerProfile.appendChild(element));
