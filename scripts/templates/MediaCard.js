@@ -54,7 +54,7 @@ class MediaItemCard {
         likeHeart.classList.add('likeHeart');
         likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
         const likeHeartSpan = document.createElement('span');
-        likeHeartSpan.textContent = "Cliquer ici pour aimer ce média .";
+        likeHeartSpan.textContent = "Cliquer sur ce bouton pour aimer ce média .";
         likeHeartSpan.classList.add('screenreader-text');
 
         [likeHeart, likeHeartSpan].map(element => likeHeartContainer.appendChild(element));
@@ -70,20 +70,18 @@ class MediaItemCard {
             let state = likeHeartContainer.getAttribute('ckecked');
             if (state == "false") {
                 likeHeartContainer.setAttribute('ckecked', true);
-                console.log("template likes", template._mediaItem.likes);
                 template._mediaItem.likes++ ;
                 likeNb.textContent = template._mediaItem.likes;
                 likeNbSpan.textContent = template._mediaItem.likes + " likes";
                 likeHeart.classList.add('liked');
-                likeHeartSpan.textContent = "Cliquer ici pour ne plus aimer ce média .";
+                likeHeartSpan.textContent = "Cliquer sur ce bouton pour ne plus aimer ce média .";
             } else {
                 likeHeartContainer.setAttribute('ckecked', false);
-                console.log("else",template._mediaItem.likes);
                 template._mediaItem.likes-- ;
                 likeNb.textContent = template._mediaItem.likes;
                 likeNbSpan.textContent = template._mediaItem.likes + " likes";
                 likeHeart.classList.remove('liked');
-                likeHeartSpan.textContent = "Cliquer ici pour aimer ce média .";
+                likeHeartSpan.textContent = "Cliquer sur ce bouton pour aimer ce média .";
             };
         };
 
