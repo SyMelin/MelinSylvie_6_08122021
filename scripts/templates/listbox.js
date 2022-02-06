@@ -115,12 +115,12 @@ function moveToOption (e, option) {
             let previousOption = option.previousSibling.previousSibling;
             if (previousOption.classList.contains('option')) {
                 previousOption.focus();
-            }
+            };
         } else {
             let nextOption = option.nextSibling.nextSibling;
             if (nextOption.classList.contains('option')) {
                 nextOption.focus();
-            }
+            };
         };
     };
 };
