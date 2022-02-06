@@ -169,6 +169,10 @@ body {
     opacity: 1;
 }
 
+.option.focusVisible {
+    outline: none;
+}
+
 .listbox .option--selected {
     height: 33.33%;
     border: none;

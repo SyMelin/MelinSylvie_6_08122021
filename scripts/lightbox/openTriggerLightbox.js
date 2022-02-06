@@ -38,7 +38,6 @@ class OpenTriggerLightbox extends OpenTrigger {
             frameAll.forEach((frame) => {
                 ['inMain', 'inLightbox', 'link'].map(element => frame.classList.toggle(element));
                 frame.setAttribute('tabindex', 0);
-                console.log(frame);
                 let ariaLabel = String(frame.getAttribute('aria-label'));
                 ariaLabel = ariaLabel.replace(", closeup view", "");
                 frame.setAttribute('role', 'image');

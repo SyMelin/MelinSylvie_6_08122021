@@ -79,7 +79,6 @@ class Modal {
 
     createCloseBtn(type){
         new CloseBtnFactory(type);
-        console.log("HEELLLLLLLOOOO");
     };
 
     createModalContent(type){

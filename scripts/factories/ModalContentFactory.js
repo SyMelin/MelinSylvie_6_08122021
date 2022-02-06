@@ -14,12 +14,10 @@ class ModalContentFactory {
                 lightboxModal.create();
 
                 allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
-                console.log(allTabindex0);
                 allTabindex0.forEach((element) => {
                     if (element.classList.contains('inMain')){
                         element.removeAttribute('tabindex');
                     };
-                console.log(allTabindex0);
                 });
             break;
          };

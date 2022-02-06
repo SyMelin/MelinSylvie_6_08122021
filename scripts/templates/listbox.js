@@ -1,20 +1,38 @@
-class Listbox {
-
+//class Listbox {
+/*
     /**
      * @param {HTMLElement} element listbox
      */
 
-    constructor (element) {
-        this._element = element;
-    }
+    //constructor (element) {
+    //    this._element = element;
+    //}
+//}
 
-}
+//On définie l'option annoncée par le screenreader
+const listboxLabel = document.getElementById('listbox-label');
+const listboxLabelSpan = document.createElement('span');
+listboxLabelSpan.classList.add('screenreader-text');
+
+function setLisboxLabelSpanText () {
+    let selectedOption = document.querySelector('.option[aria-selected="true"]');
+    let selectedOptionText = selectedOption.innerText
+    listboxLabelSpan.innerText = selectedOptionText
+};
+
+setLisboxLabelSpanText();
 
 const listbox = document.querySelector('.listbox');
 const options = Array.from(listbox.children);
 
 const expandBtn = document.querySelector('.expandBtn');
 
+const expandBtnSpan = document.createElement('span');
+expandBtnSpan.textContent = "Cliquer sur ce bouton pour ouvrir la liste d'option";
+expandBtnSpan.classList.add('screenreader-text');
+
+listboxLabel.appendChild(listboxLabelSpan);
+expandBtn.appendChild(expandBtnSpan);
 
 
 //////////// Fonction utile pour l'évenement sur une option de la listbox /////////////////
@@ -23,6 +41,7 @@ function selectAnOption (option) {
 
     options.forEach((childOption) => {
         childOption.setAttribute('aria-selected', false);
+        childOption.setAttribute('tabindex', -1);
     });
     
     listbox.setAttribute('aria-expanded', false);
@@ -45,6 +64,7 @@ function selectAnOption (option) {
 
         //on ferme les options du select
         expandBtn.setAttribute('aria-expanded', false);
+        expandBtnSpan.textContent = "Cliquer sur ce bouton pour ouvrir la liste d'option";
         expandBtn.classList.toggle('expandBtn--less');
         listbox.classList.toggle('listbox--open');
         listbox.classList.toggle('listbox--close');
@@ -57,6 +77,9 @@ function selectAnOption (option) {
         //On crée un nouveau filtre en fonction de Value et on réaffiche les cartes media
         new FilterFactory(optionSelected, photographerMedia);
         displayMedia(photographerMedia); //fonction du script pages/photographers.js
+
+        //On modifie l'option annoncée par le screenreader
+        setLisboxLabelSpanText();
 
     };
 };
@@ -83,6 +106,24 @@ options.forEach((option) => {
 });
 
 
+///////////////////fonction EVenement sur option avec flèches ////////////////////
+
+function moveToOption (e, option) {
+    if (e.key === "ArrowUp" || (e.key === "ArrowDown")){
+        e.preventDefault();
+        if (e.key === "ArrowUp") {
+            let previousOption = option.previousSibling.previousSibling;
+            if (previousOption.classList.contains('option')) {
+                previousOption.focus();
+            }
+        } else {
+            let nextOption = option.nextSibling.nextSibling;
+            if (nextOption.classList.contains('option')) {
+                nextOption.focus();
+            }
+        };
+    };
+};
 
 //////////// Fonction utile pour l'évenement sur le bouton expand de la listbox /////////////////
 
@@ -93,12 +134,19 @@ function changeListboxDisplay () {
     //On affiche les options de la listbox
     expandBtn.setAttribute('aria-expanded', true);
     expandBtn.classList.toggle('expandBtn--less');
+    expandBtnSpan.textContent = "Cliquer sur ce bouton pour fermer la liste d'option";
     listbox.classList.toggle('listbox--open');
     listbox.classList.toggle('listbox--close');
 
     listbox.focus();
 
     options.forEach((option) => {
+        option.setAttribute('tabindex', 0);
+
+        option.addEventListener('keydown', function(e) {
+            moveToOption (e, option);
+        });
+
         if (option.classList.contains('option--notSelected')) {
             ['option--notSelected', 'option--selected'].map(element => option.classList.toggle(element));
         };
@@ -109,9 +157,11 @@ function changeListboxDisplay () {
         listbox.setAttribute('aria-expanded', true);
     } else {
         expandBtn.setAttribute('aria-expanded', false);
+        expandBtnSpan.textContent = "Cliquer sur ce bouton pour ouvrir la liste d'option";
         listbox.setAttribute('aria-expanded', false);
         options.forEach((option)=> {
-            if ((option.getAttribute('aria-selected')) == "false") {
+            option.setAttribute('tabindex', -1);
+            if ((option.getAttribute('aria-selected')) == "false") { 
                 ['option--notSelected', 'option--selected'].map(element => option.classList.toggle(element));
             };
         })   
