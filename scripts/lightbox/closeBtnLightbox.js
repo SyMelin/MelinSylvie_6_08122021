@@ -4,11 +4,12 @@ class CloseBtnLightbox extends CloseBtn {
         super(type)
     }
 
-    create() {
+    set() {
 
         let closeBtn =  document.querySelector('.modal__content .closeBtn');
         closeBtn.setAttribute('aria-label', 'Close dialog');
         closeBtn.setAttribute('tabindex', 0);
+        closeBtn.classList.add('tabindex0');
 
         // Fermeture de la modale au clic
         closeBtn.addEventListener('click', (e) => {

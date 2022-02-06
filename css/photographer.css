@@ -416,6 +416,10 @@ body {
     position: relative;
     border: none;
 }
+.contact-button:focus {
+    outline : 5px solid black;
+    border-radius:  0.3125em;
+}
 
 .contact-button::after {
     position: absolute;
@@ -493,6 +497,11 @@ body {
     background-repeat: no-repeat;
     width: 2.625em;
     cursor: pointer;
+}
+
+.closeBtn:focus, .closeBtn:hover {
+    outline : 5px solid black;
+    border-radius:  0.3125em;
 }
 
 .modal header {

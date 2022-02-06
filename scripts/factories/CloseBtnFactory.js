@@ -5,11 +5,11 @@ class CloseBtnFactory {
         switch (type) {
             case 'contactForm' :
                 let closeBtnContactForm = new CloseBtnContactForm(type);
-                closeBtnContactForm.create();
+                closeBtnContactForm.set();
             break;
             case 'lightbox' :
                 let closeBtnLightbox = new CloseBtnLightbox(type);
-                closeBtnLightbox.create(); 
+                closeBtnLightbox.set(); 
             break;
         };
     }; 

@@ -8,6 +8,7 @@ let photographerData;
 let photographerProfile;
 let photographerMedia;
 let likeTotal = 0;
+let allTabindex0;
 
 //Récupère l'id du photographe contenu dans l'url de la page photographer.html
 function getId() {
