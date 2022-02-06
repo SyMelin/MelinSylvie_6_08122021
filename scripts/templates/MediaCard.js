@@ -24,7 +24,7 @@ class MediaItemCard {
         const title = document.createElement('p');
         title.setAttribute('tabindex', 0);
         title.classList.add('tabindex0', 'title-caption');
-        title.textContent = this._mediaItem.title;
+        title.textContent = template._mediaItem.title;
     
         const like = document.createElement('div');
         like.setAttribute('tabindex', -1);
@@ -36,36 +36,68 @@ class MediaItemCard {
 
         const likeNb = document.createElement('p');
         likeNb.setAttribute('aria-hidden', true);
-        likeNb.textContent = this._mediaItem.likes;
+        likeNb.textContent = template._mediaItem.likes;
         // ajout de span pour accessibilité de likeNB
         const likeNbSpan = document.createElement('span');
         likeNbSpan.classList.add('screenreader-text');
-        likeNbSpan.textContent = this._mediaItem.likes + " likes";  
+        likeNbSpan.textContent = template._mediaItem.likes + " likes";  
+
+
+        const likeHeartContainer = document.createElement('div');
+        likeHeartContainer.setAttribute('tabindex', 0);
+        likeHeartContainer.setAttribute('ckecked', false);
+        likeHeartContainer.classList.add('tabindex0', 'likeHeartContainer');
+        
 
         const likeHeart = document.createElement('div');
-        likeHeart.setAttribute('tabindex', 0);
-        likeHeart.classList.add('tabindex0', 'likeHeart');
+        //likeHeart.setAttribute('tabindex', 0);
+        likeHeart.classList.add('likeHeart');
         likeHeart.innerHTML = '<i aria-label="likes" class="fas fa-heart"></i>';
+        const likeHeartSpan = document.createElement('span');
+        likeHeartSpan.textContent = "Cliquer ici pour aimer ce média .";
+        likeHeartSpan.classList.add('screenreader-text');
 
+        [likeHeart, likeHeartSpan].map(element => likeHeartContainer.appendChild(element));
         [likeNb, likeNbSpan].map(element => likeNbBox.appendChild(element));
-        [likeNbBox, likeHeart].map(element => like.appendChild(element));
+        [likeNbBox, likeHeartContainer].map(element => like.appendChild(element));
         [title, like].map(element => caption.appendChild(element));
         [frame, caption].map(element => mediaItemCard.appendChild(element));
 
 
-        ///////////// EVenement sur l'icone coeur cliquable ///////////////////////
+        ///////////// Evenements sur le conteneur del'icone coeur cliquable ///////////////////////
 
-        likeHeart.addEventListener('click', function(e) {
-            template._mediaItem.likes++ ;
-            likeNb.textContent = template._mediaItem.likes;
-            sumLikes(photographerMedia);
-        });
-
-        likeHeart.addEventListener('keyup', (e) => {
-            if (e.key === "Enter") {
+        function calculateMediaNumberOfLikes () {
+            let state = likeHeartContainer.getAttribute('ckecked');
+            if (state == "false") {
+                likeHeartContainer.setAttribute('ckecked', true);
+                console.log("template likes", template._mediaItem.likes);
                 template._mediaItem.likes++ ;
                 likeNb.textContent = template._mediaItem.likes;
-                sumLikes(photographerMedia); 
+                likeNbSpan.textContent = template._mediaItem.likes + " likes";
+                likeHeart.classList.add('liked');
+                likeHeartSpan.textContent = "Cliquer ici pour ne plus aimer ce média .";
+            } else {
+                likeHeartContainer.setAttribute('ckecked', false);
+                console.log("else",template._mediaItem.likes);
+                template._mediaItem.likes-- ;
+                likeNb.textContent = template._mediaItem.likes;
+                likeNbSpan.textContent = template._mediaItem.likes + " likes";
+                likeHeart.classList.remove('liked');
+                likeHeartSpan.textContent = "Cliquer ici pour aimer ce média .";
+            };
+        };
+
+        likeHeartContainer.addEventListener('click', function(e) {
+            calculateMediaNumberOfLikes();
+            sumLikes(photographerMedia);
+            likeNbBox.focus();
+        });
+
+        likeHeartContainer.addEventListener('keyup', function(e) {
+            if (e.key === "Enter") {
+                calculateMediaNumberOfLikes();
+                sumLikes(photographerMedia);
+                likeNbBox.focus();
             };
         }); 
 
