@@ -20,6 +20,7 @@ class PhotographerThumb {
         link.setAttribute('href', "../photographer.html?id=" + this._photographer.id);
         link.setAttribute('title', this._photographer.name + "-page");
         link.setAttribute('aria-label', this._photographer.name);
+        link.classList.add('tabindex0', 'link');
        
         const img = document.createElement('img');
         img.setAttribute('src', `assets/photographers/photographers_ID_photos/${this._photographer.portrait}`);

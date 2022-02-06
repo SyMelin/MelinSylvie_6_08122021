@@ -13,7 +13,7 @@ class ModalContentFactory {
                 let lightboxModal = new LightboxModal();
                 lightboxModal.create();
 
-                const allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
+                allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
                 console.log(allTabindex0);
                 allTabindex0.forEach((element) => {
                     if (element.classList.contains('inMain')){

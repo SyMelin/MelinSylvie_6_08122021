@@ -74,6 +74,9 @@ async function initPhotographer() {
 
     //Initialisation de la modale
     new Modal('', 'init').createModal();
+
+    //On personnalise le rendu du focus des éléménts
+    manageFocusOutline();
 };
 
 initPhotographer();

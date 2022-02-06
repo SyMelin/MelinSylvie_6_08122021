@@ -269,13 +269,12 @@ body {
 .thumb-imgfull {
     border-radius: 0.3125em;  
 }
-/*
-.thumb-imgfull.inMain {
-    width: 45%;
-  /*  min-width: 25%;*/
-/*  min-width: 20em;
-}*/
 
+.thumb-imgfull.inMain {
+    width: 10.938em;
+}
+
+/*Css pour écrans min 768px (petites tablettes) et supérieurs */
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
     .thumb-imgfull.inMain {
         width: 47%;
@@ -295,6 +294,7 @@ body {
         min-width: 21.875em;
     }
 }
+/***************************************************************/
 
 .thumb-imgfull.inLightbox {
     width: 100%;
@@ -304,7 +304,19 @@ body {
     width: 100%;
     border-radius: inherit;
 }
+.thumb-img.inMain {
+    height: 21.875em;
+}
 
+/* Css non adequat por mobile : la responsivité mobile pour ce prototype n'est pas attendue*/ 
+@media screen and (max-width: 767.98px) {
+    .thumb-img.inMain {
+        width: 21.875em;
+        height: 21.875em;
+    }
+}
+
+/*Css pour écrans min 768px (petites tablettes) et supérieurs */
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
     .thumb-img.inMain {
         height: 21.875em;
@@ -325,6 +337,7 @@ body {
         min-height: 90%;
     }
 }
+/***************************************************************/
 
 .thumb-img.inLightbox {
     height: 60em;
@@ -457,16 +470,6 @@ body {
 
 
 /***************************** Modal *************************************/
-
-/*
-.modal:focus{
-    background-color: violet;
-}
-
-.modal__content:focus{
-    background-color: yellowgreen;
-}
-*/
 
 .modal__content {
     box-sizing: border-box;

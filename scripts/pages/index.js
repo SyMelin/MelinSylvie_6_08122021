@@ -2,6 +2,8 @@
  * code JavaScript lié à la page index.html
 */
 
+let allTabindex0;
+
 
 //Affiche le profil de chaque photographe
 async function displayData(photographers) {
@@ -23,6 +25,10 @@ async function init() {
     const api = new Api("../data/photographers.json"); 
     const photographers = await api.getPhotographersWithoutAlt(); //On récupère tous les photographes
     displayData(photographers);
+
+    //On personnalise le rendu du focus des éléménts
+    manageFocusOutline();
+
 };
 
 init();

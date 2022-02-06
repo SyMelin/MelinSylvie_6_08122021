@@ -11,7 +11,7 @@
   <body>
     <!-- header -->
     <header role="banner" aria-hidden="false" id="header">
-      <a aria-label="Index page" href="index.html" class="noAccess" id="header__link" tabindex="0">
+      <a aria-label="Index page" href="index.html" class="noAccess tabindex0 link" id="header__link" tabindex="0">
         <img role="link" alt="Fisheye Home page" src="assets/images/logo.png" class="logo"/>
       </a>
     </header>
@@ -20,7 +20,7 @@
       <!-- photographer-header -->
       <div class="photograph-header" tabindex="-1">
         <div class="photographer-profile"></div>
-        <button aria-label="Contactez-moi" class="contact-button noAccess" tabindex="0">Contactez-moi</button>
+        <button aria-label="Contactez-moi" class="contact-button noAccess tabindex0" tabindex="0">Contactez-moi</button>
         <div class="user-container" tabindex="-1"></div>
       </div>
       <!-- Elément Infos supplémentaires -->
@@ -50,7 +50,7 @@
     </div>
 
     <!-- SCRIPTS  ----------------------------------------------------------------------------------------------------------------------------------------------------->
-    
+
     <!-- API -->
     <script src="scripts/API/api.js"></script>
 
@@ -83,6 +83,9 @@
 
     <!-- Pages -->
     <script src="scripts/pages/photographer.js"></script>
+
+     <!-- Utils -->
+     <script src="scripts/utils/utils.js"></script>
 
   </body>
 </html>

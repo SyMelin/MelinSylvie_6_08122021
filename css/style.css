@@ -1,6 +1,16 @@
 @import url("photographer.css");
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 
+
+.focusVisible {
+    outline : 5px solid black;
+    border-radius:  0.3125em;;
+}
+
+.link.focusVisible {
+    outline-color: blue;
+}
+
 .screenreader-text {
     height: 1px;
     left: 0;

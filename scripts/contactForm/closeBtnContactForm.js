@@ -9,6 +9,7 @@ class CloseBtnContactForm extends CloseBtn {
         let closeBtn =  document.querySelector('.modal__content .closeBtn');
         closeBtn.setAttribute('aria-label', 'Close Contact form');
         closeBtn.setAttribute('tabindex', 0);
+        closeBtn.classList.add('tabindex0');
 
         // Fermeture de la modale au clic sur closeBtn
         closeBtn.addEventListener('click', (e) => {

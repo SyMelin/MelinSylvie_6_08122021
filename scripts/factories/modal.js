@@ -34,7 +34,7 @@ class Modal {
 
             case 'contactForm' :
 
-                const allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
+                allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
                 allTabindex0.forEach((element) => {
                     element.removeAttribute('tabindex');
                 });
