@@ -192,7 +192,7 @@ class FormField {
             break;
 
             case 'textarea' :
-                dataErrorText = "Veuillez rédiger votre message. Maximum 2000 caractères";
+                dataErrorText = "Veuillez rédiger votre message. Maximum " + this._item.maxlength + " caractères";
             break;
 
         };
