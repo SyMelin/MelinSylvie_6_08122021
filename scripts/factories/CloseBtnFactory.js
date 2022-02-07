@@ -27,7 +27,7 @@ class CloseBtn {
 
         //On rend la modale inaccessible
         const modal = document.querySelector('.modal');
-        modal.style.display = "none";
+        ['modal--close', 'modal--open'].map(element => modal.classList.toggle(element));
         modal.setAttribute('aria-hidden', true);
     
         //On vide le contenu de la modale de tout ses éléments sauf le bouton close

@@ -248,7 +248,7 @@ class FormField {
 
     setEventListenerArrow () {
         
-        //La nivaigation via flèches haut et bas ne fonctionne pas comme attendue si lecteur d'écran (NVDA) utilisé
+        //La navigation via flèches haut et bas ne fonctionne pas comme attendue si lecteur d'écran (NVDA) utilisé
         let allFormFieldChildren = Array.from(this._formField.children);
         allFormFieldChildren.forEach((child) => {
             child.addEventListener('keydown', function(e) {
@@ -266,20 +266,24 @@ class FormField {
                                 };
                             } else {};
                         };
+                    } else if (child.tagName.toLowerCase() == "input") {
+                        if (e.key == "ArrowDown") {
+                            checkFieldValidity(child, child.type);
+                            if (!(child.nextSibling.classList.contains('hidden'))) {
+                                child.nextSibling.focus();
+                            } else if (child.nextSibling.classList.contains('hidden')) {
+                                child.parentElement.nextElementSibling.firstChild.focus();
+                            } else {};
+                        } else {
+                            checkFieldValidity(child, child.type);
+                            child.previousSibling.focus();
+                        }
                     } else if (child.tagName.toLowerCase() == "span") {
                         if (e.key == "ArrowDown") {
                             child.parentElement.nextSibling.firstChild.focus();
                         } else {
                             child.previousSibling.focus();
                         };
-                    } else if (child.tagName.toLowerCase() == "input") {
-                        if (e.key == "ArrowDown") {
-                            checkFieldValidity(child, child.type)
-                            child.nextSibling.focus();
-                        } else {
-                            checkFieldValidity(child, child.type)
-                            child.previousSibling.focus();
-                        }
                     } else {};
                 };
             });

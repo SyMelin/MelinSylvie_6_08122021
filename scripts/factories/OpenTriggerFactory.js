@@ -24,7 +24,7 @@ class OpenTrigger {
 
     displayModal() {
         const modal = document.querySelector('.modal');
-        modal.style.display = "block";
+        ['modal--close', 'modal--open'].map(element => modal.classList.toggle(element));
         modal.setAttribute('aria-hidden', false);
         document.querySelector('.modal').focus(); //met le focus sur la modale une fois cette dernière ouverte
       

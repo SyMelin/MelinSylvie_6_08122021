@@ -308,6 +308,17 @@ body {
     width: 100%;
     border-radius: inherit;
 }
+
+.thumb-img--video video {
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.thumb-img--image {
+    background-size: cover;
+    background-position: center;
+}
+
 .thumb-img.inMain {
     height: 21.875em;
 }
@@ -459,7 +470,7 @@ body {
 }
 
 .contact-form .contact-button {
-    font-size: 1.125em;
+    font-size: 1.375em;
     padding: 1.4375em 3.1875em;    
 }
 
@@ -479,6 +490,14 @@ body {
 
 /***************************** Modal *************************************/
 
+.modal--close {
+    display: none;
+}
+
+.modal--open {
+    display: block;
+}
+
 .modal__content {
     box-sizing: border-box;
     border-radius: 0.3125em;
@@ -495,8 +514,8 @@ body {
 .closeBtn {
     display: block;
     position: absolute;
-    right: 1.25em;
-    top: 1.25em;
+    right: 2em;
+    top: 2em;
     background-image : url("../assets/icons/close.svg");
     background-repeat: no-repeat;
     width: 2.625em;
@@ -529,9 +548,19 @@ body {
 
 /****************************** Modal ContactForm ********************************/
 
+#contact-modal {
+    height: 100%;
+}
+
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
-    #contact_modal .modal__content {
+    #contact-modal .modal__content {
         width: 75%;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1443.98px) {
+    #contact-modal .modal__content {
+        width: 65%;
     }
 }
 
@@ -539,7 +568,12 @@ body {
     background-color: #DB8876;
 }
 
+.modal--contact-form header {
+    margin-bottom: 5em;
+}
+
 #contact-title {
+    margin-top: 1.25em;
     color: black;
     font-size: 3.5em;
     font-weight: normal;
@@ -610,6 +644,9 @@ body {
 
 /******************************* Modal Lightbox ***********************************/
 
+#lighbox_modal {
+    height: auto;
+}
 
 .modal--lightbox {
     display: flex;
@@ -620,6 +657,7 @@ body {
 }
 
 .carousel {
+    margin-top: 5em;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -635,6 +673,11 @@ body {
     height: 3.125em;
     background-repeat: no-repeat;
     opacity: 1;
+}
+
+.navBtn:focus {
+    outline : 4px solid blue;
+    border-radius:  0.3125em;
 }
 
 .navBtn--hidden {
