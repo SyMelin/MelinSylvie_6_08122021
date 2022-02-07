@@ -60,5 +60,7 @@ class CloseBtnContactForm extends CloseBtn {
                 this.initContactFormModal();
             };
         };
+        //On réinitialise la personnalisation du focus
+        manageFocusOutline();
     };
 };

@@ -101,5 +101,7 @@ class CloseBtnLightbox extends CloseBtn {
                 this.initLightboxModal();
             };
         };
+        //On réinitialise la personnalisation du focus
+        manageFocusOutline();
     };
 };

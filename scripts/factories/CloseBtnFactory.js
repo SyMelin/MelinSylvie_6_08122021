@@ -49,7 +49,9 @@ class CloseBtn {
         //On rétablit les tabindex = 0 sur les éléments concernés
         allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
         allTabindex0.forEach((element) => {
-            element.setAttribute('tabindex', 0);
+            if (!(element.classList.contains('option'))){
+                element.setAttribute('tabindex', 0);
+            }  
         });
 
         //On rend l'accessibilité aux éléments concernés
