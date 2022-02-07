@@ -34,11 +34,13 @@ class Modal {
 
             case 'contactForm' :
 
+                //On enlève la possibilité de focus su les éléments concernés
                 allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
                 allTabindex0.forEach((element) => {
                     element.removeAttribute('tabindex');
                 });
 
+                //On initialise la  modal contacForm
                 modal.setAttribute('aria-labelledby', 'contact-title');
                 modal.setAttribute('tabindex', 1);
                 
@@ -55,6 +57,9 @@ class Modal {
 
             case 'lightbox' :
 
+                //La possibilité de focus sur les éléments concernés est enlevé au niveau de la création du contenu de la modale cf: la classe ModalContentFactory
+
+                //On initialise la  modal contacForm
                 modal.setAttribute('aria-label', 'image closeup view');
                 modal.setAttribute('tabindex', 1);
 

@@ -11,6 +11,7 @@ class PhotographerInfo {
     createPhotographerInfo () {
         const info = document.getElementById('info');
         info.setAttribute('aria-label', this._profile.name + "informations supplémentaires");
+        // ajout de span pour accessibilité de info
         const infoSpan = document.createElement('span');
         infoSpan.textContent = this._profile.name + "informations supplémentaires .";
         infoSpan.classList.add('screenreader-text');
@@ -23,6 +24,7 @@ class PhotographerInfo {
         price.setAttribute('aria-hidden', true);
         price.setAttribute('aria-label', 'price');
         price.textContent = this._profile.price + "€ / jour";
+        // ajout de span pour accessibilité de price
         const priceSpan = document.createElement('span');
         priceSpan.classList.add('screenreader-text');
         priceSpan.textContent = this._profile.price +"€ par jour";

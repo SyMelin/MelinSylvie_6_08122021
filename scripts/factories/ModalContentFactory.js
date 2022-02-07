@@ -1,4 +1,12 @@
+/** La classe ModalContentFactory génère le contenu des modales selon leur type.
+*/
+
+
 class ModalContentFactory {
+
+    /**
+     * @param {string} type type de modale à créer
+     */
 
     constructor(type) {
 
@@ -13,6 +21,7 @@ class ModalContentFactory {
                 let lightboxModal = new LightboxModal();
                 lightboxModal.create();
 
+                //On enlève la possibilité de focus sur les éléments concernés
                 allTabindex0 = Array.from(document.getElementsByClassName('tabindex0'));
                 allTabindex0.forEach((element) => {
                     if (element.classList.contains('inMain')){

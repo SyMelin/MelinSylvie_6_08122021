@@ -8,6 +8,7 @@ class LightboxModal {
         carousel.classList.add('carousel');
         carousel.setAttribute('tabindex', -1);
 
+        //On ajoute au contenu de la modale le carrousel dont la création est effectué lors du pré-chargement de la modale lighbox cf: classe OpenTriggerLightbox.preloadModalLightbox(frame)
         modalContent.prepend(carousel);
     };
 };

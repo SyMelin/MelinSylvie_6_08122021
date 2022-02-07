@@ -1,5 +1,9 @@
 class CloseBtnLightbox extends CloseBtn {
 
+    /**
+     * @param {string} type type de modale à créer
+     */
+
     constructor (type) {
         super(type)
     }
@@ -17,7 +21,7 @@ class CloseBtnLightbox extends CloseBtn {
             this.closeLightboxModal(e);
         });
 
-        // Fermeture de la modale via la touche Enter sur closeBtn
+        // Fermeture de la modale via la touche Entrée sur closeBtn
         closeBtn.addEventListener('keyup', (e) => {
             e.preventDefault();
             if (e.key === "Enter") {
@@ -101,6 +105,7 @@ class CloseBtnLightbox extends CloseBtn {
                 this.initLightboxModal();
             };
         };
+        
         //On réinitialise la personnalisation du focus
         manageFocusOutline();
     };

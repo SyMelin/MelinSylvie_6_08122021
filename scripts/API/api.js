@@ -1,10 +1,14 @@
 class Api {
 
+    /**
+     * @param {URL} url url de récupération des données (ici, chemin du fichier json)
+     */
+
     constructor (url) {
         this._url = url;
     }
 
-    //Un tableau contenant tous les photographes est retourné - sans attribut alt
+    //Un tableau contenant tous les objets données profil des photographes est retourné - sans attribut alt
     async getPhotographersWithoutAlt () {
         return fetch(this._url) //on interroge le service web: ici le fichier json est déjà fourni en exemple
                 .then(function(res) {
@@ -27,7 +31,7 @@ class Api {
     };
 
 
-    //Un tableau contenant les données profil d'un photographe est retourné
+    //Un tableau donnée photographe contenant l'objet données profil et le tableau données média d'un photographe précis est retourné
     async getPhotographerData () {
         return fetch(this._url)
                 .then(function(res) {
@@ -38,10 +42,10 @@ class Api {
                 .then(function(value){
 
                     //On récupère l'id du photographe concerné par la page en cours
-                    const idPhotographer = getId();
+                    const idPhotographer = getId(); //fonction définie dans le fichier pages/photgraphers.js
                     let photographerIndex;
 
-                    //On crée un objet qui récupère les données du photographe
+                    //On crée un objet dans lequel on  stockera les données du photographe
                     let photographerData = new Object ();
 
 
@@ -50,18 +54,19 @@ class Api {
                     //On parcourt tous les photographes
                     for (let photographer of value.photographers){
                         if (photographer.id == idPhotographer) {
-                            //On ajout l'attribut alt complété
+                            //On ajoute l'attribut ALT complété par le nom du photographe
                             if (!photographer.alt || photographer.alt == ""){
                                 photographer.alt = String(photographer.name);
                             }
-                            //On récupère l'index du photographe dont l'id correspond à l'id du photographe de la page, puis on récupère l'élément de à l'index correspondant 
+                            //On récupère l'index du photographe dont l'id correspond à l'id du photographe de la page, puis on récupère l'objet profil à l'index correspondant 
                             photographerIndex = value.photographers.indexOf(photographer);
                             photographerProfile = value.photographers[photographerIndex];
                         };
                     };
+                    //On stocke l'objet de profil dans l'objet données du photographe
                     photographerData.profile =  photographerProfile;
 
-                    //On récupère les média du photographe
+                    //On récupère tous les objets média du photographe dans un tableau
                     let photographerMedia = [];
                     for (let mediaItem of value.media){
                         if (mediaItem.photographerId == idPhotographer) {
@@ -80,45 +85,10 @@ class Api {
                             photographerMedia.push(mediaItem);
                         };
                     };
+                    //On ajoute le tableau de données média du photographe à l'entrée media de l'objet globale de données photographe
                     photographerData.media =  photographerMedia;
 
                     return photographerData;
-                })
-                .catch(function(err){
-                    console.log(err);
-                });
-    };
-
-    //Un tableau contenant les media d'un photographe est retourné
-    async getPhotographerMedia () {
-        return fetch(this._url)
-                .then(function(res) {
-                    if (res.ok) {
-                        return res.json();
-                    };
-                })
-                //On parcourt tous les media et on récupère les media dont l'id correspond à l'id du photographe de la page
-                .then (function(value) {
-                    const idPhotographer = getId();
-                    let photographerMedia = [];
-                    for (let mediaItem of value.media){
-                        if (mediaItem.photographerId == idPhotographer) {
-                            if (!mediaItem.alt || mediaItem.alt == ""){
-                                //On ajoute l'attribut ALT complété
-                                if (mediaItem.image) {
-                                    mediaItem.alt =  String(mediaItem.image).replace(/\.[^/.]+$/, "").replaceAll("_", " ");
-                                } else if ( mediaItem.video){
-                                    mediaItem.alt =  String(mediaItem.video).replace(/\.[^/.]+$/, "").replaceAll("_", " ");
-                                    //Pour les videos, on ajoute la propriété TITLE
-                                    mediaItem.title = mediaItem.alt;
-                                } else {
-                                    mediaItem.alt = "";
-                                };
-                            };
-                            photographerMedia.push(mediaItem);
-                        };
-                    };
-                    return photographerMedia;
                 })
                 .catch(function(err){
                     console.log(err);

@@ -1,4 +1,13 @@
+/** La classe OpenTriggerFactory génère les éléments qui déclenchnte l'ouverure des modales selon leur type.
+ *  Elle est accompagnée de sa sous-class générale OpenTrigger
+*/
+
+
 class OpenTriggerFactory {
+
+    /** 
+     * @param {string} type type de modale à créer
+     */
 
     constructor(type) {
         switch(type) {
@@ -17,6 +26,10 @@ class OpenTriggerFactory {
 
 
 class OpenTrigger {
+
+    /**
+     * @param {string} type type de modale à créer
+     */
     
     constructor(type) {
         this._type = type;

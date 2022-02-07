@@ -1,4 +1,14 @@
+/** La classe CloseBtnFactory génère le bouton de fermeture des modales selon leur type.
+ *  Elle est accompagnée de sa sous-classe générale CloseBtn
+*/
+
+
+
 class CloseBtnFactory {
+
+    /**
+     * @param {string} type type de modale à créer
+     */
 
     constructor(type) {
 
@@ -18,6 +28,11 @@ class CloseBtnFactory {
 
 
 class CloseBtn {
+
+    /**
+     * 
+     * @param {string} type type de modale à créer
+     */
 
     constructor(type) {
         this._type = type;

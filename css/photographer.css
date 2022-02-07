@@ -71,7 +71,7 @@ body {
 
 
 
-/************** Division contenant les informations supplémentaires en position fixe ************************/
+/************** Division Info contenant les informations supplémentaires en position fixe *****************/
 
 
 #info {
@@ -104,7 +104,7 @@ body {
 
 
 
-/*******************  Division contenant la région de tri **************************/
+/*******************  Division Sorting contenant la région de tri **************************/
 
 
 .sorting {
@@ -251,7 +251,8 @@ body {
 
 
 
-/******************************** Conteneur des media **********************************/
+
+/******************************** MediaWrapper = Conteneur des media **********************************/
 
 
 .mediaWrapper {
@@ -331,7 +332,7 @@ body {
     height: 21.875em;
 }
 
-/* Css non adequat por mobile : la responsivité mobile pour ce prototype n'est pas attendue*/ 
+/* Css non adequat pour mobile : la responsivité mobile pour ce prototype n'est pas attendue */ 
 @media screen and (max-width: 767.98px) {
     .thumb-img.inMain {
         width: 21.875em;
@@ -488,7 +489,6 @@ body {
     background-color: #FAFAFA;
 }
 
-/* Ajout pour bouton au hover ou focus */
 .contact-button:hover::after {
     opacity: 1;
 }
@@ -496,7 +496,7 @@ body {
 
 
 
-/***************************** Modal *************************************/
+/***************************** Modale *************************************/
 
 .modal--close {
     display: none;
@@ -554,7 +554,8 @@ body {
 
 
 
-/****************************** Modal ContactForm ********************************/
+/****************************** Modale ContactForm ********************************/
+
 
 #contact-modal {
     height: 100%;
@@ -631,6 +632,8 @@ body {
 }
 
 
+
+
 /************* Validation / invalidation des champs du formulaire *****************/
 
 
@@ -650,7 +653,9 @@ body {
  
  
 
-/******************************* Modal Lightbox ***********************************/
+
+/******************************* Modale Lightbox ***********************************/
+
 
 #lighbox_modal {
     height: auto;

@@ -114,7 +114,7 @@ class ContactFormModal extends CloseBtnContactForm{
             allInputs.forEach((input) => {
                 console.log(input.value);
             });
-            this.initContactFormModal(); //Méthode de la class CloseBtnContactForm
+            this.initContactFormModal(); //Méthode de la classe CloseBtnContactForm
             alert('Le message a bien été envoyé');
         } else {
            console.log("Le formulaire n'est pas valide");
@@ -177,6 +177,7 @@ class FormField {
         let dataError = document.createElement('span');
         dataError.setAttribute('tabindex', 0);
         dataError.classList.add('formField__data-error', 'tabindex0', 'hidden');
+        // ajout de span pour accessibilité de dataError
         let dataErrorSpanPrev = document.createElement('span');
         dataErrorSpanPrev.classList.add('screenreader-text');
         dataErrorSpanPrev.textContent = "Message d'erreur :"
@@ -200,6 +201,7 @@ class FormField {
 
         };
 
+        // ajout de span pour accessibilité de dataError
         let dataErrorSpanNext = document.createElement('span');
         dataErrorSpanNext.classList.add('screenreader-text');
         dataErrorSpanNext.textContent = " dans le champ de saisie précédent";

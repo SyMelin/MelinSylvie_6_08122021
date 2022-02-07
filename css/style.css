@@ -29,6 +29,12 @@ body {
     margin: 0;
 }
 
+
+
+
+/************************** Header ************************************************/
+
+
 header {
     display: flex;
     flex-direction: row;
@@ -46,6 +52,12 @@ h1 {
 .logo {
     height: 3.125em;
 }
+
+
+
+
+/*************************** Photographer Section *********************************/
+
 
 .photographer_section {
     display: grid;

@@ -17,7 +17,7 @@ class PhotographerThumb {
 
         // crée le lien img + h2
         const link = document.createElement('a');
-        link.setAttribute('href', "../photographer.html?id=" + this._photographer.id);
+        link.setAttribute('href', "../photographer.html?id=" + this._photographer.id); //création de l'url personnalisé d'un photographe dans lequel on fait passer l'id
         link.setAttribute('title', this._photographer.name + "-page");
         link.setAttribute('aria-label', this._photographer.name);
         link.classList.add('tabindex0', 'link');
@@ -42,6 +42,7 @@ class PhotographerThumb {
         paragraphe.setAttribute('tabindex', 0);
         paragraphe.classList.add('tabindex0');
 
+        //Ajout de span pour accessibilité de paragraphe
         const paragrapheSpan = document.createElement('span');
         paragrapheSpan.innerText = this._photographer.name+" informations.";
         paragrapheSpan.classList.add('screenreader-text');

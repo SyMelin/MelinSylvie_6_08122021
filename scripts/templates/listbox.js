@@ -26,9 +26,9 @@ const listbox = document.querySelector('.listbox');
 const options = Array.from(listbox.children);
 
 //On crée le bouton d'ouverture/fermeture de la liste d'options
-
 const expandBtn = document.querySelector('.expandBtn');
 
+// ajout de span pour accessibilité de expandBtn
 const expandBtnSpan = document.createElement('span');
 expandBtnSpan.textContent = "Cliquer sur ce bouton pour ouvrir la liste d'option";
 expandBtnSpan.classList.add('screenreader-text');

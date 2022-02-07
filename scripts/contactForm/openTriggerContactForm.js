@@ -1,5 +1,9 @@
 class OpenTriggerContactButton extends OpenTrigger {
 
+    /**
+     * @param {string} type type de modale à créer
+     */
+
     constructor(type) {
         super(type)
     }
@@ -22,6 +26,6 @@ class OpenTriggerContactButton extends OpenTrigger {
     openContactFormModal() {
         let newContactForm = new Modal('contact-modal', 'contactForm');
         newContactForm.createModal();
-        this.displayModal(); //Méthode de la class OpenTrigger
+        this.displayModal(); //Méthode de la classe OpenTrigger
     };
 };

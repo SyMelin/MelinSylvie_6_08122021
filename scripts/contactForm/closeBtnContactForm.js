@@ -1,5 +1,9 @@
 class CloseBtnContactForm extends CloseBtn {
 
+    /**
+     * @param {string} type type de modale à créer
+     */
+
     constructor (type) {
         super(type)
     }
@@ -48,7 +52,7 @@ class CloseBtnContactForm extends CloseBtn {
 
     initContactFormModal() {
         this.prepareBeforeClosingContactForm();
-        this.closeModal(); //méthode de la class CloseBtn
+        this.closeModal(); //méthode de la classe CloseBtn
     };
 
     closeContactFormModal(event){

@@ -21,7 +21,7 @@ async function init() {
     const headerLink = document.getElementById("header__link");
     headerLink.focus();
 
-    //On affiche les UserCards
+    //On affiche les UserCards des photographes
     const api = new Api("../data/photographers.json"); 
     const photographers = await api.getPhotographersWithoutAlt(); //On récupère tous les photographes
     displayData(photographers);

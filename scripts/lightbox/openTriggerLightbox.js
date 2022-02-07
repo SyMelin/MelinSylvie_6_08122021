@@ -1,5 +1,9 @@
 class OpenTriggerLightbox extends OpenTrigger {
 
+    /**
+     * @param {string} type type de modale à créer
+     */
+
     constructor(type) {
         super(type)
     }
@@ -27,6 +31,7 @@ class OpenTriggerLightbox extends OpenTrigger {
         });   
     };
 
+    //Pré-charge la modale lightbox
     preloadModalLightbox(frame){
         
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
@@ -65,6 +70,7 @@ class OpenTriggerLightbox extends OpenTrigger {
             ['inMain', 'inLightbox' ].map(element => mediaWrapper.classList.toggle(element));
         
            
+            //On crée le carrousel
             document.querySelector('.carousel').appendChild(mediaWrapper);
             const lightboxCarousel = new Carousel(document.querySelector('.carousel .mediaWrapper'), cardIndex);
             
