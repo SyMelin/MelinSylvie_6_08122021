@@ -59,7 +59,6 @@ class ContactFormModal extends CloseBtnContactForm{
         this._contactForm.setAttribute('action', this._action);
         this._contactForm.setAttribute('tabindex', -1);
 
-
         const fieldsContainer = document.createElement('div');
         fieldsContainer.setAttribute('tabindex', -1);
         fieldsContainer.classList.add('fieldsContainer');
@@ -142,10 +141,10 @@ class FormField {
 
     createFormField() {
 
-        let formField = document.createElement('div');
-        formField.classList.add('formField');
-        formField.setAttribute('tabindex', -1);
-        formField.setAttribute('data-error-visible', false);
+        this._formField = document.createElement('div');
+        this._formField.classList.add('formField');
+        this._formField.setAttribute('tabindex', -1);
+        this._formField.setAttribute('data-error-visible', false);
 
         //Crée le label
         let label =  document.createElement('label');
@@ -200,7 +199,7 @@ class FormField {
         dataError.textContent = dataErrorText;
         
         //Ajoute le label et le champ à leur conteneur formField
-        [label, input, dataError].map(element => formField.appendChild(element));
+        [label, input, dataError].map(element => this._formField.appendChild(element));
 
 
         ///////////////////////////// Evènement au change sur un champ ///////////////////////////////////////
@@ -208,17 +207,71 @@ class FormField {
             checkFieldValidity(input, this._item.type);
         });
 
-        ////////////////// Evènement via la touche ENTREE ou Tab=> Evite d'envoyer le formulaire et met le focus sur l'élément suivant ////////////////////
-        input.addEventListener('keydown', (e) => {
-            if ((e.key === "Enter" || e.key === "Tab") && (e.key !=="Escape")) {
-                e.preventDefault();
-                checkFieldValidity(input, this._item.type);
-            };
+        input.addEventListener('blur', (e) => {
+            checkFieldValidity(input, this._item.type);
         });
 
-        return formField;
+        ////////////////// Evènement via la touche ENTREE sur un champs autre que textarea => Evite d'envoyer le formulaire ////////////////////
+        input.addEventListener('keydown', (e) => {
+            if (e.key === "Enter") {
+                if (this._item.type !== "textarea") {
+                    e.preventDefault();
+                    checkFieldValidity(input, this._item.type);
+                    input.nextSibling.focus();
+
+                };
+            };
+        });
+        
+        this.setEventListener();
+
+        return this._formField;
+    };
+
+    setEventListener () {
+        
+        let allFormFieldChildren = Array.from(this._formField.children);
+        console.log(allFormFieldChildren);
+        allFormFieldChildren.forEach((child) => {
+            child.addEventListener('keydown', function(e) {
+                if (e.key == "ArrowDown" || e.key == "ArrowUp") {
+                    if (child.tagName.toLowerCase() == "label"){
+                        if (e.key == "ArrowDown") {
+                            child.nextSibling.focus();
+                        } else {
+                            if (child.parentElement.previousSibling) {
+                                let previousElement = child.parentElement.previousSibling.lastChild;
+                                if (!(previousElement.classList.contains('hidden'))) {
+                                    previousElement.focus();
+                                } else if (previousElement.classList.contains('hidden')) {
+                                    console.log("HELLLOOO");
+                                    console.log(previousElement.previousSibling);
+                                    previousElement.previousSibling.focus();
+                                };
+                            } else {};
+                        };
+                    } else if (child.tagName.toLowerCase() == "span") {
+                        if (e.key == "ArrowDown") {
+                            child.parentElement.nextSibling.firstChild.focus();
+                        } else {
+                            child.previousSibling.focus();
+                        };
+                    } else if (child.tagName.toLowerCase() == "input") {
+                        if (e.key == "ArrowDown") {
+                            checkFieldValidity(child, child.type)
+                            child.nextSibling.focus();
+                        } else {
+                            checkFieldValidity(child, child.type)
+                            child.previousSibling.focus();
+                        }
+                    } else {};
+                };
+            });
+        });
     };
 };
+
+/********************* Fonctions pour la Validation des champs ou du formulaire **************************/
 
 let isTextValid = function (element) {
     if (element.value.length >= (element.getAttribute('minlength')) && (/^\b([A-zÀ-ÿ][-,a-zà-ÿ. ']+[ ]*)+$/gm.test(element.value) === true)){
@@ -231,7 +284,8 @@ let isEmailValid = function (element) {
     }};
 
 let isMessageValid = function(element) {
-   if (element.value) {
+    console.log(element.value.length);
+   if (element.value.length > 0) {
        return true;
    }};
 
@@ -261,15 +315,11 @@ function checkFieldValidity(element, type) {
                 indexLabel++ ;
                 if (indexLabel < allLabels.length) {
                     allLabels[indexLabel].focus();
-                } else {
-                    const contactBtn = document.querySelector('.contact-form .contact-button');
-                    //contactBtn.focus();
                 };
         return true;
     } else {
         element.parentElement.setAttribute('data-error-visible', true)
         element.nextSibling.classList.remove('hidden');
-        element.nextSibling.focus();
         element.setAttribute('aria-invalid', true);
         return false;
     };
