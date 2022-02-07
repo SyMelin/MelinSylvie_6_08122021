@@ -274,7 +274,7 @@ class FormField {
 /********************* Fonctions pour la Validation des champs ou du formulaire **************************/
 
 let isTextValid = function (element) {
-    if (element.value.length >= (element.getAttribute('minlength')) && (/^\b([A-zÀ-ÿ][-,a-zà-ÿ. ']+[ ]*)+$/gm.test(element.value) === true)){
+    if (element.value.length >= (element.getAttribute('minlength')) && (/^\b([A-zÀ-ÿ][-,a-zà-ÿ. ']+[ ]*)+$/gm.test(element.value))){
         return true;
     }};
 
@@ -285,7 +285,7 @@ let isEmailValid = function (element) {
 
 let isMessageValid = function(element) {
     console.log(element.value.length);
-   if (element.value.length > 0) {
+   if ((element.value.length > 0) && (/^\b([A-zÀ-ÿ0-9.,;:!§µ£°#$%&’"'<>*+/=?^_`{|}~-]+[ ]*)+$/gm.test(element.value))){
        return true;
    }};
 
