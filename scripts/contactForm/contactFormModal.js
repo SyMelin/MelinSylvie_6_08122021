@@ -177,7 +177,11 @@ class FormField {
         let dataError = document.createElement('span');
         dataError.setAttribute('tabindex', 0);
         dataError.classList.add('formField__data-error', 'tabindex0', 'hidden');
+        let dataErrorSpanPrev = document.createElement('span');
+        dataErrorSpanPrev.classList.add('screenreader-text');
+        dataErrorSpanPrev.textContent = "Message d'erreur :"
        
+        let dataErrorBox = document.createElement('span');
         let dataErrorText;
 
         switch (this._item.type) {
@@ -196,7 +200,13 @@ class FormField {
 
         };
 
-        dataError.textContent = dataErrorText;
+        let dataErrorSpanNext = document.createElement('span');
+        dataErrorSpanNext.classList.add('screenreader-text');
+        dataErrorSpanNext.textContent = " dans le champ de saisie précédent";
+
+        dataErrorBox.textContent = dataErrorText;
+
+        [dataErrorSpanPrev, dataErrorBox, dataErrorSpanNext].map(element => dataError.appendChild(element));
         
         //Ajoute le label et le champ à leur conteneur formField
         [label, input, dataError].map(element => this._formField.appendChild(element));
@@ -216,9 +226,17 @@ class FormField {
             if (e.key === "Enter") {
                 if (this._item.type !== "textarea") {
                     e.preventDefault();
-                    checkFieldValidity(input, this._item.type);
-                    input.nextSibling.focus();
-
+                    if (checkFieldValidity(input, this._item.type) === true){
+                        const label = input.previousSibling;
+                        const allLabels = Array.from(document.getElementsByClassName('formField__label'));
+                        let indexLabel = allLabels.indexOf(label);
+                        indexLabel++ ;
+                        if (indexLabel < allLabels.length) {
+                            allLabels[indexLabel].focus();
+                        } else {
+                            input.nextSibling.focus();
+                        }; 
+                    };
                 };
             };
         });
@@ -306,13 +324,6 @@ function checkFieldValidity(element, type) {
         element.parentElement.setAttribute('data-error-visible', false);
         element.nextSibling.classList.add('hidden');
         element.setAttribute('aria-invalid', false);
-        const label = element.previousSibling;
-        const allLabels = Array.from(document.getElementsByClassName('formField__label'));
-                let indexLabel = allLabels.indexOf(label);
-                indexLabel++ ;
-                if (indexLabel < allLabels.length) {
-                    allLabels[indexLabel].focus();
-                };
         return true;
     } else {
         element.parentElement.setAttribute('data-error-visible', true)
