@@ -20,7 +20,7 @@ class OpenTriggerContactButton extends OpenTrigger {
     };
 
     openContactFormModal() {
-        let newContactForm = new Modal('contact_modal', 'contactForm');
+        let newContactForm = new Modal('contact-modal', 'contactForm');
         newContactForm.createModal();
         this.displayModal(); //Méthode de la class OpenTrigger
     };

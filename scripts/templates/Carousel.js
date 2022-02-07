@@ -83,7 +83,7 @@ class Carousel {
         //Fontions appelées avec les flèches gauche et droite
         // !!! Ne fonctionne pas si lecteur d'écran NVDA utilisé
         window.addEventListener('keyup', (e) => {
-            const lightboxModal = document.getElementById('lightbox_modal');
+            const lightboxModal = document.getElementById('lightbox-modal');
             if (lightboxModal) {
                 switch(e.key) {
                     case 'ArrowLeft' :

@@ -52,7 +52,7 @@ class CloseBtnContactForm extends CloseBtn {
     };
 
     closeContactFormModal(event){
-        const modal = document.getElementById('contact_modal');
+        const modal = document.getElementById('contact-modal');
         if (modal) {
             const modalState = modal.getAttribute('aria-hidden');
             if (modalState == "false") {

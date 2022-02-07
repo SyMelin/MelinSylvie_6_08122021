@@ -58,7 +58,7 @@ class CloseBtnLightbox extends CloseBtn {
 
         const frameAll = document.querySelectorAll('.carousel .mediaWrapper .thumb-imgfull .thumb-img');
         frameAll.forEach((frame) => {
-            ['inMain', 'inLightbox'].map(element => frame.classList.toggle(element));
+            ['inMain', 'inLightbox', 'link'].map(element => frame.classList.toggle(element));
             frame.setAttribute('role', 'link');
             let ariaLabel = String(frame.getAttribute('aria-label'));
             ariaLabel = ariaLabel + ", closeup view";
@@ -93,7 +93,7 @@ class CloseBtnLightbox extends CloseBtn {
     };
 
     closeLightboxModal(event){
-        const modal = document.getElementById('lightbox_modal');
+        const modal = document.getElementById('lightbox-modal');
         if (modal) {
             const modalState = modal.getAttribute('aria-hidden');
             if (modalState == "false") {

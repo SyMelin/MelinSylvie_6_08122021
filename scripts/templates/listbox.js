@@ -25,6 +25,8 @@ setLisboxLabelSpanText();
 const listbox = document.querySelector('.listbox');
 const options = Array.from(listbox.children);
 
+//On crée le bouton d'ouverture/fermeture de la liste d'options
+
 const expandBtn = document.querySelector('.expandBtn');
 
 const expandBtnSpan = document.createElement('span');
@@ -77,6 +79,9 @@ function selectAnOption (option) {
         //On crée un nouveau filtre en fonction de Value et on réaffiche les cartes media
         new FilterFactory(optionSelected, photographerMedia);
         displayMedia(photographerMedia); //fonction du script pages/photographers.js
+       
+        //On réinitilaise la personnalisation du focus
+        manageFocusOutline();
 
         //On modifie l'option annoncée par le screenreader
         setLisboxLabelSpanText();
@@ -112,14 +117,18 @@ function moveToOption (e, option) {
     if (e.key === "ArrowUp" || (e.key === "ArrowDown")){
         e.preventDefault();
         if (e.key === "ArrowUp") {
-            let previousOption = option.previousSibling.previousSibling;
-            if (previousOption.classList.contains('option')) {
-                previousOption.focus();
-            };
+            if (option.previousSibling.previousSibling) {
+                let previousOption = option.previousSibling.previousSibling;
+                if (previousOption.classList.contains('option')) {
+                    previousOption.focus();
+                };
+            };  
         } else {
-            let nextOption = option.nextSibling.nextSibling;
-            if (nextOption.classList.contains('option')) {
-                nextOption.focus();
+            if (option.nextSibling.nextSibling) {
+                let nextOption = option.nextSibling.nextSibling;
+                if (nextOption.classList.contains('option')) {
+                    nextOption.focus();
+                };
             };
         };
     };

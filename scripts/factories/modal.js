@@ -39,10 +39,9 @@ class Modal {
                     element.removeAttribute('tabindex');
                 });
 
-                modal.style.height = "100%";
                 modal.setAttribute('aria-labelledby', 'contact-title');
                 modal.setAttribute('tabindex', 1);
-               // modalContent.setAttribute('tabindex', -1);
+                
                 this.createModalContent(this._type);
                 this.createCloseBtn(this._type);
 
@@ -56,10 +55,9 @@ class Modal {
 
             case 'lightbox' :
 
-                modal.style.height = "auto";
                 modal.setAttribute('aria-label', 'image closeup view');
                 modal.setAttribute('tabindex', 1);
-               // modalContent.setAttribute('tabindex', -1);
+
                 this.createModalContent(this._type);
                 this.createCloseBtn(this._type);
 

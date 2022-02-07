@@ -31,7 +31,7 @@ class OpenTriggerLightbox extends OpenTrigger {
         
         //Si l'image cliquée ne se situe pas déjà dans la lightbox, affichage du carrousel dans la modale
         if ((frame.classList.contains('inLightbox')) === false) {
-            const lightboxModal = new Modal('lightbox_modal', 'lightbox');
+            const lightboxModal = new Modal('lightbox-modal', 'lightbox');
             lightboxModal.createModal();
             
             const frameAll = document.querySelectorAll('.mediaWrapper .thumb-imgfull .thumb-img');
