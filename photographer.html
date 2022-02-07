@@ -25,7 +25,9 @@
       </div>
       <!-- Elément Infos supplémentaires -->
       <div tabindex="0" class="tabindex0 inMain" id="info">
-        <p id="totalLikes"></p><i aria-label="likes" class="fas fa-heart"></i>
+          <p id="totalLikes"></p>
+          <span class="totalLikesSpan screenreader-text">likes</span>
+          <i class="fas fa-heart"></i>
         <p id="price"></p>
       </div>
       <!-- Division contenant l'élément de tri des images -->
@@ -45,11 +47,10 @@
     <div role="dialog" aria-hidden="true" class="modal modal--close"  >
       <!-- conteneur qui accueille le contenu de la modale: {contactForm ou lightbox} + le bouton de fermeture  -->
       <div class="modal__content">
-          <img role="button" src="assets/icons/close.svg" class="closeBtn" alt=""/>
+          <img role="button" src="assets/icons/close.svg" class="closeBtn" alt="Fermer la modale"/>
       </div>
     </div>
 
-    <!-- SCRIPTS  ----------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!-- API -->
     <script src="scripts/API/api.js"></script>
