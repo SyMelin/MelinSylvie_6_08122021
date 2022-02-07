@@ -223,15 +223,15 @@ class FormField {
             };
         });
         
-        this.setEventListener();
+        this.setEventListenerArrow();
 
         return this._formField;
     };
 
-    setEventListener () {
+    setEventListenerArrow () {
         
+        //La nivaigation via flèches haut et bas ne fonctionne pas comme attendue si lecteur d'écran (NVDA) utilisé
         let allFormFieldChildren = Array.from(this._formField.children);
-        console.log(allFormFieldChildren);
         allFormFieldChildren.forEach((child) => {
             child.addEventListener('keydown', function(e) {
                 if (e.key == "ArrowDown" || e.key == "ArrowUp") {
@@ -244,8 +244,6 @@ class FormField {
                                 if (!(previousElement.classList.contains('hidden'))) {
                                     previousElement.focus();
                                 } else if (previousElement.classList.contains('hidden')) {
-                                    console.log("HELLLOOO");
-                                    console.log(previousElement.previousSibling);
                                     previousElement.previousSibling.focus();
                                 };
                             } else {};
@@ -274,7 +272,7 @@ class FormField {
 /********************* Fonctions pour la Validation des champs ou du formulaire **************************/
 
 let isTextValid = function (element) {
-    if (element.value.length >= (element.getAttribute('minlength')) && (/^\b([A-zÀ-ÿ][-,a-zà-ÿ. ']+[ ]*)+$/gm.test(element.value) === true)){
+    if (element.value.length >= (element.getAttribute('minlength')) && (/^\b([A-zÀ-ÿ][-,a-zà-ÿ. ']+[ ]*)+$/gm.test(element.value))){
         return true;
     }};
 
@@ -284,8 +282,7 @@ let isEmailValid = function (element) {
     }};
 
 let isMessageValid = function(element) {
-    console.log(element.value.length);
-   if (element.value.length > 0) {
+   if ((element.value.length > 0) && (/^\b([A-zÀ-ÿ0-9.,;:!§µ£°#$%&’"'<>*+/=?^_`{|}~-]+[ ]*)+$/gm.test(element.value))){
        return true;
    }};
 
