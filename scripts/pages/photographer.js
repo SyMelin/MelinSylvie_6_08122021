@@ -64,7 +64,9 @@ async function initPhotographer() {
     photographerData = await api.getPhotographerData();
     console.log(photographerData);
     photographerProfile = photographerData.profile;
+    console.log(photographerProfile);
     photographerMedia = photographerData.media;
+    console.log(photographerMedia);
 
     //Affichage des données profil du photographe
     // eslint-disable-next-line no-undef
