@@ -55,7 +55,7 @@ async function initPhotographer() {
     headerLink.focus();
 
     //Récupération des données du photographe
-    const api = new Api("../data/photographers.json");
+    const api = new Api("data/photographers.json");
     photographerData = await api.getPhotographerData();
     photographerProfile = photographerData.profile;
     photographerMedia = photographerData.media;
