@@ -64,6 +64,10 @@ body {
     text-align: right;
 }
 
+.user-container img{
+    object-fit: cover;
+}
+
 .tagline {
     color: #525252
 }
