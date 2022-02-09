@@ -31,7 +31,7 @@ class Api {
     };
 
 
-    //Un tableau donnée photographe contenant l'objet données profil et le tableau données média d'un photographe précis est retourné
+    //Un Objet donnée photographe contenant l'objet données profil et le tableau données média d'un photographe précis est retourné
     async getPhotographerData () {
         return fetch(this._url)
                 .then(function(res) {
