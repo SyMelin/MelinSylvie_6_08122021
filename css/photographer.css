@@ -45,6 +45,7 @@ body {
 .photographer-profile, .user-container {
     flex: 1;
 }
+
 .photographer-profile h1 {
     font-size: 4em;
     font-weight: normal;
@@ -62,6 +63,10 @@ body {
 
 .user-container {
     text-align: right;
+}
+
+.user-container img{
+    object-fit: cover
 }
 
 .tagline {
