@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 //class Listbox {
 /*
     /**
@@ -18,7 +19,7 @@ function setLisboxLabelSpanText () {
     let selectedOption = document.querySelector('.option[aria-selected="true"]');
     let selectedOptionText = selectedOption.innerText
     listboxLabelSpan.innerText = selectedOptionText
-};
+}
 
 setLisboxLabelSpanText();
 
@@ -61,7 +62,7 @@ function selectAnOption (option) {
             if ((childOption.getAttribute('aria-selected')) == "false"){
                 childOption.classList.remove("option--selected");
                 childOption.classList.add("option--notSelected");
-            };
+            }
         });
 
         //on ferme les options du select
@@ -86,8 +87,8 @@ function selectAnOption (option) {
         //On modifie l'option annoncée par le screenreader
         setLisboxLabelSpanText();
 
-    };
-};
+    }
+}
 
 
 //////////// Evenement sur une option de la listbox /////////////////
@@ -106,7 +107,7 @@ options.forEach((option) => {
         e.preventDefault();
         if (e.key === "Enter") {
             selectAnOption(option);
-        };
+        }
     });
 });
 
@@ -121,18 +122,18 @@ function moveToOption (e, option) {
                 let previousOption = option.previousSibling.previousSibling;
                 if (previousOption.classList.contains('option')) {
                     previousOption.focus();
-                };
-            };  
+                }
+            }  
         } else {
             if (option.nextSibling.nextSibling) {
                 let nextOption = option.nextSibling.nextSibling;
                 if (nextOption.classList.contains('option')) {
                     nextOption.focus();
-                };
-            };
-        };
-    };
-};
+                }
+            }
+        }
+    }
+}
 
 //////////// Fonction utile pour l'évenement sur le bouton expand de la listbox /////////////////
 
@@ -158,7 +159,7 @@ function changeListboxDisplay () {
 
         if (option.classList.contains('option--notSelected')) {
             ['option--notSelected', 'option--selected'].map(element => option.classList.toggle(element));
-        };
+        }
     });
 
     //Selon l'état de la listbox enregistré au clic
@@ -172,10 +173,10 @@ function changeListboxDisplay () {
             option.setAttribute('tabindex', -1);
             if ((option.getAttribute('aria-selected')) == "false") { 
                 ['option--notSelected', 'option--selected'].map(element => option.classList.toggle(element));
-            };
+            }
         })   
-    };
-};
+    }
+}
 
 
 //////////// Evenement sur le bouton expand de la listbox /////////////////
@@ -191,5 +192,5 @@ expandBtn.addEventListener('click', function(e){
     e.preventDefault();
     if (e.key === "Enter") {
         changeListboxDisplay();
-    };
+    }
 });

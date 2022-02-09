@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-unused-vars */
 /** La classe ModalContentFactory génère le contenu des modales selon leur type.
 */
 
@@ -26,9 +29,9 @@ class ModalContentFactory {
                 allTabindex0.forEach((element) => {
                     if (element.classList.contains('inMain')){
                         element.removeAttribute('tabindex');
-                    };
+                    }
                 });
             break;
-         };
-    };
-};
+         }
+    }
+}

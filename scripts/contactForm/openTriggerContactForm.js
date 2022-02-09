@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 class OpenTriggerContactButton extends OpenTrigger {
 
     /**
@@ -19,13 +21,13 @@ class OpenTriggerContactButton extends OpenTrigger {
             e.preventDefault();
             if (e.key === "Enter") {
                 this.openContactFormModal();
-            };
+            }
         });
-    };
+    }
 
     openContactFormModal() {
         let newContactForm = new Modal('contact-modal', 'contactForm');
         newContactForm.createModal();
         this.displayModal(); //Méthode de la classe OpenTrigger
-    };
-};
+    }
+}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 class LightboxModal {
 
     create() {
@@ -10,5 +11,5 @@ class LightboxModal {
 
         //On ajoute au contenu de la modale le carrousel dont la création est effectué lors du pré-chargement de la modale lighbox cf: classe OpenTriggerLightbox.preloadModalLightbox(frame)
         modalContent.prepend(carousel);
-    };
-};
+    }
+}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // La class PhotographerThumb crée le composant UserCard pour un photographe donné pour la page index
 class PhotographerThumb {
 
@@ -7,7 +8,7 @@ class PhotographerThumb {
 
     constructor(photographer) {
         this._photographer = photographer;
-    };
+    }
 
     //Crée la structure de l'élément UserCard
     getUserCardDOM() {
@@ -73,5 +74,5 @@ class PhotographerThumb {
         article.appendChild(paragraphe);
         
         return (article);
-    };
-};
+    }
+}

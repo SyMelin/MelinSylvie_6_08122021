@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-unused-vars */
 /** La classe OpenTriggerFactory génère les éléments qui déclenchnte l'ouverure des modales selon leur type.
  *  Elle est accompagnée de sa sous-class générale OpenTrigger
 */
@@ -19,9 +22,9 @@ class OpenTriggerFactory {
                 const frameAll = new OpenTriggerLightbox(type);
                 frameAll.set();
             break;
-        };
+        }
     }    
-};
+}
 
 
 
@@ -45,5 +48,5 @@ class OpenTrigger {
         const main = document.getElementById('main');
         header.setAttribute('aria-hidden', true);
         main.setAttribute('aria-hidden', true);
-    };
-};
+    }
+}

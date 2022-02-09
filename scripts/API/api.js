@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class Api {
 
     /**
@@ -22,13 +23,13 @@ class Api {
                        if (!photographer.alt || photographer.alt !== "") {
                            photographer.alt = "";
                        }
-                    };
+                    }
                     return value.photographers; //les données profil concernant les photographes sont retournées
                 })
                 .catch(function(err){ //En cas d'erreur, la fonction affiche le type d'erreur
                     console.log(err);
                 });
-    };
+    }
 
 
     //Un Objet donnée photographe contenant l'objet données profil et le tableau données média d'un photographe précis est retourné
@@ -42,6 +43,7 @@ class Api {
                 .then(function(value){
 
                     //On récupère l'id du photographe concerné par la page en cours
+                    // eslint-disable-next-line no-undef
                     const idPhotographer = getId(); //fonction définie dans le fichier pages/photgraphers.js
                     let photographerIndex;
 
@@ -61,8 +63,8 @@ class Api {
                             //On récupère l'index du photographe dont l'id correspond à l'id du photographe de la page, puis on récupère l'objet profil à l'index correspondant 
                             photographerIndex = value.photographers.indexOf(photographer);
                             photographerProfile = value.photographers[photographerIndex];
-                        };
-                    };
+                        }
+                    }
                     //On stocke l'objet de profil dans l'objet données du photographe
                     photographerData.profile =  photographerProfile;
 
@@ -80,11 +82,11 @@ class Api {
                                     mediaItem.title = mediaItem.alt;
                                 } else {
                                     mediaItem.alt = "";
-                                };
-                            };
+                                }
+                            }
                             photographerMedia.push(mediaItem);
-                        };
-                    };
+                        }
+                    }
                     //On ajoute le tableau de données média du photographe à l'entrée media de l'objet globale de données photographe
                     photographerData.media =  photographerMedia;
 
@@ -93,5 +95,5 @@ class Api {
                 .catch(function(err){
                     console.log(err);
                 });
-    };
-};
+    }
+}

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 class OpenTriggerLightbox extends OpenTrigger {
 
     /**
@@ -13,7 +15,7 @@ class OpenTriggerLightbox extends OpenTrigger {
         frameAll.forEach((frame) => {
             this.setEventListener(frame);
         });
-    };
+    }
 
     setEventListener(frame){
         //Ouverture de la modale Lightbox au clic sur une image
@@ -27,9 +29,9 @@ class OpenTriggerLightbox extends OpenTrigger {
             if ((e.key === "Enter") && (modalState == "true")) {
                 e.preventDefault();
                 this.preloadModalLightbox(frame);
-            };
+            }
         });   
-    };
+    }
 
     //Pré-charge la modale lightbox
     preloadModalLightbox(frame){
@@ -53,7 +55,7 @@ class OpenTriggerLightbox extends OpenTrigger {
                     video.setAttribute('controls', true);
                     video.pause();
                     video.currentTime = "0";
-                };
+                }
             });
     
             //On récupère la mediaCard dont l'image a été cliquée
@@ -76,6 +78,6 @@ class OpenTriggerLightbox extends OpenTrigger {
             
             
             this.displayModal(); //Méthode de la class OpenTrigger
-        };
-    };
-};
+        }
+    }
+}

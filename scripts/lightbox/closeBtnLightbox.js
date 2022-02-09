@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 class CloseBtnLightbox extends CloseBtn {
 
     /**
@@ -26,7 +28,7 @@ class CloseBtnLightbox extends CloseBtn {
             e.preventDefault();
             if (e.key === "Enter") {
                 this.closeLightboxModal(e);
-            };
+            }
         });
 
         // Fermeture de la modale via la touche Echap
@@ -34,9 +36,9 @@ class CloseBtnLightbox extends CloseBtn {
             e.preventDefault();
             if (e.key === "Escape") {
                 this.closeLightboxModal(e);
-            };
+            }
         });
-    };
+    }
 
     prepareBeforeClosingLightbox (){
 
@@ -58,7 +60,7 @@ class CloseBtnLightbox extends CloseBtn {
         const mediaLike = document.querySelectorAll('.carousel .mediaCard__like');
         for (let like of mediaLike){
             ['like-caption-visible', 'hidden'].map(element => like.classList.toggle(element));
-        };
+        }
 
         const frameAll = document.querySelectorAll('.carousel .mediaWrapper .thumb-imgfull .thumb-img');
         frameAll.forEach((frame) => {
@@ -87,14 +89,14 @@ class CloseBtnLightbox extends CloseBtn {
                 mediaCard.classList.remove('hidden');
             } else {
                 mediaCard.firstChild.focus();
-            };
+            }
         });
-    };
+    }
 
     initLightboxModal() {
         this.prepareBeforeClosingLightbox();
         this.closeModal(); //méthode de la class CloseBtn
-    };
+    }
 
     closeLightboxModal(event){
         const modal = document.getElementById('lightbox-modal');
@@ -103,10 +105,10 @@ class CloseBtnLightbox extends CloseBtn {
             if (modalState == "false") {
                 event.preventDefault();
                 this.initLightboxModal();
-            };
-        };
+            }
+        }
         
         //On réinitialise la personnalisation du focus
         manageFocusOutline();
-    };
-};
+    }
+}

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 class ContactFormModal extends CloseBtnContactForm{
 
     /**
@@ -36,7 +38,7 @@ class ContactFormModal extends CloseBtnContactForm{
                 maxlength: '1000'
             }
         ];
-    };
+    }
 
     create () {
 
@@ -67,13 +69,13 @@ class ContactFormModal extends CloseBtnContactForm{
         for (let item of this._fields) {
             let formField = new FormField(item);
             fieldsContainer.appendChild(formField.createFormField());
-        };
+        }
 
         header.appendChild(contactTitle);
         [this._contactForm, header].map(element => modalContent.prepend(element));
 
         this.createContactBtn();
-    };
+    }
 
     createContactBtn () {
 
@@ -96,9 +98,9 @@ class ContactFormModal extends CloseBtnContactForm{
             if (e.key === 'Enter') {
                 e.preventDefault();
                 this.sendMessage();
-            };
+            }
         });
-    };
+    }
 
     sendMessage () {
         const allInputs = Array.from(document.getElementsByClassName('formField__input'));
@@ -106,7 +108,7 @@ class ContactFormModal extends CloseBtnContactForm{
         allInputs.forEach((input) => {
             if (checkFieldValidity(input, (input.getAttribute('type'))) == true) {
                 validityForm++;
-            };
+            }
         return validityForm;
         });
         if (validityForm === allInputs.length) {
@@ -120,9 +122,9 @@ class ContactFormModal extends CloseBtnContactForm{
            console.log("Le formulaire n'est pas valide");
            const firstInvalidInput = document.querySelector('.formField[data-error-visible="true"] .formField__input');
            firstInvalidInput.focus();
-        };
-    };
-};
+        }
+    }
+}
 
 
 class FormField {
@@ -165,13 +167,13 @@ class FormField {
             input = document.createElement('input');
             input.classList.add('text');
             input.setAttribute('placeholder', this._item.text);
-        };
+        }
         input.setAttribute('required', true);
         input.setAttribute('aria-labelledby', this._item.idLabel);
         input.classList.add('formField__input'); 
         for (let [key, value] of Object.entries(this._item)) {
             input.setAttribute(key, value);
-        };
+        }
 
         //Crée le message d'erreur
         let dataError = document.createElement('span');
@@ -199,7 +201,7 @@ class FormField {
                 dataErrorText = "Veuillez rédiger votre message. Maximum " + this._item.maxlength + " caractères";
             break;
 
-        };
+        }
 
         // ajout de span pour accessibilité de dataError
         let dataErrorSpanNext = document.createElement('span');
@@ -237,16 +239,16 @@ class FormField {
                             allLabels[indexLabel].focus();
                         } else {
                             input.nextSibling.focus();
-                        }; 
-                    };
-                };
-            };
+                        }
+                    }
+                }
+            }
         });
         
         this.setEventListenerArrow();
 
         return this._formField;
-    };
+    }
 
     setEventListenerArrow () {
         
@@ -265,9 +267,9 @@ class FormField {
                                     previousElement.focus();
                                 } else if (previousElement.classList.contains('hidden')) {
                                     previousElement.previousSibling.focus();
-                                };
-                            } else {};
-                        };
+                                }
+                            } /*else {};*/
+                        }
                     } else if (child.tagName.toLowerCase() == "input") {
                         if (e.key == "ArrowDown") {
                             checkFieldValidity(child, child.type);
@@ -275,7 +277,7 @@ class FormField {
                                 child.nextSibling.focus();
                             } else if (child.nextSibling.classList.contains('hidden')) {
                                 child.parentElement.nextElementSibling.firstChild.focus();
-                            } else {};
+                            } /*else {};*/
                         } else {
                             checkFieldValidity(child, child.type);
                             child.previousSibling.focus();
@@ -285,13 +287,13 @@ class FormField {
                             child.parentElement.nextSibling.firstChild.focus();
                         } else {
                             child.previousSibling.focus();
-                        };
-                    } else {};
-                };
+                        }
+                    } /*else {};*/
+                }
             });
         });
-    };
-};
+    }
+}
 
 /********************* Fonctions pour la Validation des champs ou du formulaire **************************/
 
@@ -325,7 +327,7 @@ function checkFieldValidity(element, type) {
             test = isMessageValid(element);
         break;
 
-    };
+    }
     if (test) {
         element.parentElement.setAttribute('data-error-visible', false);
         element.nextSibling.classList.add('hidden');
@@ -336,5 +338,5 @@ function checkFieldValidity(element, type) {
         element.nextSibling.classList.remove('hidden');
         element.setAttribute('aria-invalid', true);
         return false;
-    };
-};
+    }
+}

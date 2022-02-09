@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 /** La classe Modal génère des modales selon leur type.
     Elle gére les éléments communs aux différents types de modale.
     Elle gère la création de ses différents composants:
@@ -73,18 +75,18 @@ class Modal {
                 });
                 
             break;
-        };
-    };
+        }
+    }
 
     setOpenTrigger(type) {
         new OpenTriggerFactory(type);
-    };
+    }
 
     createCloseBtn(type){
         new CloseBtnFactory(type);
-    };
+    }
 
     createModalContent(type){
         new ModalContentFactory(type);
-    };   
-};
+    } 
+}

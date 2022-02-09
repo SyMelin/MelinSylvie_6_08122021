@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 class PhotographerInfo {
 
     /**
@@ -6,7 +8,7 @@ class PhotographerInfo {
 
     constructor(profile) {
         this._profile = profile;
-    };
+    }
 
     createPhotographerInfo () {
         const info = document.getElementById('info');
@@ -17,7 +19,7 @@ class PhotographerInfo {
         infoSpan.classList.add('screenreader-text');
 
         const totalLikes = document.getElementById('totalLikes');
-        totalLikes.textContent = likeTotal;
+        totalLikes.textContent = likeTotal; //likeTotal est une variable globale déclarée sur pages/photographers.js
         totalLikes.setAttribute('aria-label', 'nombre de likes');
 
         const price = document.getElementById('price');
@@ -31,5 +33,5 @@ class PhotographerInfo {
 
         info.prepend(infoSpan);
         info.appendChild(priceSpan);
-    };
-};
+    }
+}

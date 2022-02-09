@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 class MediaItemFrame extends OpenTriggerLightbox {
 
     /**
@@ -7,7 +9,7 @@ class MediaItemFrame extends OpenTriggerLightbox {
     constructor(type, mediaItem) {
         super(type);
         this._mediaItem = mediaItem;
-    };
+    }
     
     createMediaItemFrame () {
 
@@ -27,10 +29,10 @@ class MediaItemFrame extends OpenTriggerLightbox {
             //Crée l'élement image
             this._frame.classList.add('thumb-img--image');
             this._frame.style.backgroundImage = "url("+`assets/photographers/${this._mediaItem.photographerId}/${this._mediaItem.image}`+")";
-        };
+        }
 
         this.setEventListener(this._frame);
 
         return this._frame;
-    };
-};
+    }
+}

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 class MediaItemCard {
 
     /**
@@ -6,7 +8,7 @@ class MediaItemCard {
 
     constructor(mediaItem) {
         this._mediaItem = mediaItem;
-    };
+    }
 
     createMediaItemCard () {
 
@@ -82,8 +84,8 @@ class MediaItemCard {
                 likeNbSpan.textContent = template._mediaItem.likes + " likes";
                 likeHeart.classList.remove('liked');
                 likeHeartSpan.textContent = "Cliquer sur ce bouton pour aimer ce média .";
-            };
-        };
+            }
+        }
 
         likeHeartContainer.addEventListener('click', function(e) {
             calculateMediaNumberOfLikes();
@@ -96,9 +98,9 @@ class MediaItemCard {
                 calculateMediaNumberOfLikes();
                 sumLikes(photographerMedia);
                 likeNbBox.focus();
-            };
+            }
         }); 
 
         return mediaItemCard;
-    };
-};
+    }
+}

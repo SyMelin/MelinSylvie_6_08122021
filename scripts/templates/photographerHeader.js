@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 //La class PhotographerHeader remplit l'éléménent photographer-header de la page d'un photographe
 class PhotographerHeader {
 
@@ -7,7 +8,7 @@ class PhotographerHeader {
 
     constructor(profile) {
         this._profile = profile;
-    };
+    }
 
     createPhotographerHeader () {
 
@@ -48,5 +49,5 @@ class PhotographerHeader {
         img.classList.add('user', 'tabindex0', 'inMain');
 
         user.appendChild(img);
-    };
-};
+    }
+}

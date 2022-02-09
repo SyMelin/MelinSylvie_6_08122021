@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 class Carousel {
 
     /**
@@ -23,14 +24,14 @@ class Carousel {
 
         this.gotoItem(this._index);
         this.createNavigation();
-    };
+    }
 
     createNavBtn () {
         let button = document.createElement('div');
         button.setAttribute('role', 'link');
         button.classList.add('navBtn');
         return button;
-    };
+    }
 
     createNavigation () {
 
@@ -42,7 +43,7 @@ class Carousel {
         if (this._index == this._indexMin) {
             this._prevBtn.classList.add('navBtn--hidden');
             this._prevBtn.setAttribute('aria-hidden', true);
-        };
+        }
 
         //Crée le bouton Suivant
         this._nextBtn = this.createNavBtn();
@@ -52,7 +53,7 @@ class Carousel {
         if (this._index == this._indexMax) {
             this._nextBtn.classList.add('navBtn--hidden');
             this._nextBtn.setAttribute('aria-hidden', true);
-        };  
+        } 
 
         const carousel = document.querySelector('.carousel');
 
@@ -70,14 +71,14 @@ class Carousel {
             e.preventDefault();
             if (e.key === "Enter") {
                 this.prev();
-            };
+            }
         });
 
         this._nextBtn.addEventListener('keyup', (e) => {
             e.preventDefault();
             if (e.key === "Enter") {
                 this.next();
-            };
+            }
         });
 
         //Fontions appelées avec les flèches gauche et droite
@@ -94,10 +95,10 @@ class Carousel {
                         e.preventDefault();
                         this.next();
                     break;
-                };
-            };
+                }
+            }
         });
-    };
+    }
 
     prev(){
         if (this._index > this._indexMin && this._index <= this._indexMax) {
@@ -111,9 +112,9 @@ class Carousel {
             } else if (this._nextBtn.classList.contains('navBtn--hidden')){
                 this._nextBtn.classList.remove('navBtn--hidden');
                 this._nextBtn.setAttribute('aria-hidden', false);
-            };
-        };
-    };
+            }
+        }
+    }
 
     next(){
         if (this._index >= this._indexMin && this._index < this._indexMax) {
@@ -127,9 +128,9 @@ class Carousel {
             } else if (this._prevBtn.classList.contains('navBtn--hidden')){
                 this._prevBtn.classList.remove('navBtn--hidden');
                 this._prevBtn.setAttribute('aria-hidden', false);
-            };
-        };
-    };
+            }
+        }
+    }
 
     gotoItem(index) {
         this._mediaCards.forEach((card) => {
@@ -137,7 +138,7 @@ class Carousel {
                 card.classList.add('hidden');
             } else {
                 card.classList.remove('hidden');  
-            };
+            }
         });
-    };
-};
+    }
+}

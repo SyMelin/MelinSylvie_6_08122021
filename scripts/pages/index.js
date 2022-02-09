@@ -2,6 +2,7 @@
  * code JavaScript lié à la page index.html
 */
 
+// eslint-disable-next-line no-unused-vars
 let allTabindex0;
 
 
@@ -9,10 +10,11 @@ let allTabindex0;
 async function displayData(photographers) {
     const photographersSection = document.querySelector('.photographer_section');
     photographers.forEach((photographer) => {
+        // eslint-disable-next-line no-undef
         const userCardDOM = new PhotographerThumb(photographer).getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
-};
+}
 
 //Initialise la page index.html
 async function init() {
@@ -22,13 +24,15 @@ async function init() {
     headerLink.focus();
 
     //On affiche les UserCards des photographes
+    // eslint-disable-next-line no-undef
     const api = new Api("data/photographers.json"); 
     const photographers = await api.getPhotographersWithoutAlt(); //On récupère tous les photographes
     displayData(photographers);
 
     //On personnalise le rendu du focus des éléménts
+    // eslint-disable-next-line no-undef
     manageFocusOutline();
 
-};
+}
 
 init();
