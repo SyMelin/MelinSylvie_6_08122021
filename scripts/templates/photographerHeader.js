@@ -43,7 +43,7 @@ class PhotographerHeader {
         const user = document.querySelector('.photograph-header .user-container');
         
         const img = document.createElement('img');
-        img.setAttribute('src', `assets/photographers/photographers_ID_photos/${this._profile.portrait}`);
+        img.setAttribute('src', `../assets/photographers/photographers_ID_photos/${this._profile.portrait}`);
         img.setAttribute('tabindex', 0);
         img.setAttribute('alt', this._profile.alt);
         img.classList.add('user', 'tabindex0', 'inMain');

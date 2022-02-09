@@ -60,7 +60,7 @@ async function initPhotographer() {
 
     //Récupération des données du photographe
     // eslint-disable-next-line no-undef
-    const api = new Api("data/photographers.json");
+    const api = new Api("../data/photographers.json");
     photographerData = await api.getPhotographerData();
     photographerProfile = photographerData.profile;
     photographerMedia = photographerData.media;
