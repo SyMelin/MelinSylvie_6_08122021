@@ -4,8 +4,10 @@
 /** La classe ModalContentFactory génère le contenu des modales selon leur type.
 */
 
+import ContactFormModal from "../contactForm/contactFormModal.js";
+import LightboxModal from "../lightbox/lightboxModal.js";
 
-class ModalContentFactory {
+export default class ModalContentFactory {
 
     /**
      * @param {string} type type de modale à créer

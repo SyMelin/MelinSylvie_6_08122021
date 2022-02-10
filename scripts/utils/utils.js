@@ -1,9 +1,9 @@
 //Personnalise le rendu du focus
 // eslint-disable-next-line no-unused-vars
-function manageFocusOutline () {
+export function manageFocusOutline () {
 
     // eslint-disable-next-line no-undef
-    allTabindex0= Array.from(document.querySelectorAll('.tabindex0'));
+    let allTabindex0= Array.from(document.querySelectorAll('.tabindex0'));
 
     // eslint-disable-next-line no-unused-vars
     window.addEventListener('click', (e) => {

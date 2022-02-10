@@ -1,6 +1,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-class MediaItemCard {
+
+import MediaItemFrame from "./mediaItemFrame.js";
+import { sumLikes } from "../pages/photographer.js";
+
+export default class MediaItemCard {
 
     /**
      * @param {Object} mediaItem un élément de media

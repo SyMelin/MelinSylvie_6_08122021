@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-class Carousel {
+export default class Carousel {
 
     /**
      * @param {HTMLElement} element

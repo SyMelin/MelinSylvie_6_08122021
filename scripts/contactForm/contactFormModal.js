@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-class ContactFormModal extends CloseBtnContactForm{
+
+import CloseBtnContactForm from "../contactForm/closeBtnContactForm.js"
+
+export default class ContactFormModal extends CloseBtnContactForm{
 
     /**
      * @param {string} method methode de traitement des données

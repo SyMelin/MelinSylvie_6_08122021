@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-class LightboxModal {
+export default class LightboxModal {
 
     create() {
         const modalContent = document.querySelector('.modal__content');

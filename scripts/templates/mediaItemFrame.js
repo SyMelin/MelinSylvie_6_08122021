@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-class MediaItemFrame extends OpenTriggerLightbox {
+
+import OpenTriggerLightbox from "../lightbox/openTriggerLightbox.js";
+
+export default class MediaItemFrame extends OpenTriggerLightbox {
 
     /**
      * @param {Object} mediaItem un élément de media

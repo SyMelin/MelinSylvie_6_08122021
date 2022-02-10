@@ -10,6 +10,11 @@
     //}
 //}
 
+
+import FilterFactory from "../factories/filterFactory.js";
+import { displayMedia } from "../pages/photographer.js";
+import { manageFocusOutline } from "../utils/utils.js";
+
 //On définie l'option annoncée par le screenreader
 const listboxLabel = document.getElementById('listbox-label');
 const listboxLabelSpan = document.createElement('span');

@@ -1,6 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-class CloseBtnContactForm extends CloseBtn {
+
+import { manageFocusOutline } from "../utils/utils.js";
+
+
+export default class CloseBtnContactForm extends CloseBtn {
 
     /**
      * @param {string} type type de modale à créer

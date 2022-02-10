@@ -1,6 +1,11 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-class OpenTriggerLightbox extends OpenTrigger {
+
+import Modal from "../factories/modal.js";
+import Carousel from "../templates/Carousel.js";
+
+
+export default class OpenTriggerLightbox extends OpenTrigger {
 
     /**
      * @param {string} type type de modale à créer

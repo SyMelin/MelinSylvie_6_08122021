@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-class CloseBtnLightbox extends CloseBtn {
+
+import { manageFocusOutline } from "../utils/utils.js";
+
+export default class CloseBtnLightbox extends CloseBtn {
 
     /**
      * @param {string} type type de modale à créer

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-class FilterFactory {
+export default class FilterFactory {
 
     /**
      * @param {Object} media photographerMedia

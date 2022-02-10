@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-class OpenTriggerContactButton extends OpenTrigger {
+
+import Modal from "../factories/modal.js";
+
+export default class OpenTriggerContactButton extends OpenTrigger {
 
     /**
      * @param {string} type type de modale à créer

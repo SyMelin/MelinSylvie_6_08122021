@@ -8,7 +8,12 @@
         * le ou les élements qui déclenchent sa fermeture
 */
 
-class Modal {
+import OpenTriggerFactory from "./OpenTriggerFactory.js";
+import CloseBtnFactory from "./CloseBtnFactory.js";
+import ModalContentFactory from "./ModalContentFactory.js";
+
+
+export default class Modal {
 
     /**
      * @param {string} id id de la modale à créer

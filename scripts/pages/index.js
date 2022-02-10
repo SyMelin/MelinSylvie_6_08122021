@@ -2,8 +2,11 @@
  * code JavaScript lié à la page index.html
 */
 
+import { manageFocusOutline } from "../utils/utils.js";
+
+
 // eslint-disable-next-line no-unused-vars
-let allTabindex0;
+//export let allTabindex0;
 
 
 //Affiche le profil de chaque photographe

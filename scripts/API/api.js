@@ -1,3 +1,12 @@
+//Récupère l'id du photographe contenu dans l'url de la page photographer.html créée par la classe PhotographerThum.getUserCardDom
+// eslint-disable-next-line no-unused-vars
+function getId() {
+    const param = window.location.search;
+    const idPhotographer = param.replace("?id=", ""); //retire ?id= des pramètres de l'URL, récupère uniquement l'identifiant
+    return idPhotographer;
+}
+
+
 // eslint-disable-next-line no-unused-vars
 class Api {
 

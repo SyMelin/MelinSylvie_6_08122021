@@ -1,27 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /**
  * code JavaScript lié à la page photographer.html
 */
 
-//Déclaration des variables globales
-
-let photographerData;
-let photographerProfile;
-let photographerMedia;
-let likeTotal = 0;
-// eslint-disable-next-line no-unused-vars
-let allTabindex0;
-
-//Récupère l'id du photographe contenu dans l'url de la page photographer.html créée par la classe PhotographerThum.getUserCardDom
-// eslint-disable-next-line no-unused-vars
-function getId() {
-    const param = window.location.search;
-    const idPhotographer = param.replace("?id=", ""); //retire ?id= des pramètres de l'URL, récupère uniquement l'identifiant
-    return idPhotographer;
-}
-
 // Calcul la somme totale des likes de medias cumulés
-function sumLikes(media) {
+export function sumLikes(media) {
     likeTotal = 0;
     for (let mediaItem of media) {
         likeTotal += mediaItem.likes;
@@ -31,8 +15,14 @@ function sumLikes(media) {
     return likeTotal;
 }
 
+import MediaItemCard from "../templates/mediaItemCard.js";
+import PhotographerInfo from "../templates/photographerInfo.js";
+import Filter from "../factories/filterFactory.js";
+import Modal from "../factories/modal.js";
+import { manageFocusOutline } from "../utils/utils.js";
+
 //Affiche les medias sur la page du photographe
-async function displayMedia(media){
+export async function displayMedia(media){
     
     //Crée le conteneur de media
     const mediaWrapper = document.createElement('div');
@@ -85,5 +75,6 @@ async function initPhotographer() {
     //On personnalise le rendu du focus des éléménts
     manageFocusOutline();
 }
+
 
 initPhotographer();
